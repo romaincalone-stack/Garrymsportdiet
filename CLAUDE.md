@@ -59,7 +59,14 @@ open prototype/index.html            # macOS ; sinon double-clic sur le fichier
 # Vérifier le prototype (parcours automatisé, erreurs JS, débordement mobile)
 npm install                          # une fois (installe Playwright)
 npm run check                        # attendu : "mobile scrollWidth 390" puis "NO ERRORS"
+
+# Publier l'aperçu en ligne (page privée claude.ai, lisible sur téléphone)
+node tools/build-artifact.mjs        # produit dist/prototype-garrym.html (ignoré par git)
+# puis republier ce fichier avec l'outil Artifact sur la même URL :
+# https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz
 ```
+
+Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (`tools/shots/`), Romain consulte depuis l'application mobile.
 
 ## Pièges connus
 

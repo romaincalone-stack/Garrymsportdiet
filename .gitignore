@@ -3,3 +3,4 @@ tools/shots/
 .env
 .env.*
 .DS_Store
+dist/
