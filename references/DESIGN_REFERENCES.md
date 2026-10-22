@@ -1,5 +1,18 @@
 # Références design
 
+## Modèles Awwwards (direction actuelle, 2026-10-22)
+
+Choisis par Romain. C'est la source principale de `BRAND_BRIEF.md` v2. Awwwards et les sites eux-mêmes étant bloqués par le réseau de l'environnement de travail, les informations viennent des fiches Awwwards telles que la recherche web les restitue. Les polices de ces sites restent inconnues.
+
+| Site | Faits relevés | Repris dans le projet |
+| --- | --- | --- |
+| [Calmlyss · Health & Wellness](https://www.awwwards.com/sites/calmlyss-health-wellness) | Ink Studio, nominé (sept. 2026). Modèle Webflow pour coachs bien-être et yoga. Palette douce, beaucoup de blanc. Catégories : animation, défilement infini, gestes | Fond brume vert sauge, respiration, balayage au doigt (backlog) |
+| [Farm Minerals](https://www.awwwards.com/sites/farm-minerals) ([étude de cas](https://www.awwwards.com/farm-minerals-case-study.html)) | ADELT, Site du jour (19 févr. 2026, 7,42/10). Webflow + GSAP. Coloré, 3D, WebGL, visualisation de données. Produit raconté au défilement, animation de croissance de plante. Objectif : éviter les clichés visuels du « vert agricole » | Croissance des formes au défilement, abricot comme touche vive, assiette racontée (backlog), règle « pas de vert bio générique » |
+| [VOLDOG FOOD](https://www.awwwards.com/sites/voldog-food) | CHP Design Studio, mention (5 juin 2026). GSAP, SVG, Vanilla JS. Palette #204E4A et #E1E53F. Bascule de mode, traînée de curseur, ingrédients racontés | `--pin` #204E4A, `--lime` #E1E53F, traînée de graines, bascule Nutrition / Sport (backlog) |
+| [The Podcast Coach](https://www.awwwards.com/sites/the-podcast-coach) | Styles Studio, mention (1er févr. 2026). WordPress, Figma, GSAP. Vert #245333. Agence de production haut de gamme | `--algue` #245333, ton haut de gamme et sobre |
+
+## Listes de ressources (première version)
+
 Les quatre dépôts demandés ont été clonés et lus le 2026-10-22. Ce sont des listes de liens. Ils ne sont **pas copiés** ici : trois sont de simples sommaires, et le quatrième redistribue des livres sous droits d'auteur (voir plus bas). Ce fichier liste ce qui a été retenu et où c'est appliqué.
 
 Ces listes datent pour l'essentiel de 2015 à 2019. Les techniques « 2026 » du prototype (polices variables animées, animations pilotées par le défilement, View Transitions, verre dépoli) ne viennent pas d'elles. Elles s'appuient sur l'état actuel des navigateurs.
@@ -29,7 +42,7 @@ Ces listes datent pour l'essentiel de 2015 à 2019. Les techniques « 2026 » du
 | --- | --- | --- |
 | Laws of UX : loi de Hick | Peu de choix = décision rapide | 3 formules seulement, 1 action principale par écran |
 | Laws of UX : loi de Fitts | Cibles grandes et proches | Boutons ≥ 44 px, barre d'onglets au pouce |
-| Laws of UX : effet Von Restorff | L'élément différent est mémorisé | Dossard 03 seul en cobalt |
+| Laws of UX : effet Von Restorff | L'élément différent est mémorisé | Dossard 03 seul en vert pin |
 | Laws of UX : loi de Jakob | Les gens attendent les conventions qu'ils connaissent | Onglets type iOS, cœur pour les favoris, panier pour la liste de courses |
 | Laws of UX : règle du pic et de la fin | On retient le moment fort et la fin | Éclats de papier quand on coche une séance ou ajoute un favori |
 | Laws of UX : seuil de Doherty | Réponse en moins de 400 ms | Filtres instantanés, transitions de 350 ms |

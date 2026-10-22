@@ -69,5 +69,7 @@ npm run check                        # attendu : "mobile scrollWidth 390" puis "
 - **View Transitions** : une capture d'écran prise moins de 400 ms après un changement de page montre l'animation en cours, pas la page. Attendre avant de capturer.
 - **Animations au défilement** (`animation-timeline: view()`) : l'état de départ reste lisible (opacité ≥ 0,5). Ne jamais partir d'une opacité nulle.
 - **Doctolib** : aucune API publique. Le domaine n'est pas joignable depuis certains environnements cloud ; demander une capture plutôt que deviner.
+- **Sites de référence (Awwwards…)** : souvent bloqués par le réseau de l'environnement cloud. Ne rien inventer de leur direction artistique ; passer par la recherche web, des captures, ou l'ajout du domaine aux domaines autorisés.
+- **Renommage** : après un renommage de classe ou de token, `grep -rn "ancien_nom" .`, tests compris.
 - **GitHub depuis une session cloud** : vérifier `gh auth status` avant toute création de dépôt.
 - **Copyright des références** : le dépôt `justinhartman/ui-ux-design-library` contient des livres sous droits. Ne pas les copier ici ; lien seulement.
