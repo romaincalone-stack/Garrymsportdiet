@@ -1,0 +1,13 @@
+{
+  "name": "garrymsportdiet",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Plateforme Garrym · Sport Diet (Manon Garrione) : prototype et documentation",
+  "type": "module",
+  "scripts": {
+    "check": "node tools/check-prototype.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

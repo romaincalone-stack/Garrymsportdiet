@@ -1,0 +1,15 @@
+# JOURNAL_ERREURS
+
+Un incident par entrée, le plus récent en haut. Chaque entrée se termine par une règle, reportée dans les « Pièges connus » de `CLAUDE.md` quand elle est durable.
+
+| # | Date | Symptôme | Cause | Correction | Règle pour ne plus le refaire |
+| --- | --- | --- | --- | --- | --- |
+| 7 | 2026-10-22 | Captures du prototype v2 montrant deux pages superposées et rétrécies | Capture prise 150 ms après un clic, pendant la View Transition (350 ms) | Attente de 900 ms avant capture dans le script de vérification | Attendre au moins 400 ms après un changement de page avant toute capture ou assertion visuelle |
+| 6 | 2026-10-22 | Création du dépôt GitHub impossible depuis la session Claude | Jeton `GH_TOKEN` invalide dans l'environnement cloud | Préparation du dépôt en local ; création manuelle du dépôt vide par Romain, puis rattachement à la session et push | Vérifier `gh auth status` en tout début de tâche GitHub et annoncer tout de suite l'étape manuelle si l'accès manque |
+| 5 | 2026-10-22 | Sur mobile, le bouton « Reprendre rendez-vous » de l'accueil patiente était tronqué | Grille à deux colonnes (texte + anneau de 132 px) trop étroite à 390 px, bouton en `nowrap` | Une seule colonne sous 600 px, anneau réduit à 112 px | Tester chaque carte à 390 px avec le libellé le plus long ; prévoir une bascule en une colonne |
+| 4 | 2026-10-22 | Une media query mobile n'avait aucun effet | Placée avant la règle de base qu'elle devait surcharger (même spécificité, la dernière gagne) | Media query déplacée en fin de feuille | Les surcharges responsives viennent toujours après la règle de base |
+| 3 | 2026-10-22 | Illustrations sans fond dans le téléphone de l'accueil, la fiche recette et le lecteur vidéo | Ajout d'un `style` par `replace("<div", …)` sur un élément qui avait déjà un `style` : le navigateur ignore le second attribut | Paramètre `extra` ajouté à `artBox()` | Ne jamais injecter d'attribut par remplacement de chaîne ; passer un paramètre au composant |
+| 2 | 2026-10-22 | Prototype v1 : cases à cocher et boutons « Enregistrer » inactifs dans les modales | La délégation de clic remontait jusqu'à l'overlay (`data-act="overlay"`) et appelait `preventDefault()` sur tout clic dans la modale | L'overlay est traité à part et ne bloque plus l'événement | Ne jamais appeler `preventDefault()` sur une action déléguée portée par un conteneur ; tester les formulaires dans les modales |
+| 1 | 2026-10-22 | Impossible de lire la page Doctolib de Manon depuis la session | Le domaine `www.doctolib.fr` ne se résout pas depuis l'environnement cloud (`ENOTFOUND`) | Romain a fourni une capture de la page | Pour une page tierce, demander tôt une copie ou une capture ; ne jamais compléter de mémoire |
+
+Autre anomalie corrigée avant livraison, sans incident visible : badge de formule qui débordait de la barre latérale (libellé F3 trop long en `nowrap`), corrigé par un retour à la ligne.

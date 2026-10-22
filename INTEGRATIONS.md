@@ -1,0 +1,29 @@
+# INTEGRATIONS : services externes
+
+Version 2026-10-22 · Les tarifs sont indicatifs (connaissances générales, non revérifiés ce jour) : **à contrôler sur le site de chaque service au moment de la souscription**, puis mettre à jour ce fichier avec la date.
+
+Règle : **noms de variables seulement, jamais de valeurs.** Les valeurs vivent dans Vercel (variables d'environnement) et dans un gestionnaire de mots de passe.
+
+Comptes : chaque service est ouvert **au nom de Manon** (adresse pro à créer, ex. `contact@<domaine>`), le développeur y est invité comme membre. Personne ne doit perdre l'accès si le développeur change.
+
+| Service | Rôle | Statut | Compte | Variables d'environnement | Limites / coûts indicatifs |
+| --- | --- | --- | --- | --- | --- |
+| **GitHub** | Code source, historique, revues | Actif : `romaincalone-stack/Garrymsportdiet` | Compte du développeur ; ajouter Manon en lecture | — | Gratuit |
+| **Doctolib** | Prise de rendez-vous (lien sortant uniquement) | Actif | Compte praticien de Manon | — (URL stockée dans `settings.doctolib_url`) | Abonnement Doctolib existant. Aucune API publique : pas de synchronisation possible |
+| **WhatsApp** | Contact patiente → Manon (lien `wa.me` avec message prérempli) | Prévu | Numéro pro de Manon | — (numéro dans `settings.whatsapp_number`) | Gratuit. WhatsApp Business conseillé (messages d'absence, horaires) |
+| **Instagram** | Affichage des derniers posts sur le site | À décider | Compte `@garrymsportdiet` (doit être professionnel) | `INSTAGRAM_ACCESS_TOKEN` | API Instagram : jeton à renouveler. Alternative sans API : 6 visuels choisis à la main dans le back-office |
+| **Supabase** | Base Postgres, authentification (invitations), stockage des fichiers | Prévu (phase 3) | Organisation au nom de Manon, région UE | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY` | Offre gratuite : projet mis en pause après une semaine sans activité, quotas de base et de stockage limités. Offre Pro environ 25 $/mois, recommandée en production |
+| **Vercel** | Hébergement du site et des fonctions serveur | Prévu (phase 3) | Équipe au nom de Manon | `NEXT_PUBLIC_SITE_URL` | **L'offre Hobby est réservée à un usage non commercial** : prévoir Pro, environ 20 $/mois par membre |
+| **Resend** (ou **Brevo**) | Emails transactionnels : invitation, rappels de séance, expiration | Prévu (phase 3) | Au nom de Manon, domaine vérifié | `RESEND_API_KEY`, `EMAIL_FROM` | Resend : quota gratuit de quelques milliers d'emails par mois. Brevo : société française, quota gratuit quotidien |
+| **Bunny Stream** (ou **Vimeo**) | Hébergement et lecture protégée des vidéos de sport | À choisir | Au nom de Manon | `BUNNY_STREAM_LIBRARY_ID`, `BUNNY_STREAM_API_KEY` (ou `VIMEO_ACCESS_TOKEN`) | Bunny : paiement à l'usage, quelques euros par mois pour ce volume. Vimeo : abonnement mensuel. YouTube exclu (contenus payants trop faciles à partager) |
+| **Nom de domaine** (OVHcloud, Gandi…) | Adresse du site et des emails | À acheter | Au nom de Manon | — | Environ 10 à 20 €/an pour un `.fr` |
+| **Mesure d'audience** (Plausible ou Umami) | Statistiques de visite sans cookie | À décider | Au nom de Manon | `NEXT_PUBLIC_ANALYTICS_DOMAIN` | Sans cookie : pas de bandeau de consentement pour ce seul usage. Umami : offre gratuite limitée ; Plausible : abonnement |
+| **Google Fonts** | Polices Archivo, Bodoni Moda, Schibsted Grotesk, Martian Mono | Prototype seulement | — | — | En production, **auto-héberger les polices** (`next/font`) pour éviter le transfert d'IP vers Google |
+| **Stripe** | Paiement des abonnements | Hors v1 (idée) | Au nom de Manon | `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET` | Commission par transaction (de l'ordre de 1,5 % + 0,25 € par carte européenne) |
+| **Google / Microsoft** | — | Non utilisé | — | — | — |
+| **IA** | — | Non utilisé dans le produit (Claude sert uniquement au développement) | — | — | — |
+| **Téléphonie / SMS** | — | Non utilisé (rappels par email) | — | — | — |
+
+## Coût mensuel estimé en production (v1, à revérifier)
+
+Vercel Pro (~20 $) + Supabase Pro (~25 $) + emails (gratuit à ce volume) + vidéos (~5 €) + domaine (~1,5 €/mois) ≈ **50 €/mois**. Une version de lancement sur offres gratuites est possible pour tester, en sachant que l'usage commercial sur Vercel Hobby est contraire aux conditions de Vercel.
