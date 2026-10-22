@@ -39,7 +39,7 @@ Organisation du script dans `index.html` :
 | `DONNÉES FICTIVES` | `PLANS`, `FEATURES`, `ACCESS` (matrice formule × fonctionnalité), `RECIPES`, `VIDEOS`, `NUTRI_TEMPLATES`, `SPORT_TEMPLATES`, `ARTICLES`, `DOCUMENTS`, `PATIENTS`, `SESSIONS` |
 | `ÉTAT` | objet `S` : vue, page courante, filtres, favoris, liste de courses |
 | `FORMES DÉCOUPÉES` | `SH.*` : illustrations au trait (olivier, algue, citron, galet, étoile, feuille, baies, vague) ; `art()` et `artBox()` composent les visuels des recettes en attendant les photos |
-| `SITE PUBLIC` / `ESPACE PATIENTE` / `BACK-OFFICE` | une fonction par écran, qui renvoie du HTML |
+| `SITE PUBLIC` / `ESPACE PATIENTE` / `BACK-OFFICE` | une fonction par écran, qui renvoie du HTML. Site : `siteNav()`, `siteHome()` et ses blocs (`themesSlider()`, `weekSection()`, `pricing()`), `footer()`. `ph(label, ton, illustration)` dessine un emplacement photo à remplacer par une vraie image |
 | `ACTIONS` | `A` (clics `data-act`), `CHANGE` (`data-change`), `INPUT` (`data-input`), `FORMS` (`data-form`) |
 
 L'accès à une fonctionnalité passe toujours par `can(featureKey)`, qui lit `ACCESS`. Ne jamais tester une formule en dur (`plan === "f3"`).
@@ -65,7 +65,9 @@ npm run check                        # attendu : "mobile scrollWidth 390" puis "
 
 - **Délégation de clic** : l'overlay des modales porte `data-act="overlay"`. Il est traité à part et ne doit jamais appeler `preventDefault`, sinon cases à cocher et boutons d'envoi ne marchent plus dans les modales (voir journal, incident 2).
 - **Injection d'attributs par `replace`** : ne jamais faire `html.replace("<div", '<div style="…"')` sur un élément qui a déjà un `style` (le second attribut est ignoré). Passer un paramètre (`artBox(seed, meal, extra)`).
-- **Cascade CSS** : les media queries qui surchargent une règle doivent venir **après** elle dans la feuille.
+- **Cascade CSS** : les media queries qui surchargent une règle vont dans le bloc « Surcharges responsives » en fin de feuille, jamais avant la règle de base (incidents 4 et 13).
+- **État initial `S`** : ne référencer que des constantes déjà déclarées (incident 14).
+- **Références visuelles** : reprendre la structure de page, pas seulement la palette (incident 12).
 - **View Transitions** : une capture d'écran prise moins de 400 ms après un changement de page montre l'animation en cours, pas la page. Attendre avant de capturer.
 - **Animations au défilement** (`animation-timeline: view()`) : l'état de départ reste lisible (opacité ≥ 0,5). Ne jamais partir d'une opacité nulle.
 - **Doctolib** : aucune API publique. Le domaine n'est pas joignable depuis certains environnements cloud ; demander une capture plutôt que deviner.

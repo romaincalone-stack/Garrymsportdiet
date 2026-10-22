@@ -11,6 +11,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-22 | Prototype v2 : nouveau design | Direction « papiers découpés de la Riviera » (palette remplacée depuis par la v2 du brief), titres cinétiques, dossards, billets, barre d'onglets mobile en verre dépoli, transitions entre pages, mode sombre (`prototype/index.html`) |
 | 2026-10-22 | Documentation du projet | `CLAUDE.md`, `APP_SPEC.md`, `BRAND_BRIEF.md`, `DATA_DICTIONARY.md`, `INTEGRATIONS.md`, `JOURNAL_ERREURS.md`, références design |
 | 2026-10-22 | Brief de marque v2 « Pinède et citron vert » (remplacé par la v3) | Inspiré de 4 sites Awwwards (Calmlyss, Farm Minerals, Voldog, The Podcast Coach) ; palette vert pin #204E4A, forêt #245333, citron vert #E1E53F appliquée au prototype |
+| 2026-10-22 | Accueil reconstruit sur les mises en page des références | Carte photo avec menu posé dessus et bascule Nutrition / Sport, phrase révélée au défilement, photos en éventail et chiffres, carrousel, « Une semaine » avec onglets des jours, tarifs mensuel / à l'unité, portrait ovale, cabinets en lignes, journal, mosaïque, pied de page chocolat |
 | 2026-10-22 | Brief de marque v3 « Olivier et argile » | Calmlyss, Farm Minerals et Voldog capturés et mesurés ; Geist + Instrument Serif ; crème, olive, sauge, moka, argile ; prototype refait (carte d'accueil, rangée de ronds, chiffres clés, pilules à flèche, illustrations au trait, cartes tarif) |
 | 2026-10-22 | Croissance au défilement et traînée de graines | Formes de « La méthode » qui poussent ; traînée derrière le curseur sur le site public (souris uniquement) |
 | 2026-10-22 | Script de vérification | `npm run check` : parcours automatisé, erreurs JS, débordement mobile |
@@ -43,7 +44,6 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | P1 | Référencement local (Google Business Profile, balises, mots-clés du brief) | Site public |
 | P1 | Nom de domaine et adresse email pro | Manon |
 | P0 | Shooting photo (Manon, cabinets, plats vus du dessus, mains, pinède) | Manon |
-| P1 | Cadres ovales pour les portraits et mosaïque photo (réf. Calmlyss) | Photos |
 | P1 | Mot géant translucide qui passe sous une photo (réf. Farm Minerals) | Photos |
 | P1 | Bascule « Nutrition / Sport » sur l'accueil (réf. Voldog) | Validation du brief v3 |
 | P1 | Assiette qui se compose au défilement, ingrédients expliqués (réf. Farm Minerals, Voldog) | Photos ou illustrations des ingrédients |

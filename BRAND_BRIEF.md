@@ -1,6 +1,6 @@
 # BRAND_BRIEF : identité
 
-Version 3 · 2026-10-22 · Direction « Olivier et argile » · À valider par Manon.
+Version 3.1 · 2026-10-22 · Direction « Olivier et argile », mises en page reprises des références · À valider par Manon.
 Remplace la v2 « Pinède et citron vert », rejetée par Romain : palette déduite de codes hexadécimaux sans avoir vu les sites (voir `JOURNAL_ERREURS.md`, incident 10).
 
 ## Références observées
@@ -68,22 +68,39 @@ Répartition : 70 % crème et blanc, 20 % olive et sauge, 10 % moka et argile. C
 
 Geist et Instrument Serif sont celles de Calmlyss. Aeonik (Farm Minerals) et Peridot PE (Voldog) sont payantes. En production : polices auto-hébergées (RGPD).
 
+## Mises en page
+
+La structure des pages reprend celle des références, section par section. C'est elle, plus que la couleur, qui évite l'effet « site généré ».
+
+| Section de l'accueil | Composition | Référence |
+| --- | --- | --- |
+| Accueil | Carte photo plein cadre aux coins très arrondis ; menu posé sur la photo (logo à gauche, onglets en pilule au centre, bouton blanc à droite) ; titre en bas à gauche, seconde ligne en italique ; bascule « Nutrition / Sport » en bas à droite qui change titre, texte et photo | Calmlyss (menu, titre), Voldog (carte arrondie, bascule chien / chat) |
+| Thématiques | Rangée de ronds à cheval sur le bas de la carte d'accueil | Calmlyss (portraits ronds) |
+| Approche | Une grande phrase qui s'éclaire mot à mot au défilement, illustration au trait à droite, signature | Farm Minerals (phrase révélée, plante au trait) |
+| Chiffres | Trois photos en éventail au-dessus de quatre chiffres vrais séparés par des filets, bouton centré | Calmlyss |
+| Accompagnements | Étiquette, titre sur deux lignes, carrousel de cartes photo, bouton à gauche et flèches à droite sous un filet | Calmlyss (cours) |
+| Votre espace | Section photo sombre, titre centré, onglets des jours en pilule, cartes translucides du jour (repas, séance) tirées du vrai semainier | Calmlyss (planning) |
+| Formules | Titre centré, bascule « Mensuel / À l'unité », illustrations au trait sur les côtés, cartes dont la mise en avant est en olive | Calmlyss (tarifs) |
+| Qui suis-je | Portrait dans un ovale haut, grande citation, signature, étiquettes de diplômes | Calmlyss (équipe, témoignage) |
+| Cabinets | Moitié texte avec lignes séparées par des filets (jour en grand, adresse en petites capitales), moitié photo bord à bord | Farm Minerals (chiffres en lignes, photo des mains) |
+| Journal | Titre centré, cartes horizontales image à gauche, texte à droite | Calmlyss (blog) |
+| Instagram | Mosaïque de photos de tailles différentes | Calmlyss (galerie) |
+| Appel final | Carte photo arrondie avec voile sombre, titre centré, bouton blanc | Calmlyss (newsletter) |
+| Pied de page | Fond chocolat, colonnes, grand logo en filigrane | Calmlyss, Farm Minerals |
+
+Les pages secondaires gardent le même menu, sur fond crème, et réutilisent ces blocs (tarifs, carrousel des thématiques).
+
 ## Composants visuels
 
 | Composant | Référence | Statut |
 | --- | --- | --- |
-| **Carte d'accueil** plein cadre aux coins très arrondis (36 px), photo plein cadre avec dégradé olive, titre blanc | Voldog, Calmlyss | Prototype (dégradé à la place de la photo) |
-| **Rangée de ronds** à cheval sur la carte d'accueil, une thématique par rond | Calmlyss (portraits ronds) | Prototype |
-| **Chiffres clés** séparés par des filets, avec un mot en italique, uniquement des chiffres vrais | Calmlyss, Farm Minerals | Prototype |
-| **Boutons pilule** avec flèche dans un rond qui pivote au survol | Calmlyss | Prototype |
-| **Étiquettes** « • FORMULES » en Geist Mono | Calmlyss | Prototype |
-| **Illustrations au trait** argile, olive ou sauge : branche d'olivier, tranche d'agrume, algue, galet | Calmlyss, Farm Minerals | Prototype |
-| **Cartes tarif** : blanches, la formule mise en avant en olive foncé, numéro en grand italique argile | Calmlyss | Prototype |
-| **Bande défilante** sauge avec mots en italique | Voldog (bande) | Prototype |
-| **Assiette racontée** : bol vu du dessus, ingrédients détourés autour avec leur rôle | Voldog, Farm Minerals | Backlog (photos nécessaires) |
-| **Mot géant translucide** qui passe sous une photo | Farm Minerals | Backlog |
-| **Cadres ovales hauts** pour les portraits (Manon, témoignages réels) | Calmlyss | Backlog (photos nécessaires) |
-| **Mosaïque photo** cabinet, cuisine, sport | Calmlyss | Backlog (photos nécessaires) |
+| Boutons pilule avec flèche dans un rond qui pivote au survol | Calmlyss | Prototype |
+| Étiquettes « • FORMULES » en pilule, Geist Mono | Calmlyss | Prototype |
+| Illustrations au trait (olivier, agrume, algue, galet) | Calmlyss, Farm Minerals | Prototype |
+| Emplacements photo (dégradés chauds + illustration + mention « Photo à fournir ») | — | Prototype, à remplacer par les vraies photos |
+| Assiette racontée : bol vu du dessus, ingrédients détourés et leur rôle | Voldog, Farm Minerals | Backlog (photos) |
+| Mot géant translucide qui passe sous une photo | Farm Minerals | Backlog (photos) |
+| Défilement doux (Lenis) et animations GSAP | Calmlyss | Phase de développement |
 
 ## Mouvement
 

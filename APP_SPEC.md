@@ -42,7 +42,7 @@ Donner à chaque patiente de Manon un accompagnement qui continue entre les cons
 ### Site public
 | Écran | Contenu clé |
 | --- | --- |
-| Accueil | Carte d'accueil plein cadre (« Manger, bouger, *à votre rythme.* ») avec aperçu de l'app dans un téléphone, rangée de ronds des thématiques, chiffres clés réels, bande défilante, méthode en 3 cartes empilées, formules, thématiques, cabinets, Instagram, appel final |
+| Accueil | Carte photo plein cadre avec menu posé dessus et bascule Nutrition / Sport, ronds des thématiques, phrase d'approche révélée au défilement, chiffres clés réels, carrousel des accompagnements, aperçu « Une semaine » avec onglets des jours, formules (mensuel / à l'unité), portrait de Manon, cabinets, journal, mosaïque Instagram, appel final (détail : `BRAND_BRIEF.md`, Mises en page) |
 | Manon | Présentation, diplômes (diététique, coach sportive + n° de carte pro), approche |
 | Formules | Bilan 70 €, suivi 50 €, dossards F1/F2/F3, tableau comparatif généré depuis la matrice d'accès, séance individuelle |
 | Thématiques | Endométriose, SOPK, ménopause, sportives, rééquilibrage |
