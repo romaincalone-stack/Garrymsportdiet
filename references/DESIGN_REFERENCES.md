@@ -1,15 +1,15 @@
 # Références design
 
-## Modèles Awwwards (direction actuelle, 2026-10-22)
+## Modèles Awwwards (direction actuelle)
 
-Choisis par Romain. C'est la source principale de `BRAND_BRIEF.md` v2. Awwwards et les sites eux-mêmes étant bloqués par le réseau de l'environnement de travail, les informations viennent des fiches Awwwards telles que la recherche web les restitue. Les polices de ces sites restent inconnues.
+Choisis par Romain, source principale de `BRAND_BRIEF.md` v3. Calmlyss, Farm Minerals et Voldog ont été **ouverts dans un navigateur headless** le 2026-10-22, après ajout de leurs domaines aux domaines autorisés de l'environnement : captures et styles calculés (polices, couleurs, rayons). Awwwards refuse les connexions venant de serveurs (erreur 502) ; The Podcast Coach n'a pas pu être vu, faute d'adresse.
 
-| Site | Faits relevés | Repris dans le projet |
+| Site | Mesures | Repris |
 | --- | --- | --- |
-| [Calmlyss · Health & Wellness](https://www.awwwards.com/sites/calmlyss-health-wellness) | Ink Studio, nominé (sept. 2026). Modèle Webflow pour coachs bien-être et yoga. Palette douce, beaucoup de blanc. Catégories : animation, défilement infini, gestes | Fond brume vert sauge, respiration, balayage au doigt (backlog) |
-| [Farm Minerals](https://www.awwwards.com/sites/farm-minerals) ([étude de cas](https://www.awwwards.com/farm-minerals-case-study.html)) | ADELT, Site du jour (19 févr. 2026, 7,42/10). Webflow + GSAP. Coloré, 3D, WebGL, visualisation de données. Produit raconté au défilement, animation de croissance de plante. Objectif : éviter les clichés visuels du « vert agricole » | Croissance des formes au défilement, abricot comme touche vive, assiette racontée (backlog), règle « pas de vert bio générique » |
-| [VOLDOG FOOD](https://www.awwwards.com/sites/voldog-food) | CHP Design Studio, mention (5 juin 2026). GSAP, SVG, Vanilla JS. Palette #204E4A et #E1E53F. Bascule de mode, traînée de curseur, ingrédients racontés | `--pin` #204E4A, `--lime` #E1E53F, traînée de graines, bascule Nutrition / Sport (backlog) |
-| [The Podcast Coach](https://www.awwwards.com/sites/the-podcast-coach) | Styles Studio, mention (1er févr. 2026). WordPress, Figma, GSAP. Vert #245333. Agence de production haut de gamme | `--algue` #245333, ton haut de gamme et sobre |
+| Calmlyss (calmlyss.webflow.io), Ink Studio | Geist 400 + Instrument Serif italique ; `#301100`, `#6B584E`, `#866452`, `#C78460`, `#F9F6F3` ; pilules, ronds, ovales ; GSAP, SplitText, Lenis | Polices, chocolat, moka, argile ; pilules à flèche ; rangée de ronds ; chiffres clés avec mot en italique ; illustrations au trait |
+| Farm Minerals (farmminerals.com), ADELT | Aeonik ; `#F4EDE6`, `#7C914C`, `#404F1D` ; produit 3D, mot géant translucide, plante au trait, grands chiffres | Crème, sauge, olive ; ton crédible et concret ; mot géant translucide (backlog) |
+| Voldog (voldogfood.com), CHP Design Studio | Peridot PE ; `#F4F1EB`, `#204E4A`, `#E1E53F` réservé aux pilules ; carte d'accueil arrondie, ingrédients détourés, bande courbe | Carte d'accueil arrondie ; bande défilante ; assiette racontée (backlog) |
+| The Podcast Coach, Styles Studio | `#245333` (fiche Awwwards) | Rien de spécifique |
 
 ## Listes de ressources (première version)
 

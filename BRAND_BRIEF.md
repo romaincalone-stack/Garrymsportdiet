@@ -1,104 +1,111 @@
 # BRAND_BRIEF : identité
 
-Version 2 · 2026-10-22 · Direction « Pinède et citron vert » · À valider par Manon.
-Remplace la v1 « Papiers découpés de la Riviera » (palette cobalt / citron).
+Version 3 · 2026-10-22 · Direction « Olivier et argile » · À valider par Manon.
+Remplace la v2 « Pinède et citron vert », rejetée par Romain : palette déduite de codes hexadécimaux sans avoir vu les sites (voir `JOURNAL_ERREURS.md`, incident 10).
 
-## Références retenues
+## Références observées
 
-Choisies par Romain. Fiches lues via la recherche web, Awwwards n'étant pas joignable depuis l'environnement de travail (voir `JOURNAL_ERREURS.md`, incident 8). Les polices de ces sites ne sont pas connues : rien n'est repris d'elles.
+Sites choisis par Romain, **vus et mesurés** le 2026-10-22 dans un navigateur (captures, styles calculés). The Podcast Coach n'a pas pu être vu : adresse du site introuvable et Awwwards inaccessible depuis l'environnement de travail.
 
-| Site | Studio · distinction | Ce qu'on retient |
+| Site | Ce qu'on voit | Mesures relevées |
 | --- | --- | --- |
-| [Calmlyss · Health & Wellness](https://www.awwwards.com/sites/calmlyss-health-wellness) | Ink Studio · nominé, sept. 2026 | Sérénité : palette douce, beaucoup de blanc, défilement continu, gestes au doigt sur mobile. Cible proche (coachs bien-être). |
-| [Farm Minerals](https://www.awwwards.com/sites/farm-minerals) | ADELT · Site du jour, 19 févr. 2026 | Rendre une science crédible et simple : produit raconté au défilement, animation de croissance d'une plante, données visualisées. Volonté explicite d'éviter les clichés « vert agricole ». Vif et coloré. |
-| [VOLDOG FOOD](https://www.awwwards.com/sites/voldog-food) | CHP Design Studio · mention, juin 2026 | Nutrition joyeuse et animée. Palette **#204E4A** (sarcelle profond) + **#E1E53F** (citron vert). Bascule de mode, traînée derrière le curseur, ingrédients racontés un par un. |
-| [The Podcast Coach](https://www.awwwards.com/sites/the-podcast-coach) | Styles Studio · mention, févr. 2026 | Coaching haut de gamme et sobre. Vert profond **#245333** dominant, mise en page éditoriale. |
+| [Calmlyss](https://www.awwwards.com/sites/calmlyss-health-wellness) (démo : calmlyss.webflow.io) | Photos chaudes en lumière dorée, tons beige et terre. Titre en grande linéale, seconde ligne en italique serif (« Where Stillness / *Becomes Strength* »). Rangée de portraits ronds, cadres ovales hauts pour l'équipe, mosaïque photo, chiffres clés avec un mot en italique, petites étiquettes « • SCHEDULE », boutons pilule avec flèche dans un rond, illustrations botaniques au trait, carte tarif mise en avant en brun foncé | Geist 400 (titres 82 et 56 px, interlettrage −0,64 px) + Instrument Serif italique. Fond blanc et crème `#F9F6F3`, texte chocolat `#301100`, secondaire `#6B584E`, moka `#866452` (boutons), argile `#C78460`, ocre `#96672A`. Rayons : pilules (1600 px), ronds, 16 px, ovales 250 px. GSAP + ScrollTrigger + SplitText, défilement doux Lenis |
+| [Farm Minerals](https://www.awwwards.com/sites/farm-minerals) (farmminerals.com) | Produit en 3D éclairé de vert, typographie posée en bas de casse (« Fertilizer, Reinvented. »), mot géant translucide qui passe sous l'image (« Meet CropTab™ »), illustration de plante au trait, carte du monde à repères, grands chiffres (0,5 t, ≥ 5×), mains et agriculteurs en photo, transitions en mosaïque de carrés verts | Aeonik 400-500 (86 et 50 px, interlettrage serré). Crème `#F4EDE6`, sauge `#7C914C` (fonds de section), olive foncé `#404F1D` (texte, boutons), `#636F3D`, `#596A33`. Coins quasi droits (2 à 5 px), boutons pilule fins en capitales |
+| [VOLDOG FOOD](https://www.awwwards.com/sites/voldog-food) (voldogfood.com) | Grande carte d'accueil aux coins très arrondis, nom géant en capitales larges sur photo à fond vert sauge, bol vu du dessus avec ingrédients détourés qui flottent, cartes « bénéfices » autour, bande courbe qui traverse la page, bascule chien / chat, fonds blancs et crème | Peridot PE (Adobe Fonts). Crème `#F4F1EB`, texte sarcelle `#204E4A`, accent `#E1E53F` réservé aux pilules et à la bande courbe |
+| [The Podcast Coach](https://www.awwwards.com/sites/the-podcast-coach) | Non vu | Vert `#245333` d'après la fiche Awwwards |
 
-**Synthèse** : un vert profond qui inspire confiance (Podcast Coach, Voldog), un citron vert qui donne l'énergie (Voldog), la respiration d'un site bien-être (Calmlyss), et des moments vifs et animés qui expliquent sans jargon (Farm Minerals). Traduit pour Manon : la pinède varoise, le citron vert, l'air de la mer.
+**Ce qui revient** : fonds crème chauds, une couleur sombre terreuse (chocolat, olive), une couleur moyenne naturelle (moka, sauge), des titres en grande linéale fine et en bas de casse, une touche d'italique serif, beaucoup d'air, des boutons pilule, des photos en lumière naturelle et des illustrations au trait.
+
+**Traduit pour Manon** : l'olivier et la terre cuite du Var. L'olive et la sauge de Farm Minerals, le moka et l'argile de Calmlyss, sur un crème chaud.
 
 ## Nom et promesse
 
 - **Nom de marque** : Garrym · Sport Diet (repris de `@garrymsportdiet`, **à confirmer**). La personne : Manon Garrione.
-- **Promesse** : « Manger, bouger, à votre rythme. »
+- **Promesse** : « Manger, bouger, *à votre rythme.* »
 - **Positionnement** : diététicienne-nutritionniste et coach sportive sur la côte varoise, spécialisée en santé féminine (endométriose, SOPK, ménopause) et en nutrition du sport.
 
 ## Ton
 
-Haut de gamme et chaleureux (Podcast Coach), apaisant (Calmlyss), avec des touches de jeu (Voldog).
+Apaisant et chaleureux (Calmlyss), crédible et concret (Farm Minerals : expliquer simplement, chiffres réels).
 
 | On dit | On évite |
 | --- | --- |
 | « Vous », phrases courtes, verbes d'action | Jargon médical, injonctions (« il faut ») |
 | « Adapté à », « en complément de votre suivi médical » | « Soigne », « guérit », « détox », « brûle-graisse » |
-| Des chiffres concrets (70 €, 30 min, 10 places) | Superlatifs vides, « révolutionnaire » |
-| Expliquer simplement le pourquoi (les fibres, les protéines) | Régime, privation, avant/après |
+| Des chiffres vrais (70 €, 2 cabinets, 30 min, 10 places) | Statistiques inventées (« 93 % se sentent mieux ») |
+| Expliquer le pourquoi (fibres, protéines, récupération) | Régime, privation, avant/après |
 
 ## Logo
 
-Marque provisoire : un **disque citron vert** (le soleil, l'assiette, le cadran du chronomètre) traversé par une **aiguille de pin** stylisée en vert profond. Mot-symbole « GARRYM » en Archivo élargi 900, sous-titre « SPORT · DIET » en Martian Mono. À faire dessiner (vectoriel, favicon, version monochrome) avant le lancement.
+Marque provisoire : un **cercle au trait argile** (le soleil, l'assiette) et une **feuille d'olivier pleine** vert olive. Mot-symbole « GARRYM » en Geist 600, sous-titre « SPORT · DIET » en Geist Mono. À faire dessiner (vectoriel, favicon, version monochrome) avant le lancement.
 
 ## Couleurs
 
 | Token | Clair | Sombre | Origine | Usage |
 | --- | --- | --- | --- | --- |
-| `--pin` | `#204E4A` | `#7CC4B3` | Voldog | Couleur de marque : bandes, boutons principaux, dossard 03 |
-| `--algue` | `#245333` | `#6CC38A` | Podcast Coach | Vert forêt : validation, coche « fait », texte d'accent |
-| `--lime` | `#E1E53F` | `#E1E53F` | Voldog | Énergie : surlignage, appel final, anneau de progression. Jamais en texte sur fond clair |
-| `--paper` | `#F5F7F0` | `#0B1A17` | Calmlyss (respiration) | Fond de page, légèrement vert sauge |
-| `--paper-2` | `#E8EEE2` | `#11241F` | Calmlyss | Sections alternées |
-| `--card` | `#FFFFFF` | `#14291F` | | Cartes |
-| `--ink` | `#10241F` | `#EEF3E8` | | Texte (vert presque noir, jamais noir pur) |
-| `--ink-2` | `#4D615A` | `#A9BBB2` | | Texte secondaire |
-| `--abricot` | `#F4A259` | `#F6B47A` | Farm Minerals (vivacité) | Petites formes, rubans, focus clavier |
-| `--rose` | `#F6D5D0` | `#4A2A2A` | | Fond doux, thème endométriose |
-| `--ciel` | `#CFE3EC` | `#173640` | | Fond doux, formule F1 |
+| `--paper` | `#F6F1EA` | `#17140F` | Farm Minerals / Calmlyss | Fond de page, crème chaud |
+| `--paper-2` | `#EFE7DC` | `#1F1B14` | | Sections alternées |
+| `--card` | `#FFFFFF` | `#26211A` | Calmlyss | Cartes |
+| `--ink` | `#301100` | `#F4EDE6` | Calmlyss | Texte, chocolat (jamais noir pur) |
+| `--ink-2` | `#6B584E` | `#C2B3A6` | Calmlyss | Texte secondaire |
+| `--olive` | `#404F1D` | `#B9C98A` | Farm Minerals | Couleur de marque : boutons principaux, carte d'accueil, formule 03, pied de page |
+| `--sauge` | `#7C914C` | `#A3B57A` | Farm Minerals | Bande défilante, validations, illustrations |
+| `--moka` | `#866452` | `#C9A792` | Calmlyss | Mots en italique, étiquettes, boutons secondaires |
+| `--argile` | `#C78460` | `#E0A27F` | Calmlyss | Illustrations au trait, numéros des formules, focus clavier |
+| `--sable` | `#E9DCC9` | `#4A3F31` | | Bouton sur fond olive, cartes douces, anneau de progression |
+| `--rose` | `#F1DDD3` | `#4A2F28` | | Fond doux, thème endométriose |
+| `--brume` | `#E4E8DA` | `#262B1E` | | Fond doux, formule F1 |
 
-Répartition : 65 % brume et encre, 25 % vert (pin + forêt), 10 % citron vert et abricot. Un seul moment vif par écran. Contrastes : blanc sur `--pin` ≈ 9:1 ; encre sur `--lime` ≈ 12:1 (AA largement atteint).
+Répartition : 70 % crème et blanc, 20 % olive et sauge, 10 % moka et argile. Contrastes vérifiés : crème `#F4EDE6` sur olive `#404F1D` ≈ 7,7:1 ; chocolat `#301100` sur crème `#F6F1EA` ≈ 15:1.
 
 ## Typographies
 
-Inchangées par rapport à la v1 (les polices des références ne sont pas connues). L'équilibre change : plus d'italique Bodoni pour la sérénité, Archivo élargi réservé aux moments forts.
-
-| Rôle | Police (libre) | Réglages |
+| Rôle | Police (Google Fonts, libre) | Réglages |
 | --- | --- | --- |
-| Titres forts | **Archivo** variable | Largeur 125 %, graisse 850-900, capitales, interlignage 0,86 |
-| Émotion, sérénité | **Bodoni Moda** italique | Un ou deux mots par titre, en bas de casse |
-| Texte | **Schibsted Grotesk** | 16,5 px, interlignage 1,55, environ 65 caractères par ligne |
-| Données | **Martian Mono** | kcal, minutes, dates, étiquettes |
+| Titres et texte | **Geist** | Titres en graisse 400, bas de casse, interlettrage −0,035 em, 56 à 100 px ; texte 16,5 px, interlignage 1,55 |
+| Accent | **Instrument Serif** italique | Seconde ligne d'un titre ou mot-clé (« *à votre rythme* », « *aujourd'hui* »), même taille que la ligne au-dessus |
+| Données et étiquettes | **Geist Mono** | kcal, minutes, dates ; étiquettes en capitales espacées précédées d'un point |
 
-En production : polices auto-hébergées (RGPD).
+Geist et Instrument Serif sont celles de Calmlyss. Aeonik (Farm Minerals) et Peridot PE (Voldog) sont payantes. En production : polices auto-hébergées (RGPD).
 
-## Composants visuels signature
+## Composants visuels
 
-| Composant | Inspiration | Statut |
+| Composant | Référence | Statut |
 | --- | --- | --- |
-| **Formes découpées** (aiguilles de pin, algue, tranche de citron vert, galet, étoile) en aplats, ombre « papier » | Identité propre | Prototype |
-| **Croissance au défilement** : les formes des étapes « La méthode » poussent quand on descend | Farm Minerals (croissance de plante) | Prototype |
-| **Traînée de graines** derrière le curseur sur le site public, sur ordinateur seulement | Voldog (traînée de curseur) | Prototype |
-| **Dossards de course** pour les formules, inclinaison 3D, le 03 en vert pin | Identité propre | Prototype |
-| **Billets** pour les séances collectives | Identité propre | Prototype |
-| **Bascule « Nutrition / Sport »** sur l'accueil : le même écran raconte l'une ou l'autre facette de Manon | Voldog (bascule de mode) | Backlog |
-| **Assiette qui se compose au défilement** : chaque ingrédient arrive avec son rôle (fibres, protéines…) | Farm Minerals (produit raconté), Voldog (ingrédients) | Backlog |
-| **Défilement continu** et balayage au doigt des recettes sur mobile | Calmlyss | Backlog |
-| **Étiquette nutritionnelle** typographique | Identité propre | Prototype |
-| **Verre dépoli** pour la navigation et la barre d'onglets mobile | Tendance 2026 | Prototype |
+| **Carte d'accueil** plein cadre aux coins très arrondis (36 px), photo plein cadre avec dégradé olive, titre blanc | Voldog, Calmlyss | Prototype (dégradé à la place de la photo) |
+| **Rangée de ronds** à cheval sur la carte d'accueil, une thématique par rond | Calmlyss (portraits ronds) | Prototype |
+| **Chiffres clés** séparés par des filets, avec un mot en italique, uniquement des chiffres vrais | Calmlyss, Farm Minerals | Prototype |
+| **Boutons pilule** avec flèche dans un rond qui pivote au survol | Calmlyss | Prototype |
+| **Étiquettes** « • FORMULES » en Geist Mono | Calmlyss | Prototype |
+| **Illustrations au trait** argile, olive ou sauge : branche d'olivier, tranche d'agrume, algue, galet | Calmlyss, Farm Minerals | Prototype |
+| **Cartes tarif** : blanches, la formule mise en avant en olive foncé, numéro en grand italique argile | Calmlyss | Prototype |
+| **Bande défilante** sauge avec mots en italique | Voldog (bande) | Prototype |
+| **Assiette racontée** : bol vu du dessus, ingrédients détourés autour avec leur rôle | Voldog, Farm Minerals | Backlog (photos nécessaires) |
+| **Mot géant translucide** qui passe sous une photo | Farm Minerals | Backlog |
+| **Cadres ovales hauts** pour les portraits (Manon, témoignages réels) | Calmlyss | Backlog (photos nécessaires) |
+| **Mosaïque photo** cabinet, cuisine, sport | Calmlyss | Backlog (photos nécessaires) |
 
 ## Mouvement
 
-Inspiré de la fluidité GSAP des quatre références, réalisé ici en CSS natif tant que c'est possible : titre cinétique, flottement lent des formes, parallaxe au pointeur, croissance et apparition au défilement, transitions entre pages, éclats quand on coche une séance. En production, GSAP (gratuit depuis son rachat par Webflow) reste une option pour l'assiette racontée. Tout est coupé si `prefers-reduced-motion`.
+Doux et lent, comme Calmlyss : titres qui apparaissent avec un léger flou, apparition au défilement, flottement de la branche d'olivier, flèches qui pivotent, transitions entre pages. En production : GSAP (gratuit) et défilement doux type Lenis, comme les références. Tout est coupé si `prefers-reduced-motion`.
 
-## Direction photo (quand Manon fournira des images)
+## Photographie (indispensable)
 
-Lumière naturelle du Sud, ombres franches. Aliments bruts sur fonds unis (vert pin, citron vert, brume). Mains en action plutôt que visages posés. Sport en extérieur : pinède, bord de mer, sentier côtier. Pas de banque d'images « salle de sport néon ».
+Les quatre références reposent sur la photo. Sans photo, le site restera correct mais pas « ouah ». Commande à prévoir (une demi-journée de shooting) :
+- Manon au cabinet, en pinède, sur le sentier côtier, lumière du matin ou du soir ;
+- aliments bruts et plats vus du dessus sur fond crème, lin, terre cuite ;
+- mains en action (couper, mélanger, s'étirer) ;
+- les deux cabinets (Hyères, La Garde).
+
+Retouche chaude et naturelle, sans filtre saturé. Pas de banque d'images « salle de sport néon ».
 
 ## À ne jamais faire
 
-- Fond crème + titre serif + accent terracotta.
-- Fond noir + vert acide (le citron vert vit sur du vert profond ou de la brume, jamais sur du noir).
-- Vert « bio » générique (feuille, goutte d'eau, `#4CAF50`) : Farm Minerals montre qu'on peut éviter ce cliché.
-- Dégradé violet-bleu ; Inter ou Space Grotesk par défaut ; émojis en puces.
-- Tout centré ; même arrondi et même ombre partout ; barre d'accent sur le bord des cartes.
-- Faux témoignages.
+- Statistiques ou témoignages inventés.
+- Noir pur, vert « bio » vif, dégradé violet-bleu, néons.
+- Titres en capitales grasses partout : la force vient de la taille et de l'air, pas de la graisse.
+- Plus d'une couleur vive par écran.
+- Même ombre forte sur chaque carte.
 
 ## Mots-clés de référencement
 

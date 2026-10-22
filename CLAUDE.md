@@ -38,7 +38,7 @@ Organisation du script dans `index.html` :
 | --- | --- |
 | `DONNÉES FICTIVES` | `PLANS`, `FEATURES`, `ACCESS` (matrice formule × fonctionnalité), `RECIPES`, `VIDEOS`, `NUTRI_TEMPLATES`, `SPORT_TEMPLATES`, `ARTICLES`, `DOCUMENTS`, `PATIENTS`, `SESSIONS` |
 | `ÉTAT` | objet `S` : vue, page courante, filtres, favoris, liste de courses |
-| `FORMES DÉCOUPÉES` | `SH.*` (algue, citron, galet, étoile, feuille, baies, vague), `art()` et `artBox()` pour les illustrations |
+| `FORMES DÉCOUPÉES` | `SH.*` : illustrations au trait (olivier, algue, citron, galet, étoile, feuille, baies, vague) ; `art()` et `artBox()` composent les visuels des recettes en attendant les photos |
 | `SITE PUBLIC` / `ESPACE PATIENTE` / `BACK-OFFICE` | une fonction par écran, qui renvoie du HTML |
 | `ACTIONS` | `A` (clics `data-act`), `CHANGE` (`data-change`), `INPUT` (`data-input`), `FORMS` (`data-form`) |
 
@@ -69,6 +69,7 @@ npm run check                        # attendu : "mobile scrollWidth 390" puis "
 - **View Transitions** : une capture d'écran prise moins de 400 ms après un changement de page montre l'animation en cours, pas la page. Attendre avant de capturer.
 - **Animations au défilement** (`animation-timeline: view()`) : l'état de départ reste lisible (opacité ≥ 0,5). Ne jamais partir d'une opacité nulle.
 - **Doctolib** : aucune API publique. Le domaine n'est pas joignable depuis certains environnements cloud ; demander une capture plutôt que deviner.
+- **Direction artistique d'après un site** : toujours le voir rendu et mesurer les styles calculés ; ne jamais déduire une palette de codes hex seuls (journal, incident 10).
 - **Sites de référence (Awwwards…)** : souvent bloqués par le réseau de l'environnement cloud. Ne rien inventer de leur direction artistique ; passer par la recherche web, des captures, ou l'ajout du domaine aux domaines autorisés.
 - **Renommage** : après un renommage de classe ou de token, `grep -rn "ancien_nom" .`, tests compris.
 - **GitHub depuis une session cloud** : vérifier `gh auth status` avant toute création de dépôt.
