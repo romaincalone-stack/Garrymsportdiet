@@ -29,7 +29,8 @@ Documents de référence : `APP_SPEC.md` (produit), `BRAND_BRIEF.md` (identité)
 ## Architecture
 
 ### Actuelle (phase 1 : prototype)
-- `prototype/index.html` : prototype cliquable en un seul fichier (HTML, CSS, JS vanilla). Données fictives en mémoire, rien n'est enregistré.
+- `site/index.html` : **site public v4** (accueil seul), direction « Nuit varoise » (`BRAND_BRIEF.md` v4). Un seul fichier ; bibliothèques par CDN à versions figées : three.js 0.160 (module jsDelivr), GSAP 3.12.5 + ScrollTrigger (cdnjs), Lenis 1.1.13 (jsDelivr). Photos provisoires dans `site/img/` (crédits : `site/img/CREDITS.md`). Blocs du script : photos et lien Doctolib (`IMG`, `DOCTOLIB`), défilement doux, scène WebGL (`initGL`, shader de bruit `NOISE`), chargement puis entrée (`heroIntro`), animations au défilement, lignes topographiques (`drawTopo`, carrés marchants sur un bruit de Perlin), révélation au pointeur, formules (`PLANS`, `renderPlans`), curseur et aperçu du journal.
+- `prototype/index.html` : prototype cliquable de l'**application** (espace patiente, back-office) et ancien site v3, en un seul fichier (HTML, CSS, JS vanilla). Données fictives en mémoire, rien n'est enregistré.
 - Le bandeau « Prototype » bascule entre les trois vues et la formule de la patiente démo.
 - `prototype/archive/` : versions précédentes, pour comparaison.
 
@@ -59,11 +60,15 @@ open prototype/index.html            # macOS ; sinon double-clic sur le fichier
 # Vérifier le prototype (parcours automatisé, erreurs JS, débordement mobile)
 npm install                          # une fois (installe Playwright)
 npm run check                        # attendu : "mobile scrollWidth 390" puis "NO ERRORS"
+npm run check:site                   # site v4 : WebGL, erreurs JS, 390 px, captures tools/shots/site-*.png ; attendu "NO ERRORS"
 
 # Publier l'aperçu en ligne (page privée claude.ai, lisible sur téléphone)
 node tools/build-artifact.mjs        # produit dist/prototype-garrym.html (ignoré par git)
 # puis republier ce fichier avec l'outil Artifact sur la même URL :
 # https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz
+node tools/build-artifact.mjs site   # produit dist/site-garrym.html ; republier avec les images
+# (option files de l'outil Artifact : "img/xxx.jpg" → site/img/xxx.jpg) sur :
+# https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo
 ```
 
 Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (`tools/shots/`), Romain consulte depuis l'application mobile.
@@ -82,4 +87,10 @@ Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (
 - **Sites de référence (Awwwards…)** : souvent bloqués par le réseau de l'environnement cloud. Ne rien inventer de leur direction artistique ; passer par la recherche web, des captures, ou l'ajout du domaine aux domaines autorisés.
 - **Renommage** : après un renommage de classe ou de token, `grep -rn "ancien_nom" .`, tests compris.
 - **GitHub depuis une session cloud** : vérifier `gh auth status` avant toute création de dépôt.
+- **GSAP et transformations** : ne jamais animer avec GSAP (`x`, `y`, `scale`) un élément déjà positionné par `transform` (barre centrée en `translateX(-50%)`) ; passer par une classe CSS ou animer un enfant (incident 22).
+- **WebGL en test** : Chromium lancé à la main en headless n'a pas de WebGL. Lancer Playwright avec `--use-angle=swiftshader --enable-unsafe-swiftshader` ; en root, un Chromium manuel exige `--no-sandbox` (incidents 17, 19).
+- **Réseau depuis Node** : `fetch` ignore le proxy de la session ; lancer avec `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt` (incident 20).
+- **Photos libres** : Unsplash et Pexels bloquent les robots ; passer par l'API Wikimedia Commons, lire la licence, créditer dans `site/img/CREDITS.md` (incident 21).
+- **`pkill -f`** : jamais avec un motif présent dans sa propre commande, il tue le shell (incident 18).
+- **Analyse de sites de référence** : REA (`npx -y rea-agents@6.7.0 inspect-web-page <cdp> <target>`) pour la preuve, captures Playwright pour le rendu. Ne reprendre que les techniques et compositions, jamais le code, les images, les modèles 3D ni les polices payantes.
 - **Copyright des références** : le dépôt `justinhartman/ui-ux-design-library` contient des livres sous droits. Ne pas les copier ici ; lien seulement.

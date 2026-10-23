@@ -1,6 +1,6 @@
 # INTEGRATIONS : services externes
 
-Version 2026-10-22 · Les tarifs sont indicatifs (connaissances générales, non revérifiés ce jour) : **à contrôler sur le site de chaque service au moment de la souscription**, puis mettre à jour ce fichier avec la date.
+Version 2026-10-23 · Les tarifs sont indicatifs (connaissances générales, non revérifiés ce jour) : **à contrôler sur le site de chaque service au moment de la souscription**, puis mettre à jour ce fichier avec la date.
 
 Règle : **noms de variables seulement, jamais de valeurs.** Les valeurs vivent dans Vercel (variables d'environnement) et dans un gestionnaire de mots de passe.
 
@@ -9,7 +9,7 @@ Comptes : chaque service est ouvert **au nom de Manon** (adresse pro à créer, 
 | Service | Rôle | Statut | Compte | Variables d'environnement | Limites / coûts indicatifs |
 | --- | --- | --- | --- | --- | --- |
 | **GitHub** | Code source, historique, revues | Actif : `romaincalone-stack/Garrymsportdiet` | Compte du développeur ; ajouter Manon en lecture | — | Gratuit |
-| **Claude (Artifacts)** | Aperçu privé du prototype, consultable sur téléphone | Actif : https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz | Compte claude.ai de Romain | — | Privé ; partage depuis le menu « Partager » de la page |
+| **Claude (Artifacts)** | Aperçus privés consultables sur téléphone | Actifs : prototype applicatif https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz ; site public v4 https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo | Compte claude.ai de Romain | — | Privé ; partage depuis le menu « Partager » de la page |
 | **Doctolib** | Prise de rendez-vous (lien sortant uniquement) | Actif | Compte praticien de Manon | — (URL stockée dans `settings.doctolib_url`) | Abonnement Doctolib existant. Aucune API publique : pas de synchronisation possible |
 | **WhatsApp** | Contact patiente → Manon (lien `wa.me` avec message prérempli) | Prévu | Numéro pro de Manon | — (numéro dans `settings.whatsapp_number`) | Gratuit. WhatsApp Business conseillé (messages d'absence, horaires) |
 | **Instagram** | Affichage des derniers posts sur le site | À décider | Compte `@garrymsportdiet` (doit être professionnel) | `INSTAGRAM_ACCESS_TOKEN` | API Instagram : jeton à renouveler. Alternative sans API : 6 visuels choisis à la main dans le back-office |
@@ -19,7 +19,10 @@ Comptes : chaque service est ouvert **au nom de Manon** (adresse pro à créer, 
 | **Bunny Stream** (ou **Vimeo**) | Hébergement et lecture protégée des vidéos de sport | À choisir | Au nom de Manon | `BUNNY_STREAM_LIBRARY_ID`, `BUNNY_STREAM_API_KEY` (ou `VIMEO_ACCESS_TOKEN`) | Bunny : paiement à l'usage, quelques euros par mois pour ce volume. Vimeo : abonnement mensuel. YouTube exclu (contenus payants trop faciles à partager) |
 | **Nom de domaine** (OVHcloud, Gandi…) | Adresse du site et des emails | À acheter | Au nom de Manon | — | Environ 10 à 20 €/an pour un `.fr` |
 | **Mesure d'audience** (Plausible ou Umami) | Statistiques de visite sans cookie | À décider | Au nom de Manon | `NEXT_PUBLIC_ANALYTICS_DOMAIN` | Sans cookie : pas de bandeau de consentement pour ce seul usage. Umami : offre gratuite limitée ; Plausible : abonnement |
-| **Google Fonts** | Polices Archivo, Bodoni Moda, Schibsted Grotesk, Martian Mono | Prototype seulement | — | — | En production, **auto-héberger les polices** (`next/font`) pour éviter le transfert d'IP vers Google |
+| **REA** (`rea-agents` 6.7.0, [morluto/rea](https://github.com/morluto/rea)) | Analyse des sites de référence (inspection de pages, preuves) | Outil de développement | — | — | Libre, lancé par `npx`. Serveur MCP enregistré dans la configuration Claude Code de la session (client `claude_code`) ; hors session, `npx -y rea-agents@6.7.0` |
+| **Wikimedia Commons** | Photos provisoires du site v4 (`site/img/CREDITS.md`) | Prototype seulement | — | — | Licences CC BY / CC BY-SA : créditer l'auteur. Droit à l'image des personnes non couvert : à remplacer avant mise en ligne |
+| **jsDelivr / cdnjs** | three.js 0.160, GSAP 3.12.5 + ScrollTrigger, Lenis 1.1.13 pour le site v4 | Prototype seulement | — | — | Gratuit. En production : paquets npm intégrés au build, pas de CDN tiers. GSAP est sous licence sans frais, usage commercial compris, depuis 2025 (à relire avant la mise en ligne) |
+| **Google Fonts** | Polices Geist, Instrument Serif, Geist Mono (application v3) ; Mona Sans, Bellefair, Geist Mono (site v4) | Prototype seulement | — | — | En production, **auto-héberger les polices** (`next/font`) pour éviter le transfert d'IP vers Google |
 | **Stripe** | Paiement des abonnements | Hors v1 (idée) | Au nom de Manon | `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET` | Commission par transaction (de l'ordre de 1,5 % + 0,25 € par carte européenne) |
 | **Google / Microsoft** | — | Non utilisé | — | — | — |
 | **IA** | — | Non utilisé dans le produit (Claude sert uniquement au développement) | — | — | — |

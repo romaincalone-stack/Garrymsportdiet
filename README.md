@@ -4,7 +4,11 @@ Plateforme de Manon Garrione, diététicienne-nutritionniste et coach sportive (
 
 **Statut** : phase 1, prototype cliquable en validation auprès de Manon. Aucune donnée réelle.
 
-## Voir le prototype
+## Voir le site public (v4)
+
+Ouvrir `site/index.html` dans un navigateur récent, connecté à Internet (polices et bibliothèques chargées par CDN). Aperçu en ligne privé : https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo
+
+## Voir le prototype de l'application
 
 Ouvrir `prototype/index.html` dans un navigateur (double-clic). Le bandeau du haut bascule entre :
 - **Site public** ;
@@ -32,5 +36,6 @@ Règle : une livraison n'est terminée que lorsque la documentation concernée e
 
 ```bash
 npm install
-npm run check   # attendu : "mobile scrollWidth 390" puis "NO ERRORS"
+npm run check        # application : "mobile scrollWidth 390" puis "NO ERRORS"
+npm run check:site   # site v4 : "NO ERRORS"
 ```

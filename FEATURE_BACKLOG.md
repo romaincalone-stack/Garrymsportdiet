@@ -16,11 +16,16 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-22 | Brief de marque v3 « Olivier et argile » | Calmlyss, Farm Minerals et Voldog capturés et mesurés ; Geist + Instrument Serif ; crème, olive, sauge, moka, argile ; prototype refait (carte d'accueil, rangée de ronds, chiffres clés, pilules à flèche, illustrations au trait, cartes tarif) |
 | 2026-10-22 | Croissance au défilement et traînée de graines | Formes de « La méthode » qui poussent ; traînée derrière le curseur sur le site public (souris uniquement) |
 | 2026-10-22 | Script de vérification | `npm run check` : parcours automatisé, erreurs JS, débordement mobile |
+| 2026-10-23 | Analyse de cinq sites de référence avec REA | Terminal Industries, Lando Norris, Symphony of Vines, KÖM, Resn (`references/DESIGN_REFERENCES.md`) |
+| 2026-10-23 | Site public v4 « Nuit varoise » (accueil) | `site/index.html` : chargement chiffré, scène WebGL (three.js), défilement doux (Lenis), animations au défilement (GSAP ScrollTrigger), collage topographique, défilement horizontal épinglé, chapitre sépia, cartes à halo, curseur à libellé ; photos provisoires Wikimedia Commons |
+| 2026-10-23 | Vérification du site v4 | `npm run check:site` : erreurs JS, WebGL actif, débordement à 390 px, captures ordinateur et mobile |
+| 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 
 ## En cours
 
 | Priorité | Fonctionnalité | Prochaine action |
 | --- | --- | --- |
+| P0 | Avis de Romain puis de Manon sur le site v4 | Aperçu en ligne + captures ; palette citron remplaçable par un seul token |
 | P0 | Validation du prototype par Manon | Rendez-vous de 45 min avec le prototype + tableau des hypothèses (APP_SPEC §6) |
 | P0 | Nom de marque et logo | Confirmer « Garrym · Sport Diet », faire dessiner le logo |
 
@@ -28,6 +33,9 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 
 | Priorité | Fonctionnalité | Dépend de |
 | --- | --- | --- |
+| P0 | Pages secondaires du site dans le style v4 (Manon, Formules, Thématiques, Journal, Cabinets, Connexion) | Validation de l'accueil v4 |
+| P1 | Décider si l'espace patiente et le back-office passent au style v4 | Validation de l'accueil v4 |
+| P1 | Version allégée de la scène WebGL pour téléphones d'entrée de gamme (image fixe si le rendu est lent) | Mesures sur vrais appareils |
 | P0 | Choix définitif de la stack (proposée : Next.js + Supabase + Vercel) | Validation prototype |
 | P0 | Projet Supabase UE, schéma et RLS (`DATA_DICTIONARY.md`) | Stack |
 | P0 | Authentification par invitation, création de compte par Manon | Supabase |
@@ -46,6 +54,8 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | P1 | Nom de domaine et adresse email pro | Manon |
 | P0 | Shooting photo (Manon, cabinets, plats vus du dessus, mains, pinède) | Manon |
 | P1 | Mot géant translucide qui passe sous une photo (réf. Farm Minerals) | Photos |
+| P1 | Portrait détouré de Manon dans le collage (réf. Lando Norris) | Shooting |
+| P2 | Son d'ambiance optionnel, coupé par défaut (réf. Symphony of Vines) | Validation v4 |
 | P1 | Bascule « Nutrition / Sport » sur l'accueil (réf. Voldog) | Validation du brief v3 |
 | P1 | Assiette qui se compose au défilement, ingrédients expliqués (réf. Farm Minerals, Voldog) | Photos ou illustrations des ingrédients |
 | P2 | Balayage au doigt des recettes sur mobile (réf. Calmlyss) | Recettes |

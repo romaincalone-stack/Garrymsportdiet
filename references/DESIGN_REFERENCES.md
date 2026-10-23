@@ -1,8 +1,22 @@
 # Références design
 
-## Modèles Awwwards (direction actuelle)
+## Cinq sites haut de gamme (direction v4, site public)
 
-Choisis par Romain, source principale de `BRAND_BRIEF.md` v3. Calmlyss, Farm Minerals et Voldog ont été **ouverts dans un navigateur headless** le 2026-10-22, après ajout de leurs domaines aux domaines autorisés de l'environnement : captures et styles calculés (polices, couleurs, rayons). Awwwards refuse les connexions venant de serveurs (erreur 502) ; The Podcast Coach n'a pas pu être vu, faute d'adresse.
+Demandés par Romain le 2026-10-23 (« je veux la même qualité »). Analysés avec [REA](https://github.com/morluto/rea) (`rea-agents` 6.7.0, commande `rea inspect-web-page` sur un Chromium piloté en CDP), puis capturés avec Playwright et WebGL logiciel (SwiftShader). Les preuves REA vivent dans le registre de la session d'analyse ; leurs identifiants sont notés pour traçabilité, pas versionnés.
+
+| Site | Studio / technique observée | Mesures | Preuve REA |
+| --- | --- | --- | --- |
+| [terminal-industries.com](https://terminal-industries.com/) | Nuxt ; héros WebGL noir ; révélations lettre à lettre et mot à mot au défilement ; capsule de navigation flottante ; bords de section crantés | Suisse Intl serré + Geist Mono capitales ; citron vert `#ABFF02` ; pied de page sarcelle sombre `#052424` | `ev_7a9351542e86…` |
+| [landonorris.com](https://landonorris.com/) | OFF+BRAND, Webflow, p5.js ; portrait détouré, lignes topographiques, collage photo dispersé, gribouillis et signature SVG, partage On track / Off track, cartes casque à coins coupés | Mona Sans grasse capitales + Brier serif en citron ; crème `#F4F4ED`, olive `#282C20` / `#343A26`, néon `#D2FF00` | `ev_3efe79e5c8cc…` |
+| [symphonyofvines.unseen.co](https://symphonyofvines.unseen.co/) | Unseen Studio ; scène WebGL cinéma sépia, grain, vignettage, son (Howler), pilule « Enter experience » | Bellefair capitales géantes avec « The » italique ; `#E1D9D1`, `#9C6E49`, `#0A0901` | Inspection REA expirée (Page.enable > 20 s) ; analyse par captures Playwright |
+| [komagence.com](https://www.komagence.com/) | Webflow + GSAP ScrollTrigger ; objets 3D irisés, mots en dégradé italique, titres à flèche ↗, cartes vidéo à étiquettes, tarifs à boutons dégradés, bords obliques | PolySans ; fond `#060504` | `ev_0eebeab82fc7…` |
+| [resn.co.nz](https://resn.co.nz/) | Three.js, CreateJS, TweenMax ; cristal WebGL au chargement | Fort fine ; fond `#141316` | `ev_d293f782633d…` (le chargement WebGL n'a jamais abouti en headless) |
+
+Correspondance section par section : `BRAND_BRIEF.md`, Mises en page (site public v4). Code, images, modèles 3D et polices payantes des références **non copiés** : la scène 3D, les lignes topographiques et les animations de `site/index.html` sont écrites pour le projet.
+
+## Modèles Awwwards (direction v3, conservée pour l'application)
+
+Choisis par Romain, source de `BRAND_BRIEF.md` v3 (aujourd'hui limitée à l'espace patiente et au back-office). Calmlyss, Farm Minerals et Voldog ont été **ouverts dans un navigateur headless** le 2026-10-22, après ajout de leurs domaines aux domaines autorisés de l'environnement : captures et styles calculés (polices, couleurs, rayons). Awwwards refuse les connexions venant de serveurs (erreur 502) ; The Podcast Coach n'a pas pu être vu, faute d'adresse.
 
 | Site | Mesures | Repris |
 | --- | --- | --- |
