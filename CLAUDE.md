@@ -74,9 +74,9 @@ node tools/build-artifact.mjs        # produit dist/prototype-garrym.html (ignor
 # puis republier ce fichier avec l'outil Artifact sur la même URL, en joignant le site (option files) :
 # "site/index.html" → site/index.html et "site/img/xxx.jpg" → site/img/xxx.jpg
 # https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz
-node tools/build-artifact.mjs site   # produit dist/site-garrym.html ; republier avec les images
-# (option files de l'outil Artifact : "img/xxx.jpg" → site/img/xxx.jpg) sur :
-# https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo
+npm run build:standalone && node tools/build-artifact.mjs standalone
+# produit dist/garrym-trois-espaces.html (trois espaces, site et photos intégrés, aucun fichier joint) ; republier sur :
+# https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo  (lien partagé par Romain, « toute personne disposant du lien »)
 ```
 
 Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (`tools/shots/`), Romain consulte depuis l'application mobile.

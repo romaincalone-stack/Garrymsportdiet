@@ -4,7 +4,8 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 let site = readFileSync("site/index.html", "utf8");
 site = site.replace(/"img\/([a-z]+)\.jpg"/g, (_, n) => `"data:image/jpeg;base64,${readFileSync(`site/img/${n}.jpg`).toString("base64")}"`);
-const json = JSON.stringify(site).replace(/<\/(script)/gi, "<\\/$1").replace(/<!--/g, "<\\!--");
+// Chaque « < » encodé en \u003c : aucune balise (</script>, <body>, </head>…) n'apparaît en clair dans la chaîne
+const json = JSON.stringify(site).replace(/</g, "\\u003c");
 let proto = readFileSync("prototype/index.html", "utf8");
 if (!proto.includes("</head>")) throw new Error("prototype/index.html : balise </head> introuvable");
 // fonction de remplacement : une chaîne interpréterait « $$ » et « $& » du site comme des motifs
