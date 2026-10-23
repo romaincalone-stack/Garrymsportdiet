@@ -122,6 +122,14 @@ Depuis le 2026-10-23, l'application (`prototype/index.html`) utilise la palette 
 | `--sable` | `#F5D547` citron | Surligneur, petites pastilles, progression, formule F2 ; jamais de grand aplat |
 | `--olive-soft`, `--sauge-soft`, `--brume`, `--rose`, `--sable-soft` | `#D6E8E2` lagon / `#E6EFEB` | Fonds doux, cartes mises en avant |
 
+Langage visuel commun avec le site (couche « Harmonisation » en fin de feuille de `prototype/index.html`) :
+- **Surfaces fortes** en calanque avec lignes topographiques (`--topo`, peintes au chargement) : barre latérale, bandeau de titre de chaque écran, barre d'onglets mobile, cartes mises en avant, incitation à changer de formule, en-tête de la connexion.
+- **Titres** en Mona Sans 800 capitales, largeur 80 ; mot d'accent en Bellefair capitales, citron sur fond sombre, surligné de citron sur fond clair.
+- **Navigation** en capitales mono numérotées « (01) », élément actif en citron avec filet à gauche.
+- **Boutons** en capitales mono, rayon 10 px, flèche ↗ ; principal = citron sur fond sombre, calanque à texte citron sur fond clair. Hauteur minimale 44 px.
+- **Étiquettes** mono capitales, rayon 6 px (police de texte dans les tableaux, pour la place). **Cartes** rayon 14 px, filet 1 px ; coin coupé en bas à droite sur les cartes recettes, vidéos et mises en avant.
+- **Chiffres** (indicateurs, anneau de progression) en Mona Sans 300 étroite, comme les repères du site.
+
 Teintes dérivées propres à l'application : `#E6EFEB` (fond secondaire), `#D3E0DB` (filets) ; dégradés des emplacements photo (`.ph-*`) tirés de calanque, posidonie, lagon et citron. Mode sombre : fond calanque `#0B2D33`, cartes `#14444B`, accent citron. Les couleurs v3 restent consultables dans `prototype/archive/v3-2026-10-23.html`.
 
 ## Mots-clés de référencement

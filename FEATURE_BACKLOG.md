@@ -24,6 +24,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-23 | Palette v5-B « Calanque et citron » | Brief fourni par Romain (`references/brief-couleurs-v5-citron.html`) appliqué au site, puis à l'espace patiente et au back-office ; citron en surligneur sur fond clair |
 | 2026-10-23 | Fruits 3D réalistes | Matières physiques (velours, pores, cire, laque), textures peintes, éclairage d'ambiance, ombres portées ; physique : chute à l'arrivée, flottaison, poussée du pointeur, collisions, élan du défilement ; qualité réduite automatiquement si l'appareil rame |
 | 2026-10-23 | Prototype unifié à trois vues | Bandeau Site public / Espace patiente / Back-office : le site v4 dans la vue publique, « Mon espace » → connexion → espace patiente ; `npm run check` couvre ce parcours |
+| 2026-10-23 | Espace patiente et back-office harmonisés avec le site | Bandeaux calanque à lignes topographiques, titres en capitales avec mot serif, navigation mono numérotée, boutons et étiquettes mono, coins coupés, chiffres fins ; connexion avec l'en-tête du site ; vocabulaire « formule » au lieu de « dossard » |
 | 2026-10-23 | Fichier HTML unique | `dist/garrym-prototype.html` : les trois vues et le site intégré (photos en data URI, environ 3 Mo), construit par `npm run build:standalone` et vérifié par `npm run check:standalone` |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 
@@ -41,7 +42,8 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | --- | --- | --- |
 | P0 | Pages secondaires du site dans le style v4 (Manon, Formules, Thématiques, Journal, Cabinets, Connexion) | Validation de l'accueil v4 |
 | P2 | Supprimer du prototype le code de l'ancien site v3 (non affiché, archivé) une fois les pages secondaires v4 faites | Pages secondaires v4 |
-| P1 | Mettre les écrans de l'application au niveau du site (compositions, mouvement), au-delà des couleurs | Validation v5-B |
+| P1 | Animations de l'application au niveau du site (entrées au défilement, transitions) | Validation de l'harmonisation |
+| P2 | Tableau des patientes : colonnes plus compactes sur écran de 1 280 px (la dernière colonne oblige à défiler) | — |
 | P2 | Remplacer les fruits modélisés en code par des modèles 3D réalisés sur mesure (photogrammétrie de vrais fruits), si le budget le permet | Validation v4 |
 | P1 | Version allégée de la scène WebGL pour téléphones d'entrée de gamme (image fixe si le rendu est lent) | Mesures sur vrais appareils |
 | P0 | Choix définitif de la stack (proposée : Next.js + Supabase + Vercel) | Validation prototype |

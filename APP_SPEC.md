@@ -53,7 +53,7 @@ La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la 
 | Connexion | Email + mot de passe, pas d'inscription |
 
 ### Espace patiente
-Accueil · Programme (semainier 7 j × 4 repas) · Recettes (filtres thème, repas, temps, régime, allergène, favoris ; fiche avec portions ajustables, étiquette nutritionnelle, liste de courses) · Sport (programme avec cases « fait » ; vidéos filtrables par thème, durée, niveau, matériel) · Séances (collectives, individuelle) · Documents · Articles · Profil (infos, formule, notifications). Sur mobile, barre d'onglets en bas : Accueil, Programme, Recettes, Sport, Plus.
+Même langage visuel que le site (`BRAND_BRIEF.md`, Application). Accueil · Programme (semainier 7 j × 4 repas) · Recettes (filtres thème, repas, temps, régime, allergène, favoris ; fiche avec portions ajustables, étiquette nutritionnelle, liste de courses) · Sport (programme avec cases « fait » ; vidéos filtrables par thème, durée, niveau, matériel) · Séances (collectives, individuelle) · Documents · Articles · Profil (infos, formule, notifications). Sur mobile, barre d'onglets en bas : Accueil, Programme, Recettes, Sport, Plus.
 
 ### Back-office
 Tableau de bord (actives, revenu théorique, expirations sous 15 j, inscrites) · Patientes (création, fiche, « Voir son espace ») · Programmes (modèles de semainier) · Recettes · Vidéos · Articles · Séances · Rendez-vous (saisie depuis Doctolib) · Paramètres (tarifs, matrice d'accès, liens).

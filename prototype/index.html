@@ -17,7 +17,9 @@
   --paper:#F4F6F1; --paper-2:#E6EFEB; --card:#FFFFFF; --ink:#0B2D33; --ink-2:#55676A; --line:#D3E0DB;
   --olive:#0B2D33; --olive-ink:#F4F6F1; --olive-soft:#D6E8E2;
   --sauge:#2B6A5D; --sauge-soft:#D6E8E2; --moka:#2B6A5D; --argile:#2B6A5D; --sable:#F5D547; --sable-soft:#E6EFEB; --rose:#E6EFEB; --brume:#D6E8E2;
-  --citron:#F5D547; --lagon:#D6E8E2; --calanque-2:#14444B; --olive-btn:#F5D547;
+  --citron:#F5D547; --lagon:#D6E8E2; --calanque:#0B2D33; --calanque-2:#14444B; --ecume:#F4F6F1; --olive-btn:#F5D547;
+  --hl:linear-gradient(transparent 52%,var(--citron) 52%,var(--citron) 94%,transparent 94%);
+  --notch:polygon(0 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%);
   --band:#0B2D33; --band-ink:#F4F6F1;
   --ok:#2B6A5D; --ok-soft:#D6E8E2; --warn:#8A5A0B; --warn-soft:#F6E8CC; --crit:#A23B2A; --crit-soft:#F6DDD5;
   --glass:rgba(250,252,250,.72); --glass-line:rgba(255,255,255,.9); --glass-shadow:0 10px 40px rgba(11,45,51,.10);
@@ -622,6 +624,85 @@ td.c,th.c{text-align:center}
   .par{transform:none!important}
 }
 @media (max-width:600px){.today{grid-template-columns:minmax(0,1fr)}.bigring{justify-self:start;width:112px;height:112px}.bigring::before{width:88px;height:88px}}
+
+/* ===== Harmonisation avec le site public v5 : espace patiente, back-office, connexion =====
+   Même langage que site/index.html : bandeaux calanque à lignes topographiques, titres en capitales grasses avec mot serif,
+   étiquettes et boutons en capitales mono, petits rayons, coin coupé, chiffres en linéale fine. */
+.app,.modal,.lpage{--r-m:14px;--r-l:18px}
+.app .kicker,.modal .kicker,.lpage .kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;font-weight:500;color:var(--ink-2)}
+.app .kicker::before,.modal .kicker::before,.lpage .kicker::before{content:none}
+.app .display,.modal .display,.lpage .display{font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;letter-spacing:-.03em;line-height:.88}
+.app .serif,.modal .serif,.lpage .serif{font-style:normal}
+.app .display .serif,.modal .display .serif,.lpage .display .serif{font-family:var(--f-serif);font-weight:400;text-transform:uppercase;letter-spacing:-.02em;color:var(--ink);background:var(--hl);padding:0 .06em}
+.app .h-s,.modal .h-s{font-weight:700;letter-spacing:-.02em}
+.app .btn,.modal .btn,.lpage .btn{border-radius:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:14px 18px;min-height:44px;box-shadow:none}
+.app .btn-sm,.modal .btn-sm,.lpage .btn-sm{padding:11px 14px;font-size:10.5px}
+.app .btn svg.go,.modal .btn svg.go,.lpage .btn svg.go{background:none;padding:0;margin:0;width:14px;height:14px;color:currentColor;transform:rotate(-45deg)}
+.app .btn:hover svg.go,.modal .btn:hover svg.go,.lpage .btn:hover svg.go{transform:rotate(-45deg) translateX(3px)}
+.app .btn-text,.modal .btn-text,.lpage .btn-text{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.app .iconbtn,.modal .iconbtn{border-radius:10px;width:44px;height:44px}
+.app .tag,.modal .tag,.lpage .tag{border-radius:6px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;padding:5px 9px}
+.app .chip,.modal .chip{border-radius:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;padding:10px 14px;min-height:42px;border-width:1px}
+.app .chip.on,.modal .chip.on{background:var(--calanque);color:var(--citron);border-color:var(--calanque)}
+.app .filters select,.app .filters input[type=search],.app .field input,.app .field select,.app .field textarea,.modal .field input,.modal .field select,.modal .field textarea,.lpage .field input{border-radius:10px;border-width:1px}
+.app .field input:focus,.app .field select:focus,.app .field textarea:focus,.modal .field input:focus,.modal .field select:focus,.modal .field textarea:focus,.lpage .field input:focus{border-color:var(--calanque);box-shadow:0 0 0 3px rgba(245,213,71,.55)}
+.app .card,.app .panel,.app .meal,.app .day,.app .ticket,.app .table-wrap,.app .vcard,.app .rcard,.modal .panel,.modal .table-wrap,.lpage .panel{border-radius:var(--r-m);border-width:1px}
+.app .rcard,.app .vcard,.app .card.co,.app .panel.co,.app .upsell{clip-path:var(--notch)}
+.app .rcard:hover{box-shadow:none;transform:translateY(-4px)}
+.app .rcard .meal-t,.app .vcard .th,.app .vcard .dur{border-radius:6px}
+.app .rcard h4{font-weight:700;letter-spacing:-.01em}
+.app .kpi .v,.app .bigring b{font-weight:300;font-variation-settings:"wdth" 75;letter-spacing:-.04em}
+.app .progress,.app .progress i,.app .bar .tr,.app .bar .fl{border-radius:3px}
+.app .chk{border-radius:6px}
+.app .wv{border-radius:10px}
+.app table .btn{padding:10px 11px;font-size:10px;letter-spacing:.08em}
+.app table td{padding:12px 12px}
+.app table .tag{font-family:var(--f-body);text-transform:none;letter-spacing:0;font-size:12px;font-weight:600}
+.app .day.now{border:1px solid var(--calanque);box-shadow:inset 0 4px 0 var(--citron)}
+.app .ticket .stub b{font-style:normal;color:var(--citron)}
+.app .label-nutri{border-radius:8px}
+.app .player,.modal .player{border-radius:var(--r-m)}
+.modal{border-radius:var(--r-l)}
+.toast{border-radius:10px}
+/* Surfaces sombres : barre latérale, bandeau de titre, barre d'onglets, cartes fortes, incitation */
+.app .rail{background:var(--calanque) var(--topo) center/cover;color:var(--ecume);border:0;border-radius:var(--r-l);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;counter-reset:nv;padding:18px 14px}
+.app .rail .me{border-color:rgba(244,246,241,.14)}
+.app .rail .me .tiny,.app .rail .me .muted{color:var(--lagon)}
+.app .rail .av{background:var(--citron);color:var(--calanque)}
+.app .rail button.nv{color:rgba(244,246,241,.74);border-radius:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;min-height:44px}
+.app .rail button.nv::before{counter-increment:nv;content:"(" counter(nv,decimal-leading-zero) ")";font-size:10px;letter-spacing:.06em;opacity:.55;min-width:30px}
+.app .rail button.nv > svg:first-of-type{display:none}
+.app .rail button.nv:hover{background:rgba(244,246,241,.08);color:var(--ecume)}
+.app .rail button.nv.on{background:rgba(245,213,71,.12);color:var(--citron);box-shadow:inset 3px 0 0 var(--citron)}
+.app .ph-head{background:var(--calanque) var(--topo) center/cover;color:var(--ecume);border-radius:var(--r-l);padding:clamp(24px,4vw,44px);min-height:clamp(170px,20vw,230px);align-items:flex-end;position:relative;overflow:hidden}
+.app .ph-head h1{font-size:clamp(2.4rem,6vw,5.2rem);color:var(--ecume)}
+.app .ph-head h1 .serif{color:var(--citron);background:none;padding:0}
+.app .ph-head .kicker{color:var(--lagon)}
+.app .ph-head .muted,.app .ph-head p{color:rgba(244,246,241,.8)}
+.app .ph-head .btn-olive{--bg:var(--citron);--fg:var(--calanque)}
+.app .ph-head .btn-line,.app .upsell .btn-line{--fg:var(--ecume);border-color:rgba(244,246,241,.5)}
+.app .ph-head .btn-line:hover,.app .upsell .btn-line:hover{--bg:var(--ecume);--fg:var(--calanque)}
+.app .ph-head .btn-soft{--bg:rgba(244,246,241,.1);--fg:var(--ecume);border-color:transparent}
+.app .ph-head .chip{background:rgba(244,246,241,.08);border-color:rgba(244,246,241,.2);color:var(--ecume)}
+.app .ph-head .chip.on{background:var(--citron);color:var(--calanque);border-color:var(--citron)}
+.app .ph-head .tag.f3,.app .rail .tag.f3,.app .card.co .tag.f3,.app .panel.co .tag.f3{background:var(--citron);color:var(--calanque)}
+.app .card.co,.app .panel.co{background:var(--calanque) var(--topo) center/cover}
+.app .card.co .btn-olive,.app .panel.co .btn-olive{--bg:var(--citron);--fg:var(--calanque)}
+.app .upsell{background:var(--calanque) var(--topo) center/cover;color:var(--ecume);border:0;border-radius:var(--r-m);box-shadow:none}
+.app .upsell .muted,.app .upsell p{color:rgba(244,246,241,.82)}
+.app .upsell .display{color:var(--ecume)}
+.tabbar{background:var(--calanque);border:0;border-radius:var(--r-m);-webkit-backdrop-filter:none;backdrop-filter:none}
+.tabbar button{color:rgba(244,246,241,.72);font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;border-radius:10px;min-height:52px}
+.tabbar button.on{background:rgba(245,213,71,.14);color:var(--citron)}
+/* Connexion : en-tête du site */
+.lhead{background:var(--calanque) var(--topo) center/cover;color:var(--ecume);padding-block:14px}
+.lbrand{display:inline-flex;align-items:center;gap:9px;background:none;border:0;color:inherit;cursor:pointer;min-height:44px;font-family:var(--f-display);font-weight:700;letter-spacing:-.02em;font-size:17px}
+.lbrand svg{width:24px;height:24px}
+.lhead .btn-olive{--bg:var(--citron);--fg:var(--calanque)}
+.lhead .btn-soft{--bg:rgba(244,246,241,.1);--fg:var(--ecume);border-color:transparent}
+.lpage .panel{clip-path:var(--notch)}
+.protobar .seg{border-radius:12px} .protobar .seg button{border-radius:9px}
+@media (max-width:860px){.app .ph-head{min-height:0}.app.admin .rail{border-radius:var(--r-m)}.app.admin .rail button.nv::before{content:none}}
 </style>
 </head>
 <body>
@@ -960,7 +1041,15 @@ function protobar() {
    SITE PUBLIC
    ========================================================= */
 const SITE_PAGES = [["home", "Accueil"], ["about", "Manon"], ["offres", "Formules"], ["themes", "Thématiques"], ["blog", "Journal"], ["contact", "Cabinets"]];
+const SITE_LOGO = `<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="13" fill="none" stroke="var(--citron)" stroke-width="2.4"/><path d="M13 39C4 29 5 13 16 3C23 14 25 27 13 39Z" fill="var(--ecume)"/></svg>`;
+function loginPage() {
+  return `<div class="lpage"><header class="lhead"><div class="wrap row between">
+    <button class="lbrand" data-act="site" data-p="home" aria-label="Retour au site">${SITE_LOGO}<b>GARRYM</b></button>
+    <div class="row" style="gap:8px"><button class="btn btn-soft btn-sm" data-act="site" data-p="home">Retour au site</button>${doctolib("Bilan · 70 €", "btn-olive btn-sm")}</div>
+  </div></header>${siteLogin()}</div>`;
+}
 function site() {
+  if (S.sitePage === "login") return loginPage();
   const home = S.sitePage === "home";
   const body = { home: siteHome, about: siteAbout, offres: siteOffres, themes: siteThemes, blog: siteBlog, contact: siteContact, login: siteLogin }[S.sitePage]();
   return `${home ? "" : `<div class="snav-wrap">${siteNav(false)}</div>`}${body}${footer()}`;
@@ -1147,7 +1236,7 @@ function siteContact() {
 function siteLogin() {
   return `<section class="section" style="padding-top:30px"><div class="wrap" style="max-width:520px">
     <form class="panel stack" data-form="login" style="gap:18px;position:relative;overflow:hidden">
-      <span class="par" style="right:-40px;top:-40px;width:150px;opacity:.9">${SH.citron("var(--sable)")}</span>
+      <span class="par" style="right:-40px;top:-40px;width:150px;opacity:.9">${SH.citron("var(--sauge)")}</span>
       <span class="kicker">Espace patiente</span><h1 class="display h-m" style="position:relative">Bon <span class="serif">retour</span></h1>
       <p class="muted small">Votre espace est créé par Manon après votre première consultation. Vous avez reçu un email pour choisir votre mot de passe.</p>
       <div class="field"><label for="l-mail">Email</label><input id="l-mail" type="email" value="camille.roux@exemple.fr" autocomplete="email"></div>
@@ -1180,7 +1269,7 @@ function patient() {
 }
 function upsell(feat, title) {
   const t = minPlan(feat);
-  return `<div class="upsell"><span class="tag f2">${I.lock}Dossard 0${t.slice(1)}</span><h3 class="display h-m" style="font-size:1.7rem">${title}</h3>
+  return `<div class="upsell"><span class="tag f2">${I.lock}Formule 0${t.slice(1)}</span><h3 class="display h-m" style="font-size:1.7rem">${title}</h3>
     <p class="muted">Inclus à partir de la formule <b>${esc(PLANS[t].name)}</b> (${PLANS[t].price} €/mois). Parlez-en à Manon : elle change votre formule en un clic.</p>
     <div class="row">${can("contact") ? `<button class="btn btn-wa btn-sm" data-act="wa">${I.chat}Écrire à Manon</button>` : ""}${doctolib("En parler en consultation", "btn-line btn-sm")}</div></div>`;
 }
@@ -1367,7 +1456,7 @@ function ticket(s) {
 }
 function ptSeances() {
   if (!can("collectives")) return `<div class="ph-head"><h1 class="display">Séances</h1></div><div class="locked"><div class="blur stack">${SESSIONS.map(ticket).join("")}</div>${upsell("collectives", "Séances collectives et coaching individuel")}</div>`;
-  return `<div class="ph-head"><div><span class="kicker">Inclus dans votre dossard</span><h1 class="display" style="margin-top:8px">Séances <span class="serif">avec Manon</span></h1></div></div>
+  return `<div class="ph-head"><div><span class="kicker">Inclus dans votre formule</span><h1 class="display" style="margin-top:8px">Séances <span class="serif">avec Manon</span></h1></div></div>
     <section class="stack" style="gap:12px"><h2 class="h-s">Collectives en visio</h2><p class="muted">Deux séances de 30 min par mois, 10 places. Rappel la veille et 1 h avant.</p>
       ${SESSIONS.filter(s => daysUntil(s.date) >= 0).map(ticket).join("")}
       ${note("Hypothèse : 1er et 3e mardi à 19 h, liste d'attente automatique (règles 12 et 14).")}</section>
@@ -1396,7 +1485,7 @@ function ptProfil() {
     <div class="grid g2" style="align-items:start">
       <div class="card stack"><h3 class="h-s">Mes informations</h3>${[["Nom", fullName(p)], ["Email", p.email], ["Téléphone", p.phone]].map(([l, v]) => `<div class="field"><span class="lbl">${l}</span><span>${esc(v)}</span></div>`).join("")}
         <div><button class="btn btn-soft btn-sm" data-act="toast" data-msg="En version finale : email de changement de mot de passe.">Changer mon mot de passe</button></div></div>
-      <div class="card stack"><h3 class="h-s">Mon dossard</h3><div>${planTag(p.plan)}</div><p class="small muted">Depuis le ${fmtD(p.start)}${p.end ? `, jusqu'au ${fmtD(p.end)}` : ""}.</p><p class="small">Pour changer de formule, parlez-en à Manon.</p>${note("Montée immédiate, descente au mois suivant (hypothèse, règle 7).")}</div>
+      <div class="card stack"><h3 class="h-s">Ma formule</h3><div>${planTag(p.plan)}</div><p class="small muted">Depuis le ${fmtD(p.start)}${p.end ? `, jusqu'au ${fmtD(p.end)}` : ""}.</p><p class="small">Pour changer de formule, parlez-en à Manon.</p>${note("Montée immédiate, descente au mois suivant (hypothèse, règle 7).")}</div>
       <div class="card stack"><h3 class="h-s">Notifications</h3>${[["rappels", "Rappels de séances et de consultations"], ["nouveautes", "Nouvelles recettes et vidéos"], ["resume", "Résumé de la semaine"]].map(([k, l]) => `<div class="row between" style="flex-wrap:nowrap"><span>${l}</span><label class="toggle"><input type="checkbox" id="n-${k}" data-change="notif" data-k="${k}" ${S.notif[k] ? "checked" : ""}><span></span></label></div>`).join("")}</div>
     </div>`;
 }
@@ -1410,7 +1499,7 @@ function ptPlus() {
 const AD_NAV = [["dashboard", "Tableau de bord", "grid"], ["patientes", "Patientes", "users"], ["programmes", "Programmes", "bowl"], ["recettes", "Recettes", "leaf"], ["videos", "Vidéos", "video"], ["articles", "Articles", "book"], ["seances", "Séances", "dumbbell"], ["rdv", "Rendez-vous", "cal"], ["parametres", "Paramètres", "gear"]];
 function admin() {
   const page = { dashboard: adDashboard, patientes: adPatients, programmes: adProgrammes, recettes: adRecettes, videos: adVideos, articles: adArticles, seances: adSeances, rdv: adRdv, parametres: adParams }[S.adPage]();
-  return `<div class="wrap app admin"><nav class="rail" aria-label="Back-office"><div class="me"><div class="av" style="background:var(--olive);color:var(--olive-ink)">MG</div><div><b>Manon Garrione</b><div class="tiny muted">Administratrice</div></div></div>
+  return `<div class="wrap app admin"><nav class="rail" aria-label="Back-office"><div class="me"><div class="av">MG</div><div><b>Manon Garrione</b><div class="tiny muted">Administratrice</div></div></div>
     ${AD_NAV.map(([k, l, ic]) => `<button class="nv ${S.adPage === k ? "on" : ""}" data-act="ad" data-p="${k}">${I[ic]}<span>${l}</span></button>`).join("")}</nav>
     <main class="main" id="main">${page}</main></div>`;
 }
@@ -1573,7 +1662,7 @@ function articleFormModal() {
     <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Publier</button></div></form>`;
 }
 function adSeances() {
-  return `<div class="ph-head"><div><span class="kicker">Dossard 03</span><h1 class="display" style="margin-top:8px">Séances</h1></div><button class="btn btn-olive" data-act="newsession">${I.plus}Nouveau créneau</button></div>
+  return `<div class="ph-head"><div><span class="kicker">Formule 03</span><h1 class="display" style="margin-top:8px">Séances</h1></div><button class="btn btn-olive" data-act="newsession">${I.plus}Nouveau créneau</button></div>
     <div class="stack" style="gap:12px">${SESSIONS.map(s => { const d = parseD(s.date); return `<div class="ticket"><div class="stub"><b class="num">${d.getDate()}</b><span>${d.toLocaleDateString("fr-FR", { month: "short" }).replace(".", "")}</span></div>
       <div class="info"><h4 class="h-s" style="font-size:1.08rem">${esc(s.title)}</h4><span class="tiny muted">${fmtDay(s.date)} · ${fmtT(s.time)} · ${esc(s.link.replace("https://", ""))}</span><div class="seats">${Array.from({ length: s.places }, (_, i) => `<i class="${i < s.inscrits.length ? "f" : ""}"></i>`).join("")}</div><span class="tiny">${s.inscrits.length}/${s.places} inscrites${s.wait.length ? ` · ${s.wait.length} en attente` : ""}</span></div>
       <div class="act" style="gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="inscrits" data-id="${s.id}">Inscrites</button><button class="btn btn-text btn-sm" data-act="toast" data-msg="Email envoyé aux ${s.inscrits.length} inscrites (simulation).">Écrire</button></div></div>`; }).join("")}</div>
@@ -1621,6 +1710,24 @@ function openModal(html, wide = false) {
 function closeModal() { $("#modal-root").innerHTML = ""; S.modal = null; }
 let toastTimer;
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; t.style.animation = "none"; void t.offsetWidth; t.style.animation = ""; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3600); }
+/* Lignes topographiques du site (carrés marchants sur un bruit de Perlin), peintes une fois en image de fond --topo */
+(function paintTopo() {
+  const W = 1200, H = 800, c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d");
+  const p = new Uint8Array(512); for (let i = 0; i < 256; i++) p[i] = i; let sd = 7; for (let i = 255; i > 0; i--) { sd = (sd * 16807) % 2147483647; const j = sd % (i + 1); [p[i], p[j]] = [p[j], p[i]]; } for (let i = 0; i < 256; i++) p[i + 256] = p[i];
+  const f = t => t * t * t * (t * (t * 6 - 15) + 10), g = (h, a, b) => ((h & 1) ? -a : a) + ((h & 2) ? -b : b);
+  const n = (a, b) => { const X = Math.floor(a) & 255, Y = Math.floor(b) & 255; a -= Math.floor(a); b -= Math.floor(b); const u = f(a), v = f(b), A = p[X] + Y, B = p[X + 1] + Y; return (1 - v) * ((1 - u) * g(p[A], a, b) + u * g(p[B], a - 1, b)) + v * ((1 - u) * g(p[A + 1], a, b - 1) + u * g(p[B + 1], a - 1, b - 1)); };
+  const cell = 12, cols = W / cell + 1, rows = H / cell + 1, sc = .0035, v = [];
+  for (let j = 0; j < rows; j++) { v[j] = []; for (let i = 0; i < cols; i++) v[j][i] = n(i * cell * sc, j * cell * sc) + .5 * n(i * cell * sc * 2.1 + 9, j * cell * sc * 2.1); }
+  x.strokeStyle = "rgba(214,232,226,.16)"; x.lineWidth = 1.2;
+  for (let lv = -1; lv <= 1; lv += .09) { x.beginPath();
+    for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+      const a = v[j][i], b = v[j][i + 1], cc = v[j + 1][i + 1], d = v[j + 1][i], X = i * cell, Y = j * cell, q = [], t = (m, o) => (lv - m) / (o - m);
+      if ((a > lv) !== (b > lv)) q.push([X + cell * t(a, b), Y]); if ((b > lv) !== (cc > lv)) q.push([X + cell, Y + cell * t(b, cc)]);
+      if ((d > lv) !== (cc > lv)) q.push([X + cell * t(d, cc), Y + cell]); if ((a > lv) !== (d > lv)) q.push([X, Y + cell * t(a, d)]);
+      if (q.length >= 2) { x.moveTo(...q[0]); x.lineTo(...q[1]); if (q.length === 4) { x.moveTo(...q[2]); x.lineTo(...q[3]); } }
+    } x.stroke(); }
+  document.documentElement.style.setProperty("--topo", `url(${c.toDataURL("image/png")})`);
+})();
 /* Le site public est le fichier site/index.html, affiché dans un cadre. Seule la connexion reste dessinée ici. */
 const SITE_URL = /\/prototype\/(index\.html)?$/.test(location.pathname) ? "../site/index.html" : "site/index.html";
 const SITE_ANCHOR = { home: "", about: "#manifeste", offres: "#formules", themes: "#programmes", blog: "#journal", contact: "#cabinets" };
