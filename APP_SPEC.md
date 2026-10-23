@@ -34,7 +34,7 @@ Donner à chaque patiente de Manon un accompagnement qui continue entre les cons
 3. **Usage hebdomadaire** : accueil (prochaine consultation, menu du jour, prochaine séance) → semainier → recette → liste de courses ; vidéo → case « fait ».
 4. **Séance collective (F3)** : Séances → « Je viens » → rappel la veille et 1 h avant → lien visio. Si c'est complet : liste d'attente, promotion automatique quand une place se libère.
 5. **Reprendre rendez-vous** : bouton Doctolib → Manon recopie la date dans le back-office → elle s'affiche dans l'espace de la patiente.
-6. **Monter en gamme** : un contenu verrouillé reste visible, flouté, avec le dossard qui le débloque et un bouton pour en parler à Manon. Manon change la formule ; l'accès change immédiatement.
+6. **Monter en gamme** : un contenu verrouillé reste visible, flouté, avec la formule qui le débloque et un bouton pour en parler à Manon. Manon change la formule ; l'accès change immédiatement.
 7. **Fin d'abonnement** : J-7, email à la patiente et à Manon. À l'échéance sans renouvellement : accès réduit (hypothèse : documents en lecture seule pendant 3 mois).
 
 ## 5. Écrans
@@ -46,7 +46,7 @@ La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la 
 | --- | --- |
 | Accueil (v4, `site/index.html`) | Page unique : chargement chiffré, héros WebGL (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 n'est plus affiché ; il reste dans `prototype/archive/v3-2026-10-23.html` |
 | Manon | Présentation, diplômes (diététique, coach sportive + n° de carte pro), approche |
-| Formules | Bilan 70 €, suivi 50 €, dossards F1/F2/F3, tableau comparatif généré depuis la matrice d'accès, séance individuelle |
+| Formules | Bilan 70 €, suivi 50 €, formules F1/F2/F3, tableau comparatif généré depuis la matrice d'accès, séance individuelle |
 | Thématiques | Endométriose, SOPK, ménopause, sportives, rééquilibrage |
 | Journal | Articles publics ; articles « Membres » signalés |
 | Cabinets | Hyères (lundi), La Garde (mar/mer/ven), cartes, formulaire de contact |

@@ -66,6 +66,9 @@ npm run check:site                   # site v4 : WebGL, erreurs JS, 390 px, capt
 npm run build:standalone             # produit dist/garrym-prototype.html (ignoré par git), à envoyer tel quel
 npm run check:standalone             # même parcours que npm run check, sur ce fichier
 
+# Brief fonctionnel en PDF (source : references/brief-fonctionnalites.html, à mettre à jour avec APP_SPEC.md)
+npm run build:brief                  # produit dist/Brief-fonctionnel-Garrym.pdf
+
 # Publier l'aperçu en ligne (page privée claude.ai, lisible sur téléphone)
 node tools/build-artifact.mjs        # produit dist/prototype-garrym.html (ignoré par git)
 # puis republier ce fichier avec l'outil Artifact sur la même URL, en joignant le site (option files) :

@@ -27,6 +27,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-23 | Espace patiente et back-office harmonisés avec le site | Bandeaux calanque à lignes topographiques, titres en capitales avec mot serif, navigation mono numérotée, boutons et étiquettes mono, coins coupés, chiffres fins ; connexion avec l'en-tête du site ; vocabulaire « formule » au lieu de « dossard » |
 | 2026-10-23 | Section « Au quotidien » retirée du site | Jugée inutile par Romain ; « Repères » passe en fond lagon pour garder l'équilibre du brief ; photos inutilisées supprimées |
 | 2026-10-23 | Application animée comme le site, fonds fixes | Rideau des bandeaux, titres par mots masqués, entrées décalées et au défilement, compteurs, barres, curseur ; typographie alignée sur le site ; plus de mode sombre (ton sur ton corrigé) |
+| 2026-10-23 | Brief fonctionnel en PDF | 8 pages : les trois espaces, ce que débloque chaque formule, automatismes, conformité, statut (prototype / à construire / à décider), questions pour Manon ; `npm run build:brief` |
 | 2026-10-23 | Fichier HTML unique | `dist/garrym-prototype.html` : les trois vues et le site intégré (photos en data URI, environ 3 Mo), construit par `npm run build:standalone` et vérifié par `npm run check:standalone` |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 
