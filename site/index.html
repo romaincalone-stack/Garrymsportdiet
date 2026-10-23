@@ -12,7 +12,7 @@
 <style>
 /* Garrym · site public v4. Mélange de cinq références (Terminal Industries, Lando Norris, Symphony of Vines, KÖM, Resn) :
    scène WebGL d'ouverture, chargement chiffré, titres qui mêlent linéale grasse et capitales serif, micro-étiquettes en mono,
-   alternance calanque / écume / lagon, lignes topographiques, collage photo en parallaxe, défilement horizontal épinglé, chapitre cinéma.
+   alternance calanque / écume / lagon, lignes topographiques, défilement horizontal épinglé, chapitre cinéma.
    Palette v5-B « Calanque et citron » : bleu-vert profond, écume, lagon, une seule couleur vive (citron, en surligneur sur fond clair). */
 :root{
   --calanque:#0B2D33; --calanque-2:#14444B; --posidonie:#2B6A5D; --lagon:#D6E8E2; --ecume:#F4F6F1;
@@ -100,7 +100,7 @@ body.ready .nav{opacity:1}
 .hero .meta > div,.hero .side p{text-shadow:0 1px 14px rgba(11,45,51,.9),0 0 2px rgba(11,45,51,.8)}
 .hero .content{position:absolute;left:0;right:0;bottom:clamp(70px,9vh,110px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end}
 .hero h1{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;font-size:clamp(3rem,calc((100vw - 460px) / 6.6),10.5rem);line-height:.84;letter-spacing:-.025em}
-.hero h1 .l{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .l{display:block;overflow:hidden;padding:.16em 0 .04em;margin-top:-.16em}
 .hero h1 .l > span{display:inline-block}
 .hero h1 .serif{font-weight:400;text-transform:uppercase;letter-spacing:-.03em}
 .hero .side{max-width:330px;display:flex;flex-direction:column;gap:20px;padding-bottom:12px}
@@ -130,25 +130,7 @@ body.ready .nav{opacity:1}
 .manifest .scribble{display:block;width:min(560px,70%);margin:18px auto 0;overflow:visible}
 .manifest .scribble path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round}
 
-/* Collage (Lando Norris) */
-.collage{min-height:200vh;padding-block:clamp(90px,12vw,160px);overflow:hidden}
 .topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.collage .label{position:relative;z-index:2}
-.collage .quote{position:sticky;top:34vh;z-index:3;text-align:center;max-width:17em;margin:22vh auto 0;font-family:var(--f-serif);font-size:clamp(1.5rem,2.8vw,2.6rem);line-height:1.12}
-.collage .quote small{display:block;margin-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--galet)}
-.collage .sig{display:block;width:150px;margin:18px auto 0}
-.collage .sig path{fill:none;stroke:var(--calanque);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.ph{position:absolute;z-index:2}
-.ph figure{margin:0}
-.ph .im{overflow:hidden;background:var(--calanque-2)}
-.ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.02)}
-.ph figcaption{margin-top:10px;color:var(--galet)}
-.ph.p1{left:4%;top:16%;width:min(22vw,300px)} .ph.p1 .im{aspect-ratio:4/5}
-.ph.p2{right:5%;top:10%;width:min(18vw,250px)} .ph.p2 .im{aspect-ratio:3/4}
-.ph.p3{left:15%;top:56%;width:min(26vw,380px)} .ph.p3 .im{aspect-ratio:5/4}
-.ph.p4{right:12%;top:50%;width:min(20vw,280px)} .ph.p4 .im{aspect-ratio:4/5}
-.ph.p5{left:46%;top:80%;width:min(16vw,220px)} .ph.p5 .im{aspect-ratio:1}
-@media (max-width:760px){.collage{min-height:auto;display:flex;flex-direction:column;gap:30px}.ph{position:relative;left:auto!important;right:auto!important;top:auto!important;width:72%!important}.ph:nth-of-type(even){align-self:flex-end}.collage .quote{position:relative;top:auto;margin:30px auto}}
 
 /* Deux univers (Lando : On track / Off track) */
 .univers{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden}
@@ -311,18 +293,6 @@ body.ready .nav{opacity:1}
     <svg class="scribble" viewBox="0 0 560 40" aria-hidden="true"><path id="scrib" d="M6 26C70 12 140 30 210 20C280 10 330 34 400 22C450 14 500 18 554 12"/></svg>
   </section>
 
-  <section class="sec tint collage wrap" id="collage">
-    <canvas class="topo" data-color="rgba(11,45,51,.10)" aria-hidden="true"></canvas>
-    <div class="label mono"><b>(02)</b><span>Au quotidien</span></div>
-    <div class="ph p1" data-speed="-0.25"><figure><div class="im"><img data-img="cuisine" alt="Préparation d'un repas avec des légumes frais"></div><figcaption class="mono">Cuisine · semainier</figcaption></figure></div>
-    <div class="ph p2" data-speed="0.18"><figure><div class="im"><img data-img="oliveraie" alt="Oliveraie au soleil"></div><figcaption class="mono">Var · 2026</figcaption></figure></div>
-    <div class="ph p3" data-speed="-0.12"><figure><div class="im"><img data-img="course" alt="Course à pied en bord de mer"></div><figcaption class="mono">Séance · sentier côtier</figcaption></figure></div>
-    <div class="ph p4" data-speed="0.3"><figure><div class="im"><img data-img="marche" alt="Étal de légumes au marché"></div><figcaption class="mono">Marché · produits de saison</figcaption></figure></div>
-    <div class="ph p5" data-speed="-0.35"><figure><div class="im"><img data-img="citrons" alt="Citrons frais"></div><figcaption class="mono">Recette · agrumes</figcaption></figure></div>
-    <blockquote class="quote">« Un repas, puis une habitude, puis une saison. Les vrais changements prennent ce chemin-là. »
-      <svg class="sig" viewBox="0 0 150 50" aria-hidden="true"><path id="sig" d="M6 34C14 10 22 8 20 30C19 40 28 18 34 20C40 22 36 36 44 30C52 24 54 14 60 22C64 28 62 36 70 30C78 24 84 18 92 26C98 32 104 30 112 22C118 16 128 18 144 14"/></svg>
-      <small>Manon Garrione — citation provisoire</small></blockquote>
-  </section>
 
   <section class="sec light univers" id="univers">
     <canvas class="topo" data-color="rgba(11,45,51,.07)" aria-hidden="true"></canvas>
@@ -331,7 +301,7 @@ body.ready .nav{opacity:1}
   </section>
 
   <section class="sec programmes" id="programmes">
-    <div class="head wrap"><div><div class="label mono" style="margin-bottom:24px"><b>(03)</b><span>Thématiques</span></div><h2>Pour chaque<br><span class="serif acc" style="font-weight:400">étape de vie</span></h2></div><p>Chaque accompagnement est personnalisé lors du bilan, en complément de votre suivi médical.</p></div>
+    <div class="head wrap"><div><div class="label mono" style="margin-bottom:24px"><b>(02)</b><span>Thématiques</span></div><h2>Pour chaque<br><span class="serif acc" style="font-weight:400">étape de vie</span></h2></div><p>Chaque accompagnement est personnalisé lors du bilan, en complément de votre suivi médical.</p></div>
     <div class="track-wrap"><div class="track wrap" id="track">
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="yoga" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>01</b></div><h3>Endométriose</h3><p>Des repères alimentaires pour mieux vivre au quotidien, en lien avec votre suivi médical.</p></div></article>
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="table" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>02</b></div><h3>SOPK</h3><p>Stabiliser l'énergie dans la journée et construire des repas qui tiennent.</p></div></article>
@@ -353,14 +323,14 @@ body.ready .nav{opacity:1}
   </section>
 
   <section class="sec deep formules wrap" id="formules">
-    <div class="head"><div><div class="label mono" style="margin-bottom:24px"><b>(04)</b><span>Formules</span></div><h2>Choisissez<br><span class="serif acc">votre rythme</span></h2></div>
+    <div class="head"><div><div class="label mono" style="margin-bottom:24px"><b>(03)</b><span>Formules</span></div><h2>Choisissez<br><span class="serif acc">votre rythme</span></h2></div>
       <div class="toggle mono" role="tablist"><button class="on" data-plan="mois" role="tab" aria-selected="true">Mensuel</button><button data-plan="unite" role="tab" aria-selected="false">À l'unité</button></div></div>
     <div class="plans" id="plans"></div>
     <p class="fine mono">Tarifs indicatifs, en cours de validation · Toute formule commence par le bilan (70 €)</p>
   </section>
 
-  <section class="sec light cabinets wrap" id="cabinets">
-    <div class="label mono"><b>(05)</b><span>Repères</span></div>
+  <section class="sec tint cabinets wrap" id="cabinets">
+    <div class="label mono"><b>(04)</b><span>Repères</span></div>
     <div class="grid">
       <div class="stats">
         <div class="s"><b data-count="70" data-suffix=" €">0 €</b><span class="mono">Le bilan<br>initial</span></div>
@@ -379,7 +349,7 @@ body.ready .nav{opacity:1}
   </section>
 
   <section class="sec light journal wrap" id="journal">
-    <div class="label mono"><b>(06)</b><span>Journal</span></div>
+    <div class="label mono"><b>(05)</b><span>Journal</span></div>
     <div class="rows">
       <a class="rw" href="#" data-peek="citrons" data-cursor="LIRE" data-toast="Article de démonstration."><span class="mono">15.10.26</span><h3>5 petits-déjeuners rassasiants en moins de 5 minutes</h3><span class="tg mono">Recettes · 4 min</span></a>
       <a class="rw" href="#" data-peek="table" data-cursor="LIRE" data-toast="Article de démonstration."><span class="mono">28.09.26</span><h3>Lire une étiquette nutritionnelle en 3 étapes</h3><span class="tg mono">Repères · 5 min</span></a>
@@ -407,7 +377,7 @@ body.ready .nav{opacity:1}
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 /* Photos provisoires (Wikimedia Commons, voir img/CREDITS.md). Une image absente laisse un fond uni. */
-const IMG = { cuisine: "img/cuisine.jpg", oliveraie: "img/oliveraie.jpg", course: "img/course.jpg", marche: "img/marche.jpg", citrons: "img/citrons.jpg", assiette: "img/assiette.jpg", terrain: "img/terrain.jpg", yoga: "img/yoga.jpg", table: "img/table.jpg", etirement: "img/etirement.jpg", portrait: "img/portrait.jpg" };
+const IMG = { course: "img/course.jpg", citrons: "img/citrons.jpg", assiette: "img/assiette.jpg", terrain: "img/terrain.jpg", yoga: "img/yoga.jpg", table: "img/table.jpg", etirement: "img/etirement.jpg", portrait: "img/portrait.jpg" };
 const DOCTOLIB = "https://www.doctolib.fr/dieteticien/toulon/manon-garrione";
 document.querySelectorAll("img[data-img]").forEach(i => { i.src = IMG[i.dataset.img]; i.loading = "lazy"; i.decoding = "async"; i.onerror = () => { i.style.visibility = "hidden"; }; });
 document.querySelectorAll(".doctolib").forEach(a => a.href = DOCTOLIB);
@@ -685,7 +655,7 @@ function heroIntro() {
   return tl;
 }
 
-/* ---------- Défilement : héros, manifeste, collage, horizontal, chapitre ---------- */
+/* ---------- Défilement : héros, manifeste, horizontal, chapitre ---------- */
 if (hero) ScrollTrigger.create({ trigger: "#hero", start: "top top", end: "bottom top", scrub: true, onUpdate: s => hero.setScroll(s.progress) });
 gsap.to("#hero .content, #hero .meta", { yPercent: -30, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: .8 } });
 
@@ -702,10 +672,6 @@ if (!REDUCE) {
   ScrollTrigger.create({ trigger: man, start: "top 80%", end: "bottom 40%", scrub: true, onUpdate: s => { const n = Math.round(s.progress * words.length); words.forEach((w, i) => w.style.opacity = i < n ? 1 : .14); } });
   const scrib = $("#scrib"), L = scrib.getTotalLength(); scrib.style.strokeDasharray = L; scrib.style.strokeDashoffset = L;
   gsap.to(scrib, { strokeDashoffset: 0, ease: "none", scrollTrigger: { trigger: man, start: "60% 70%", end: "bottom 45%", scrub: true } });
-  const sig = $("#sig"), S = sig.getTotalLength(); sig.style.strokeDasharray = S; sig.style.strokeDashoffset = S;
-  gsap.to(sig, { strokeDashoffset: 0, ease: "none", scrollTrigger: { trigger: ".collage .quote", start: "top 70%", end: "top 30%", scrub: true } });
-  if (innerWidth > 760) $$(".ph").forEach(p => gsap.to(p, { yPercent: parseFloat(p.dataset.speed) * 140, ease: "none", scrollTrigger: { trigger: "#collage", start: "top bottom", end: "bottom top", scrub: 1.2 } }));
-  $$(".ph .im").forEach(im => gsap.from(im, { clipPath: "inset(100% 0 0 0)", duration: 1.4, ease: "expo.out", scrollTrigger: { trigger: im, start: "top 88%" } }));
 } else words.forEach(w => w.style.opacity = 1);
 
 const mmH = gsap.matchMedia();

@@ -44,7 +44,7 @@ La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la 
 
 | Écran | Contenu clé |
 | --- | --- |
-| Accueil (v4, `site/index.html`) | Page unique : chargement chiffré, héros WebGL (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, collage « Au quotidien », partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 n'est plus affiché ; il reste dans `prototype/archive/v3-2026-10-23.html` |
+| Accueil (v4, `site/index.html`) | Page unique : chargement chiffré, héros WebGL (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 n'est plus affiché ; il reste dans `prototype/archive/v3-2026-10-23.html` |
 | Manon | Présentation, diplômes (diététique, coach sportive + n° de carte pro), approche |
 | Formules | Bilan 70 €, suivi 50 €, dossards F1/F2/F3, tableau comparatif généré depuis la matrice d'accès, séance individuelle |
 | Thématiques | Endométriose, SOPK, ménopause, sportives, rééquilibrage |

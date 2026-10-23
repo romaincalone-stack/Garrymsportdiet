@@ -25,6 +25,8 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-23 | Fruits 3D réalistes | Matières physiques (velours, pores, cire, laque), textures peintes, éclairage d'ambiance, ombres portées ; physique : chute à l'arrivée, flottaison, poussée du pointeur, collisions, élan du défilement ; qualité réduite automatiquement si l'appareil rame |
 | 2026-10-23 | Prototype unifié à trois vues | Bandeau Site public / Espace patiente / Back-office : le site v4 dans la vue publique, « Mon espace » → connexion → espace patiente ; `npm run check` couvre ce parcours |
 | 2026-10-23 | Espace patiente et back-office harmonisés avec le site | Bandeaux calanque à lignes topographiques, titres en capitales avec mot serif, navigation mono numérotée, boutons et étiquettes mono, coins coupés, chiffres fins ; connexion avec l'en-tête du site ; vocabulaire « formule » au lieu de « dossard » |
+| 2026-10-23 | Section « Au quotidien » retirée du site | Jugée inutile par Romain ; « Repères » passe en fond lagon pour garder l'équilibre du brief ; photos inutilisées supprimées |
+| 2026-10-23 | Application animée comme le site, fonds fixes | Rideau des bandeaux, titres par mots masqués, entrées décalées et au défilement, compteurs, barres, curseur ; typographie alignée sur le site ; plus de mode sombre (ton sur ton corrigé) |
 | 2026-10-23 | Fichier HTML unique | `dist/garrym-prototype.html` : les trois vues et le site intégré (photos en data URI, environ 3 Mo), construit par `npm run build:standalone` et vérifié par `npm run check:standalone` |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 
@@ -42,7 +44,6 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | --- | --- | --- |
 | P0 | Pages secondaires du site dans le style v4 (Manon, Formules, Thématiques, Journal, Cabinets, Connexion) | Validation de l'accueil v4 |
 | P2 | Supprimer du prototype le code de l'ancien site v3 (non affiché, archivé) une fois les pages secondaires v4 faites | Pages secondaires v4 |
-| P1 | Animations de l'application au niveau du site (entrées au défilement, transitions) | Validation de l'harmonisation |
 | P2 | Tableau des patientes : colonnes plus compactes sur écran de 1 280 px (la dernière colonne oblige à défiler) | — |
 | P2 | Remplacer les fruits modélisés en code par des modèles 3D réalisés sur mesure (photogrammétrie de vrais fruits), si le budget le permet | Validation v4 |
 | P1 | Version allégée de la scène WebGL pour téléphones d'entrée de gamme (image fixe si le rendu est lent) | Mesures sur vrais appareils |
@@ -64,7 +65,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | P1 | Nom de domaine et adresse email pro | Manon |
 | P0 | Shooting photo (Manon, cabinets, plats vus du dessus, mains, pinède) | Manon |
 | P1 | Mot géant translucide qui passe sous une photo (réf. Farm Minerals) | Photos |
-| P1 | Portrait détouré de Manon dans le collage (réf. Lando Norris) | Shooting |
+| P2 | Portrait détouré de Manon dans le site (réf. Lando Norris) | Shooting |
 | P2 | Son d'ambiance optionnel, coupé par défaut (réf. Symphony of Vines) | Validation v4 |
 | P1 | Bascule « Nutrition / Sport » sur l'accueil (réf. Voldog) | Validation du brief v3 |
 | P1 | Assiette qui se compose au défilement, ingrédients expliqués (réf. Farm Minerals, Voldog) | Photos ou illustrations des ingrédients |

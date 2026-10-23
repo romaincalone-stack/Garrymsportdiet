@@ -20,7 +20,7 @@ async function run(name, viewport, mobile) {
   const gl = await page.evaluate(() => !document.getElementById("gl").hidden);
   console.log(`${name} webgl ${gl}`);
   await page.screenshot({ path: `${out}/site-${name}-01-hero.png` });
-  const ids = ["manifeste", "collage", "univers", "programmes", "bilan", "formules", "cabinets", "journal", "contact"];
+  const ids = ["manifeste", "univers", "programmes", "bilan", "formules", "cabinets", "journal", "contact"];
   let n = 2;
   for (const id of ids) {
     await page.evaluate(id => { const el = document.getElementById(id); window.scrollTo(0, el.getBoundingClientRect().top + scrollY + (id === "manifeste" ? el.offsetHeight * .45 : id === "programmes" ? innerHeight * 0.9 : 0)); }, id);

@@ -11,7 +11,7 @@ Sites choisis par Romain, **ouverts et mesurés** le 2026-10-23 : inspection REA
 | Site | Ce qu'on en reprend | Où dans `site/` |
 | --- | --- | --- |
 | [Terminal Industries](https://terminal-industries.com/) | Capsule de navigation flottante en verre sombre, micro-étiquettes en mono capitales, grand titre centré révélé mot à mot, chiffres en lignes séparées par des filets, pied de page sombre avec mot géant | Navigation, Manifeste, Repères, Pied de page |
-| [Lando Norris](https://landonorris.com/) | Titres qui mêlent linéale grasse étroite en capitales et capitales serif fines colorées, lignes topographiques, collage de photos dispersées avec légendes mono, signature tracée, partage « On track / Off track », cartes à coins coupés | Héros (titre), Au quotidien, L'assiette / Le terrain, Thématiques |
+| [Lando Norris](https://landonorris.com/) | Titres qui mêlent linéale grasse étroite en capitales et capitales serif fines colorées, lignes topographiques, partage « On track / Off track », cartes à coins coupés | Héros (titre), L'assiette / Le terrain, Thématiques |
 | [Symphony of Vines](https://symphonyofvines.unseen.co/) | Chargement chiffré, chapitre plein écran sépia avec grain et vignettage, grand titre serif en capitales précédé d'un petit « Tout commence par », bouton pilule fin | Chargement, Le bilan |
 | [KÖM](https://www.komagence.com/) | Fond nuit, objet 3D irisé, cartes de formules avec halo qui suit le curseur, liste d'articles avec image qui suit le curseur, défilement horizontal épinglé | Héros (scène), Formules, Journal, Thématiques |
 | [Resn](https://resn.co.nz/) | Scène WebGL plein écran qui réagit à la souris et au défilement, curseur personnalisé à libellé | Héros, curseur |
@@ -44,7 +44,7 @@ Principe : le bleu-vert profond des calanques pour la confiance et le plein air,
 | Token | Valeur | Évoque | Usage |
 | --- | --- | --- | --- |
 | `--ecume` | `#F4F6F1` | Écume sur le calcaire | Fond principal (Manifeste, L'assiette / Le terrain, Repères, Journal), texte sur fond calanque |
-| `--lagon` | `#D6E8E2` | Eau peu profonde | Sections teintées (`.tint` : Au quotidien), étiquettes et texte du chapitre « Le bilan » sur fond sombre |
+| `--lagon` | `#D6E8E2` | Eau peu profonde | Sections teintées (`.tint` : Repères), étiquettes et texte du chapitre « Le bilan » sur fond sombre |
 | `--calanque` | `#0B2D33` | Eau profonde | Héros, Thématiques, Formules (`.deep`), pied de page, texte courant (`--ink`), boutons sur fond clair |
 | `--calanque-2` | `#14444B` | | Fond derrière les photos, grand mot du pied de page |
 | `--posidonie` | `#2B6A5D` | Herbier de posidonie | Liens, pictos, validations ; feuilles 3D du héros (`#1F5A4E` → `#6FA592`) |
@@ -77,13 +77,12 @@ En production : polices auto-hébergées (RGPD).
 | Chargement | Fond calanque, « GARRYM » en Bellefair géant lettre par lettre, compteur 000 → 100, barre citron, rideau qui remonte | Symphony, Resn |
 | Héros | Scène WebGL plein écran : corbeille de fruits en 3D réalistes (citron au centre, abricot, pomme, figue, olives, feuilles) : matières physiques (velours, pores, cire, laque), éclairage d'ambiance, ombres portées ; chute à l'arrivée, flottaison, poussée du pointeur, collisions douces, élan du défilement ; poussière en suspension ; mentions mono en haut, titre en trois lignes en bas à gauche, texte et boutons en bas à droite, « Défilez pour explorer » | Resn, KÖM, Terminal, Lando |
 | (01) Manifeste | Fond écume, fin de phrase surlignée de citron, une phrase centrée qui s'éclaire mot à mot, trait manuscrit qui se dessine | Terminal |
-| (02) Au quotidien | Fond lagon avec lignes topographiques, photos dispersées en parallaxe (avec inertie) et légendes galet, citation au centre et signature tracée en calanque | Lando |
 | L'assiette / Le terrain | Deux moitiés, titre géant ; la photo se révèle (assombrie) avec un trait citron sous le titre ; bouton rond calanque à flèche citron ; en cercle depuis le pointeur | Lando (On track / Off track) |
-| (03) Thématiques | Titre à gauche, défilement horizontal épinglé de cartes à coins coupés (balayage au doigt sur mobile) | KÖM, Lando |
+| (02) Thématiques | Titre à gauche, défilement horizontal épinglé de cartes à coins coupés (balayage au doigt sur mobile) | KÖM, Lando |
 | Le bilan | Chapitre plein écran, photo désaturée sous voile calanque en zoom lent, vignettage, grand titre serif, pilule fine | Symphony |
-| (04) Formules | Fond calanque, bascule mensuel / à l'unité, cartes avec halo citron qui suit le curseur, carte mise en avant en écume avec bouton calanque à texte citron | KÖM |
-| (05) Repères | Chiffres vrais en lignes à filets (compteur), cabinets en lignes jour / adresse / carte | Terminal |
-| (06) Journal | Liste à filets, image qui suit le curseur au survol | KÖM |
+| (03) Formules | Fond calanque, bascule mensuel / à l'unité, cartes avec halo citron qui suit le curseur, carte mise en avant en écume avec bouton calanque à texte citron | KÖM |
+| (04) Repères | Fond lagon, chiffres vrais en lignes à filets (compteur), cabinets en lignes jour / adresse / carte | Terminal |
+| (05) Journal | Liste à filets, image qui suit le curseur au survol | KÖM |
 | Pied de page | Appel final en Bellefair, colonnes, « GARRYM » géant en ton sur ton | Terminal |
 
 ## Mouvement
@@ -96,7 +95,6 @@ Les cinq références reposent sur des photos et des modèles 3D produits par de
 - Manon au cabinet, en oliveraie, sur le sentier côtier, lumière rasante du matin ou du soir (pour le chapitre « Le bilan ») ;
 - aliments et plats vus du dessus sur fond écume ou lagon, en lumière naturelle ;
 - mains en action (couper, mélanger, s'étirer) ;
-- un portrait détourable pour un futur collage façon Lando ;
 - les deux cabinets.
 
 ## À ne jamais faire
@@ -128,9 +126,11 @@ Langage visuel commun avec le site (couche « Harmonisation » en fin de feuille
 - **Navigation** en capitales mono numérotées « (01) », élément actif en citron avec filet à gauche.
 - **Boutons** en capitales mono, rayon 10 px, flèche ↗ ; principal = citron sur fond sombre, calanque à texte citron sur fond clair. Hauteur minimale 44 px.
 - **Étiquettes** mono capitales, rayon 6 px (police de texte dans les tableaux, pour la place). **Cartes** rayon 14 px, filet 1 px ; coin coupé en bas à droite sur les cartes recettes, vidéos et mises en avant.
-- **Chiffres** (indicateurs, anneau de progression) en Mona Sans 300 étroite, comme les repères du site.
+- **Chiffres** (indicateurs, anneau de progression) en Mona Sans 300 étroite, comme les repères du site ; leurs légendes en capitales mono.
+- **Titres de cartes** et noms de jours en Mona Sans 800 capitales étroites ; titres de recettes en Mona Sans 600 ; libellés de champs en capitales mono ; texte courant 16 px.
+- **Mouvement** (`animateView()`) : bandeau qui s'ouvre en rideau, titre qui monte mot par mot derrière un masque, contenu qui entre en décalé puis au défilement (courbe expo), chiffres qui comptent, barres et anneaux qui se remplissent, barre latérale qui entre au changement d'espace, curseur du site, lignes topographiques qui suivent le pointeur. Rien de tout cela si `prefers-reduced-motion`.
 
-Teintes dérivées propres à l'application : `#E6EFEB` (fond secondaire), `#D3E0DB` (filets) ; dégradés des emplacements photo (`.ph-*`) tirés de calanque, posidonie, lagon et citron. Mode sombre : fond calanque `#0B2D33`, cartes `#14444B`, accent citron. Les couleurs v3 restent consultables dans `prototype/archive/v3-2026-10-23.html`.
+Teintes dérivées propres à l'application : `#E6EFEB` (fond secondaire), `#D3E0DB` (filets) ; dégradés des emplacements photo (`.ph-*`) tirés de calanque, posidonie, lagon et citron. Pas de mode sombre : comme le site, l'application garde ses fonds clairs et ses surfaces calanque quel que soit le réglage de l'appareil (sinon les bandeaux se fondent dans le fond et certains textes deviennent illisibles). Les couleurs v3 restent consultables dans `prototype/archive/v3-2026-10-23.html`.
 
 ## Mots-clés de référencement
 

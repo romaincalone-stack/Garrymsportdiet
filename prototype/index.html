@@ -32,28 +32,8 @@
   --ease:cubic-bezier(.2,.8,.2,1);
   color-scheme:light;
 }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --paper:#0B2D33; --paper-2:#0F363D; --card:#14444B; --ink:#F4F6F1; --ink-2:#B5CBC4; --line:#24555C;
-  --olive:#F5D547; --olive-ink:#0B2D33; --olive-soft:#17505A; --olive-btn:#0B2D33;
-  --sauge:#6FA592; --sauge-soft:#17505A; --moka:#B5CBC4; --argile:#F5D547; --sable:#F5D547; --sable-soft:#0F363D; --rose:#17505A; --brume:#0F363D;
-  --band:#06242A; --band-ink:#F4F6F1;
-  --ok:#6FA592; --ok-soft:#17505A; --warn:#F0BE55; --warn-soft:#3A2D10; --crit:#FF8C7C; --crit-soft:#3E1B17;
-  --glass:rgba(11,45,51,.7); --glass-line:rgba(255,255,255,.1); --glass-shadow:0 10px 40px rgba(0,0,0,.45);
-  --note-bg:#3A3410; --note-ink:#F3E59B; --note-line:#7C6E25;
-  --grain-op:.08; --grain-blend:screen;
-  color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --paper:#0B2D33; --paper-2:#0F363D; --card:#14444B; --ink:#F4F6F1; --ink-2:#B5CBC4; --line:#24555C;
-  --olive:#F5D547; --olive-ink:#0B2D33; --olive-soft:#17505A; --olive-btn:#0B2D33;
-  --sauge:#6FA592; --sauge-soft:#17505A; --moka:#B5CBC4; --argile:#F5D547; --sable:#F5D547; --sable-soft:#0F363D; --rose:#17505A; --brume:#0F363D;
-  --band:#06242A; --band-ink:#F4F6F1;
-  --ok:#6FA592; --ok-soft:#17505A; --warn:#F0BE55; --warn-soft:#3A2D10; --crit:#FF8C7C; --crit-soft:#3E1B17;
-  --glass:rgba(11,45,51,.7); --glass-line:rgba(255,255,255,.1); --glass-shadow:0 10px 40px rgba(0,0,0,.45);
-  --note-bg:#3A3410; --note-ink:#F3E59B; --note-line:#7C6E25;
-  --grain-op:.08; --grain-blend:screen;
-  color-scheme:dark;
-}
+/* Pas de mode sombre : comme le site, l'application garde ses fonds clairs et ses bandeaux calanque quel que soit le réglage de l'appareil. */
+
 *,*::before,*::after{box-sizing:border-box}
 html{font-synthesis-style:none}
 .siteframe{display:block;width:100%;border:0;background:#0B2D33}
@@ -634,7 +614,20 @@ td.c,th.c{text-align:center}
 .app .display,.modal .display,.lpage .display{font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;letter-spacing:-.03em;line-height:.88}
 .app .serif,.modal .serif,.lpage .serif{font-style:normal}
 .app .display .serif,.modal .display .serif,.lpage .display .serif{font-family:var(--f-serif);font-weight:400;text-transform:uppercase;letter-spacing:-.02em;color:var(--ink);background:var(--hl);padding:0 .06em}
-.app .h-s,.modal .h-s{font-weight:700;letter-spacing:-.02em}
+.app,.modal,.lpage{font-size:16px;line-height:1.5}
+.app .h-s,.modal .h-s,.app .day h4,.lpage .h-s{font-family:var(--f-display);font-weight:800;font-variation-settings:"wdth" 82;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:1.25rem}
+.app .rlink,.app .rcard h4,.modal .rlink{font-family:var(--f-display);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.app .kpi .l,.app .bigring .tiny{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;line-height:1.4}
+.app .field label,.app .field .lbl,.modal .field label,.modal .field .lbl,.lpage .field label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--ink-2)}
+.app b,.app strong,.modal b{font-weight:600}
+/* Mouvement : titres par mots masqués, curseur du site */
+.ln{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em 0 .08em;margin:-.16em 0 -.08em}
+.ln > *{display:inline-block}
+.pcur{position:fixed;left:0;top:0;z-index:120;pointer-events:none;mix-blend-mode:difference}
+.pcur .dot{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff}
+.pcur .ring{position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;border:1px solid #fff;transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1),margin .4s cubic-bezier(.16,1,.3,1),background .3s}
+.pcur.big .ring{width:72px;height:72px;margin:-36px 0 0 -36px;background:rgba(255,255,255,.14)}
+body.on-site .pcur{display:none}
 .app .btn,.modal .btn,.lpage .btn{border-radius:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:14px 18px;min-height:44px;box-shadow:none}
 .app .btn-sm,.modal .btn-sm,.lpage .btn-sm{padding:11px 14px;font-size:10.5px}
 .app .btn svg.go,.modal .btn svg.go,.lpage .btn svg.go{background:none;padding:0;margin:0;width:14px;height:14px;color:currentColor;transform:rotate(-45deg)}
@@ -675,6 +668,7 @@ td.c,th.c{text-align:center}
 .app .rail button.nv:hover{background:rgba(244,246,241,.08);color:var(--ecume)}
 .app .rail button.nv.on{background:rgba(245,213,71,.12);color:var(--citron);box-shadow:inset 3px 0 0 var(--citron)}
 .app .ph-head{background:var(--calanque) var(--topo) center/cover;color:var(--ecume);border-radius:var(--r-l);padding:clamp(24px,4vw,44px);min-height:clamp(170px,20vw,230px);align-items:flex-end;position:relative;overflow:hidden}
+.app .ph-head{background-size:max(130%,640px) auto;transition:background-position 1.2s cubic-bezier(.16,1,.3,1)}
 .app .ph-head h1{font-size:clamp(2.4rem,6vw,5.2rem);color:var(--ecume)}
 .app .ph-head h1 .serif{color:var(--citron);background:none;padding:0}
 .app .ph-head .kicker{color:var(--lagon)}
@@ -702,6 +696,7 @@ td.c,th.c{text-align:center}
 .lhead .btn-soft{--bg:rgba(244,246,241,.1);--fg:var(--ecume);border-color:transparent}
 .lpage .panel{clip-path:var(--notch)}
 .protobar .seg{border-radius:12px} .protobar .seg button{border-radius:9px}
+@media (hover:none),(pointer:coarse){.pcur{display:none}}
 @media (max-width:860px){.app .ph-head{min-height:0}.app.admin .rail{border-radius:var(--r-m)}.app.admin .rail button.nv::before{content:none}}
 </style>
 </head>
@@ -1710,6 +1705,62 @@ function openModal(html, wide = false) {
 function closeModal() { $("#modal-root").innerHTML = ""; S.modal = null; }
 let toastTimer;
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; t.style.animation = "none"; void t.offsetWidth; t.style.animation = ""; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3600); }
+/* Mouvement de l'application, calqué sur le site : courbe expo, rideau des bandeaux, titres par mots masqués,
+   entrées décalées puis au défilement, compteurs, barres qui se remplissent, curseur. Rien si prefers-reduced-motion. */
+const EXPO = "cubic-bezier(.16,1,.3,1)", CURTAIN = "cubic-bezier(.65,.05,0,1)";
+let lastAnimView = "", revealIO = null;
+const rise = (el, delay = 0, y = 36, dur = 1100) => el.animate([{ opacity: 0, transform: `translateY(${y}px)` }, { opacity: 1, transform: "none" }], { duration: dur, delay, easing: EXPO, fill: "backwards" });
+function splitTitle(h) {
+  const parts = [];
+  [...h.childNodes].forEach(n => { if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach(w => parts.push(w.trim() ? Object.assign(document.createElement("span"), { textContent: w }) : document.createTextNode(w))); else parts.push(n); });
+  h.textContent = "";
+  parts.forEach(n => { if (n.nodeType === 3) { h.append(n); return; } const m = document.createElement("span"); m.className = "ln"; m.append(n); h.append(m); });
+  return [...h.querySelectorAll(":scope > .ln > *")];
+}
+function countUp(el, dur = 1500) {
+  const m = el.textContent.match(/^(\D*)(\d+)([\s\S]*)$/); if (!m) return;
+  const end = +m[2], t0 = performance.now();
+  const tick = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(2, -10 * k); el.textContent = m[1] + Math.round(end * (k < 1 ? e : 1)) + m[3]; if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+function enter(el, i) {
+  rise(el, i * 70);
+  el.querySelectorAll(".kpi .v, .bigring b").forEach(countUp);
+  el.querySelectorAll(".progress i, .bar .fl").forEach((b, j) => { b.style.transformOrigin = "left"; b.animate([{ transform: "scaleX(0)" }, { transform: "none" }], { duration: 1400, delay: 200 + i * 70 + j * 90, easing: EXPO, fill: "backwards" }); });
+  el.querySelectorAll(".bigring").forEach(r => { const p = +getComputedStyle(r).getPropertyValue("--p") || 0, t0 = performance.now(); const tick = now => { const k = Math.min(1, (now - t0) / 1500); r.style.setProperty("--p", (p * (1 - Math.pow(2, -10 * k))).toFixed(1)); if (k < 1) requestAnimationFrame(tick); else r.style.setProperty("--p", p); }; requestAnimationFrame(tick); });
+}
+function animateView() {
+  document.body.classList.toggle("on-site", S.view === "site" && S.sitePage !== "login");
+  if (REDUCE) return;
+  const root = $("#app"), key = S.view + (S.view === "site" ? S.sitePage : "");
+  if (revealIO) revealIO.disconnect();
+  if (key !== lastAnimView) root.querySelectorAll(".rail .me, .rail .nv, .lhead .wrap > *").forEach((el, i) => el.animate([{ opacity: 0, transform: "translateX(-14px)" }, { opacity: 1, transform: "none" }], { duration: 900, delay: 80 + i * 45, easing: EXPO, fill: "backwards" }));
+  lastAnimView = key;
+  const head = root.querySelector(".ph-head");
+  if (head) {
+    head.animate([{ clipPath: "inset(0 0 100% 0 round 18px)" }, { clipPath: "inset(0 0 0 0 round 18px)" }], { duration: 950, easing: CURTAIN });
+    const h1 = head.querySelector("h1");
+    if (h1) splitTitle(h1).forEach((w, i) => w.animate([{ transform: "translateY(110%)" }, { transform: "none" }], { duration: 1200, delay: 260 + i * 80, easing: EXPO, fill: "backwards" }));
+    [...head.querySelectorAll(".kicker, p, .btn, .chip, .tag, .iconbtn, select")].forEach((el, i) => rise(el, 420 + i * 60, 18, 900));
+  }
+  const login = root.querySelector(".lpage .panel"); if (login) rise(login, 250, 40, 1200);
+  const sel = ".main > .card, .main > .panel, .main > .note, .main > .chips, .main > .filters, .main > .table-wrap, .main > .upsell, .main > .locked, .kpis > *, .grid > *, .meals > *, .week > *, .stack > .ticket, .list > .it, .workout > .wv";
+  const items = [...root.querySelectorAll(sel)].filter((el, _, all) => !all.some(o => o !== el && o.contains(el)));
+  let shown = 0;
+  revealIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { enter(e.target, 0); revealIO.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  items.forEach(el => { if (el.getBoundingClientRect().top < innerHeight * .95) enter(el, Math.min(shown++, 9) + (head ? 4 : 0)); else revealIO.observe(el); });
+}
+/* Curseur du site (souris uniquement) et lignes topographiques des bandeaux qui suivent le pointeur */
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  const cur = document.createElement("div"); cur.className = "pcur"; cur.setAttribute("aria-hidden", "true"); cur.innerHTML = '<div class="dot"></div><div class="ring"></div>'; document.body.append(cur);
+  const dot = cur.firstChild, ring = cur.lastChild, cp = { x: -100, y: -100 }, rp = { x: -100, y: -100 };
+  addEventListener("pointermove", e => {
+    cp.x = e.clientX; cp.y = e.clientY; dot.style.transform = `translate(${cp.x}px,${cp.y}px)`;
+    cur.classList.toggle("big", !!e.target.closest?.("button, a, select, label, input, [data-act]"));
+    const h = e.target.closest?.(".ph-head"); if (h && !REDUCE) { const r = h.getBoundingClientRect(); h.style.backgroundPosition = `${50 + ((e.clientX - r.left) / r.width - .5) * 8}% ${50 + ((e.clientY - r.top) / r.height - .5) * 8}%`; }
+  }, { passive: true });
+  const loop = () => { rp.x += (cp.x - rp.x) * (REDUCE ? 1 : .16); rp.y += (cp.y - rp.y) * (REDUCE ? 1 : .16); ring.style.transform = `translate(${rp.x}px,${rp.y}px)`; requestAnimationFrame(loop); }; loop();
+}
 /* Lignes topographiques du site (carrés marchants sur un bruit de Perlin), peintes une fois en image de fond --topo */
 (function paintTopo() {
   const W = 1200, H = 800, c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d");
@@ -1739,7 +1790,7 @@ addEventListener("resize", fitFrame);
 addEventListener("message", e => { if (e.data && e.data.garrym === "login") go(() => { S.view = "site"; S.sitePage = "login"; }); });
 function render() {
   $("#app").innerHTML = protobar() + (S.view === "site" ? (S.sitePage === "login" ? site() : siteFrame()) : S.view === "patient" ? patient() : admin());
-  fitFrame(); loadFrame();
+  fitFrame(); loadFrame(); animateView();
   document.body.classList.toggle("no-notes", !S.notes);
   revealWords();
 }
@@ -1754,7 +1805,7 @@ function revealWords() {
 addEventListener("scroll", () => requestAnimationFrame(revealWords), { passive: true });
 function go(fn) {
   const run = () => { fn(); render(); window.scrollTo({ top: 0, behavior: "instant" }); };
-  if (document.startViewTransition && !REDUCE) document.startViewTransition(run); else run();
+  run();
 }
 function rerenderRecipe() { if (S.modal && S.modal.type === "recipe") openModal(recipeModal(S.modal.id, S.modal.portions), true); }
 function burst(el) {
