@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "check": "node tools/check-prototype.mjs",
-    "check:site": "node tools/check-site.mjs"
+    "check:site": "node tools/check-site.mjs",
+    "build:standalone": "node tools/build-standalone.mjs",
+    "check:standalone": "node tools/build-standalone.mjs && CHECK_FILE=dist/garrym-prototype.html node tools/check-prototype.mjs"
   },
   "devDependencies": {
     "playwright": "1.56.1"

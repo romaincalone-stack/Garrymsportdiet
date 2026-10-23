@@ -24,6 +24,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-23 | Palette v5-B « Calanque et citron » | Brief fourni par Romain (`references/brief-couleurs-v5-citron.html`) appliqué au site, puis à l'espace patiente et au back-office ; citron en surligneur sur fond clair |
 | 2026-10-23 | Fruits 3D réalistes | Matières physiques (velours, pores, cire, laque), textures peintes, éclairage d'ambiance, ombres portées ; physique : chute à l'arrivée, flottaison, poussée du pointeur, collisions, élan du défilement ; qualité réduite automatiquement si l'appareil rame |
 | 2026-10-23 | Prototype unifié à trois vues | Bandeau Site public / Espace patiente / Back-office : le site v4 dans la vue publique, « Mon espace » → connexion → espace patiente ; `npm run check` couvre ce parcours |
+| 2026-10-23 | Fichier HTML unique | `dist/garrym-prototype.html` : les trois vues et le site intégré (photos en data URI, environ 3 Mo), construit par `npm run build:standalone` et vérifié par `npm run check:standalone` |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 
 ## En cours

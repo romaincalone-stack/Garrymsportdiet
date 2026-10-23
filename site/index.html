@@ -434,6 +434,8 @@ $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const id = a.
 /* ---------- Toast ---------- */
 let tt; function toast(m) { let t = $(".toast"); if (!t) { t = document.createElement("div"); t.className = "toast"; t.setAttribute("role", "status"); document.body.appendChild(t); } t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => t.hidden = true, 3200); }
 $$("[data-toast]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); toast(a.dataset.toast); }));
+addEventListener("message", e => { if (!e.data || e.data.garrym !== "goto" || !$(e.data.hash)) return;
+  const t = setInterval(() => { if (!document.body.classList.contains("ready")) return; clearInterval(t); lenis ? lenis.scrollTo(e.data.hash, { immediate: true }) : $(e.data.hash).scrollIntoView(); }, 200); });
 $("#espace").addEventListener("click", e => { e.preventDefault(); if (window.parent !== window) window.parent.postMessage({ garrym: "login" }, "*"); else toast("L'espace patiente s'ouvre depuis le prototype (bandeau « Espace patiente »)."); });
 
 /* ---------- Scène WebGL d'ouverture : corbeille de fruits ---------- */

@@ -2,7 +2,7 @@
 
 Photos provisoires du prototype `site/`, issues de Wikimedia Commons sous licence libre. Elles seront remplacées par les photos de Manon avant toute mise en ligne.
 
-Fichiers redimensionnés à 1 600 px et recompressés, sans autre modification. Certaines montrent des personnes identifiables : la licence couvre le droit d'auteur, pas le droit à l'image, d'où l'usage limité au prototype privé.
+Fichiers redimensionnés à 1 280 px et recompressés, sans autre modification. Certaines montrent des personnes identifiables : la licence couvre le droit d'auteur, pas le droit à l'image, d'où l'usage limité au prototype privé.
 
 | Fichier | Œuvre | Auteur | Licence | Source |
 | --- | --- | --- | --- | --- |

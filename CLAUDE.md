@@ -62,6 +62,10 @@ npm install                          # une fois (installe Playwright)
 npm run check                        # trois vues (site dans le cadre, connexion, patiente, admin) ; attendu : "mobile scrollWidth 390" puis "NO ERRORS"
 npm run check:site                   # site v4 : WebGL, erreurs JS, 390 px, captures tools/shots/site-*.png ; attendu "NO ERRORS"
 
+# Fichier HTML unique et autonome (trois vues + site intégré, photos en data URI)
+npm run build:standalone             # produit dist/garrym-prototype.html (ignoré par git), à envoyer tel quel
+npm run check:standalone             # même parcours que npm run check, sur ce fichier
+
 # Publier l'aperçu en ligne (page privée claude.ai, lisible sur téléphone)
 node tools/build-artifact.mjs        # produit dist/prototype-garrym.html (ignoré par git)
 # puis republier ce fichier avec l'outil Artifact sur la même URL, en joignant le site (option files) :
@@ -96,4 +100,5 @@ Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (
 - **Analyse de sites de référence** : REA (`npx -y rea-agents@6.7.0 inspect-web-page <cdp> <target>`) pour la preuve, captures Playwright pour le rendu. Ne reprendre que les techniques et compositions, jamais le code, les images, les modèles 3D ni les polices payantes.
 - **Simulation** : toute physique suit le temps réel en sous-pas et protège les divisions par l'intervalle de temps (incidents 23, 24). Le navigateur de test rend la 3D à moins d'une image par seconde : attendre longtemps avant de capturer.
 - **Site dans le cadre du prototype** : chemins relatifs à `site/` ; à la publication, joindre `site/index.html` et `site/img/*` au prototype (voir Commandes).
+- **`String.replace` avec une chaîne de remplacement** : `$$`, `$&`, `$1` y sont des motifs. Pour injecter du code ou du HTML, passer une fonction (`s.replace(x, () => code)`) (incident 26).
 - **Copyright des références** : le dépôt `justinhartman/ui-ux-design-library` contient des livres sous droits. Ne pas les copier ici ; lien seulement.

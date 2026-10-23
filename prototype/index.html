@@ -1624,13 +1624,15 @@ function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = fal
 /* Le site public est le fichier site/index.html, affiché dans un cadre. Seule la connexion reste dessinée ici. */
 const SITE_URL = /\/prototype\/(index\.html)?$/.test(location.pathname) ? "../site/index.html" : "site/index.html";
 const SITE_ANCHOR = { home: "", about: "#manifeste", offres: "#formules", themes: "#programmes", blog: "#journal", contact: "#cabinets" };
-function siteFrame() { return `<iframe class="siteframe" id="siteframe" src="${SITE_URL}${SITE_ANCHOR[S.sitePage] || ""}" title="Site public Garrym"></iframe>`; }
+/* Version autonome (tools/build-standalone.mjs) : le site est intégré dans window.SITE_HTML et chargé en srcdoc */
+function siteFrame() { const h = SITE_ANCHOR[S.sitePage] || ""; return window.SITE_HTML ? `<iframe class="siteframe" id="siteframe" data-hash="${h}" title="Site public Garrym"></iframe>` : `<iframe class="siteframe" id="siteframe" src="${SITE_URL}${h}" title="Site public Garrym"></iframe>`; }
+function loadFrame() { const f = $("#siteframe"); if (!f || !window.SITE_HTML) return; const h = f.dataset.hash; if (h) f.addEventListener("load", () => f.contentWindow.postMessage({ garrym: "goto", hash: h }, "*"), { once: true }); f.srcdoc = window.SITE_HTML; }
 function fitFrame() { const f = $("#siteframe"), b = $(".protobar"); if (f) f.style.height = (innerHeight - (b ? b.getBoundingClientRect().bottom : 0)) + "px"; }
 addEventListener("resize", fitFrame);
 addEventListener("message", e => { if (e.data && e.data.garrym === "login") go(() => { S.view = "site"; S.sitePage = "login"; }); });
 function render() {
   $("#app").innerHTML = protobar() + (S.view === "site" ? (S.sitePage === "login" ? site() : siteFrame()) : S.view === "patient" ? patient() : admin());
-  fitFrame();
+  fitFrame(); loadFrame();
   document.body.classList.toggle("no-notes", !S.notes);
   revealWords();
 }

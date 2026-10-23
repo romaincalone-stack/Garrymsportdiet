@@ -1,12 +1,14 @@
 // Parcours automatisé du prototype : erreurs JavaScript, formulaires des modales, débordement mobile.
 // Usage : npm run check            (captures dans tools/shots/, ignoré par git)
+//         npm run check:standalone (même parcours sur le fichier unique dist/garrym-prototype.html)
 import { chromium } from "playwright";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import { mkdirSync } from "node:fs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const url = pathToFileURL(join(root, "prototype", "index.html")).href;
+// CHECK_FILE=dist/garrym-prototype.html pour vérifier la version autonome (npm run check:standalone)
+const url = pathToFileURL(join(root, process.env.CHECK_FILE || join("prototype", "index.html"))).href;
 const out = join(root, "tools", "shots");
 mkdirSync(out, { recursive: true });
 
