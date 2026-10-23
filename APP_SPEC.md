@@ -40,11 +40,11 @@ Donner à chaque patiente de Manon un accompagnement qui continue entre les cons
 ## 5. Écrans
 
 ### Site public
-La v4 ne contient que l'accueil. Les pages secondaires ci-dessous existent en v3 dans `prototype/index.html` et seront refaites dans le style v4 après validation de l'accueil. Le bouton « Mon espace » de la v4 ne mène encore nulle part.
+La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la vue « Site public » affiche ce site dans un cadre ; son bouton « Mon espace » ouvre la page de connexion de l'espace patiente. Les pages secondaires (Manon, Formules, Thématiques, Journal, Cabinets) restent à refaire dans le style v4 ; en attendant, leurs liens mènent à la section correspondante de l'accueil.
 
 | Écran | Contenu clé |
 | --- | --- |
-| Accueil (v4, `site/index.html`) | Page unique : chargement chiffré, héros WebGL (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, collage « Au quotidien », partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 reste dans `prototype/index.html` avec l'espace patiente et le back-office |
+| Accueil (v4, `site/index.html`) | Page unique : chargement chiffré, héros WebGL (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, collage « Au quotidien », partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 n'est plus affiché ; il reste dans `prototype/archive/v3-2026-10-23.html` |
 | Manon | Présentation, diplômes (diététique, coach sportive + n° de carte pro), approche |
 | Formules | Bilan 70 €, suivi 50 €, dossards F1/F2/F3, tableau comparatif généré depuis la matrice d'accès, séance individuelle |
 | Thématiques | Endométriose, SOPK, ménopause, sportives, rééquilibrage |

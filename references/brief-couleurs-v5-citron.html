@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garrym · Couleurs citron</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Bellefair&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : brief en bandes pleine largeur, alternance clair / profond. Variante B de la v5 : le citron remplace le corail. */
+:root{
+  --calanque:#0B2D33; --calanque-2:#14444B; --posidonie:#2B6A5D; --lagon:#D6E8E2; --ecume:#F4F6F1;
+  --citron:#F5D547; --galet:#55676A; --ligne:rgba(11,45,51,.14);
+  --sans:"Mona Sans","Helvetica Neue",Arial,sans-serif; --serif:"Bellefair",Georgia,serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ecume);color:var(--calanque);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+h1,h2{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;letter-spacing:-.03em;line-height:.88;text-wrap:balance}
+.serif{font-family:var(--serif);font-weight:400}
+p{max-width:62ch}
+/* Le surligneur : seule façon d'utiliser le citron sur fond clair */
+.hl{background:linear-gradient(transparent 52%,var(--citron) 52%,var(--citron) 94%,transparent 94%);padding:0 .08em}
+
+header{background:var(--calanque);color:var(--ecume);padding-block:56px 64px}
+header .top{display:flex;justify-content:space-between;gap:16px;color:var(--lagon);margin-bottom:48px;flex-wrap:wrap}
+header h1{font-size:clamp(2.8rem,9vw,6.4rem)}
+header h1 .serif{color:var(--citron)}
+header p{margin:28px 0 0;color:rgba(244,246,241,.84);font-size:17px}
+.wave{display:block;width:100%;height:28px;margin-top:40px}
+
+section{padding-block:64px;border-bottom:1px solid var(--ligne)}
+section.deep{background:var(--calanque);color:var(--ecume);border-bottom:0}
+section.tint{background:var(--lagon)}
+.label{display:flex;gap:14px;color:var(--galet);margin-bottom:22px}
+.deep .label{color:var(--lagon)}
+h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:28px}
+.deep h2 .serif{color:var(--citron)}
+.lead{font-size:17px;margin:0 0 32px}
+
+.diag{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}
+.diag > div{display:flex;flex-direction:column;gap:10px;min-width:0}
+.diag h3{margin:0;font-size:1.1rem;font-weight:700}
+.diag p{margin:0;color:rgba(244,246,241,.82);font-size:15.5px}
+.diag .k{color:var(--citron)}
+.strip{display:flex;height:14px;border-radius:4px;overflow:hidden;max-width:220px}
+.strip span{display:block}
+
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:14px 10px;border-bottom:1px solid var(--ligne);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--galet);font-weight:500}
+td b{font-weight:700}
+.scroll{overflow-x:auto}
+.note{margin-top:14px;color:var(--galet);font-size:14px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px}
+.sw{border-radius:14px;overflow:hidden;border:1px solid var(--ligne);background:#fff;display:flex;flex-direction:column}
+.sw .chip{height:150px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+.sw .chip b{font-weight:700;font-size:1.35rem;letter-spacing:-.02em}
+.sw .chip .hex{font-family:var(--mono);font-size:13px;letter-spacing:.06em}
+.sw .tx{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.sw .tx .tok{font-family:var(--mono);font-size:12px;color:var(--galet)}
+.sw .tx em{font-style:normal;color:var(--galet)}
+.sw.star{outline:2px solid var(--calanque);outline-offset:2px}
+
+.bar{display:flex;height:72px;border-radius:12px;overflow:hidden;border:1px solid var(--ligne)}
+.bar div{display:flex;align-items:flex-end;padding:10px 12px;min-width:0}
+.legend{margin-top:12px;color:var(--galet)}
+
+.demo{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.demo > div{border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;min-height:260px;min-width:0}
+.demo h3{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;font-size:1.9rem;line-height:.95;letter-spacing:-.03em}
+.demo h3 .serif{font-weight:400}
+.btn{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 16px;border-radius:10px}
+.prog{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.prog .row{display:grid;grid-template-columns:5.5em 1fr 3em;gap:10px;align-items:center;font-variant-numeric:tabular-nums}
+.prog .track{height:8px;border-radius:4px;background:rgba(244,246,241,.14);overflow:hidden}
+.prog .fill{display:block;height:100%;border-radius:4px}
+
+.sample{display:inline-block;padding:8px 12px;border-radius:8px;font-weight:600;white-space:nowrap}
+.ok{font-family:var(--mono);font-size:12px;color:var(--posidonie)}
+.ko{font-family:var(--mono);font-size:12px;color:#9B2C1C}
+.ratio{font-variant-numeric:tabular-nums;font-weight:600}
+
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vs > div{border:1px solid var(--ligne);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px;background:#fff;min-width:0}
+.vs h3{margin:0;font-size:1.15rem}
+.vs ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.vs .chips{display:flex;gap:6px}
+.vs .chips i{display:block;width:26px;height:26px;border-radius:6px;border:1px solid var(--ligne)}
+
+ul.rules{margin:0;padding:0;list-style:none;display:grid;gap:0}
+ul.rules li{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:14px 0;border-top:1px solid var(--ligne)}
+ul.rules li::before{content:"×";color:#9B2C1C;font-weight:700;font-size:18px;line-height:1.2}
+ul.rules.yes li::before{content:"✓";color:var(--posidonie)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two > div{min-width:0}
+
+footer{background:var(--calanque);color:rgba(244,246,241,.72);padding-block:36px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.old{display:flex;gap:6px;margin-top:10px}
+.old span{width:28px;height:28px;border-radius:6px;border:1px solid rgba(244,246,241,.2)}
+
+@media (max-width:860px){.demo{grid-template-columns:1fr}}
+@media (max-width:700px){.two,.vs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top mono"><span>Garrym · Sport · Diététique</span><span>Brief couleurs v5.0-B · 23.10.2026</span></div>
+    <h1>Calanque <span class="serif">et citron</span></h1>
+    <p>Même socle que la v5 : le bleu-vert profond des calanques pour la confiance et le plein air, l'écume et le lagon pour un écran clair. L'accent devient le citron : le soleil du matin sur la séance, le zeste dans l'assiette. Une seule couleur vive, chaude, jamais acide.</p>
+    <svg class="wave" viewBox="0 0 1100 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 C 90 2, 180 26, 275 14 S 460 2, 550 14 S 735 26, 825 14 S 1010 2, 1100 14" fill="none" stroke="#F5D547" stroke-width="2.5"/></svg>
+  </div>
+</header>
+
+<main>
+  <section class="deep">
+    <div class="wrap">
+      <div class="label mono"><span>Pourquoi le citron</span></div>
+      <h2>Ce que change <span class="serif">l'accent</span></h2>
+      <div class="diag">
+        <div>
+          <div class="strip"><span style="flex:1;background:#F5D547"></span></div>
+          <h3>Il relie les deux métiers</h3>
+          <p>Le citron se mange et il évoque l'énergie : c'est l'aliment de la diététicienne et <span class="k">la lumière du matin</span> de la coach. Le corail parlait surtout d'appétit.</p>
+        </div>
+        <div>
+          <div class="strip"><span style="flex:1;background:#0B2D33"></span><span style="flex:1;background:#F5D547"></span></div>
+          <h3>Très fort sur fond sombre</h3>
+          <p>Citron sur calanque : 10,1:1, presque deux fois le contraste du corail (5,7:1). Les sections sombres, les boutons et le pied de page gagnent en éclat.</p>
+        </div>
+        <div>
+          <div class="strip"><span style="flex:1;background:#F4F6F1"></span><span style="flex:1;background:#F5D547"></span></div>
+          <h3>Invisible sur fond clair</h3>
+          <p>Citron sur écume : 1,3:1. Sur les fonds clairs, il ne peut ni écrire ni border un bouton. Il n'y apparaît qu'en surligneur, derrière un texte calanque.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="label mono"><span>Corail ou citron</span></div>
+      <h2>Deux variantes <span class="serif"><span class="hl">à comparer</span></span></h2>
+      <div class="vs">
+        <div>
+          <div class="chips"><i style="background:#0B2D33"></i><i style="background:#F4F6F1"></i><i style="background:#FF7A5A"></i><i style="background:#AD3820"></i></div>
+          <h3>v5.0 · Calanque et corail</h3>
+          <ul>
+            <li>Plus chaleureux, plus « féminin » sans rose</li>
+            <li>Lisible sur clair grâce au corail foncé</li>
+            <li>Contraste moyen sur sombre (5,7:1)</li>
+            <li>Couple bleu-vert / corail déjà très vu</li>
+          </ul>
+        </div>
+        <div>
+          <div class="chips"><i style="background:#0B2D33"></i><i style="background:#F4F6F1"></i><i style="background:#F5D547"></i></div>
+          <h3>v5.0-B · Calanque et citron</h3>
+          <ul>
+            <li>Plus lumineux, plus sportif, plus « Méditerranée »</li>
+            <li>Une couleur de moins dans la palette</li>
+            <li>Sur fond clair, uniquement en surligneur</li>
+            <li>Mal dosé, glisse vers le jaune néon des salles de sport</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="label mono"><span>Palette</span></div>
+      <h2>Sept <span class="serif">couleurs</span></h2>
+      <div class="grid">
+        <div class="sw"><div class="chip" style="background:#F4F6F1;color:#0B2D33;border-bottom:1px solid rgba(11,45,51,.1)"><b>Écume</b><span class="hex">#F4F6F1</span></div><div class="tx"><span class="tok">--ecume</span><em>Écume sur le calcaire</em>Fond principal du site, texte sur fond calanque</div></div>
+        <div class="sw"><div class="chip" style="background:#D6E8E2;color:#0B2D33"><b>Lagon</b><span class="hex">#D6E8E2</span></div><div class="tx"><span class="tok">--lagon</span><em>Eau peu profonde</em>Sections alternées, cartes, étiquettes sur fond sombre</div></div>
+        <div class="sw"><div class="chip" style="background:#0B2D33;color:#F4F6F1"><b>Calanque</b><span class="hex">#0B2D33</span></div><div class="tx"><span class="tok">--calanque</span><em>Eau profonde</em>Texte courant, héros, sections fortes, pied de page, boutons sur fond clair</div></div>
+        <div class="sw"><div class="chip" style="background:#14444B;color:#F4F6F1"><b>Calanque 2</b><span class="hex">#14444B</span></div><div class="tx"><span class="tok">--calanque-2</span><em>Nuance</em>Cartes posées sur fond calanque, fond derrière les photos</div></div>
+        <div class="sw"><div class="chip" style="background:#2B6A5D;color:#F4F6F1"><b>Posidonie</b><span class="hex">#2B6A5D</span></div><div class="tx"><span class="tok">--posidonie</span><em>Herbier de posidonie</em>Liens, icônes, pictos alimentaires, validations</div></div>
+        <div class="sw star"><div class="chip" style="background:#F5D547;color:#0B2D33"><b>Citron</b><span class="hex">#F5D547</span></div><div class="tx"><span class="tok">--citron</span><em>Citron mûr · seule couleur vive</em>Sur calanque : boutons, mots fins des titres, tracés, focus. Sur clair : surligneur uniquement</div></div>
+        <div class="sw"><div class="chip" style="background:#55676A;color:#F4F6F1"><b>Galet</b><span class="hex">#55676A</span></div><div class="tx"><span class="tok">--galet</span><em>Galet mouillé</em>Texte secondaire, légendes, mentions (titre de diététicienne, RPPS)</div></div>
+      </div>
+      <p class="note">Le citron est volontairement chaud (#F5D547, teinte proche de 50°). Un jaune qui tire vers le vert (#D7FF1F de la v4.0) ramène directement aux codes « salle de sport ».</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="label mono"><span>Répartition</span></div>
+      <h2>Dosage <span class="serif">par écran</span></h2>
+      <div class="bar">
+        <div style="flex:45;background:#F4F6F1;color:#0B2D33"><span class="mono">Écume 45 %</span></div>
+        <div style="flex:15;background:#D6E8E2;color:#0B2D33"><span class="mono">Lagon 15 %</span></div>
+        <div style="flex:32;background:#0B2D33;color:#F4F6F1"><span class="mono">Calanque 32 %</span></div>
+        <div style="flex:8;background:#F5D547;color:#0B2D33"><span class="mono" style="white-space:nowrap">8 %</span></div>
+      </div>
+      <p class="legend">Le citron reste sous 8 % : un jaune vif fatigue plus vite l'œil qu'un corail. Jamais d'aplat plus grand qu'un bouton ou qu'une barre de progression.</p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="label mono"><span>En situation</span></div>
+      <h2>Trois <span class="serif">contextes</span></h2>
+      <div class="demo">
+        <div style="background:#0B2D33;color:#F4F6F1">
+          <span class="mono" style="color:#D6E8E2">Formules</span>
+          <h3>Choisissez<br><span class="serif" style="color:#F5D547">votre rythme</span></h3>
+          <span style="color:rgba(244,246,241,.8);font-size:15px">Sur fond calanque, le citron écrit et remplit les boutons.</span>
+          <span class="btn" style="background:#F5D547;color:#0B2D33">Réserver le bilan ↗</span>
+        </div>
+        <div style="background:#F4F6F1;color:#0B2D33;border:1px solid rgba(11,45,51,.12)">
+          <span class="mono" style="color:#55676A">Repères</span>
+          <h3>Deux cabinets,<br><span class="serif"><span class="hl">et la visio</span></span></h3>
+          <span style="color:#55676A;font-size:15px">Sur fond écume, le citron passe derrière le texte. Le bouton devient calanque, avec un texte citron.</span>
+          <span class="btn" style="background:#0B2D33;color:#F5D547">Voir la carte ↗</span>
+        </div>
+        <div style="background:#0B2D33;color:#F4F6F1">
+          <span class="mono" style="color:#D6E8E2">Suivi · semaine 6</span>
+          <h3>Vos <span class="serif" style="color:#F5D547">progrès</span></h3>
+          <div class="prog">
+            <div class="row"><span>Séances</span><span class="track"><span class="fill" style="width:75%;background:#F5D547"></span></span><span>3 / 4</span></div>
+            <div class="row"><span>Hydratation</span><span class="track"><span class="fill" style="width:85%;background:#D6E8E2"></span></span><span>1,7 L</span></div>
+            <div class="row"><span>Légumes</span><span class="track"><span class="fill" style="width:60%;background:#D6E8E2"></span></span><span>3 / 5</span></div>
+          </div>
+          <span style="color:rgba(244,246,241,.8);font-size:15px">Les graphiques de suivi se posent sur fond calanque : sport en citron, alimentation en lagon.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="label mono"><span>Lisibilité</span></div>
+      <h2>Contrastes <span class="serif"><span class="hl">vérifiés</span></span></h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Exemple</th><th>Texte / fond</th><th>Rapport</th><th>WCAG</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sample" style="background:#F4F6F1;color:#0B2D33;border:1px solid rgba(11,45,51,.12)">Texte courant</span></td><td>Calanque sur écume</td><td class="ratio">13,4:1</td><td class="ok">AAA</td></tr>
+            <tr><td><span class="sample" style="background:#D6E8E2;color:#0B2D33">Carte</span></td><td>Calanque sur lagon</td><td class="ratio">11,5:1</td><td class="ok">AAA</td></tr>
+            <tr><td><span class="sample" style="background:#0B2D33;color:#F5D547">Bouger plus</span></td><td>Citron sur calanque</td><td class="ratio">10,1:1</td><td class="ok">AAA</td></tr>
+            <tr><td><span class="sample" style="background:#F5D547;color:#0B2D33">Réserver</span></td><td>Calanque sur citron (bouton, surligneur)</td><td class="ratio">10,1:1</td><td class="ok">AAA</td></tr>
+            <tr><td><span class="sample" style="background:#14444B;color:#F5D547">Thématique</span></td><td>Citron sur calanque 2</td><td class="ratio">7,4:1</td><td class="ok">AAA</td></tr>
+            <tr><td><span class="sample" style="background:#F4F6F1;color:#2B6A5D;border:1px solid rgba(11,45,51,.12)">Lien</span></td><td>Posidonie sur écume</td><td class="ratio">5,8:1</td><td class="ok">AA</td></tr>
+            <tr><td><span class="sample" style="background:#F4F6F1;color:#55676A;border:1px solid rgba(11,45,51,.12)">Légende</span></td><td>Galet sur écume</td><td class="ratio">5,5:1</td><td class="ok">AA</td></tr>
+            <tr><td><span class="sample" style="background:#D6E8E2;color:#55676A">Légende</span></td><td>Galet sur lagon</td><td class="ratio">4,7:1</td><td class="ok">AA</td></tr>
+            <tr><td><span class="sample" style="background:#F4F6F1;color:#F5D547;border:1px solid rgba(11,45,51,.12)">Interdit</span></td><td>Citron sur écume</td><td class="ratio">1,3:1</td><td class="ko">Échec</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div>
+        <div class="label mono"><span>On fait</span></div>
+        <ul class="rules yes">
+          <li>Sur fond calanque : citron pour les mots d'accent, les boutons et les tracés.</li>
+          <li>Sur fond clair : citron en surligneur derrière un texte calanque, boutons calanque avec texte citron.</li>
+          <li>Focus clavier en citron sur fond sombre, en calanque sur fond clair.</li>
+          <li>Photos d'assiettes sur fond écume ou lagon, en lumière naturelle.</li>
+          <li>Graphiques de suivi sur fond calanque : sport en citron, alimentation en lagon.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="label mono"><span>On ne fait jamais</span></div>
+        <ul class="rules">
+          <li>Du texte, une bordure ou une icône citron sur fond clair.</li>
+          <li>Un jaune qui tire vers le vert (citron vert, néon, fluo).</li>
+          <li>Le citron en aplat sur une grande surface.</li>
+          <li>Citron et corail ensemble : une seule couleur vive.</li>
+          <li>Noir pur, rouge « salle de sport », dégradés.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="label mono"><span>Application au site</span></div>
+      <h2>Migration <span class="serif"><span class="hl">v4.1 → v5-B</span></span></h2>
+      <p class="lead">À appliquer sur une copie du site public « Garrym Sport Diet ». Renommer les tokens, remplacer les valeurs en dur, puis appliquer les règles du fond clair.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Ancien token</th><th>Nouveau token</th><th>Valeur</th></tr></thead>
+          <tbody>
+            <tr><td>--foret, --vert</td><td>--calanque</td><td class="ratio">#0B2D33</td></tr>
+            <tr><td>--vert-2</td><td>--calanque-2</td><td class="ratio">#14444B</td></tr>
+            <tr><td>--sauge, --sable</td><td>--lagon</td><td class="ratio">#D6E8E2</td></tr>
+            <tr><td>--creme</td><td>--ecume</td><td class="ratio">#F4F6F1</td></tr>
+            <tr><td>--abricot</td><td>--citron</td><td class="ratio">#F5D547</td></tr>
+            <tr><td>--terre</td><td>supprimé, voir règles du fond clair</td><td class="ratio">—</td></tr>
+            <tr><td>--ink</td><td>--ink (= calanque)</td><td class="ratio">#0B2D33</td></tr>
+            <tr><td>--gris</td><td>--galet</td><td class="ratio">#55676A</td></tr>
+            <tr><td>(nouveau)</td><td>--posidonie</td><td class="ratio">#2B6A5D</td></tr>
+            <tr><td>--ligne / --ligne-claire</td><td>idem</td><td class="ratio">rgba(11,45,51,.14) / rgba(244,246,241,.16)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scroll" style="margin-top:28px">
+        <table>
+          <thead><tr><th>Valeur en dur v4.1</th><th>Remplacer par</th><th>Où</th></tr></thead>
+          <tbody>
+            <tr><td>rgba(246,241,231,x)</td><td>rgba(244,246,241,x)</td><td>Textes et bordures sur fond sombre</td></tr>
+            <tr><td>rgba(22,33,26,x), rgba(18,28,22,x)</td><td>rgba(11,45,51,x)</td><td>Ombres, voiles, nav, lignes topo</td></tr>
+            <tr><td>rgba(255,138,76,x), rgba(181,72,27,x)</td><td>rgba(245,213,71,x)</td><td>Halos au survol des formules</td></tr>
+            <tr><td>rgba(235,223,204,.55)</td><td>rgba(214,232,226,.55)</td><td>Bordure de la pilule « Le bilan »</td></tr>
+            <tr><td>#24382A</td><td>#17505A</td><td>Dégradé du héros</td></tr>
+            <tr><td>#18251B</td><td>#0F363D</td><td>Fond des cartes Thématiques</td></tr>
+            <tr><td>#2a2016, #F4ECE2</td><td>#0B2D33, #F4F6F1</td><td>Chapitre « Le bilan »</td></tr>
+            <tr><td>#121C16</td><td>#0B2D33</td><td>meta theme-color</td></tr>
+            <tr><td>#FF8A4C, #F6F1E7</td><td>#F5D547, #F4F6F1</td><td>Logo SVG de la nav, rond de secours du héros</td></tr>
+            <tr><td>0xEBDFCC</td><td>0xD6E8E2</td><td>Poussière de la scène WebGL</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="two" style="margin-top:40px">
+        <div>
+          <div class="label mono"><span>Règles du fond clair</span></div>
+          <ul class="rules yes">
+            <li>.light .acc : texte calanque + surligneur citron (dégradé linéaire transparent 52 % → citron → transparent 94 %).</li>
+            <li>.btn-acc dans une section claire : fond calanque, texte citron.</li>
+            <li>Trait dessiné sous « L'assiette » et « Le terrain » : citron épais (stroke-width 14) placé derrière le texte, façon surligneur. Bouton .go : fond calanque, flèche citron.</li>
+            <li>:focus-visible en calanque dans les sections claires, en citron ailleurs.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="label mono"><span>Changements de structure</span></div>
+          <ul class="rules yes">
+            <li>Collage « Au quotidien » : fond lagon, texte calanque, légendes galet, signature calanque, lignes topo rgba(11,45,51,.10).</li>
+            <li>Classe .dark-olive renommée .deep (fond calanque) ; nouvelle classe .tint (fond lagon).</li>
+            <li>Chapitre « Le bilan » : sans sépia. Photo en grayscale(.35) saturate(.8) brightness(.6), voile calanque.</li>
+            <li>Corbeille WebGL : le citron devient le fruit central (position et taille de l'abricot), l'abricot passe en second plan ; feuilles en posidonie (#1F5A4E → #6FA592).</li>
+            <li>Contrôle final : aucune occurrence de citron en texte ou bordure dans .light et .tint.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="mono">Variante B de la v5 · remplace la v4.1 « Oliveraie et abricot »</span>
+      <div class="old" aria-label="Anciennes couleurs"><span style="background:#121C16"></span><span style="background:#1F2E22"></span><span style="background:#F6F1E7"></span><span style="background:#FF8A4C"></span><span style="background:#B5481B"></span></div></div>
+    <span class="mono">Source : BRAND_BRIEF.md · À valider par Manon</span>
+  </div>
+</footer>
+</body>
+</html>

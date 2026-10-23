@@ -1,0 +1,1790 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garrym · Manon Garrione, diététicienne et coach sportive</title>
+<meta name="description" content="Manon Garrione, diététicienne-nutritionniste et coach sportive à Hyères, La Garde et en visio. Bilan, suivi nutritionnel, recettes et séances de sport.">
+<meta name="theme-color" content="#404F1D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Direction : « Olivier et argile ». Crème chaud, olive et sauge (réf. Farm Minerals), moka et argile (réf. Calmlyss),
+   grandes linéales Geist en bas de casse + italique Instrument Serif, pilules à flèche ronde, illustrations au trait, beaucoup d'air. */
+:root{
+  --paper:#F6F1EA; --paper-2:#EFE7DC; --card:#FFFFFF; --ink:#301100; --ink-2:#6B584E; --line:#E3D8CB;
+  --olive:#404F1D; --olive-ink:#F4EDE6; --olive-soft:#E3E6D3;
+  --sauge:#7C914C; --sauge-soft:#DDE3CC; --moka:#866452; --argile:#C78460; --sable:#E9DCC9; --sable-soft:#F3EBE0; --rose:#F1DDD3; --brume:#E4E8DA;
+  --band:#404F1D; --band-ink:#F4EDE6;
+  --ok:#5E7330; --ok-soft:#E3E8D2; --warn:#8A5A0B; --warn-soft:#F6E8CC; --crit:#A23B2A; --crit-soft:#F6DDD5;
+  --glass:rgba(255,252,247,.7); --glass-line:rgba(255,255,255,.9); --glass-shadow:0 10px 40px rgba(48,17,0,.10);
+  --note-bg:#FFF6C9; --note-ink:#5A4A06; --note-line:#D9C25A;
+  --grain-op:.06; --grain-blend:multiply;
+  --f-display:"Geist", "Helvetica Neue", system-ui, sans-serif;
+  --f-serif:"Instrument Serif", "Times New Roman", Georgia, serif;
+  --f-body:"Geist", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+  --f-mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#17140F; --paper-2:#1F1B14; --card:#26211A; --ink:#F4EDE6; --ink-2:#C2B3A6; --line:#3A3228;
+  --olive:#B9C98A; --olive-ink:#17140F; --olive-soft:#2A3019;
+  --sauge:#A3B57A; --sauge-soft:#2B3220; --moka:#C9A792; --argile:#E0A27F; --sable:#4A3F31; --sable-soft:#2E271E; --rose:#4A2F28; --brume:#262B1E;
+  --band:#2F3A16; --band-ink:#F4EDE6;
+  --ok:#A3B57A; --ok-soft:#2B3220; --warn:#F0BE55; --warn-soft:#3A2D10; --crit:#FF8C7C; --crit-soft:#3E1B17;
+  --glass:rgba(38,33,26,.65); --glass-line:rgba(255,255,255,.1); --glass-shadow:0 10px 40px rgba(0,0,0,.45);
+  --note-bg:#3A3410; --note-ink:#F3E59B; --note-line:#7C6E25;
+  --grain-op:.08; --grain-blend:screen;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#17140F; --paper-2:#1F1B14; --card:#26211A; --ink:#F4EDE6; --ink-2:#C2B3A6; --line:#3A3228;
+  --olive:#B9C98A; --olive-ink:#17140F; --olive-soft:#2A3019;
+  --sauge:#A3B57A; --sauge-soft:#2B3220; --moka:#C9A792; --argile:#E0A27F; --sable:#4A3F31; --sable-soft:#2E271E; --rose:#4A2F28; --brume:#262B1E;
+  --band:#2F3A16; --band-ink:#F4EDE6;
+  --ok:#A3B57A; --ok-soft:#2B3220; --warn:#F0BE55; --warn-soft:#3A2D10; --crit:#FF8C7C; --crit-soft:#3E1B17;
+  --glass:rgba(38,33,26,.65); --glass-line:rgba(255,255,255,.1); --glass-shadow:0 10px 40px rgba(0,0,0,.45);
+  --note-bg:#3A3410; --note-ink:#F3E59B; --note-line:#7C6E25;
+  --grain-op:.08; --grain-blend:screen;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--ink)}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:95;opacity:var(--grain-op);mix-blend-mode:var(--grain-blend);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+::selection{background:var(--sable);color:var(--ink)}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);line-height:1.02;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--argile);outline-offset:3px;border-radius:8px}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--f-mono);letter-spacing:-.01em}
+.muted{color:var(--ink-2)}
+.small{font-size:14px}
+.tiny{font-size:12.5px}
+.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em}
+.kicker{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.75;flex:none}
+.page-hero .kicker{background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:999px;color:var(--ink)}
+.display{font-family:var(--f-display);font-weight:400;letter-spacing:-.035em;line-height:.98}
+.h-xl{font-size:clamp(3rem,7.6vw,6.4rem)}
+.h-l{font-size:clamp(2.3rem,5.4vw,4.4rem)}
+.h-m{font-size:clamp(1.6rem,3.6vw,2.6rem)}
+.h-s{font-family:var(--f-display);font-weight:500;font-size:1.22rem;letter-spacing:-.02em}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.between{justify-content:space-between}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+
+/* Boutons */
+.btn{--bg:transparent;--fg:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1.5px solid transparent;background:var(--bg);color:var(--fg);
+  padding:13px 22px;border-radius:999px;font-weight:650;cursor:pointer;text-decoration:none;line-height:1.1;white-space:nowrap;position:relative;overflow:hidden;
+  transition:transform .25s var(--ease),background .25s,border-color .25s,box-shadow .25s}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .3s var(--ease)}
+.btn svg.go{box-sizing:content-box;width:13px;height:13px;padding:7px;border-radius:50%;background:var(--fg);color:var(--bg);margin:-5px -13px -5px 2px;transition:transform .35s var(--ease)}
+.btn:hover svg.go{transform:rotate(-45deg)}
+.btn-line svg.go,.btn-text svg.go,.btn-soft svg.go{color:var(--paper)}
+.btn-line:hover svg.go{color:var(--ink)}
+.btn-glass{--bg:rgba(244,237,230,.14);--fg:#F4EDE6;border-color:rgba(244,237,230,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn-glass svg.go{color:#2F3A16}
+.btn:active{transform:scale(.97)}
+.btn-olive{--bg:var(--olive);--fg:var(--olive-ink);box-shadow:0 8px 22px -10px var(--olive)}
+.btn-olive:hover{box-shadow:0 14px 30px -12px var(--olive)}
+.btn-sable{--bg:var(--sable);--fg:var(--ink)}
+.btn-ink{--bg:var(--ink);--fg:var(--paper)}
+.btn-line{border-color:var(--ink);--fg:var(--ink)}
+.btn-line:hover{--bg:var(--ink);--fg:var(--paper)}
+.btn-soft{--bg:var(--card);border-color:var(--line)}
+.btn-soft:hover{border-color:var(--ink)}
+.btn-text{padding:8px 10px;color:var(--olive);font-weight:650}
+.btn-sm{padding:9px 15px;font-size:14.5px}
+.btn-wa{--bg:#25D366;--fg:#062B16}
+.iconbtn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);display:inline-grid;place-items:center;cursor:pointer;color:var(--ink);transition:transform .2s var(--ease),border-color .2s}
+.iconbtn:hover{border-color:var(--ink)}
+.iconbtn svg{width:19px;height:19px}
+.iconbtn.on{color:var(--argile);border-color:var(--argile)}
+
+/* Étiquettes */
+.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:650;background:var(--paper-2);color:var(--ink);white-space:nowrap}
+.tag svg{width:13px;height:13px}
+.tag.mono{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.02em}
+.tag.suivi{background:var(--paper-2)} .tag.f1{background:var(--brume)} .tag.f2{background:var(--sable);color:var(--ink)} .tag.f3{background:var(--olive);color:var(--olive-ink)}
+.tag.ok{background:var(--ok-soft);color:var(--ok)} .tag.warn{background:var(--warn-soft);color:var(--warn)} .tag.crit{background:var(--crit-soft);color:var(--crit)}
+.tag.rose{background:var(--rose)} .tag.outline{background:none;border:1.5px solid currentColor}
+
+/* Bandeau prototype */
+.protobar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--ink);color:var(--paper)}
+.protobar .wrap{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;padding-block:8px}
+.protobar .lbl{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sable)}
+.seg{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:color-mix(in srgb,var(--paper) 14%,transparent);flex-wrap:wrap}
+.seg button{border:0;background:none;color:inherit;padding:6px 13px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer}
+.seg button.on{background:var(--paper);color:var(--ink)}
+.protobar select{border:0;border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:600;background:color-mix(in srgb,var(--paper) 14%,transparent);color:inherit}
+.protobar select option{color:#301100}
+.protobar label{font-size:13px;display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.protobar .sp{flex:1}
+.note{display:flex;gap:8px;align-items:flex-start;background:var(--note-bg);color:var(--note-ink);border:1px dashed var(--note-line);border-radius:10px;padding:8px 12px;font-size:12.5px;line-height:1.45}
+.note::before{content:"CDC";font-family:var(--f-mono);font-weight:700;font-size:11px;letter-spacing:.05em;flex:none;padding-top:1px}
+body.no-notes .note{display:none}
+
+/* Formes découpées */
+.shape{display:block;width:100%;height:auto;overflow:visible}
+.cut{filter:none}
+
+/* ================= SITE ================= */
+.nav{--pb:46px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--pb));z-index:50;padding-block:12px;pointer-events:none}
+.nav .wrap{display:flex;justify-content:center}
+.nav-in{pointer-events:auto;display:flex;align-items:center;gap:8px;padding:7px 7px 7px 16px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-line);
+  -webkit-backdrop-filter:blur(18px) saturate(1.6);backdrop-filter:blur(18px) saturate(1.6);box-shadow:var(--glass-shadow);max-width:100%;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;gap:9px;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);text-decoration:none}
+.logo svg{width:30px;height:30px;flex:none}
+.logo b{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:-.03em}
+.logo small{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;display:block;margin-top:-2px;color:var(--ink-2)}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links button{border:0;background:none;padding:8px 12px;border-radius:999px;font-weight:550;font-size:14.5px;cursor:pointer;color:var(--ink-2)}
+.nav-links button:hover{color:var(--ink)}
+.nav-links button.on{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
+@media (max-width:980px){.nav-links{display:none}}
+.nav-menu{display:none}
+@media (max-width:860px){.protobar{position:relative}.nav{--pb:0px}.rail{top:16px}}
+@media (max-width:980px){.nav-menu{display:inline-grid}}
+.mobile-menu{display:flex;flex-direction:column;gap:4px;margin-top:10px;pointer-events:auto;padding:10px;border-radius:24px;background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:var(--glass-shadow)}
+.mobile-menu button{border:0;background:none;text-align:left;padding:12px 14px;border-radius:14px;font-family:var(--f-display);font-weight:700;font-size:20px;cursor:pointer}
+
+.hero{padding-block:6px 30px;position:relative}
+.hero-card{position:relative;border-radius:36px;overflow:hidden;min-height:min(80vh,760px);padding:clamp(26px,5vw,64px);color:#F4EDE6;display:flex;align-items:center;
+  background:radial-gradient(110% 80% at 85% 5%,rgba(244,237,230,.28),transparent 55%),radial-gradient(80% 70% at 5% 100%,rgba(48,17,0,.38),transparent 60%),linear-gradient(160deg,#94A664 0%,#62763A 42%,#2F3A16 100%)}
+.hero-card .hero-grid{width:100%}
+.hero .hero-card .lead{color:rgba(244,237,230,.86)}
+.hero-card .kicker{color:#F4EDE6;background:rgba(244,237,230,.14);padding:7px 14px;border-radius:999px}
+.hero-card .facts span{color:rgba(244,237,230,.8)} .hero-card .facts span::before{background:#EADCC8}
+.photo-tag{position:absolute;right:clamp(26px,5vw,64px);top:18px;text-align:right;max-width:60%;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:rgba(244,237,230,.62)}
+.hero-branch{right:3%;top:-6%;width:min(30vw,340px);opacity:.55}
+.circles{display:flex;gap:clamp(14px,3vw,36px);justify-content:center;margin-top:-62px;position:relative;z-index:3;flex-wrap:wrap}
+.circle{display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:var(--ink);font-weight:500;font-size:15px}
+.circle .ra{width:clamp(88px,10vw,124px);aspect-ratio:1;border-radius:50%;border:6px solid var(--paper);display:grid;place-items:center;padding:24%;transition:transform .45s var(--ease)}
+.circle:hover .ra{transform:translateY(-6px) rotate(-5deg)}
+.stats{padding-block:clamp(50px,7vw,90px) 0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));border-top:1px solid var(--line)}
+.stat{padding:30px 22px;text-align:center;border-right:1px solid var(--line)} .stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(2.8rem,5vw,4rem);letter-spacing:-.05em;line-height:1}
+.stat>span{display:block;margin-top:10px;font-weight:500;font-size:1.05rem} .stat .serif{color:var(--moka);font-size:1.3em}
+.stat p{color:var(--ink-2);font-size:14px;margin-top:6px;max-width:22em;margin-inline:auto}
+@media (max-width:620px){.stat{border-right:0;border-bottom:1px solid var(--line)}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:30px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero h1 .w{display:block;animation:stretchIn 1.2s var(--ease) both}
+.hero h1 .w:nth-child(2){animation-delay:.12s}
+.hero h1 .w:nth-child(3){animation-delay:.24s}
+.hero h1 .w.serif{font-size:1em;line-height:1.02;color:#EADCC8}
+@keyframes stretchIn{from{opacity:0;filter:blur(10px);transform:translateY(.25em)}to{opacity:1;filter:none;transform:none}}
+.hero h1 .w.serif{animation-name:fadeUp}
+@keyframes fadeUp{from{opacity:0;transform:translateY(.3em)}to{opacity:1;transform:none}}
+.hero h1 .hl{position:relative;display:inline-block}
+.hero h1 .hl::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.08em;height:.22em;background:var(--sable);z-index:-1;border-radius:.1em;transform-origin:left;animation:mark 1s .8s var(--ease) both}
+@keyframes mark{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:33em;color:var(--ink-2);margin-top:26px}
+.hero .ctas{margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px}
+.facts span{font-family:var(--f-mono);font-size:12px;display:inline-flex;gap:8px;align-items:center;color:var(--ink-2)}
+.facts span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--argile)}
+.par{position:absolute;pointer-events:none;transform:translate3d(calc(var(--mx,0) * var(--d,10px)),calc(var(--my,0) * var(--d,10px)),0);transition:transform .6s var(--ease)}
+.float{animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(calc(var(--r,0deg) + 6deg))}}
+
+/* Téléphone de démonstration */
+.phone{position:relative;width:min(100%,300px);margin-inline:auto;aspect-ratio:9/18.5;border-radius:46px;background:var(--ink);padding:10px;box-shadow:0 40px 80px -30px rgba(48,17,0,.5);transform:rotate(4deg);z-index:2}
+.phone .scr{width:100%;height:100%;border-radius:37px;background:var(--paper);overflow:hidden;display:flex;flex-direction:column;gap:10px;padding:38px 14px 14px;position:relative}
+.phone .island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:var(--ink)}
+.mini-card{border-radius:18px;padding:12px;background:var(--card);border:1px solid var(--line)}
+.mini-card.co{background:var(--olive);color:var(--olive-ink);border-color:transparent}
+.ring{--p:60;width:56px;height:56px;border-radius:50%;background:conic-gradient(var(--sable) calc(var(--p)*1%),color-mix(in srgb,currentColor 18%,transparent) 0);display:grid;place-items:center;flex:none}
+.ring::before{content:"";grid-area:1/1;width:42px;height:42px;border-radius:50%;background:var(--olive)}
+.ring b{grid-area:1/1;font-family:var(--f-mono);font-size:11px;position:relative}
+
+/* Bande défilante */
+.marquee{background:var(--sauge);color:#F4EDE6;overflow:hidden;padding-block:22px;margin-block:30px 0;position:relative;z-index:3}
+.marquee .track{display:flex;width:max-content;gap:34px;align-items:center;animation:slide 32s linear infinite}
+.marquee span{font-family:var(--f-display);font-weight:400;font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:-.03em;white-space:nowrap}
+.marquee span.alt{font-family:var(--f-serif);font-style:italic;color:#F3EBE0}
+.marquee svg{width:30px;height:30px;flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+.section{padding-block:clamp(64px,10vw,130px);position:relative}
+.section.tint{background:var(--paper-2)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:24px;align-items:end;margin-bottom:46px}
+@media (max-width:800px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+.sec-head p{color:var(--ink-2);font-size:1.08rem;max-width:32em}
+
+/* Méthode : cartes empilées */
+.stackcards{display:flex;flex-direction:column;gap:22px}
+.scard{position:sticky;top:calc(130px + var(--i) * 26px);border-radius:34px;padding:clamp(24px,4vw,46px);min-height:300px;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,.7fr);gap:28px;align-items:center;overflow:hidden;color:#301100;box-shadow:0 -10px 30px -20px rgba(48,17,0,.25)}
+@media (max-width:760px){.scard{grid-template-columns:minmax(0,1fr);min-height:0}}
+.scard .n{font-family:var(--f-serif);font-style:italic;font-size:clamp(4rem,9vw,7.5rem);line-height:.8}
+.scard h3{font-weight:500;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.03em}
+.scard p{margin-top:10px;font-size:1.05rem;max-width:30em}
+.scard .art-s{width:min(100%,220px);justify-self:end}
+.scard.c1{background:#E9DCC9} .scard.c2{background:#F1DDD3} .scard.c3{background:#DDE3CC}
+
+/* Dossards (formules) */
+.bibs{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));perspective:1200px}
+.bib{position:relative;background:var(--card);color:var(--ink);border-radius:28px;padding:30px 26px 22px;display:flex;flex-direction:column;gap:14px;border:1.5px solid var(--line);
+  transform-style:preserve-3d;transition:transform .35s var(--ease),box-shadow .35s;box-shadow:0 30px 50px -40px rgba(48,17,0,.45)}
+.bib::before,.bib::after{content:none}
+.bib::before{left:14px} .bib::after{right:14px}
+.bib .holes{display:none}
+.bib .holes i{width:12px;height:12px;border-radius:50%;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+.bib .strip{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding-inline:20px;color:var(--ink-2)}
+.bib .big{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:clamp(4.5rem,8vw,6.5rem);line-height:.9;text-align:center;color:var(--argile)}
+.bib h3{font-weight:500;font-size:1.35rem;text-align:center;letter-spacing:-.02em}
+.bib .price{text-align:center;font-family:var(--f-display);font-weight:400;font-size:2.2rem;letter-spacing:-.03em}
+.bib .price small{font-family:var(--f-body);font-size:.85rem;font-weight:500;color:var(--ink-2)}
+.bib ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.bib li{display:flex;gap:10px;align-items:flex-start}
+.bib li svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--sauge)}
+.bib .tear{border-top:2px dashed var(--line);margin-inline:-26px;padding:14px 26px 18px;font-family:var(--f-mono);font-size:11px;text-align:center;color:var(--ink-2);text-transform:uppercase;letter-spacing:.05em}
+.bib.hero-bib{background:var(--olive);color:var(--olive-ink);border-color:transparent}
+.bib.hero-bib .big{color:var(--sable)}
+.bib.hero-bib .strip,.bib.hero-bib .tear,.bib.hero-bib .price small{color:color-mix(in srgb,var(--olive-ink) 75%,transparent)}
+.bib.hero-bib li svg{color:var(--sable)}
+.bib.hero-bib .tear{border-color:color-mix(in srgb,var(--olive-ink) 35%,transparent)}
+.bib .ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--argile);color:#301100;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;white-space:nowrap}
+
+/* Thématiques */
+.hscroll{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,320px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-width:thin}
+.theme-card{scroll-snap-align:start;border-radius:28px;padding:24px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;color:#301100}
+.theme-card h3{font-weight:500;font-size:1.7rem;letter-spacing:-.03em;position:relative}
+.theme-card p{position:relative;font-size:15.5px;max-width:20em}
+.theme-card .art-t{position:absolute;right:-30px;top:40px;width:220px;opacity:.95}
+
+.ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:12px}
+.ig a{aspect-ratio:4/5;border-radius:20px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px;text-decoration:none;color:#301100;transition:transform .3s var(--ease)}
+.ig a:hover{transform:translateY(-4px) rotate(-1deg)}
+.ig a .art-i{position:absolute;inset:14% 10% auto;opacity:.95}
+
+.final{background:var(--band);color:var(--band-ink);border-radius:clamp(28px,5vw,56px);padding:clamp(40px,8vw,100px) clamp(24px,5vw,70px);position:relative;overflow:hidden}
+.final h2{font-size:clamp(2.6rem,9vw,7rem)}
+.final .serif{color:#EADCC8}
+
+.foot{padding-block:40px 60px}
+.foot .big-mark{font-family:var(--f-display);font-weight:400;font-size:clamp(4rem,19vw,17rem);letter-spacing:-.06em;line-height:.8;color:transparent;-webkit-text-stroke:1.2px var(--line);user-select:none;margin-top:40px;overflow:hidden;white-space:nowrap}
+
+/* Pages secondaires */
+.page-hero{padding-block:40px 30px}
+.page-hero h1{font-size:clamp(2.6rem,8vw,6rem)}
+.panel{background:var(--card);border:1.5px solid var(--line);border-radius:26px;padding:clamp(18px,3vw,30px);min-width:0}
+.panel.co{background:var(--olive);color:var(--olive-ink);border-color:transparent}
+.panel.ci{background:var(--sable);color:var(--ink);border-color:transparent}
+.panel.ro{background:var(--rose);border-color:transparent}
+.panel.ti{background:var(--paper-2);border-color:transparent}
+.table-wrap{overflow-x:auto;border-radius:22px;border:1.5px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);}
+tr:last-child td{border-bottom:0}
+td.c,th.c{text-align:center}
+.yes{color:var(--sauge)} .no{color:var(--ink-2);opacity:.5}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field label,.field .lbl{font-size:13.5px;font-weight:650}
+.field input,.field select,.field textarea{border:1.5px solid var(--line);background:var(--card);border-radius:14px;padding:12px 14px;width:100%;min-width:0;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--olive);outline:none}
+.field textarea{min-height:100px;resize:vertical}
+.field .hint{font-size:12.5px;color:var(--ink-2)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:inline-flex;gap:7px;align-items:center;font-size:13.5px;font-weight:550;background:var(--paper-2);padding:6px 12px;border-radius:999px;cursor:pointer}
+.form-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.form-grid .full{grid-column:1/-1}
+.ph-portrait{aspect-ratio:4/5;border-radius:200px 200px 30px 30px;background:var(--olive);position:relative;overflow:hidden;display:grid;place-items:end center;color:var(--olive-ink)}
+.ph-portrait span{font-family:var(--f-mono);font-size:12px;padding:20px}
+.placeholder{background:color-mix(in srgb,var(--sable) 45%,transparent);border-radius:6px;padding:0 6px;font-style:italic}
+
+/* ================= APPLICATION (patiente + back-office) ================= */
+.app{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;padding-block:22px 80px}
+.rail{position:sticky;top:70px;align-self:start;display:flex;flex-direction:column;gap:4px;padding:16px;border-radius:30px;background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);box-shadow:var(--glass-shadow)}
+.rail .me .tag{white-space:normal;line-height:1.3}
+.rail .me{display:flex;gap:11px;align-items:center;padding:4px 4px 16px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex:none;font-family:var(--f-display);font-weight:600;font-size:14px;background:var(--sable);color:var(--ink)}
+.rail button.nv{display:flex;align-items:center;gap:11px;border:0;background:none;padding:11px 12px;border-radius:16px;cursor:pointer;font-weight:600;color:var(--ink-2);text-align:left;width:100%;transition:background .2s,color .2s}
+.rail button.nv svg{width:20px;height:20px;flex:none}
+.rail button.nv:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.rail button.nv.on{background:var(--ink);color:var(--paper)}
+.rail button.nv .lk{margin-left:auto;opacity:.6}
+.rail button.nv .lk svg{width:15px;height:15px}
+.main{min-width:0;display:flex;flex-direction:column;gap:24px}
+.ph-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.ph-head h1{font-size:clamp(2.1rem,5vw,3.6rem)}
+.tabbar{display:none}
+@media (max-width:860px){
+  .app{grid-template-columns:minmax(0,1fr);gap:14px;padding-bottom:120px}
+  .app.patient .rail{display:none}
+  .app.admin .rail{position:static;flex-direction:row;overflow-x:auto;padding:8px;border-radius:22px}
+  .app.admin .rail .me{display:none}
+  .app.admin .rail button.nv{width:auto;white-space:nowrap}
+  .tabbar{display:flex;position:fixed;z-index:55;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));
+    justify-content:space-around;padding:8px;border-radius:30px;background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);box-shadow:var(--glass-shadow)}
+  .tabbar button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:650;color:var(--ink-2);padding:7px 10px;border-radius:20px;cursor:pointer;min-width:58px}
+  .tabbar button svg{width:22px;height:22px}
+  .tabbar button.on{background:var(--ink);color:var(--paper)}
+}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:26px;padding:20px;min-width:0}
+.card.co{background:var(--olive);color:var(--olive-ink);border-color:transparent}
+.card.ci{background:var(--sable);color:var(--ink);border-color:transparent}
+.card.ti{background:var(--paper-2);border-color:transparent}
+.today{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;position:relative;overflow:hidden}
+.bigring{--p:30;width:132px;height:132px;border-radius:50%;background:conic-gradient(var(--sable) calc(var(--p)*1%),color-mix(in srgb,var(--olive-ink) 20%,transparent) 0);display:grid;place-items:center;position:relative;z-index:1}
+.bigring::before{content:"";grid-area:1/1;width:104px;height:104px;border-radius:50%;background:var(--olive)}
+.bigring div{grid-area:1/1;text-align:center;position:relative}
+.bigring b{display:block;font-family:var(--f-display);font-weight:400;font-size:2.1rem;line-height:1;letter-spacing:-.03em}
+.meals{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);gap:14px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.meal{scroll-snap-align:start;border-radius:22px;overflow:hidden;background:var(--card);border:1.5px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.meal .art{aspect-ratio:16/10}
+.meal .b{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.art{position:relative;overflow:hidden;background:var(--a)}
+.art .s{position:absolute;display:block}
+.rlink{background:none;border:0;padding:0;text-align:left;cursor:pointer;font-weight:700;font-family:var(--f-display);font-size:1.02rem;line-height:1.2;color:var(--ink)}
+.rlink:hover{color:var(--olive)}
+.rcard{display:flex;flex-direction:column;background:var(--card);border:1.5px solid var(--line);border-radius:26px;overflow:hidden;position:relative;min-width:0;transition:transform .3s var(--ease),box-shadow .3s}
+.rcard:hover{transform:translateY(-4px);box-shadow:0 24px 40px -30px rgba(48,17,0,.5)}
+.rcard .art{aspect-ratio:5/4;border:0;width:100%;cursor:pointer;padding:0}
+.rcard .meal-t{position:absolute;left:12px;top:12px;z-index:2;background:var(--card);color:var(--ink);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.rcard .fav{position:absolute;right:12px;top:12px;z-index:2}
+.rcard .b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.rcard h4{font-weight:750;font-size:1.08rem;line-height:1.2;cursor:pointer}
+.macro-line{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2)}
+.macro-line b{color:var(--ink);font-weight:600}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filters select,.filters input[type=search]{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 16px;font-size:14.5px;min-width:0}
+.filters input[type=search]{flex:1 1 240px}
+.locked{position:relative}
+.locked .blur{filter:blur(6px) saturate(.6);opacity:.5;pointer-events:none;user-select:none}
+.upsell{display:flex;flex-direction:column;gap:12px;align-items:flex-start;background:var(--card);border:2px solid var(--ink);border-radius:26px;padding:24px;box-shadow:10px 10px 0 var(--sable)}
+.locked .upsell{position:absolute;left:50%;top:36px;transform:translateX(-50%);width:min(92%,480px);z-index:3}
+.vcard{display:flex;flex-direction:column;border-radius:26px;overflow:hidden;background:var(--card);border:1.5px solid var(--line);min-width:0}
+.vcard .thumb{aspect-ratio:16/10;border:0;width:100%;cursor:pointer;position:relative;display:grid;place-items:center;overflow:hidden;background:var(--ink);color:#fff;padding:0}
+.vcard .thumb .art{position:absolute;inset:0;opacity:.9}
+.vcard .play{width:56px;height:56px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;position:relative;z-index:1;transition:transform .3s var(--ease)}
+.vcard .thumb:hover .play{transform:scale(1.1)}
+.vcard .play svg{width:22px;height:22px;margin-left:3px}
+.vcard .dur{position:absolute;right:12px;bottom:12px;z-index:1;background:rgba(48,17,0,.8);color:#fff;font-family:var(--f-mono);font-size:11.5px;padding:4px 9px;border-radius:999px}
+.vcard .th{position:absolute;left:12px;top:12px;z-index:1;background:var(--paper);color:var(--ink);font-family:var(--f-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;padding:5px 10px;border-radius:999px}
+.vcard .b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px}
+.week{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
+.day{border-radius:24px;padding:16px;background:var(--card);border:1.5px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.day.now{border:2.5px solid var(--olive);box-shadow:8px 8px 0 var(--olive-soft)}
+.day h4{font-weight:600;font-size:1rem;display:flex;justify-content:space-between;align-items:center}
+.slot{display:flex;flex-direction:column;gap:2px}
+.slot .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.ticket{display:grid;grid-template-columns:100px minmax(0,1fr) auto;align-items:stretch;border-radius:24px;background:var(--card);border:1.5px solid var(--line);overflow:hidden;position:relative}
+@media (max-width:600px){.ticket{grid-template-columns:84px minmax(0,1fr)}.ticket .act{grid-column:1/-1;border-top:2px dashed var(--line);padding:12px 16px}}
+.ticket .stub{background:var(--olive);color:var(--olive-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 6px;border-right:2px dashed color-mix(in srgb,var(--olive-ink) 40%,transparent)}
+.ticket .stub b{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:2.6rem;line-height:.9}
+.ticket .stub span{font-family:var(--f-mono);font-size:11px;text-transform:uppercase}
+.ticket .info{padding:14px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.ticket .act{display:flex;align-items:center;padding:14px 18px}
+.seats{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.seats i{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--line)}
+.seats i.f{background:var(--olive);border-color:var(--olive)}
+.workout{display:flex;flex-direction:column;gap:10px}
+.wv{display:flex;gap:12px;align-items:center;padding:10px;border-radius:18px;background:var(--paper-2)}
+.chk{width:30px;height:30px;border-radius:10px;border:2px solid var(--ink-2);background:var(--card);display:grid;place-items:center;cursor:pointer;flex:none;color:transparent;transition:all .2s var(--ease)}
+.chk.on{background:var(--sauge);border-color:var(--sauge);color:#fff;transform:rotate(-6deg)}
+.chk svg{width:17px;height:17px}
+.progress{height:10px;border-radius:99px;background:var(--paper-2);overflow:hidden}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--sauge),var(--sable));border-radius:99px;transition:width .5s var(--ease)}
+.toggle{position:relative;width:48px;height:28px;flex:none}
+.toggle input{opacity:0;width:0;height:0;position:absolute}
+.toggle span{position:absolute;inset:0;border-radius:99px;background:var(--line);cursor:pointer;transition:background .2s}
+.toggle span::after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:var(--card);transition:transform .25s var(--ease);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle input:checked+span{background:var(--olive)}
+.toggle input:checked+span::after{transform:translateX(20px)}
+.list{display:flex;flex-direction:column}
+.list .it{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.list .it:last-child{border-bottom:0}
+.list .it .grow{flex:1;min-width:0}
+.kpis{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.kpi .v{font-family:var(--f-display);font-weight:400;font-size:clamp(2.4rem,4vw,3.2rem);line-height:1;letter-spacing:-.04em}
+.kpi .l{font-size:13.5px;color:var(--ink-2);margin-top:6px}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar{display:grid;grid-template-columns:130px minmax(0,1fr) 34px;gap:12px;align-items:center;font-size:14px}
+.bar .tr{height:16px;border-radius:99px;background:var(--paper-2);overflow:hidden}
+.bar .fl{height:100%;border-radius:99px;background:var(--olive)}
+.bar:nth-child(3) .fl{background:var(--sable)} .bar:nth-child(2) .fl{background:var(--brume)} .bar:nth-child(1) .fl{background:var(--ink-2)}
+
+/* Modale, toast, éclats */
+.overlay{position:fixed;inset:0;z-index:80;background:rgba(23,14,6,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;padding-top:max(16px,env(safe-area-inset-top,0px));padding-bottom:max(16px,env(safe-area-inset-bottom,0px));animation:fade .25s ease}
+@keyframes fade{from{opacity:0}}
+.modal{background:var(--paper);border-radius:30px;width:min(100%,780px);max-height:100%;overflow:auto;box-shadow:0 40px 100px rgba(0,0,0,.4);animation:pop .35s var(--ease)}
+@keyframes pop{from{transform:translateY(24px) scale(.98);opacity:0}}
+.modal.wide{width:min(100%,1020px)}
+.m-head{position:sticky;top:0;z-index:2;background:var(--paper);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.m-body{padding:22px;display:flex;flex-direction:column;gap:20px}
+.m-foot{position:sticky;bottom:0;background:var(--paper);display:flex;justify-content:flex-end;gap:10px;padding:14px 22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.ingr{list-style:none;margin:0;padding:0}
+.ingr li{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);align-items:center}
+.ingr li b{min-width:84px;font-family:var(--f-mono);font-size:13px;font-weight:600}
+.ingr label{display:flex;gap:12px;align-items:center;width:100%;cursor:pointer}
+.ingr input:checked~span{text-decoration:line-through;opacity:.5}
+.steps-ol{margin:0;padding:0;list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:12px}
+.steps-ol li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start}
+.steps-ol li::before{counter-increment:st;content:counter(st);width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:14px}
+.stepper{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:4px;background:var(--card)}
+.stepper button{width:32px;height:32px;border-radius:50%;border:0;background:var(--paper-2);cursor:pointer;font-weight:700;font-size:17px}
+.stepper b{min-width:84px;text-align:center;font-family:var(--f-mono);font-size:12.5px}
+.label-nutri{border:2.5px solid var(--ink);border-radius:14px;padding:12px 14px;font-family:var(--f-mono);font-size:12.5px;background:var(--card)}
+.label-nutri .t{font-family:var(--f-display);font-weight:600;font-size:1.05rem;border-bottom:7px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
+.label-nutri .r{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--line)}
+.label-nutri .r.big{border-bottom:4px solid var(--ink);font-weight:700;font-size:14px}
+.label-nutri .r:last-child{border-bottom:0}
+.player{aspect-ratio:16/9;border-radius:22px;background:var(--ink);color:#fff;display:grid;place-items:center;text-align:center;padding:20px;position:relative;overflow:hidden}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:96;background:var(--ink);color:var(--paper);padding:13px 20px;border-radius:18px;font-size:14.5px;font-weight:550;max-width:min(92vw,540px);box-shadow:0 14px 40px rgba(0,0,0,.35);animation:pop .3s var(--ease)}
+@media (max-width:860px){.toast{bottom:calc(100px + env(safe-area-inset-bottom,0px))}}
+.burst{position:fixed;pointer-events:none;z-index:97;width:14px;height:14px;border-radius:3px;animation:burst .9s var(--ease) forwards}
+@keyframes burst{to{transform:translate(var(--bx),var(--by)) rotate(var(--br));opacity:0}}
+.tmpl{display:grid;grid-template-columns:110px repeat(4,minmax(160px,1fr));gap:6px;align-items:center;min-width:780px}
+.tmpl select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:7px 8px;background:var(--card);font-size:13px}
+
+/* Apparition au défilement (amélioration progressive, état de repos lisible) */
+@supports (animation-timeline: view()){
+  .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+  @keyframes rv{from{opacity:.55;transform:translateY(46px) scale(.97)}to{opacity:1;transform:none}}
+}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s}
+
+/* Croissance au défilement (réf. Farm Minerals) et traînée de graines (réf. Voldog) */
+@supports (animation-timeline: view()){
+  .scard .art-s{animation:grow linear both;animation-timeline:view();animation-range:entry 5% cover 45%;transform-origin:50% 90%}
+  @keyframes grow{from{transform:scale(.35) rotate(-25deg);opacity:.6}to{transform:none;opacity:1}}
+}
+.seed{position:fixed;pointer-events:none;z-index:94;width:10px;height:16px;border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;animation:seed .9s var(--ease) forwards}
+@keyframes seed{to{transform:translate(var(--sx),var(--sy)) rotate(var(--sr)) scale(.3);opacity:0}}
+/* ===== Site v3 : mises en page reprises de Calmlyss, Farm Minerals et Voldog ===== */
+.snav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:16px clamp(16px,3vw,32px);position:relative;z-index:5}
+.snav .logo{justify-self:start;color:inherit}
+.snav .links{display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.24)}
+.snav .links button{border:0;background:none;color:inherit;padding:8px 15px;border-radius:999px;font-size:14.5px;cursor:pointer}
+.snav .links button.on{background:var(--argile);color:#fff}
+.snav .right{justify-self:end;display:flex;gap:8px;align-items:center}
+.snav.dark{color:#F4EDE6} .snav.dark .logo small{color:rgba(244,237,230,.7)}
+.snav.light{color:var(--ink)} .snav.light .links{background:var(--card);border-color:var(--line)} .snav.light .btn-white{border-color:var(--line)}
+.snav-wrap{--pb:46px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--pb));z-index:50;background:color-mix(in srgb,var(--paper) 84%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.btn-white{--bg:#FFFFFF;--fg:#301100}
+@media (max-width:1060px){.snav{grid-template-columns:1fr auto}.snav .links{display:none}.snav .nav-menu{display:inline-grid}}
+@media (max-width:860px){.snav-wrap{--pb:0px}}
+@media (max-width:600px){.hide-s{display:none!important}}
+.ph{position:relative;overflow:hidden;isolation:isolate;display:block;width:100%;height:100%}
+.ph::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(90% 70% at 75% 12%,rgba(255,255,255,.26),transparent 60%)}
+.ph-olive{background:linear-gradient(160deg,#94A664,#4F6128 55%,#2F3A16);color:#E9DCC9}
+.ph-sauge{background:linear-gradient(160deg,#C3CFA5,#8DA05E);color:#F6F1EA}
+.ph-sable{background:linear-gradient(160deg,#F3EADD,#D9C4A6);color:#A0705A}
+.ph-moka{background:linear-gradient(160deg,#B8957F,#6E4D3C 70%,#4A3226);color:#F1DDD3}
+.ph-rose{background:linear-gradient(160deg,#F3DED5,#D8A992);color:#8A5A48}
+.ph-argile{background:linear-gradient(160deg,#E4B08F,#B06E4C);color:#FBEBDD}
+.ph-art{position:absolute;left:50%;top:50%;width:54%;max-width:300px;transform:translate(-50%,-50%) rotate(-8deg);opacity:.55;z-index:1}
+.ph-label{position:absolute;left:14px;bottom:12px;right:14px;z-index:2;font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;opacity:.8}
+.pill-eyebrow{display:inline-flex;gap:8px;align-items:center;align-self:flex-start;padding:6px 13px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.pill-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--argile)}
+.pill-eyebrow.dark{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.26);color:#F4EDE6}
+.chead .pill-eyebrow{align-self:center}
+.sec{padding-block:clamp(70px,10vw,130px)}
+.chead{text-align:center;max-width:780px;margin:0 auto 44px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.h3ro{padding:10px clamp(8px,1.2vw,16px) 0}
+.h3ro-card{position:relative;border-radius:34px;overflow:hidden;min-height:max(640px,94vh);color:#F4EDE6;display:flex;flex-direction:column}
+.h3ro-card>.ph{position:absolute;inset:0}
+.h3ro-card>.ph .ph-art{width:42%;max-width:520px;left:72%;top:46%;opacity:.4}
+.h3ro-card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(23,14,6,.32),transparent 28%,transparent 48%,rgba(23,14,6,.55))}
+.h3ro-card .snav{z-index:4}
+.photo-tag{position:absolute;z-index:3;right:clamp(18px,3vw,34px);top:88px;max-width:46%;text-align:right;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:rgba(244,237,230,.62)}
+.h3ro-body{position:relative;z-index:3;margin-top:auto;padding:0 clamp(22px,4vw,56px) clamp(100px,11vw,140px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.h3ro h1{font-size:clamp(3.1rem,7.6vw,7rem)}
+.h3ro h1 .w{display:block;animation:stretchIn 1.1s var(--ease) both}
+.h3ro h1 .w+.w{animation-delay:.12s;color:#EADCC8}
+.h3ro .lead{max-width:31em;color:rgba(244,237,230,.88);margin-top:18px;font-size:1.08rem}
+.mode{display:flex;gap:4px;padding:6px;border-radius:999px;background:#FFFFFF;color:#301100;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
+.mode button{border:0;background:none;color:inherit;padding:10px 18px;border-radius:999px;font-weight:500;cursor:pointer;display:flex;gap:8px;align-items:center}
+.mode button svg{width:20px;height:20px}
+.mode button.on{background:#E9DCC9}
+@media (max-width:760px){.h3ro-body{grid-template-columns:minmax(0,1fr)}.mode{justify-self:start}.photo-tag{top:84px;max-width:none;left:22px;text-align:left}}
+.circles{display:flex;gap:clamp(12px,3vw,36px);justify-content:center;margin-top:-64px;position:relative;z-index:6;flex-wrap:wrap;padding-inline:16px}
+.circle{display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:var(--ink);font-weight:500;font-size:15px}
+.circle .ra{display:block;width:clamp(84px,10vw,124px);aspect-ratio:1;border-radius:50%;border:6px solid var(--paper);overflow:hidden;transition:transform .45s var(--ease)}
+.circle .ra .ph-art{width:62%}
+.circle:hover .ra{transform:translateY(-6px) rotate(-5deg)}
+.intro{padding-top:clamp(90px,12vw,150px)}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,.32fr);gap:clamp(30px,5vw,70px);align-items:center}
+.words{font-family:var(--f-display);font-weight:400;font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.12;letter-spacing:-.03em}
+.words .wd{opacity:.22;transition:opacity .45s ease}
+.words .wd.on{opacity:1}
+.words .serif{color:var(--moka)}
+.sign{margin-top:30px;display:flex;gap:14px;align-items:center}
+.intro-art{max-width:300px;justify-self:end;width:100%}
+@media (max-width:760px){.intro-grid{grid-template-columns:minmax(0,1fr)}.intro-art{max-width:180px;justify-self:start}}
+.fan{display:flex;justify-content:center;margin-bottom:-26px;position:relative;z-index:2}
+.fan .ph{width:min(26vw,230px);height:auto;aspect-ratio:3/4;border-radius:20px;box-shadow:0 30px 50px -30px rgba(48,17,0,.5);flex:none}
+.fan .ph:nth-child(1){transform:rotate(-8deg) translate(34px,14px)}
+.fan .ph:nth-child(2){z-index:2;transform:translateY(-10px)}
+.fan .ph:nth-child(3){transform:rotate(8deg) translate(-34px,14px)}
+.stats2 .stats-grid{background:var(--paper);position:relative;z-index:3}
+.carousel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.slider{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,340px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.slider::-webkit-scrollbar{display:none}
+.tcard{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.tcard .ph{aspect-ratio:4/5;height:auto;border-radius:26px}
+.tcard h3{font-weight:500;font-size:1.35rem;letter-spacing:-.02em;margin-top:6px}
+.tcard p{color:var(--ink-2);font-size:15px}
+.carousel-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.week-sec{margin:0 clamp(8px,1.2vw,16px);border-radius:34px;overflow:hidden;position:relative;color:#F4EDE6;padding:clamp(70px,9vw,120px) clamp(20px,4vw,56px)}
+.week-sec>.ph{position:absolute;inset:0}
+.week-sec::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(23,14,6,.45)}
+.week-in{position:relative;z-index:2;text-align:center;max-width:1040px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.daytabs{display:inline-flex;gap:3px;padding:5px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin-top:30px;flex-wrap:wrap;justify-content:center}
+.daytabs button{border:0;background:none;color:inherit;padding:9px 17px;border-radius:999px;cursor:pointer;font-size:14.5px}
+.daytabs button.on{background:#FFFFFF;color:#301100}
+.daylist{margin-top:34px;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;text-align:left}
+.dayitem{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:16px 18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);animation:fadeUp .5s var(--ease) both}
+.dayitem .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;opacity:.7}
+.dayitem b{display:block;margin-top:8px;font-weight:500;font-size:1.05rem;line-height:1.25}
+.dayitem span:last-child:not(.k){display:block;margin-top:6px;font-family:var(--f-mono);font-size:11.5px;opacity:.75}
+.dayitem.sport{background:rgba(233,220,201,.92);color:#301100;border-color:transparent}
+.pricing{position:relative;overflow:hidden}
+.pricing .deco{position:absolute;width:min(26vw,320px);pointer-events:none;opacity:.8;top:60px}
+.pricing .deco.l{left:-60px;transform:rotate(-18deg)} .pricing .deco.r{right:-50px;transform:rotate(14deg)}
+.ptoggle{display:inline-flex;padding:5px;border-radius:999px;background:var(--card);border:1px solid var(--line);gap:3px;margin-top:6px}
+.ptoggle button{border:0;background:none;padding:9px 18px;border-radius:999px;cursor:pointer;font-size:14.5px;color:var(--ink)}
+.ptoggle button.on{background:var(--olive);color:var(--olive-ink)}
+.pcards{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:20px;max-width:1080px;margin:0 auto;align-items:start}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;gap:16px}
+.pcard.feat{background:var(--olive);color:var(--olive-ink);border-color:transparent;transform:translateY(-12px)}
+.pcard .pk{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.pcard h3{font-weight:500;font-size:1.55rem;letter-spacing:-.025em;line-height:1.1}
+.pcard .amount{font-family:var(--f-serif);font-style:italic;font-size:3.6rem;line-height:1;letter-spacing:-.02em}
+.pcard .amount small{font-family:var(--f-mono);font-style:normal;font-size:12px;letter-spacing:0;opacity:.7;margin-left:6px}
+.pcard ul{list-style:none;padding:16px 0 0;margin:0;display:flex;flex-direction:column;gap:11px;font-size:15px;border-top:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+.pcard li{display:flex;gap:11px;align-items:flex-start}
+.pcard li::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;opacity:.75;flex:none;margin-top:7px}
+.pcard .btn{margin-top:6px}
+.manon{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(30px,6vw,90px);align-items:center}
+.oval{border-radius:999px;overflow:hidden;aspect-ratio:3/4.3;max-width:420px;border:8px solid var(--card);box-shadow:0 30px 60px -40px rgba(48,17,0,.5)}
+.manon blockquote{margin:26px 0 0;font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.18;letter-spacing:-.03em}
+.creds{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+@media (max-width:760px){.manon{grid-template-columns:minmax(0,1fr)}.oval{max-width:260px}}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:620px;background:var(--paper-2)}
+.split>.ph{min-height:360px}
+.split-l{padding:clamp(50px,7vw,100px) clamp(20px,5vw,80px);display:flex;flex-direction:column;justify-content:space-between;gap:44px}
+.rows .r{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+.rows .r:last-child{border-bottom:1px solid var(--line)}
+.rows .r b{font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.4rem);letter-spacing:-.035em;line-height:1}
+.rows .r span{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+@media (max-width:860px){.split{grid-template-columns:minmax(0,1fr)}}
+.blog-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px}
+.bcard{display:grid;grid-template-columns:minmax(110px,.7fr) minmax(0,1.3fr);gap:20px;padding:12px;border-radius:26px;background:var(--card);border:1px solid var(--line);align-items:center}
+.bcard .ph{aspect-ratio:1;height:auto;border-radius:18px}
+.bcard h3{font-weight:500;font-size:1.18rem;letter-spacing:-.02em;line-height:1.25}
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(120px,14vw,200px);gap:12px}
+.mosaic a{border-radius:20px;overflow:hidden;display:block;transition:transform .4s var(--ease)}
+.mosaic a:hover{transform:scale(.985)}
+.mosaic .m0{grid-row:span 2} .mosaic .m2{grid-column:span 2}
+@media (max-width:700px){.mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cta-card{position:relative;border-radius:34px;overflow:hidden;color:#F4EDE6;text-align:center;padding:clamp(70px,10vw,130px) 20px;display:flex;flex-direction:column;align-items:center}
+.cta-card>.ph{position:absolute;inset:0}
+.cta-card::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(23,14,6,.35)}
+.cta-card>*:not(.ph){position:relative;z-index:2}
+.foot2{background:#301100;color:#F4EDE6;margin-top:clamp(40px,6vw,80px);padding-block:64px 28px}
+.foot2-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,.6fr));gap:32px}
+@media (max-width:760px){.foot2-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.flink{background:none;border:0;padding:0;text-align:left;color:rgba(244,237,230,.78);cursor:pointer;text-decoration:none;font-size:15px}
+.flink:hover{color:#FFFFFF}
+.foot2 .big{font-family:var(--f-display);font-size:clamp(4rem,19vw,17rem);letter-spacing:-.06em;line-height:.8;color:rgba(244,237,230,.07);margin:46px 0 22px;white-space:nowrap;overflow:hidden}
+/* Surcharges responsives : toujours après les règles de base (journal, incident 4) */
+.circle .ra{padding:0}
+@media (max-width:600px){.circles{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;padding-bottom:6px}.circles::-webkit-scrollbar{display:none}.circle{flex:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .par{transform:none!important}
+}
+@media (max-width:600px){.today{grid-template-columns:minmax(0,1fr)}.bigring{justify-self:start;width:112px;height:112px}.bigring::before{width:88px;height:88px}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div id="app"></div>
+<div id="modal-root"></div>
+<div id="toast" class="toast" role="status" hidden></div>
+<script>
+/* =========================================================
+   DONNÉES FICTIVES (prototype) — rien n'est enregistré
+   ========================================================= */
+const TODAY = new Date(2026, 9, 22); // date de démonstration fixe
+const SETTINGS = {
+  doctolib: "https://www.doctolib.fr/dieteticien/toulon/manon-garrione",
+  whatsapp: "06 00 00 00 00 (numéro fictif)",
+  instagram: "https://www.instagram.com/garrymsportdiet/"
+};
+const PLAN_ORDER = ["suivi", "f1", "f2", "f3"];
+const PLANS = {
+  suivi: { code: "Suivi", name: "Suivi simple", price: 50, unit: "€ la consultation" },
+  f1: { code: "F1", name: "Nutrition", price: 60, unit: "€ / mois" },
+  f2: { code: "F2", name: "Nutrition + Recettes", price: 70, unit: "€ / mois" },
+  f3: { code: "F3", name: "Nutrition + Recettes + Sport", price: 90, unit: "€ / mois" }
+};
+const FEATURES = [
+  { key: "docs", label: "Profil et fiches conseils" },
+  { key: "rdv", label: "Bouton « Reprendre rendez-vous » (Doctolib)" },
+  { key: "articles", label: "Articles réservés aux membres" },
+  { key: "nutri", label: "Programme nutritionnel et semainier" },
+  { key: "contact", label: "Contact WhatsApp avec Manon" },
+  { key: "visio", label: "Consultation visio de 30 min tous les 15 jours" },
+  { key: "recettes", label: "Bibliothèque de recettes complète" },
+  { key: "videos", label: "Bibliothèque de vidéos de sport" },
+  { key: "sport", label: "Programme sportif" },
+  { key: "collectives", label: "Séances collectives en visio" },
+  { key: "individuelle", label: "Séance individuelle (en supplément)" }
+];
+const ACCESS = {
+  docs:        { suivi: true,  f1: true,  f2: true,  f3: true },
+  rdv:         { suivi: true,  f1: true,  f2: true,  f3: true },
+  articles:    { suivi: true,  f1: true,  f2: true,  f3: true },
+  nutri:       { suivi: false, f1: true,  f2: true,  f3: true },
+  contact:     { suivi: false, f1: true,  f2: true,  f3: true },
+  visio:       { suivi: false, f1: true,  f2: true,  f3: true },
+  recettes:    { suivi: false, f1: false, f2: true,  f3: true },
+  videos:      { suivi: false, f1: false, f2: false, f3: true },
+  sport:       { suivi: false, f1: false, f2: false, f3: true },
+  collectives: { suivi: false, f1: false, f2: false, f3: true },
+  individuelle:{ suivi: false, f1: false, f2: false, f3: true }
+};
+const RECIPE_PREVIEW = 3;
+
+const THEMES = ["Endométriose", "SOPK", "Ménopause", "Sportif", "Végétarien", "Anti-inflammatoire", "Petit budget", "Grossesse"];
+const MEALS = ["Petit-déjeuner", "Déjeuner", "Dîner", "Collation", "Dessert"];
+const ALLERGENS = ["Gluten", "Crustacés", "Œufs", "Poissons", "Arachides", "Soja", "Lait", "Fruits à coque", "Céleri", "Moutarde", "Sésame", "Sulfites", "Lupin", "Mollusques"];
+const DIETS = ["Végétarien", "Vegan", "Sans gluten", "Sans lactose"];
+const DIFFS = ["Facile", "Moyen", "Avancé"];
+
+const RECIPES = [
+  { id: "r1", title: "Porridge pomme et cannelle", meal: "Petit-déjeuner", themes: ["SOPK", "Petit budget", "Végétarien"], prep: 5, cook: 5, diff: "Facile", portions: 1,
+    ingr: [[50, "g", "flocons d'avoine"], [200, "ml", "lait demi-écrémé ou boisson végétale"], [1, "", "pomme"], [1, "c. à café", "cannelle"], [10, "g", "amandes effilées"]],
+    steps: ["Faire chauffer le lait et les flocons 4 à 5 minutes en remuant.", "Couper la pomme en dés et l'ajouter en fin de cuisson avec la cannelle.", "Parsemer d'amandes effilées."],
+    macro: { kcal: 380, p: 13, g: 55, l: 11, f: 8 }, allergens: ["Gluten", "Lait", "Fruits à coque"], diets: ["Végétarien"],
+    tip: "Les fibres de l'avoine rendent ce petit-déjeuner rassasiant jusqu'au déjeuner.", status: "publiée", date: "2026-09-02" },
+  { id: "r2", title: "Bowl saumon, quinoa et avocat", meal: "Déjeuner", themes: ["Anti-inflammatoire", "Endométriose", "Sportif"], prep: 15, cook: 15, diff: "Facile", portions: 2,
+    ingr: [[120, "g", "quinoa"], [240, "g", "saumon (2 pavés)"], [1, "", "avocat"], [1, "", "concombre"], [100, "g", "edamame"], [1, "c. à soupe", "sauce soja"], [1, "c. à soupe", "huile de sésame"], [null, "", "graines de sésame"]],
+    steps: ["Cuire le quinoa 12 minutes dans deux fois son volume d'eau.", "Saisir le saumon 3 minutes de chaque côté.", "Couper l'avocat et le concombre, répartir dans deux bols avec le quinoa et les edamame.", "Arroser de sauce soja et d'huile de sésame, parsemer de graines."],
+    macro: { kcal: 640, p: 40, g: 45, l: 32, f: 9 }, allergens: ["Poissons", "Soja", "Sésame"], diets: ["Sans lactose"],
+    tip: "Le saumon apporte des oméga-3. Variante : sardines ou maquereau, moins chers.", status: "publiée", date: "2026-09-02" },
+  { id: "r3", title: "Curry de lentilles corail et patate douce", meal: "Dîner", themes: ["Végétarien", "Petit budget", "Anti-inflammatoire", "Endométriose"], prep: 10, cook: 25, diff: "Facile", portions: 4,
+    ingr: [[250, "g", "lentilles corail"], [400, "g", "patate douce"], [400, "ml", "lait de coco léger"], [400, "g", "tomates concassées"], [1, "", "oignon"], [2, "c. à café", "curry"], [1, "c. à café", "curcuma"], [null, "", "coriandre fraîche"]],
+    steps: ["Faire revenir l'oignon émincé avec les épices.", "Ajouter la patate douce en dés, les lentilles rincées, les tomates et le lait de coco.", "Laisser mijoter 20 à 25 minutes à couvert.", "Servir avec la coriandre ciselée."],
+    macro: { kcal: 420, p: 18, g: 58, l: 12, f: 11 }, allergens: [], diets: ["Végétarien", "Vegan", "Sans gluten", "Sans lactose"],
+    tip: "Se congèle très bien : faites-en le double pour la semaine.", status: "publiée", date: "2026-09-09" },
+  { id: "r4", title: "Pancakes banane et fromage blanc", meal: "Petit-déjeuner", themes: ["Sportif", "Végétarien"], prep: 5, cook: 10, diff: "Facile", portions: 2,
+    ingr: [[2, "", "bananes bien mûres"], [2, "", "œufs"], [60, "g", "flocons d'avoine"], [100, "g", "fromage blanc"], [1, "pincée", "levure"]],
+    steps: ["Mixer tous les ingrédients jusqu'à obtenir une pâte lisse.", "Cuire de petites louches 2 minutes de chaque côté dans une poêle légèrement huilée."],
+    macro: { kcal: 330, p: 17, g: 45, l: 8, f: 5 }, allergens: ["Œufs", "Lait", "Gluten"], diets: ["Végétarien"],
+    tip: "Idéal 1 h 30 avant une séance de sport.", status: "publiée", date: "2026-09-16" },
+  { id: "r5", title: "Salade pois chiches, feta et herbes", meal: "Déjeuner", themes: ["Ménopause", "Végétarien", "Petit budget"], prep: 15, cook: 0, diff: "Facile", portions: 2,
+    ingr: [[265, "g", "pois chiches cuits"], [80, "g", "feta"], [1, "", "concombre"], [200, "g", "tomates cerises"], [0.5, "", "oignon rouge"], [null, "", "persil et menthe"], [2, "c. à soupe", "huile d'olive"], [1, "", "citron"]],
+    steps: ["Rincer les pois chiches.", "Couper les légumes, émietter la feta, ciseler les herbes.", "Assaisonner avec l'huile d'olive et le jus de citron."],
+    macro: { kcal: 450, p: 17, g: 35, l: 26, f: 10 }, allergens: ["Lait"], diets: ["Végétarien", "Sans gluten"],
+    tip: "Se prépare la veille : ajoutez les herbes au dernier moment.", status: "publiée", date: "2026-09-23" },
+  { id: "r6", title: "Energy balls dattes et cacao", meal: "Collation", themes: ["Sportif", "Végétarien"], prep: 15, cook: 0, diff: "Facile", portions: 6,
+    ingr: [[150, "g", "dattes dénoyautées"], [80, "g", "amandes"], [2, "c. à soupe", "cacao non sucré"], [30, "g", "flocons d'avoine"], [1, "c. à soupe", "beurre de cacahuète"]],
+    steps: ["Mixer les amandes, puis ajouter le reste des ingrédients.", "Former 12 boules et réserver au frais 30 minutes."],
+    macro: { kcal: 190, p: 5, g: 24, l: 9, f: 4 }, allergens: ["Fruits à coque", "Arachides", "Gluten"], diets: ["Végétarien", "Vegan"],
+    tip: "Une portion = 2 boules. Se garde 1 semaine au réfrigérateur.", status: "publiée", date: "2026-09-30" },
+  { id: "r7", title: "Poulet au citron, brocolis et riz complet", meal: "Déjeuner", themes: ["Sportif", "SOPK"], prep: 10, cook: 25, diff: "Facile", portions: 2,
+    ingr: [[260, "g", "filets de poulet"], [120, "g", "riz complet"], [300, "g", "brocolis"], [1, "", "citron"], [1, "", "gousse d'ail"], [1, "c. à soupe", "huile d'olive"], [null, "", "thym"]],
+    steps: ["Cuire le riz complet 25 minutes.", "Faire dorer le poulet en morceaux avec l'ail et le thym.", "Cuire les brocolis 6 minutes à la vapeur.", "Arroser de jus de citron au moment de servir."],
+    macro: { kcal: 560, p: 45, g: 55, l: 14, f: 7 }, allergens: [], diets: ["Sans gluten", "Sans lactose"],
+    tip: "Un repas complet : protéines, féculent complet et légumes dans la même assiette.", status: "publiée", date: "2026-10-07" },
+  { id: "r8", title: "Soupe miso, tofu et légumes", meal: "Dîner", themes: ["Ménopause", "Végétarien"], prep: 10, cook: 10, diff: "Facile", portions: 2,
+    ingr: [[2, "c. à soupe", "pâte miso"], [200, "g", "tofu ferme"], [1, "", "carotte"], [100, "g", "champignons"], [null, "", "1 poignée d'épinards"], [1, "", "oignon nouveau"], [800, "ml", "eau"]],
+    steps: ["Faire frémir l'eau avec la carotte en fines rondelles et les champignons.", "Ajouter le tofu en dés et les épinards 2 minutes.", "Hors du feu, délayer le miso et parsemer d'oignon nouveau."],
+    macro: { kcal: 220, p: 17, g: 14, l: 10, f: 4 }, allergens: ["Soja"], diets: ["Végétarien", "Vegan", "Sans lactose"],
+    tip: "Le soja apporte des isoflavones : on en parle ensemble selon votre situation.", status: "publiée", date: "2026-10-07" },
+  { id: "r9", title: "Overnight oats fruits rouges et chia", meal: "Petit-déjeuner", themes: ["Endométriose", "Anti-inflammatoire", "Végétarien"], prep: 5, cook: 0, diff: "Facile", portions: 1,
+    ingr: [[40, "g", "flocons d'avoine"], [1, "c. à soupe", "graines de chia"], [150, "ml", "boisson amande"], [100, "g", "yaourt grec"], [80, "g", "fruits rouges"]],
+    steps: ["Mélanger les flocons, le chia, la boisson amande et le yaourt dans un bocal.", "Laisser une nuit au réfrigérateur.", "Ajouter les fruits rouges le matin."],
+    macro: { kcal: 360, p: 15, g: 42, l: 14, f: 10 }, allergens: ["Gluten", "Lait", "Fruits à coque"], diets: ["Végétarien"],
+    tip: "Prêt en 5 minutes la veille : parfait pour les matins pressés.", status: "publiée", date: "2026-10-14" },
+  { id: "r10", title: "Omelette épinards et chèvre", meal: "Dîner", themes: ["SOPK", "Petit budget", "Végétarien"], prep: 5, cook: 8, diff: "Facile", portions: 1,
+    ingr: [[3, "", "œufs"], [null, "", "1 poignée d'épinards"], [30, "g", "chèvre frais"], [1, "tranche", "pain complet"], [1, "c. à café", "huile d'olive"]],
+    steps: ["Faire tomber les épinards 1 minute dans la poêle.", "Verser les œufs battus, ajouter le chèvre émietté.", "Plier l'omelette et servir avec le pain complet."],
+    macro: { kcal: 430, p: 28, g: 18, l: 27, f: 4 }, allergens: ["Œufs", "Lait", "Gluten"], diets: ["Végétarien"],
+    tip: "Les œufs sont une source de protéines économique et rapide.", status: "publiée", date: "2026-10-14" },
+  { id: "r11", title: "Wrap dinde, houmous et crudités", meal: "Déjeuner", themes: ["Sportif", "Petit budget"], prep: 10, cook: 0, diff: "Facile", portions: 1,
+    ingr: [[1, "", "galette de blé complet"], [2, "c. à soupe", "houmous"], [80, "g", "blanc de dinde"], [1, "", "carotte râpée"], [0.5, "", "poivron"], [null, "", "salade"]],
+    steps: ["Tartiner la galette de houmous.", "Garnir de dinde, carotte, poivron en lamelles et salade.", "Rouler serré et couper en deux."],
+    macro: { kcal: 420, p: 30, g: 42, l: 13, f: 7 }, allergens: ["Gluten", "Sésame"], diets: ["Sans lactose"],
+    tip: "À emporter au travail : se garde 24 h au frais, bien emballé.", status: "publiée", date: "2026-10-20" },
+  { id: "r12", title: "Compote pomme-poire et yaourt grec", meal: "Dessert", themes: ["Ménopause", "Petit budget", "Végétarien"], prep: 10, cook: 15, diff: "Facile", portions: 2,
+    ingr: [[2, "", "pommes"], [2, "", "poires"], [200, "g", "yaourt grec"], [1, "c. à café", "cannelle"], [20, "g", "noix"]],
+    steps: ["Cuire les fruits en morceaux 15 minutes à feu doux avec un fond d'eau.", "Écraser à la fourchette, ajouter la cannelle.", "Servir sur le yaourt avec les noix concassées."],
+    macro: { kcal: 260, p: 10, g: 36, l: 8, f: 6 }, allergens: ["Lait", "Fruits à coque"], diets: ["Végétarien", "Sans gluten"],
+    tip: "Sans sucre ajouté : la poire suffit à adoucir.", status: "programmée", date: "2026-11-02" }
+];
+
+const VIDEO_THEMES = ["Abdos-fessiers", "Renforcement", "Cardio", "Mobilité", "Étirements"];
+const LEVELS = ["Débutant", "Intermédiaire", "Avancé"];
+const EQUIPMENT = ["Aucun", "Tapis", "Haltères", "Élastique", "Kettlebell"];
+const VIDEOS = [
+  { id: "v1", title: "Abdos-fessiers express", theme: "Abdos-fessiers", dur: 15, level: "Débutant", equip: ["Tapis"], desc: "Un circuit de 5 exercices au sol, 40 secondes d'effort et 20 de repos.", date: "2026-07-01" },
+  { id: "v2", title: "Renfo haut du corps", theme: "Renforcement", dur: 25, level: "Intermédiaire", equip: ["Haltères", "Tapis"], desc: "Épaules, dos et bras avec deux haltères légers.", date: "2026-07-01" },
+  { id: "v3", title: "Cardio sans saut", theme: "Cardio", dur: 20, level: "Débutant", equip: ["Aucun"], desc: "Faire monter le cardio sans impact, idéal en appartement.", date: "2026-07-01" },
+  { id: "v4", title: "HIIT 30-30", theme: "Cardio", dur: 25, level: "Avancé", equip: ["Aucun"], desc: "Alternance de 30 secondes intenses et 30 secondes de récupération.", date: "2026-07-01" },
+  { id: "v5", title: "Mobilité hanches et dos", theme: "Mobilité", dur: 15, level: "Débutant", equip: ["Tapis"], desc: "Pour délier le bas du dos et gagner en amplitude.", date: "2026-07-01" },
+  { id: "v6", title: "Bas du corps à l'élastique", theme: "Renforcement", dur: 30, level: "Intermédiaire", equip: ["Élastique", "Tapis"], desc: "Squats, fentes et ponts fessiers avec élastique.", date: "2026-10-01" },
+  { id: "v7", title: "Gainage complet", theme: "Abdos-fessiers", dur: 10, level: "Intermédiaire", equip: ["Tapis"], desc: "Planches et variantes pour une sangle abdominale solide.", date: "2026-10-01" },
+  { id: "v8", title: "Kettlebell full body", theme: "Renforcement", dur: 35, level: "Avancé", equip: ["Kettlebell"], desc: "Swings, goblet squats et rowings.", date: "2026-10-01" },
+  { id: "v9", title: "Étirements après séance", theme: "Étirements", dur: 12, level: "Débutant", equip: ["Tapis"], desc: "Retour au calme et étirements de tout le corps.", date: "2026-10-01" },
+  { id: "v10", title: "Cardio boxe", theme: "Cardio", dur: 20, level: "Intermédiaire", equip: ["Aucun"], desc: "Enchaînements de boxe dans le vide, en musique.", date: "2026-10-01" }
+];
+
+const SLOTS = ["Petit-déjeuner", "Déjeuner", "Collation", "Dîner"];
+const DAYS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+const NUTRI_TEMPLATES = {
+  energie: { name: "Énergie", desc: "Des repas réguliers et rassasiants pour éviter les coups de fatigue de l'après-midi.",
+    recos: ["Une source de protéines à chaque repas", "La moitié de l'assiette en légumes", "1,5 L d'eau par jour, plus les jours de sport", "Un repas plaisir par semaine, sans culpabilité"],
+    days: [["r1", "r2", "Fruit + 10 amandes", "r3"], ["r9", "r5", "r6", "r7"], ["r4", "Restes du curry", "Yaourt nature + fruit", "r10"], ["r1", "r11", "r6", "r8"], ["r9", "r7", "Fruit + carré de chocolat noir", "r3"], ["r4", "r5", "Libre", "Repas plaisir"], ["Brunch : œufs, pain complet, fruits", "r2", "r12", "r8"]] },
+  reequilibrage: { name: "Rééquilibrage", desc: "Retrouver des repères simples : structure des repas, portions, collations utiles.",
+    recos: ["Trois repas par jour à heures régulières", "Une assiette : ½ légumes, ¼ féculents, ¼ protéines", "Une collation seulement si la faim est là"],
+    days: [["r1", "r5", "Fruit", "r8"], ["r9", "r7", "Yaourt nature", "r10"], ["r1", "r11", "Fruit", "r3"], ["r9", "r2", "Fruit + 10 amandes", "r8"], ["r1", "r5", "Yaourt nature", "r10"], ["r4", "Repas libre", "Fruit", "r3"], ["Brunch maison", "r7", "r12", "Soupe de légumes"]] },
+  sportive: { name: "Sportive", desc: "Plus d'énergie autour des séances et une récupération soignée.",
+    recos: ["Un repas riche en glucides 2 à 3 h avant la séance", "Protéines + glucides dans l'heure qui suit", "Boire régulièrement pendant l'effort"],
+    days: [["r4", "r7", "r6", "r2"], ["r9", "r11", "Banane", "r3"], ["r4", "r2", "r6", "r7"], ["r1", "r11", "r6", "r10"], ["r4", "r7", "Banane + amandes", "r3"], ["r9", "r2", "r6", "Repas plaisir"], ["Brunch : œufs, pain complet, fruits", "r5", "r12", "r8"]] }
+};
+const SPORT_TEMPLATES = {
+  remise: { name: "Remise en forme", level: "Débutant", desc: "3 séances par semaine pour reprendre en douceur.",
+    sessions: [{ day: "Lundi", title: "Cardio doux", videos: ["v3", "v9"] }, { day: "Mercredi", title: "Abdos et gainage", videos: ["v1", "v7"] }, { day: "Vendredi", title: "Bas du corps", videos: ["v6", "v5"] }] },
+  renfo: { name: "Renfo intermédiaire", level: "Intermédiaire", desc: "4 séances pour gagner en force et en endurance.",
+    sessions: [{ day: "Lundi", title: "Haut du corps", videos: ["v2", "v9"] }, { day: "Mardi", title: "Cardio", videos: ["v10"] }, { day: "Jeudi", title: "Bas du corps", videos: ["v6", "v7"] }, { day: "Samedi", title: "Full body", videos: ["v8", "v5"] }] }
+};
+
+const ARTICLES = [
+  { id: "a1", title: "5 petits-déjeuners rassasiants en moins de 5 minutes", vis: "public", date: "2026-10-15", read: 4, body: ["Un petit-déjeuner qui tient au corps associe des fibres, des protéines et un peu de bonnes graisses.", "Exemples : overnight oats au yaourt grec, tartine de pain complet avec œuf, fromage blanc avec flocons et fruits.", "Texte de démonstration, à remplacer par Manon."] },
+  { id: "a2", title: "Endométriose et alimentation : ce qu'on sait aujourd'hui", vis: "membres", date: "2026-10-08", read: 7, body: ["Aucune alimentation ne guérit l'endométriose. Certaines habitudes peuvent toutefois aider à mieux vivre au quotidien.", "On en parle ensemble en consultation pour adapter les repères à votre situation.", "Texte de démonstration, à remplacer par Manon."] },
+  { id: "a3", title: "Lire une étiquette nutritionnelle en 3 étapes", vis: "public", date: "2026-09-28", read: 5, body: ["1. La liste des ingrédients, classés du plus au moins présent. 2. Le tableau pour 100 g, pour comparer deux produits. 3. La portion réellement consommée.", "Texte de démonstration, à remplacer par Manon."] },
+  { id: "a4", title: "Ménopause : bouger pour préserver muscles et os", vis: "membres", date: "2026-09-20", read: 6, body: ["Le renforcement musculaire régulier est un allié précieux après 50 ans.", "Deux à trois séances par semaine suffisent pour commencer.", "Texte de démonstration, à remplacer par Manon."] },
+  { id: "a5", title: "Batch cooking : vos repas de la semaine en 1 heure", vis: "membres", date: "2026-09-12", read: 8, body: ["Un féculent, une légumineuse, deux légumes rôtis et une sauce : la base de 4 repas différents.", "Texte de démonstration, à remplacer par Manon."] },
+  { id: "a6", title: "Sport et cycle menstruel : adapter ses séances", vis: "public", date: "2026-09-05", read: 5, body: ["L'énergie varie au fil du cycle. Écouter ses sensations et ajuster l'intensité est souvent plus utile que de forcer.", "Texte de démonstration, à remplacer par Manon."] }
+];
+const DOCUMENTS = [
+  { id: "d1", title: "Guide des portions", type: "PDF", size: "1,2 Mo", date: "2026-09-01" },
+  { id: "d2", title: "Liste de courses de base", type: "PDF", size: "340 Ko", date: "2026-09-01" },
+  { id: "d3", title: "Fiche : bien s'hydrater", type: "PDF", size: "280 Ko", date: "2026-09-15" },
+  { id: "d4", title: "Fiche : collations malines", type: "PDF", size: "410 Ko", date: "2026-10-05" }
+];
+const PATIENTS = [
+  { id: "p1", first: "Camille", last: "Roux", email: "camille.roux@exemple.fr", phone: "06 11 22 33 44", plan: "f3", start: "2026-09-01", end: "2026-11-30", status: "active", nutri: "energie", sport: "remise", next: { date: "2026-11-05", time: "18:30", mode: "Visio" } },
+  { id: "p2", first: "Léa", last: "Martin", email: "lea.martin@exemple.fr", phone: "06 21 32 43 54", plan: "f1", start: "2026-08-01", end: "2026-10-31", status: "active", nutri: "reequilibrage", sport: "", next: { date: "2026-10-28", time: "10:00", mode: "Cabinet La Garde" } },
+  { id: "p3", first: "Sarah", last: "Benali", email: "sarah.benali@exemple.fr", phone: "06 31 42 53 64", plan: "f3", start: "2026-07-15", end: "2027-01-15", status: "active", nutri: "sportive", sport: "renfo", next: { date: "2026-10-26", time: "09:30", mode: "Cabinet Hyères" } },
+  { id: "p4", first: "Julie", last: "Fabre", email: "julie.fabre@exemple.fr", phone: "06 41 52 63 74", plan: "f2", start: "2026-09-10", end: "2026-12-10", status: "active", nutri: "energie", sport: "", next: { date: "2026-11-04", time: "14:00", mode: "Cabinet La Garde" } },
+  { id: "p5", first: "Inès", last: "Morel", email: "ines.morel@exemple.fr", phone: "06 51 62 73 84", plan: "f2", start: "2026-08-05", end: "2026-11-04", status: "active", nutri: "", sport: "", next: null },
+  { id: "p6", first: "Claire", last: "Durand", email: "claire.durand@exemple.fr", phone: "06 61 72 83 94", plan: "suivi", start: "2026-10-01", end: "", status: "active", nutri: "", sport: "", next: { date: "2026-11-12", time: "17:00", mode: "Visio" } },
+  { id: "p7", first: "Emma", last: "Giraud", email: "emma.giraud@exemple.fr", phone: "06 71 82 93 04", plan: "f3", start: "2026-10-01", end: "2026-12-31", status: "active", nutri: "sportive", sport: "remise", next: { date: "2026-10-30", time: "12:30", mode: "Visio" } },
+  { id: "p8", first: "Nadia", last: "Haddad", email: "nadia.haddad@exemple.fr", phone: "06 81 92 03 14", plan: "f3", start: "2026-06-01", end: "2026-11-30", status: "active", nutri: "energie", sport: "renfo", next: { date: "2026-11-02", time: "11:00", mode: "Cabinet Hyères" } },
+  { id: "p9", first: "Pauline", last: "Ricard", email: "pauline.ricard@exemple.fr", phone: "06 91 02 13 24", plan: "f1", start: "2026-09-15", end: "2026-12-15", status: "active", nutri: "energie", sport: "", next: { date: "2026-10-27", time: "18:00", mode: "Visio" } },
+  { id: "p10", first: "Chloé", last: "Vidal", email: "chloe.vidal@exemple.fr", phone: "07 12 23 34 45", plan: "f3", start: "2026-10-12", end: "2027-01-12", status: "active", nutri: "reequilibrage", sport: "remise", next: { date: "2026-10-29", time: "15:30", mode: "Cabinet La Garde" } },
+  { id: "p11", first: "Sophie", last: "Lambert", email: "sophie.lambert@exemple.fr", phone: "07 22 33 44 55", plan: "suivi", start: "2026-09-20", end: "", status: "active", nutri: "", sport: "", next: null },
+  { id: "p12", first: "Anaïs", last: "Petit", email: "anais.petit@exemple.fr", phone: "07 32 43 54 65", plan: "f1", start: "2026-09-01", end: "2026-12-01", status: "suspendue", nutri: "energie", sport: "", next: null },
+  { id: "p13", first: "Marine", last: "Blanc", email: "marine.blanc@exemple.fr", phone: "07 42 53 64 75", plan: "f2", start: "2026-05-01", end: "2026-08-01", status: "archivée", nutri: "", sport: "", next: null }
+];
+const SESSIONS = [
+  { id: "s1", date: "2026-11-03", time: "19:00", title: "Renfo full body", places: 10, link: "https://visio.exemple.fr/renfo-0311", gear: "Tapis, 2 bouteilles d'eau en guise d'haltères", inscrits: ["p3", "p7", "p8"], wait: [] },
+  { id: "s2", date: "2026-11-17", time: "19:00", title: "Cardio et gainage", places: 10, link: "https://visio.exemple.fr/cardio-1711", gear: "Tapis", inscrits: ["p3", "p8", "p10"], wait: [] }
+];
+
+
+/* =========================================================
+   ÉTAT
+   ========================================================= */
+const S = {
+  view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false,
+  rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false },
+  vf: { theme: "", dur: "", level: "", equip: "" },
+  sportTab: "programme", heroMode: "nutrition", wday: (TODAY.getDay() + 6) % 7, ptab: "mois",
+  favR: new Set(["r2", "r3"]), favV: new Set(["v6"]), shopping: new Map(), done: new Set(["Lundi|v3", "Lundi|v9"]),
+  notif: { nouveautes: true, rappels: true, resume: true },
+  adQ: "", adPlan: "", modal: null
+};
+const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* =========================================================
+   OUTILS
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const parseD = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const fmtD = (s, o = { day: "numeric", month: "long", year: "numeric" }) => s ? parseD(s).toLocaleDateString("fr-FR", o) : "—";
+const fmtDay = s => fmtD(s, { weekday: "long", day: "numeric", month: "long" });
+const fmtT = t => t ? t.replace(":", " h ") : "";
+const daysUntil = s => Math.round((parseD(s) - TODAY) / 864e5);
+const TODAY_ISO = "2026-10-22";
+const isoAdd = (s, months) => { const d = parseD(s); d.setMonth(d.getMonth() + months); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+const DAY_IDX = (TODAY.getDay() + 6) % 7;
+const recipe = id => RECIPES.find(r => r.id === id);
+const video = id => VIDEOS.find(v => v.id === id);
+const patientById = id => PATIENTS.find(p => p.id === id);
+const me = () => patientById(S.patientId);
+const can = key => !!ACCESS[key][me().plan];
+const minPlan = key => ["f1", "f2", "f3"].find(p => ACCESS[key][p]);
+const planName = k => k === "suivi" ? "Suivi simple" : PLANS[k].name;
+const planTag = p => `<span class="tag ${p}">${PLANS[p].code}${p !== "suivi" ? " · " + esc(PLANS[p].name) : ""}</span>`;
+const fullName = p => p.first + " " + p.last;
+const initials = p => (p.first[0] + p.last[0]).toUpperCase();
+const totalTime = r => r.prep + r.cook;
+const publishedRecipes = () => RECIPES.filter(r => r.status === "publiée");
+const seedOf = id => [...id].reduce((n, c) => n + c.charCodeAt(0), 0);
+function fmtQ(x) {
+  if (x == null) return "";
+  if (x >= 50) return String(Math.round(x / 5) * 5);
+  if (x >= 10) return String(Math.round(x));
+  const r = Math.round(x * 4) / 4, w = Math.floor(r), f = { 0: "", 0.25: "¼", 0.5: "½", 0.75: "¾" }[r - w];
+  return ((w ? w : "") + f) || "0";
+}
+const note = t => `<div class="note">${t}</div>`;
+const doctolib = (label = "Réserver mon bilan", cls = "btn-olive") => `<a class="btn ${cls}" href="${esc(SETTINGS.doctolib)}" target="_blank" rel="noopener">${label}${I.arrowGo}</a>`;
+
+const svg = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const I = {
+  lock: svg('<rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
+  heart: svg('<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>'),
+  heartF: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>`,
+  clock: svg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+  cal: svg('<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/>'),
+  play: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>`,
+  check: svg('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+  chat: svg('<path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/>'),
+  arrowGo: svg('<path class="go" d="M5 12h14M13 6l6 6-6 6"/>').replace("<svg", '<svg class="go"'),
+  arrow: svg('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+  user: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>'),
+  users: svg('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>'),
+  plus: svg('<path d="M12 5v14M5 12h14"/>'),
+  x: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
+  menu: svg('<path d="M4 8h16M4 16h16"/>'),
+  cart: svg('<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L22 8H6"/>'),
+  file: svg('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>'),
+  home: svg('<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>'),
+  leaf: svg('<path d="M5 21c0-9 5-15 16-16-1 11-7 16-16 16z"/><path d="M5 21l7-7"/>'),
+  bowl: svg('<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M8 7c0-2 2-2 2-4M13 7c0-2 2-2 2-4"/>'),
+  dumbbell: svg('<path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12"/>'),
+  book: svg('<path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3"/><path d="M20 4v15h-7"/>'),
+  grid: svg('<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>'),
+  dots: svg('<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>'),
+  gear: svg('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>'),
+  pin: svg('<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'),
+  video: svg('<rect x="3" y="6" width="13" height="12" rx="3"/><path d="M16 10l5-3v10l-5-3"/>'),
+  ext: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
+  copy: svg('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/>'),
+  insta: svg('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>')
+};
+
+/* =========================================================
+   FORMES DÉCOUPÉES (signature visuelle)
+   ========================================================= */
+const SH = {
+  olivier: c => `<svg class="shape" viewBox="0 0 300 420" aria-hidden="true" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linecap="round"><path d="M160 415C148 330 176 250 156 160C146 110 168 60 182 8"/>${[[150,330,-38],[168,290,32],[146,250,-42],[170,212,30],[150,170,-36],[166,130,28],[158,90,-30],[176,52,26]].map(([x,y,r],i)=>`<ellipse cx="${x+(i%2?20:-20)}" cy="${y}" rx="11" ry="36" transform="rotate(${r} ${x+(i%2?20:-20)} ${y})" vector-effect="non-scaling-stroke"/>`).join("")}<circle cx="128" cy="300" r="9"/><circle cx="196" cy="196" r="8"/><circle cx="132" cy="140" r="7"/></svg>`,
+  algue: c => `<svg class="shape cut" viewBox="0 0 120 200" aria-hidden="true"><path fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" d="M60 200C58 170 40 165 22 150C40 148 52 150 58 140C40 125 20 120 8 100C30 102 48 108 57 98C42 80 30 62 28 40C42 55 52 70 58 72C55 50 52 25 60 0C68 25 65 50 62 72C68 70 78 55 92 40C90 62 78 80 63 98C72 108 90 102 112 100C100 120 80 125 62 140C68 150 80 148 98 150C80 165 62 170 60 200Z"/></svg>`,
+  citron: (c, pith = "#F8FBE0") => {
+    let w = "";
+    for (let k = 0; k < 9; k++) {
+      const a1 = (k / 9) * Math.PI * 2 + 0.07, a2 = ((k + 1) / 9) * Math.PI * 2 - 0.07, R = 37;
+      w += `<path fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" d="M50 50L${(50 + R * Math.cos(a1)).toFixed(1)} ${(50 + R * Math.sin(a1)).toFixed(1)}A${R} ${R} 0 0 1 ${(50 + R * Math.cos(a2)).toFixed(1)} ${(50 + R * Math.sin(a2)).toFixed(1)}Z"/>`;
+    }
+    return `<svg class="shape cut" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/><circle cx="50" cy="50" r="42" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>${w}<circle cx="50" cy="50" r="2.5" fill="${c}"/></svg>`;
+  },
+  galet: c => `<svg class="shape cut" viewBox="0 0 100 100" aria-hidden="true"><path fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" d="M14 58C10 28 40 6 66 14C92 22 98 52 84 74C70 96 34 98 20 84C14 78 15 68 14 58Z"/></svg>`,
+  etoile: c => {
+    const pts = [];
+    for (let k = 0; k < 16; k++) { const a = (k / 16) * Math.PI * 2 - Math.PI / 2, r = k % 2 ? 19 + (k % 3) * 3 : 46 - (k % 4) * 2; pts.push((50 + r * Math.cos(a)).toFixed(1) + "," + (50 + r * Math.sin(a)).toFixed(1)); }
+    return `<svg class="shape cut" viewBox="0 0 100 100" aria-hidden="true"><polygon fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" points="${pts.join(" ")}"/></svg>`;
+  },
+  feuille: c => `<svg class="shape cut" viewBox="0 0 100 152" aria-hidden="true"><path fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" d="M50 2C80 28 92 70 66 112C60 122 54 132 50 150C46 132 40 122 34 112C8 70 20 28 50 2Z"/></svg>`,
+  baies: c => `<svg class="shape cut" viewBox="0 0 100 100" aria-hidden="true"><circle cx="34" cy="60" r="22" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/><circle cx="66" cy="54" r="20" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/><circle cx="50" cy="28" r="17" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`,
+  vague: c => `<svg class="shape cut" viewBox="0 0 120 100" aria-hidden="true"><path fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round" d="M0 40C20 10 40 10 60 40C80 70 100 70 120 40V70C100 100 80 100 60 70C40 40 20 40 0 70Z"/></svg>`
+};
+const LOGO = `<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="13" fill="none" stroke="var(--argile)" stroke-width="2.2"/><path d="M13 39C4 29 5 13 16 3C23 14 25 27 13 39Z" fill="var(--olive)"/></svg>`;
+const PALS = [
+  { bg: "var(--sable-soft)", a: "var(--argile)", b: "var(--olive)", c: "var(--moka)" },
+  { bg: "var(--rose)", a: "var(--moka)", b: "var(--olive)", c: "var(--argile)" },
+  { bg: "var(--brume)", a: "var(--olive)", b: "var(--argile)", c: "var(--moka)" },
+  { bg: "var(--sauge-soft)", a: "var(--sauge)", b: "var(--moka)", c: "var(--argile)" }
+];
+function art(seed, meal) {
+  const p = PALS[seed % PALS.length], rot = (seed * 37) % 50 - 25, rot2 = (seed * 53) % 70 - 35;
+  const main = { "Petit-déjeuner": SH.citron(p.a === "var(--sable)" ? "var(--sable)" : p.a), "Déjeuner": SH.algue(p.a), "Dîner": SH.galet(p.a) }[meal] || SH.baies(p.a);
+  const sec = { "Petit-déjeuner": SH.feuille(p.b), "Déjeuner": SH.galet(p.b), "Dîner": SH.etoile(p.b) }[meal] || SH.citron(p.b === "var(--sable)" ? "var(--sable)" : p.b);
+  const tri = SH.etoile(p.c);
+  return `<span class="s" style="width:58%;left:34%;top:-6%;transform:rotate(${rot}deg)">${main}</span>
+    <span class="s" style="width:34%;left:4%;bottom:-8%;transform:rotate(${rot2}deg)">${sec}</span>
+    <span class="s" style="width:15%;left:${18 + (seed % 20)}%;top:12%;transform:rotate(${rot}deg)">${tri}</span>`;
+}
+const artBox = (seed, meal, extra = "") => `<div class="art" style="--a:${PALS[seed % PALS.length].bg};${extra}">${art(seed, meal)}</div>`;
+
+/* =========================================================
+   BANDEAU PROTOTYPE
+   ========================================================= */
+function protobar() {
+  const p = me();
+  return `<div class="protobar"><div class="wrap">
+    <span class="lbl">Prototype</span>
+    <div class="seg" role="tablist" aria-label="Choisir la vue">
+      ${[["site", "Site public"], ["patient", "Espace patiente"], ["admin", "Back-office Manon"]].map(([k, l]) => `<button class="${S.view === k ? "on" : ""}" data-act="view" data-v="${k}" role="tab" aria-selected="${S.view === k}">${l}</button>`).join("")}
+    </div>
+    ${S.view === "patient" ? `<select id="pb-plan" data-change="plan" aria-label="Formule de la patiente">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${esc(p.first)} · ${PLANS[k].code} ${k !== "suivi" ? esc(PLANS[k].name) : "Suivi simple"}</option>`).join("")}</select>` : ""}
+    <span class="sp"></span>
+    <label><input type="checkbox" id="pb-notes" data-change="notes" ${S.notes ? "checked" : ""}> Notes CDC</label>
+  </div></div>`;
+}
+
+/* =========================================================
+   SITE PUBLIC
+   ========================================================= */
+const SITE_PAGES = [["home", "Accueil"], ["about", "Manon"], ["offres", "Formules"], ["themes", "Thématiques"], ["blog", "Journal"], ["contact", "Cabinets"]];
+function site() {
+  const home = S.sitePage === "home";
+  const body = { home: siteHome, about: siteAbout, offres: siteOffres, themes: siteThemes, blog: siteBlog, contact: siteContact, login: siteLogin }[S.sitePage]();
+  return `${home ? "" : `<div class="snav-wrap">${siteNav(false)}</div>`}${body}${footer()}`;
+}
+const ph = (label, tone = "sable", artName = "olivier", style = "") => `<div class="ph ph-${tone}" style="${style}"><span class="ph-art">${SH[artName]("currentColor")}</span>${label ? `<span class="ph-label">${label}</span>` : ""}</div>`;
+const W = t => t.split(" ").map(w => `<span class="wd">${w}</span>`).join(" ");
+const back = I.arrow.replace("<svg", '<svg style="transform:rotate(180deg)"');
+function siteNav(dark) {
+  return `<nav class="snav ${dark ? "dark" : "light"}" aria-label="Navigation principale">
+    <button class="logo" data-act="site" data-p="home" aria-label="Garrym, accueil">${dark ? LOGO.replace("var(--olive)", "#E9DCC9").replace("var(--argile)", "#E9DCC9") : LOGO}<span><b>GARRYM</b><small>SPORT · DIET</small></span></button>
+    <div class="links">${SITE_PAGES.map(([k, l]) => `<button class="${S.sitePage === k ? "on" : ""}" data-act="site" data-p="${k}">${l}</button>`).join("")}</div>
+    <div class="right"><button class="btn btn-sm ${dark ? "btn-glass" : "btn-soft"} hide-s" data-act="site" data-p="login">Mon espace</button>${doctolib("Prendre rendez-vous", "btn-white btn-sm hide-s")}<button class="iconbtn nav-menu" data-act="menu" aria-label="Menu" aria-expanded="${S.menu}">${S.menu ? I.x : I.menu}</button></div>
+  </nav>${S.menu ? `<div class="mobile-menu" style="margin:0 16px 12px;position:relative;z-index:6;color:var(--ink)">${SITE_PAGES.map(([k, l]) => `<button data-act="site" data-p="${k}">${l}</button>`).join("")}<button data-act="site" data-p="login">Mon espace</button><div style="padding:8px 6px">${doctolib("Réserver mon bilan", "btn-olive")}</div></div>` : ""}`;
+}
+function footer() {
+  const col = (title, items) => `<div class="stack" style="gap:10px"><span class="kicker" style="color:rgba(244,237,230,.55)">${title}</span>${items}</div>`;
+  return `<footer class="foot2"><div class="wrap">
+    <div class="foot2-grid">
+      <div class="stack" style="gap:16px">${LOGO.replace("var(--olive)", "#B9C98A").replace("var(--argile)", "#C78460").replace("<svg", '<svg width="40" height="40"')}<p style="opacity:.75;max-width:24em">Manon Garrione, diététicienne-nutritionniste et coach sportive. Hyères, La Garde et en visio.</p><div>${doctolib("Prendre rendez-vous", "btn-white btn-sm")}</div></div>
+      ${col("Explorer", SITE_PAGES.slice(1).map(([k, l]) => `<button class="flink" data-act="site" data-p="${k}">${l}</button>`).join(""))}
+      ${col("Suivre", `<a class="flink" href="${esc(SETTINGS.instagram)}" target="_blank" rel="noopener">Instagram</a><a class="flink" href="${esc(SETTINGS.doctolib)}" target="_blank" rel="noopener">Doctolib</a>`)}
+      ${col("Légal", ["Mentions légales", "Confidentialité", "CGV"].map(l => `<button class="flink" data-act="toast" data-msg="Page à rédiger avant la mise en ligne (APP_SPEC §8).">${l}</button>`).join(""))}
+    </div>
+    <div class="big" aria-hidden="true">Garrym</div>
+    <div class="row between tiny" style="opacity:.6;border-top:1px solid rgba(244,237,230,.15);padding-top:18px"><span>© 2026 Garrym · Manon Garrione</span><span>Prototype · données fictives</span></div>
+  </div></footer>`;
+}
+const HERO = {
+  nutrition: { l1: "Bien manger,", tone: "olive", photo: "Photo plein cadre à fournir : Manon en cuisine, lumière du matin", lead: "Diététicienne-nutritionniste à Hyères, à La Garde et en visio. Des repères simples, un semainier et des recettes qui vous ressemblent." },
+  sport: { l1: "Bien bouger,", tone: "moka", photo: "Photo plein cadre à fournir : Manon en séance dans la pinède", lead: "Coach sportive diplômée. Des séances en vidéo, en visio collective ou chez vous, du niveau débutant à avancé." }
+};
+const STATS = [["70 €", "le bilan", "initial, au cabinet ou en visio"], ["2", "cabinets", "Hyères le lundi, La Garde trois jours par semaine"], ["30 min", "de visio", "toutes les deux semaines dans chaque formule"], ["10", "places", "par séance collective, deux fois par mois"]];
+const THEME_CARDS = [["Endométriose", "Des repères pour mieux vivre au quotidien, en lien avec votre suivi médical.", "rose", "algue"], ["SOPK", "Stabiliser l'énergie dans la journée, construire des repas qui tiennent.", "sable", "citron"], ["Ménopause", "Adapter l'assiette et le mouvement à ce nouveau rythme.", "moka", "galet"], ["Sportives", "Manger pour performer et récupérer, du loisir à la compétition.", "olive", "etoile"], ["Rééquilibrage", "Des repères simples et durables, sans restriction.", "sauge", "feuille"]];
+function siteHome() {
+  const m = HERO[S.heroMode];
+  return `<section class="h3ro" data-hero><div class="h3ro-card">
+      ${ph("", m.tone, "olivier")}
+      ${siteNav(true)}
+      <span class="photo-tag">[ ${m.photo} ]</span>
+      <div class="h3ro-body">
+        <div>
+          <h1 class="display"><span class="w">${m.l1}</span><span class="w serif">à votre rythme.</span></h1>
+          <p class="lead">${m.lead}</p>
+          <div class="row" style="margin-top:28px">${doctolib("Réserver mon bilan", "btn-white")}<button class="btn btn-glass" data-act="site" data-p="offres">Les formules${I.arrowGo}</button></div>
+        </div>
+        <div class="mode" role="group" aria-label="Choisir l'univers">${[["nutrition", "Nutrition", "bowl"], ["sport", "Sport", "dumbbell"]].map(([k, l, ic]) => `<button class="${S.heroMode === k ? "on" : ""}" data-act="heromode" data-m="${k}" aria-pressed="${S.heroMode === k}">${I[ic]}${l}</button>`).join("")}</div>
+      </div>
+    </div>
+    <div class="circles">${THEME_CARDS.map(([l, , tone, a]) => `<button class="circle" data-act="site" data-p="themes"><span class="ra">${ph("", tone, a)}</span><span>${l}</span></button>`).join("")}</div>
+  </section>
+  <section class="sec intro"><div class="wrap intro-grid">
+    <div><span class="pill-eyebrow">Mon approche</span>
+      <p class="words" style="margin-top:28px">${W("Une alimentation qui suit votre vie, vos goûts et votre cycle. Des séances adaptées à votre niveau. Et quelqu'un qui reste à vos côtés")} <span class="serif">${W("entre deux rendez-vous.")}</span></p>
+      <div class="sign"><span class="av" style="background:var(--sable);color:var(--ink)">MG</span><div><b>Manon Garrione</b><div class="tiny muted">Diététicienne-nutritionniste · Coach sportive</div></div></div></div>
+    <div class="intro-art">${SH.olivier("var(--argile)")}</div>
+  </div></section>
+  <section class="sec stats2" style="padding-top:0"><div class="wrap">
+    <div class="fan">${ph("Photo à fournir : assiette", "sable", "citron")}${ph("Photo à fournir : consultation", "olive", "olivier")}${ph("Photo à fournir : séance", "rose", "algue")}</div>
+    <div class="stats-grid">${STATS.map(([n, w, d]) => `<div class="stat"><b class="num">${n}</b><span><span class="serif">${w}</span></span><p>${d}</p></div>`).join("")}</div>
+    <div style="text-align:center;margin-top:34px">${doctolib("Réserver mon bilan", "btn-olive")}</div>
+  </div></section>
+  ${themesSlider()}
+  ${weekSection()}
+  ${pricing()}
+  <section class="sec"><div class="wrap manon">
+    <div class="oval">${ph("Portrait de Manon à fournir", "sable", "olivier")}</div>
+    <div><span class="pill-eyebrow">Qui suis-je</span>
+      <blockquote>« Je vous aide à manger mieux et à bouger plus, sans culpabilité, avec des repères qui tiennent dans une vraie vie. »</blockquote>
+      <div class="sign"><span class="av" style="background:var(--sable);color:var(--ink)">MG</span><div><b>Manon Garrione</b><div class="tiny muted">Hyères · La Garde · Visio</div></div></div>
+      <div class="creds"><span class="tag outline">Diététicienne-nutritionniste</span><span class="tag outline">Coach sportive diplômée</span><span class="tag outline">Santé féminine</span></div>
+      <div class="row" style="margin-top:28px"><button class="btn btn-line" data-act="site" data-p="about">Mon parcours${I.arrowGo}</button></div>
+      <div style="margin-top:18px">${note("Citation provisoire, à remplacer par les mots de Manon.")}</div></div>
+  </div></section>
+  <section class="split">
+    <div class="split-l"><div class="stack" style="gap:16px"><span class="pill-eyebrow">Où me trouver</span><h2 class="display h-l">Deux cabinets,<br><span class="serif">et la visio</span></h2></div>
+      <div class="rows">${[["Lundi", "Studio GS Sport", "26 avenue de Toulon, 83400 Hyères"], ["Mar · Mer · Ven", "Les Jardins de la Closeraie", "137 rue des Oliviers, 83130 La Garde"], ["Partout", "Visio", "Consultations et séances collectives"], ["Chez vous", "Coaching à domicile", "Sur demande"]].map(([a, b, c]) => `<div class="r"><b>${a}</b><div><div style="font-weight:500">${b}</div><span>${c}</span></div></div>`).join("")}</div>
+      <div class="row">${doctolib("Prendre rendez-vous", "btn-olive")}<button class="btn btn-line" data-act="site" data-p="contact">Plans d'accès${I.arrowGo}</button></div></div>
+    ${ph("Photo à fournir : cabinet de La Garde", "sauge", "galet")}
+  </section>
+  <section class="sec"><div class="wrap">
+    <div class="chead"><span class="pill-eyebrow">Journal</span><h2 class="display h-l">Conseils<br><span class="serif">et repères</span></h2></div>
+    <div class="blog-row">${ARTICLES.filter(a => a.vis === "public").slice(0, 2).concat(ARTICLES.filter(a => a.vis === "membres").slice(0, 2)).map((a, i) => `<article class="bcard">${ph("", ["sable", "rose", "sauge", "moka"][i % 4], ["citron", "feuille", "algue", "galet"][i % 4])}<div class="stack" style="gap:8px"><span class="kicker">${fmtD(a.date, { day: "numeric", month: "short" })} · ${a.read} min${a.vis === "membres" ? " · membres" : ""}</span><h3>${esc(a.title)}</h3>${a.vis === "public" ? `<button class="btn btn-text" style="padding:0;align-self:flex-start" data-act="article" data-id="${a.id}">Lire l'article ${I.arrow}</button>` : `<span class="tiny muted">Réservé aux patientes accompagnées</span>`}</div></article>`).join("")}</div>
+  </div></section>
+  <section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="carousel-head"><h2 class="display h-m">@garrymsportdiet</h2><a class="btn btn-line btn-sm" href="${esc(SETTINGS.instagram)}" target="_blank" rel="noopener">${I.insta}Suivre sur Instagram</a></div>
+    <div class="mosaic">${[["sable", "citron"], ["olive", "olivier"], ["rose", "algue"], ["moka", "galet"], ["sauge", "feuille"], ["argile", "etoile"]].map(([t, a], i) => `<a class="m${i}" href="${esc(SETTINGS.instagram)}" target="_blank" rel="noopener" aria-label="Voir sur Instagram">${ph(i === 0 ? "Derniers posts Instagram" : "", t, a)}</a>`).join("")}</div>
+    <div style="margin-top:16px">${note("Vignettes à remplacer par les vrais posts (INTEGRATIONS.md). Aucun avis client inventé.")}</div>
+  </div></section>
+  <section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-card">${ph("", "moka", "olivier")}
+    <span class="pill-eyebrow dark">Premier pas</span><h2 class="display h-l" style="margin-top:18px">On commence<br><span class="serif">quand vous voulez</span></h2>
+    <p style="opacity:.88;max-width:30em;margin:16px auto 0">Le premier pas, c'est le bilan : une heure, 70 €, au cabinet ou en visio.</p>
+    <div style="margin-top:28px">${doctolib("Réserver sur Doctolib", "btn-white")}</div></div></div></section>`;
+}
+function themesSlider() {
+  return `<section class="sec" style="padding-top:clamp(40px,6vw,80px)"><div class="wrap">
+    <div class="carousel-head"><div class="stack" style="gap:16px"><span class="pill-eyebrow">Accompagnements</span><h2 class="display h-l">Pour chaque étape,<br><span class="serif">un accompagnement</span></h2></div><p class="muted" style="max-width:24em">Chaque suivi est personnalisé lors du bilan, en complément de votre suivi médical.</p></div>
+    <div class="slider" id="sl-themes">${THEME_CARDS.map(([t, d, tone, a]) => `<article class="tcard">${ph("Photo à fournir", tone, a)}<h3>${t}</h3><p>${d}</p></article>`).join("")}</div>
+    <div class="carousel-foot"><button class="btn btn-olive btn-sm" data-act="site" data-p="themes">Toutes les thématiques${I.arrowGo}</button><div class="row" style="gap:8px"><button class="iconbtn" data-act="slide" data-t="sl-themes" data-d="-1" aria-label="Précédent">${back}</button><button class="iconbtn" data-act="slide" data-t="sl-themes" data-d="1" aria-label="Suivant">${I.arrow}</button></div></div>
+  </div></section>`;
+}
+function weekSection() {
+  const t = NUTRI_TEMPLATES.energie, sp = SPORT_TEMPLATES.remise, d = S.wday, sess = sp.sessions.find(s => DAYS.indexOf(s.day) === d);
+  const items = t.days[d].map((v, i) => { const r = recipe(v); return `<div class="dayitem"><span class="k">${SLOTS[i]}</span><b>${esc(r ? r.title : v)}</b>${r ? `<span>${r.macro.kcal} kcal · ${totalTime(r)} min</span>` : ""}</div>`; }).join("")
+    + (sess ? `<div class="dayitem sport"><span class="k">Séance</span><b>${esc(sess.title)}</b><span>${sess.videos.reduce((n, id) => n + video(id).dur, 0)} min · vidéo</span></div>` : "");
+  return `<section class="week-sec">${ph("", "olive", "algue")}<div class="week-in">
+    <span class="pill-eyebrow dark">Votre espace</span><h2 class="display h-l" style="margin-top:18px">Une semaine<br><span class="serif">qui vous ressemble</span></h2>
+    <p style="opacity:.86;max-width:34em;margin:16px auto 0">Exemple de semainier « Énergie » et de programme « Remise en forme », tels que vous les retrouverez dans votre espace.</p>
+    <div class="daytabs" role="tablist">${DAYS.map((x, i) => `<button class="${i === d ? "on" : ""}" data-act="wday" data-d="${i}" role="tab" aria-selected="${i === d}">${x.slice(0, 3)}</button>`).join("")}</div>
+    <div class="daylist">${items}</div></div></section>`;
+}
+function pricing() {
+  const mois = S.ptab === "mois";
+  const feats = {
+    f1: ["Visio de 30 min tous les 15 jours", "Semainier et repères personnalisés", "Contact rapide par WhatsApp", "Fiches conseils et articles"],
+    f2: ["Tout le contenu de la formule 1", "30 recettes classées par thème", "2 à 3 nouvelles recettes par mois", "Liste de courses automatique"],
+    f3: ["Tout le contenu de la formule 2", "Vidéos de sport filtrables", "Programme sportif", "2 séances collectives par mois en visio"]
+  };
+  const title = { f1: "Nutrition", f2: 'Nutrition <span class="serif">+ recettes</span>', f3: 'Nutrition, recettes <span class="serif">+ sport</span>' };
+  const card = (feat, top, h, amount, unit, list, cta) => `<article class="pcard ${feat ? "feat" : ""}"><span class="pk">${top}</span><h3>${h}</h3><div class="amount num">${amount}<small>${unit}</small></div><ul>${list.map(f => `<li>${f}</li>`).join("")}</ul>${doctolib(cta, feat ? "btn-white" : "btn-olive")}</article>`;
+  const cards = mois
+    ? ["f1", "f2", "f3"].map(k => card(k === "f3", k === "f3" ? "La plus complète" : "Formule " + k.slice(1), title[k], PLANS[k].price + " €", " / mois", feats[k], "Commencer par le bilan")).join("")
+    : [card(true, "Pour commencer", 'Bilan <span class="serif">initial</span>', "70 €", " la séance", ["Une heure, au cabinet ou en visio", "Habitudes, objectifs, mode de vie", "Choix de l'accompagnement ensuite"], "Réserver mon bilan"),
+       card(false, "Sans engagement", 'Consultation <span class="serif">de suivi</span>', PLANS.suivi.price + " €", " la séance", ["Quand vous le souhaitez", "Accès à votre espace et aux fiches conseils", "Réservation sur Doctolib"], "Réserver"),
+       card(false, "Formule 3", 'Séance <span class="serif">individuelle</span>', "20 €", " visio · 35 € présentiel", ["Une heure : échauffement, renfo, cardio", "Au cabinet ou chez vous", "En supplément de la formule 3"], "Réserver")].join("");
+  return `<section class="sec pricing"><span class="deco l">${SH.olivier("var(--argile)")}</span><span class="deco r">${SH.algue("var(--argile)")}</span><div class="wrap">
+    <div class="chead"><span class="pill-eyebrow">Formules</span><h2 class="display h-l">L'accompagnement<br><span class="serif">qui vous va</span></h2>
+      <div class="ptoggle" role="tablist"><button class="${mois ? "on" : ""}" data-act="ptab" data-t="mois" role="tab" aria-selected="${mois}">Formules mensuelles</button><button class="${!mois ? "on" : ""}" data-act="ptab" data-t="unite" role="tab" aria-selected="${!mois}">À l'unité</button></div></div>
+    <div class="pcards">${cards}</div>
+    <p class="tiny muted" style="margin-top:24px">Tarifs indicatifs, en cours de validation. Toute formule commence par le bilan initial (70 €).</p>
+  </div></section>`;
+}
+function placeCard(days, name, addr, acc, tone) {
+  return `<div class="panel ${tone}"><div class="row between" style="align-items:flex-start"><div class="stack" style="gap:6px"><span class="kicker" style="color:inherit;opacity:.8">${days}</span><h3 class="h-s">${name}</h3><p style="opacity:.85">${addr}</p><span class="tiny" style="opacity:.75">${acc}</span></div>
+    <a class="iconbtn" style="background:transparent;border-color:currentColor;color:inherit" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}" target="_blank" rel="noopener" aria-label="Voir ${esc(name)} sur la carte">${I.pin}</a></div></div>`;
+}
+function siteAbout() {
+  return `<section class="page-hero"><div class="wrap grid g2" style="align-items:center">
+    <div class="stack" style="gap:22px"><span class="kicker">Qui suis-je</span><h1 class="display">Manon <span class="serif">Garrione</span></h1>
+      <p style="font-size:1.15rem" class="muted">Diététicienne-nutritionniste et coach sportive diplômée, j'accompagne les femmes et les sportifs vers une alimentation équilibrée et une activité physique qui leur ressemble.</p>
+      <p><span class="placeholder">[Texte de présentation à rédiger par Manon : parcours, motivations, façon de travailler.]</span></p>
+      <div class="row">${doctolib()}</div></div>
+    <div class="ph-portrait"><span class="par" style="--d:-10px;left:-20px;top:30px;width:55%"><span class="float" style="display:block">${SH.algue("var(--sable)")}</span></span><span>[ Photo de Manon ]</span></div>
+  </div></section>
+  <section class="section" style="padding-top:20px"><div class="wrap grid g3">
+    <div class="panel ci stack" style="gap:8px"><span class="kicker" style="color:inherit">Diplôme</span><h3 class="h-s">Diététique</h3><p><span class="placeholder">[Intitulé, école, année]</span></p></div>
+    <div class="panel co stack" style="gap:8px"><span class="kicker" style="color:inherit;opacity:.8">Diplôme</span><h3 class="h-s">Coach sportive</h3><p><span class="placeholder" style="color:#301100">[Intitulé, n° de carte professionnelle]</span></p></div>
+    <div class="panel ro stack" style="gap:8px"><span class="kicker" style="color:inherit">Approche</span><h3 class="h-s">Sans régime</h3><p>Des changements progressifs, adaptés à votre vie réelle.</p></div>
+  </div><div class="wrap" style="margin-top:18px">${note("Diplôme et numéro de carte professionnelle de coach sportive à afficher (APP_SPEC §8).")}</div></section>`;
+}
+function siteOffres() {
+  const rows = FEATURES.filter(f => !["docs", "rdv"].includes(f.key));
+  return `<section class="page-hero"><div class="wrap stack" style="gap:20px"><span class="kicker">Formules et tarifs</span><h1 class="display">Tout commence <span class="serif">par un bilan</span></h1>
+    <p class="muted" style="font-size:1.12rem;max-width:36em">Le bilan initial se réserve sur Doctolib. Ensuite, vous choisissez : des consultations à l'unité, ou une formule mensuelle avec votre espace.</p></div></section>
+  ${pricing()}
+  <section class="sec" style="padding-top:0"><div class="wrap stack" style="gap:18px"><h2 class="display h-m">Comparer <span class="serif">les formules</span></h2>
+    <div class="table-wrap"><table><thead><tr><th>Inclus</th>${PLAN_ORDER.map(k => `<th class="c">${PLANS[k].code}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(f => `<tr><td>${esc(f.label)}</td>${PLAN_ORDER.map(k => `<td class="c">${ACCESS[f.key][k] ? `<span class="yes">${I.check.replace("<svg", '<svg width="20" height="20"')}</span>` : `<span class="no">—</span>`}</td>`).join("")}</tr>`).join("")}
+    <tr><td><b>Tarif</b></td>${PLAN_ORDER.map(k => `<td class="c"><b class="num">${PLANS[k].price} €</b><br><span class="tiny muted">${k === "suivi" ? "/ consult." : "/ mois"}</span></td>`).join("")}</tr></tbody></table></div>
+    <p class="small muted">Certaines mutuelles remboursent les consultations de diététique, selon votre contrat. Une note d'honoraires vous est remise.</p></div></section>`;
+}
+function siteThemes() {
+  return `<section class="page-hero"><div class="wrap stack" style="gap:20px"><span class="kicker">Thématiques</span><h1 class="display">Un accompagnement <span class="serif">sur mesure</span></h1><p class="muted" style="font-size:1.12rem;max-width:36em">Chaque accompagnement est personnalisé lors du bilan, en complément de votre suivi médical.</p></div></section>
+  ${themesSlider()}<div class="wrap">${note("Formulations sans allégation thérapeutique : « adapté à », jamais « soigne » (APP_SPEC §8).")}</div>`;
+}
+function siteBlog() {
+  return `<section class="page-hero"><div class="wrap stack" style="gap:20px"><span class="kicker">Journal</span><h1 class="display">Conseils <span class="serif">et repères</span></h1></div></section>
+  <section class="section" style="padding-top:10px"><div class="wrap grid g3">${ARTICLES.map((a, i) => `<article class="rcard">${artBox(seedOf(a.id) + i, ["Déjeuner", "Dîner", "Petit-déjeuner", "Collation"][i % 4])}
+    <div class="b"><div class="row between"><span class="kicker">${fmtD(a.date, { day: "numeric", month: "short" })} · ${a.read} min</span>${a.vis === "membres" ? `<span class="tag rose">${I.lock}Membres</span>` : ""}</div>
+    <h4>${esc(a.title)}</h4>${a.vis === "public" ? `<button class="btn btn-line btn-sm" style="align-self:flex-start" data-act="article" data-id="${a.id}">Lire</button>` : `<span class="small muted">Réservé aux patientes accompagnées.</span>`}</div></article>`).join("")}</div></section>`;
+}
+function siteContact() {
+  return `<section class="page-hero"><div class="wrap stack" style="gap:20px"><span class="kicker">Cabinets et contact</span><h1 class="display">Me <span class="serif">rencontrer</span></h1></div></section>
+  <section class="section" style="padding-top:10px"><div class="wrap stack" style="gap:30px">
+    <div class="grid g2">${placeCard("Lundi", "Studio GS Sport", "26 avenue de Toulon, 83400 Hyères", "Rez-de-chaussée sans ascenseur", "co")}${placeCard("Mardi · Mercredi · Vendredi", "Espace santé Les Jardins de la Closeraie", "137 rue des Oliviers, 83130 La Garde", "Accessibilité à préciser", "ci")}</div>
+    <div class="grid g2" style="align-items:start">
+      <div class="stack" style="gap:16px"><h2 class="display h-m">Prendre <span class="serif">rendez-vous</span></h2><p class="muted">Toutes les consultations se réservent sur Doctolib, au cabinet ou en visio. Le coaching peut aussi avoir lieu à domicile.</p><div>${doctolib("Prendre rendez-vous")}</div></div>
+      <form class="panel stack" data-form="contact"><h3 class="h-s">Une question avant de réserver ?</h3>
+        <div class="field"><label for="c-name">Nom</label><input id="c-name" required autocomplete="name"></div>
+        <div class="field"><label for="c-mail">Email</label><input id="c-mail" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" required></textarea></div>
+        <button class="btn btn-ink" style="align-self:flex-start">Envoyer${I.arrowGo}</button></form>
+    </div></div></section>`;
+}
+function siteLogin() {
+  return `<section class="section" style="padding-top:30px"><div class="wrap" style="max-width:520px">
+    <form class="panel stack" data-form="login" style="gap:18px;position:relative;overflow:hidden">
+      <span class="par" style="right:-40px;top:-40px;width:150px;opacity:.9">${SH.citron("var(--sable)")}</span>
+      <span class="kicker">Espace patiente</span><h1 class="display h-m" style="position:relative">Bon <span class="serif">retour</span></h1>
+      <p class="muted small">Votre espace est créé par Manon après votre première consultation. Vous avez reçu un email pour choisir votre mot de passe.</p>
+      <div class="field"><label for="l-mail">Email</label><input id="l-mail" type="email" value="camille.roux@exemple.fr" autocomplete="email"></div>
+      <div class="field"><label for="l-pw">Mot de passe</label><input id="l-pw" type="password" value="demo-demo" autocomplete="current-password"></div>
+      <button class="btn btn-olive">Se connecter${I.arrowGo}</button>
+      <button type="button" class="btn btn-text" data-act="toast" data-msg="En version finale : email de réinitialisation du mot de passe.">Mot de passe oublié ?</button>
+      <p class="small muted">Pas encore suivie ? Commencez par un bilan.</p><div>${doctolib("Réserver un bilan", "btn-line")}</div>
+      ${note("Pas d'inscription libre : seuls les comptes créés par Manon peuvent se connecter.")}
+    </form></div></section>`;
+}
+
+/* =========================================================
+   ESPACE PATIENTE
+   ========================================================= */
+const PT_NAV = [["home", "Accueil", "home", null], ["nutri", "Programme", "bowl", "nutri"], ["recettes", "Recettes", "leaf", "recettes"], ["sport", "Sport", "dumbbell", "videos"], ["seances", "Séances", "users", "collectives"], ["docs", "Documents", "file", null], ["articles", "Articles", "book", null], ["profil", "Profil", "user", null]];
+function patient() {
+  const p = me();
+  if (p.status !== "active") return `<div class="wrap" style="padding-block:60px"><div class="panel stack"><h2 class="display h-m">Compte ${esc(p.status)}</h2><p class="muted">Ce compte n'a plus accès à l'espace. Réactivez-le depuis le back-office.</p></div></div>`;
+  const page = { home: ptHome, nutri: ptNutri, recettes: ptRecettes, sport: ptSport, seances: ptSeances, docs: ptDocs, articles: ptArticles, profil: ptProfil, plus: ptPlus }[S.ptPage]();
+  const tabs = [["home", "Accueil", "home"], ["nutri", "Programme", "bowl"], ["recettes", "Recettes", "leaf"], ["sport", "Sport", "dumbbell"], ["plus", "Plus", "dots"]];
+  const inPlus = ["seances", "docs", "articles", "profil", "plus"].includes(S.ptPage);
+  return `<div class="wrap app patient">
+    <nav class="rail" aria-label="Espace patiente">
+      <div class="me"><div class="av">${initials(p)}</div><div style="min-width:0"><b>${esc(fullName(p))}</b><div style="margin-top:3px">${planTag(p.plan)}</div></div></div>
+      ${PT_NAV.map(([k, l, ic, f]) => `<button class="nv ${S.ptPage === k ? "on" : ""}" data-act="pt" data-p="${k}">${I[ic]}<span>${l}</span>${f && !can(f) ? `<span class="lk">${I.lock}</span>` : ""}</button>`).join("")}
+    </nav>
+    <main class="main" id="main">${page}</main>
+  </div>
+  <nav class="tabbar" aria-label="Navigation de l'application">${tabs.map(([k, l, ic]) => `<button class="${S.ptPage === k || (k === "plus" && inPlus) ? "on" : ""}" data-act="pt" data-p="${k}">${I[ic]}<span>${l}</span></button>`).join("")}</nav>`;
+}
+function upsell(feat, title) {
+  const t = minPlan(feat);
+  return `<div class="upsell"><span class="tag f2">${I.lock}Dossard 0${t.slice(1)}</span><h3 class="display h-m" style="font-size:1.7rem">${title}</h3>
+    <p class="muted">Inclus à partir de la formule <b>${esc(PLANS[t].name)}</b> (${PLANS[t].price} €/mois). Parlez-en à Manon : elle change votre formule en un clic.</p>
+    <div class="row">${can("contact") ? `<button class="btn btn-wa btn-sm" data-act="wa">${I.chat}Écrire à Manon</button>` : ""}${doctolib("En parler en consultation", "btn-line btn-sm")}</div></div>`;
+}
+function slotValue(v) {
+  const r = recipe(v);
+  return r ? `<button class="rlink" data-act="recipe" data-id="${r.id}">${esc(r.title)}</button><span class="macro-line"><span><b>${r.macro.kcal}</b> kcal</span><span>${totalTime(r)} min</span></span>` : `<span style="font-weight:600">${esc(v)}</span>`;
+}
+function weekProgress(sp) {
+  const total = sp.sessions.reduce((n, s) => n + s.videos.length, 0);
+  const done = sp.sessions.reduce((n, s) => n + s.videos.filter(v => S.done.has(s.day + "|" + v)).length, 0);
+  return { total, done, pct: total ? Math.round(done / total * 100) : 0 };
+}
+function ptHome() {
+  const p = me();
+  const tmpl = NUTRI_TEMPLATES[p.nutri], sp = can("sport") ? SPORT_TEMPLATES[p.sport] : null;
+  const next = SESSIONS.filter(s => daysUntil(s.date) >= 0).sort((a, b) => a.date.localeCompare(b.date))[0];
+  const nextSport = sp && sp.sessions.find(s => DAYS.indexOf(s.day) >= DAY_IDX);
+  const wp = sp ? weekProgress(sp) : null;
+  const news = [...publishedRecipes()].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+  return `<div class="ph-head"><div><span class="kicker">${fmtDay(TODAY_ISO)}</span><h1 class="display" style="margin-top:8px">Bonjour <span class="serif">${esc(p.first)}</span></h1></div>
+      <div class="row">${planTag(p.plan)}${p.end ? `<span class="tiny muted">jusqu'au ${fmtD(p.end)}</span>` : ""}</div></div>
+    <div class="card co today">
+      <span class="par" style="right:-50px;bottom:-60px;width:200px;opacity:.25">${SH.algue("#FFFFFF")}</span>
+      <div class="stack" style="gap:10px;position:relative">
+        <span class="kicker" style="color:inherit;opacity:.8">Prochaine consultation</span>
+        ${p.next ? `<h2 class="display h-m">${fmtD(p.next.date, { weekday: "long", day: "numeric", month: "long" })}</h2><p style="opacity:.9">${fmtT(p.next.time)} · ${esc(p.next.mode)}</p>` : `<h2 class="display h-m">À planifier</h2><p style="opacity:.9">Réservez votre prochain rendez-vous sur Doctolib.</p>`}
+        ${can("visio") ? `<p class="tiny" style="opacity:.85">Votre formule inclut une visio de 30 min tous les 15 jours.</p>` : ""}
+        <div class="row">${doctolib("Reprendre rendez-vous", "btn-sable btn-sm")}</div>
+      </div>
+      ${wp ? `<div class="bigring" style="--p:${wp.pct}"><div><b>${wp.done}/${wp.total}</b><span class="tiny">vidéos faites</span></div></div>` : ""}
+    </div>
+    ${note("La date de consultation est recopiée par Manon depuis Doctolib (pas d'API Doctolib).")}
+    ${tmpl && can("nutri") ? `<section class="stack" style="gap:14px"><div class="row between"><h2 class="display h-m" style="font-size:1.6rem">Au menu <span class="serif">aujourd'hui</span></h2><button class="btn btn-text" data-act="pt" data-p="nutri">Toute la semaine ${I.arrow}</button></div>
+      <div class="meals">${tmpl.days[DAY_IDX].map((v, i) => { const r = recipe(v); return `<div class="meal">${r ? artBox(seedOf(r.id), r.meal) : artBox(i + 7, "Collation")}<div class="b"><span class="kicker">${SLOTS[i]}</span>${slotValue(v)}</div></div>`; }).join("")}</div></section>` : ""}
+    <div class="grid g2">
+      ${nextSport ? `<div class="card stack" style="gap:12px"><span class="kicker">Prochaine séance · ${nextSport.day}</span><h3 class="h-s">${esc(nextSport.title)}</h3>
+        ${nextSport.videos.map(id => { const v = video(id); return `<button class="wv" style="border:0;cursor:pointer;text-align:left;width:100%" data-act="video" data-id="${id}"><span class="iconbtn" style="width:36px;height:36px">${I.play}</span><span style="flex:1"><b>${esc(v.title)}</b><br><span class="tiny muted">${v.dur} min · ${v.equip.join(", ")}</span></span></button>`; }).join("")}</div>` : ""}
+      ${can("collectives") && next ? `<div class="stack" style="gap:12px"><span class="kicker">Séance collective</span>${ticket(next)}</div>` : ""}
+      ${can("contact") ? waCard() : ""}
+      ${!can("nutri") ? `<div class="card ci stack" style="gap:10px"><span class="kicker" style="color:inherit">Aller plus loin</span><h3 class="h-s">Un programme et des recettes entre les consultations</h3><p>Les formules incluent un semainier, des recettes et du sport.</p><div><button class="btn btn-ink btn-sm" data-act="site-offres">Voir les formules</button></div></div>` : ""}
+    </div>
+    <section class="stack" style="gap:14px"><div class="row between"><h2 class="display h-m" style="font-size:1.6rem">Nouveautés</h2>${can("recettes") ? `<button class="btn btn-text" data-act="pt" data-p="recettes">Toutes les recettes ${I.arrow}</button>` : ""}</div>
+      <div class="grid g4">${news.map(r => recipeCard(r, !can("recettes") && !inPreview(r))).join("")}${can("videos") ? videoCard(video("v10")) : ""}</div></section>`;
+}
+function waCard() {
+  return `<div class="card stack" style="gap:10px"><span class="kicker">Une question ?</span><h3 class="h-s">Écrivez à Manon sur WhatsApp</h3><p class="small muted">Réponse sous 48 h ouvrées (hypothèse, règle 16).</p><div><button class="btn btn-wa btn-sm" data-act="wa">${I.chat}Ouvrir WhatsApp</button></div>${note("Option A : pas de messagerie intégrée, aucune donnée de santé stockée.")}</div>`;
+}
+function ptNutri() {
+  const p = me();
+  if (!can("nutri")) return `<div class="ph-head"><h1 class="display">Programme</h1></div><div class="locked"><div class="blur week">${DAYS.slice(0, 4).map(d => `<div class="day"><h4>${d}</h4>${SLOTS.map(s => `<div class="slot"><span class="k">${s}</span><span>Recette</span></div>`).join("")}</div>`).join("")}</div>${upsell("nutri", "Votre semainier personnalisé")}</div>`;
+  const t = NUTRI_TEMPLATES[p.nutri];
+  if (!t) return `<div class="ph-head"><h1 class="display">Programme</h1></div><div class="panel"><h3 class="h-s">Votre programme arrive</h3><p class="muted">Manon prépare votre semainier. Vous recevrez un email dès qu'il sera prêt.</p></div>`;
+  return `<div class="ph-head"><div><span class="kicker">Programme nutritionnel</span><h1 class="display" style="margin-top:8px">${esc(t.name)}</h1><p class="muted" style="margin-top:10px;max-width:40em">${esc(t.desc)}</p></div>
+      <button class="btn btn-soft btn-sm" data-act="toast" data-msg="En version finale : téléchargement du semainier en PDF.">${I.file}PDF</button></div>
+    <div class="card ci"><span class="kicker" style="color:inherit">Mes repères</span><ul style="margin:10px 0 0;padding-left:20px;display:grid;gap:6px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))">${t.recos.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
+    <div class="week">${t.days.map((d, i) => `<div class="day ${i === DAY_IDX ? "now" : ""}"><h4>${DAYS[i]}${i === DAY_IDX ? `<span class="tag f3">Aujourd'hui</span>` : ""}</h4>${d.map((v, j) => `<div class="slot"><span class="k">${SLOTS[j]}</span>${slotValue(v)}</div>`).join("")}</div>`).join("")}</div>
+    ${note("Option A : modèle par objectif (« Énergie »), jamais nommé d'après une pathologie.")}`;
+}
+const inPreview = r => publishedRecipes().slice(0, RECIPE_PREVIEW).includes(r);
+function recipeCard(r, locked = false) {
+  const fav = S.favR.has(r.id);
+  return `<article class="rcard">
+    <span class="meal-t">${esc(r.meal)}</span>
+    ${locked ? "" : `<button class="iconbtn fav ${fav ? "on" : ""}" data-act="favr" data-id="${r.id}" aria-label="${fav ? "Retirer des favoris" : "Ajouter aux favoris"}">${fav ? I.heartF : I.heart}</button>`}
+    <button class="art" style="--a:${PALS[seedOf(r.id) % 4].bg}" ${locked ? "tabindex=-1" : `data-act="recipe" data-id="${r.id}"`} aria-label="Ouvrir ${esc(r.title)}">${art(seedOf(r.id), r.meal)}</button>
+    <div class="b"><h4 ${locked ? "" : `data-act="recipe" data-id="${r.id}"`}>${esc(r.title)}</h4>
+      <div class="macro-line"><span><b>${totalTime(r)}</b> min</span><span><b>${r.macro.kcal}</b> kcal</span><span>P <b>${r.macro.p} g</b></span></div>
+      <div class="chips">${r.themes.slice(0, 2).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div></div>
+  </article>`;
+}
+function filteredRecipes() {
+  const f = S.rf, q = f.q.trim().toLowerCase();
+  return publishedRecipes().filter(r => (!q || r.title.toLowerCase().includes(q) || r.ingr.some(i => i[2].toLowerCase().includes(q))) &&
+    (!f.theme || r.themes.includes(f.theme)) && (!f.meal || r.meal === f.meal) && (!f.time || totalTime(r) <= +f.time) &&
+    (!f.diet || r.diets.includes(f.diet)) && (!f.allergen || !r.allergens.includes(f.allergen)) && (!f.fav || S.favR.has(r.id)));
+}
+function recipeResults() {
+  const l = filteredRecipes();
+  return l.length ? `<div class="grid g4">${l.map(r => recipeCard(r)).join("")}</div>` : `<div class="panel"><h3 class="h-s">Aucune recette ne correspond</h3><p class="muted">Retirez un filtre pour élargir la recherche.</p></div>`;
+}
+function ptRecettes() {
+  const all = publishedRecipes();
+  if (!can("recettes")) return `<div class="ph-head"><div><span class="kicker">Bibliothèque</span><h1 class="display" style="margin-top:8px">Recettes</h1></div></div>
+    ${note("Hypothèse : 3 recettes en aperçu pour Suivi simple et F1 ; les recettes du programme restent ouvertes.")}
+    <div class="grid g4">${all.slice(0, RECIPE_PREVIEW).map(r => recipeCard(r)).join("")}</div>
+    <div class="locked"><div class="blur grid g4">${all.slice(RECIPE_PREVIEW, RECIPE_PREVIEW + 8).map(r => recipeCard(r, true)).join("")}</div>${upsell("recettes", `${all.length - RECIPE_PREVIEW} autres recettes vous attendent`)}</div>`;
+  const f = S.rf;
+  return `<div class="ph-head"><div><span class="kicker">Bibliothèque · ${all.length} recettes</span><h1 class="display" style="margin-top:8px">Recettes</h1></div>
+      <button class="btn btn-ink btn-sm" data-act="shopping">${I.cart}Liste de courses${S.shopping.size ? ` <span class="tag f2">${S.shopping.size}</span>` : ""}</button></div>
+    <div class="chips" role="group" aria-label="Thèmes">${["", ...THEMES].map(t => `<button class="chip ${f.theme === t ? "on" : ""}" data-act="rtheme" data-t="${esc(t)}">${t || "Tout"}</button>`).join("")}</div>
+    <div class="filters">
+      <input type="search" id="rf-q" placeholder="Une recette, un ingrédient…" value="${esc(f.q)}" data-input="rq" aria-label="Rechercher">
+      <select id="rf-meal" data-change="rf" data-k="meal" aria-label="Repas"><option value="">Tous les repas</option>${MEALS.map(m => `<option ${f.meal === m ? "selected" : ""}>${m}</option>`).join("")}</select>
+      <select id="rf-time" data-change="rf" data-k="time" aria-label="Temps"><option value="">Tous les temps</option>${[["15", "15 min max"], ["30", "30 min max"], ["45", "45 min max"]].map(([v, l]) => `<option value="${v}" ${f.time === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+      <select id="rf-diet" data-change="rf" data-k="diet" aria-label="Régime"><option value="">Tous les régimes</option>${DIETS.map(d => `<option ${f.diet === d ? "selected" : ""}>${d}</option>`).join("")}</select>
+      <select id="rf-all" data-change="rf" data-k="allergen" aria-label="Allergène à éviter"><option value="">Sans allergène…</option>${ALLERGENS.map(a => `<option value="${a}" ${f.allergen === a ? "selected" : ""}>Sans ${a.toLowerCase()}</option>`).join("")}</select>
+      <button class="chip ${f.fav ? "on" : ""}" data-act="rfav">Favoris</button>
+    </div>
+    <div id="r-results">${recipeResults()}</div>`;
+}
+function recipeModal(id, portions) {
+  const r = recipe(id), k = portions / r.portions;
+  return `<div class="m-head"><div><span class="kicker">${esc(r.meal)} · ${totalTime(r)} min · ${esc(r.diff)}</span><h2 class="display h-m" style="font-size:1.7rem;margin-top:4px">${esc(r.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body">
+      ${artBox(seedOf(r.id), r.meal, "aspect-ratio:16/6;border-radius:22px")}
+      <div class="row">${r.themes.map(t => `<span class="tag">${esc(t)}</span>`).join("")}${r.diets.filter(d => !r.themes.includes(d)).map(d => `<span class="tag ok">${esc(d)}</span>`).join("")}</div>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));align-items:start;gap:24px">
+        <div class="stack" style="gap:12px"><div class="row between"><h3 class="h-s">Ingrédients</h3>
+          <div class="stepper"><button data-act="portions" data-d="-1" aria-label="Une portion de moins">−</button><b>${portions} portion${portions > 1 ? "s" : ""}</b><button data-act="portions" data-d="1" aria-label="Une portion de plus">+</button></div></div>
+          <ul class="ingr">${r.ingr.map((i, n) => `<li><label><input type="checkbox" id="ing-${n}"><b>${i[0] == null ? "" : fmtQ(i[0] * k) + " " + esc(i[1])}</b><span>${esc(i[2])}</span></label></li>`).join("")}</ul>
+          <div class="label-nutri"><div class="t">Valeurs nutritionnelles</div><div class="r"><span>par portion</span><span></span></div>
+            <div class="r big"><span>Énergie</span><span>${r.macro.kcal} kcal</span></div><div class="r"><span>Protéines</span><span>${r.macro.p} g</span></div><div class="r"><span>Glucides</span><span>${r.macro.g} g</span></div><div class="r"><span>Lipides</span><span>${r.macro.l} g</span></div><div class="r"><span>Fibres</span><span>${r.macro.f} g</span></div></div>
+          <p class="tiny muted">Allergènes : ${r.allergens.length ? r.allergens.join(", ") : "aucun des 14 allergènes réglementaires"}</p></div>
+        <div class="stack" style="gap:14px"><h3 class="h-s">Étapes</h3><ol class="steps-ol">${r.steps.map(s => `<li><span>${esc(s)}</span></li>`).join("")}</ol>
+          <div class="card ci"><span class="kicker" style="color:inherit">Le conseil de Manon</span><p style="margin-top:6px;font-family:var(--f-serif);font-style:italic;font-size:1.15rem;line-height:1.35">${esc(r.tip)}</p></div></div>
+      </div>
+    </div>
+    <div class="m-foot"><button class="btn btn-soft" data-act="favr" data-id="${r.id}">${S.favR.has(r.id) ? I.heartF + "Dans mes favoris" : I.heart + "Favori"}</button>
+      ${can("recettes") ? `<button class="btn btn-olive" data-act="addshop" data-id="${r.id}">${I.cart}${S.shopping.has(id) ? "Mettre à jour la liste" : "Ajouter à ma liste"}</button>` : ""}</div>`;
+}
+function shoppingModal() {
+  const agg = new Map();
+  for (const [id, por] of S.shopping) {
+    const r = recipe(id), k = por / r.portions;
+    for (const i of r.ingr) {
+      const key = i[1] + "|" + i[2], cur = agg.get(key) || { q: i[0] == null ? null : 0, u: i[1], n: i[2] };
+      if (cur.q != null && i[0] != null) cur.q += i[0] * k;
+      agg.set(key, cur);
+    }
+  }
+  const items = [...agg.values()].sort((a, b) => a.n.localeCompare(b.n, "fr"));
+  S._shopText = items.map(i => "- " + (i.q != null ? fmtQ(i.q) + " " + i.u + " " : "") + i.n).join("\n");
+  return `<div class="m-head"><h2 class="display h-m" style="font-size:1.7rem">Liste <span class="serif">de courses</span></h2><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body">${S.shopping.size ? `<div class="row">${[...S.shopping].map(([id, p]) => `<span class="tag">${esc(recipe(id).title)} · ${p} p.</span>`).join("")}</div>
+      <ul class="ingr">${items.map((i, n) => `<li><label><input type="checkbox" id="sh-${n}"><b>${i.q != null ? fmtQ(i.q) + " " + esc(i.u) : ""}</b><span>${esc(i.n)}</span></label></li>`).join("")}</ul>`
+      : `<p class="muted">Ouvrez une recette et ajoutez-la : les quantités s'additionnent automatiquement.</p>`}</div>
+    ${S.shopping.size ? `<div class="m-foot"><button class="btn btn-soft" data-act="clearshop">Vider</button><button class="btn btn-olive" data-act="copyshop">${I.copy}Copier la liste</button></div>` : ""}`;
+}
+function videoCard(v) {
+  const fav = S.favV.has(v.id), seed = seedOf(v.id);
+  return `<article class="vcard"><button class="thumb" data-act="video" data-id="${v.id}" aria-label="Lire ${esc(v.title)}">${artBox(seed, ["Déjeuner", "Dîner", "Petit-déjeuner", "Collation"][seed % 4])}<span class="th">${esc(v.theme)}</span><span class="play">${I.play}</span><span class="dur">${v.dur} min</span></button>
+    <div class="b"><div class="row between" style="flex-wrap:nowrap;align-items:flex-start"><h4 class="h-s" style="font-size:1.05rem">${esc(v.title)}</h4><button class="iconbtn ${fav ? "on" : ""}" data-act="favv" data-id="${v.id}" aria-label="Favori">${fav ? I.heartF : I.heart}</button></div>
+      <div class="row tiny muted" style="gap:8px"><span class="tag">${esc(v.level)}</span><span>${v.equip.join(", ")}</span></div></div></article>`;
+}
+function filteredVideos() {
+  const f = S.vf;
+  return VIDEOS.filter(v => (!f.theme || v.theme === f.theme) && (!f.level || v.level === f.level) && (!f.equip || v.equip.includes(f.equip)) && (!f.dur || (f.dur === "15" ? v.dur <= 15 : f.dur === "30" ? v.dur > 15 && v.dur <= 30 : v.dur > 30)));
+}
+function ptSport() {
+  const p = me();
+  if (!can("videos") && !can("sport")) return `<div class="ph-head"><h1 class="display">Sport</h1></div><div class="locked"><div class="blur grid g4">${VIDEOS.slice(0, 6).map(videoCard).join("")}</div>${upsell("videos", "Vidéos et programme sportif")}</div>`;
+  const tabs = `<div class="chips">${[["programme", "Mon programme"], ["videos", "Vidéos"]].map(([k, l]) => `<button class="chip ${S.sportTab === k ? "on" : ""}" data-act="sporttab" data-t="${k}">${l}</button>`).join("")}</div>`;
+  if (S.sportTab === "videos") {
+    const f = S.vf, l = filteredVideos();
+    return `<div class="ph-head"><div><span class="kicker">Bibliothèque · ${VIDEOS.length} vidéos</span><h1 class="display" style="margin-top:8px">Sport</h1></div>${tabs}</div>
+      <div class="filters">
+        <select id="vf-theme" data-change="vf" data-k="theme" aria-label="Thème"><option value="">Tous les thèmes</option>${VIDEO_THEMES.map(t => `<option ${f.theme === t ? "selected" : ""}>${t}</option>`).join("")}</select>
+        <select id="vf-dur" data-change="vf" data-k="dur" aria-label="Durée"><option value="">Toutes durées</option>${[["15", "15 min ou moins"], ["30", "16 à 30 min"], ["31", "Plus de 30 min"]].map(([v, x]) => `<option value="${v}" ${f.dur === v ? "selected" : ""}>${x}</option>`).join("")}</select>
+        <select id="vf-level" data-change="vf" data-k="level" aria-label="Niveau"><option value="">Tous niveaux</option>${LEVELS.map(x => `<option ${f.level === x ? "selected" : ""}>${x}</option>`).join("")}</select>
+        <select id="vf-equip" data-change="vf" data-k="equip" aria-label="Matériel"><option value="">Tout matériel</option>${EQUIPMENT.map(e => `<option ${f.equip === e ? "selected" : ""}>${e}</option>`).join("")}</select>
+      </div>
+      ${l.length ? `<div class="grid g4">${l.map(videoCard).join("")}</div>` : `<div class="panel"><h3 class="h-s">Aucune vidéo ne correspond</h3><p class="muted">Retirez un filtre.</p></div>`}
+      ${note("Nouvelles vidéos chaque trimestre ; hébergeur vidéo à choisir (INTEGRATIONS.md).")}`;
+  }
+  const sp = SPORT_TEMPLATES[p.sport];
+  if (!sp) return `<div class="ph-head"><h1 class="display">Sport</h1>${tabs}</div><div class="panel"><h3 class="h-s">Votre programme arrive</h3><p class="muted">En attendant, explorez les vidéos.</p></div>`;
+  const wp = weekProgress(sp);
+  return `<div class="ph-head"><div><span class="kicker">Programme sportif · ${esc(sp.level)}</span><h1 class="display" style="margin-top:8px">${esc(sp.name)}</h1><p class="muted" style="margin-top:10px">${esc(sp.desc)}</p></div>${tabs}</div>
+    <div class="card stack" style="gap:10px"><div class="row between"><b>Cette semaine</b><span class="mono small">${wp.done} / ${wp.total} vidéos</span></div><div class="progress"><i style="width:${wp.pct}%"></i></div></div>
+    <div class="grid g3">${sp.sessions.map(s => `<div class="card workout"><span class="kicker">${s.day}</span><h3 class="h-s">${esc(s.title)}</h3>
+      ${s.videos.map(id => { const v = video(id), key = s.day + "|" + id, on = S.done.has(key); return `<div class="wv"><button class="chk ${on ? "on" : ""}" data-act="done" data-k="${key}" aria-pressed="${on}" aria-label="${on ? "Marquer non faite" : "Marquer faite"}">${I.check}</button>
+        <div style="flex:1;min-width:0"><b>${esc(v.title)}</b><div class="tiny muted">${v.dur} min · ${v.equip.join(", ")}</div></div><button class="iconbtn" data-act="video" data-id="${id}" aria-label="Lire">${I.play}</button></div>`; }).join("")}
+    </div>`).join("")}</div>`;
+}
+function ticket(s) {
+  const p = me(), d = parseD(s.date);
+  const inside = s.inscrits.includes(p.id), waiting = s.wait.includes(p.id), full = s.inscrits.length >= s.places, left = s.places - s.inscrits.length;
+  return `<div class="ticket"><div class="stub"><b class="num">${d.getDate()}</b><span>${d.toLocaleDateString("fr-FR", { month: "short" }).replace(".", "")}</span></div>
+    <div class="info"><h4 class="h-s" style="font-size:1.08rem">${esc(s.title)}</h4><span class="tiny muted">${fmtDay(s.date)} · ${fmtT(s.time)} · 30 min · visio</span>
+      <div class="seats" aria-label="${s.inscrits.length} places prises sur ${s.places}">${Array.from({ length: s.places }, (_, i) => `<i class="${i < s.inscrits.length ? "f" : ""}"></i>`).join("")}</div>
+      <span class="tiny">${full ? `Complet${s.wait.length ? ` · ${s.wait.length} en attente` : ""}` : `${left} place${left > 1 ? "s" : ""} restante${left > 1 ? "s" : ""}`}</span>
+      ${inside ? `<span class="tiny">Lien : <a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.link.replace("https://", ""))}</a> · ${esc(s.gear)}</span>` : ""}</div>
+    <div class="act">${inside ? `<button class="btn btn-soft btn-sm" data-act="leave" data-id="${s.id}">Se désinscrire</button>` : waiting ? `<button class="btn btn-soft btn-sm" data-act="leave" data-id="${s.id}">Quitter l'attente</button>` : full ? `<button class="btn btn-line btn-sm" data-act="join" data-id="${s.id}">Liste d'attente</button>` : `<button class="btn btn-olive btn-sm" data-act="join" data-id="${s.id}">${I.check}Je viens</button>`}</div></div>`;
+}
+function ptSeances() {
+  if (!can("collectives")) return `<div class="ph-head"><h1 class="display">Séances</h1></div><div class="locked"><div class="blur stack">${SESSIONS.map(ticket).join("")}</div>${upsell("collectives", "Séances collectives et coaching individuel")}</div>`;
+  return `<div class="ph-head"><div><span class="kicker">Inclus dans votre dossard</span><h1 class="display" style="margin-top:8px">Séances <span class="serif">avec Manon</span></h1></div></div>
+    <section class="stack" style="gap:12px"><h2 class="h-s">Collectives en visio</h2><p class="muted">Deux séances de 30 min par mois, 10 places. Rappel la veille et 1 h avant.</p>
+      ${SESSIONS.filter(s => daysUntil(s.date) >= 0).map(ticket).join("")}
+      ${note("Hypothèse : 1er et 3e mardi à 19 h, liste d'attente automatique (règles 12 et 14).")}</section>
+    <div class="card co stack" style="gap:14px;position:relative;overflow:hidden"><span class="par" style="right:-30px;top:-30px;width:170px;opacity:.9">${SH.citron("#C78460", "#404F1D")}</span>
+      <span class="kicker" style="color:inherit;opacity:.8">En supplément</span><h2 class="display h-m" style="position:relative">Séance <span class="serif">individuelle</span></h2>
+      <p style="opacity:.9;max-width:34em;position:relative">Une heure : échauffement, renforcement, cardio. En visio ou en présentiel, au cabinet ou chez vous.</p>
+      <div class="row"><span class="tag" style="background:var(--sable);color:var(--ink)">Visio · 20 €</span><span class="tag" style="background:var(--paper);color:var(--ink)">Présentiel · 35 €</span></div>
+      <div>${doctolib("Réserver sur Doctolib", "btn-sable")}</div>
+      ${note("Réservation via un nouveau motif Doctolib (hypothèse, règle 11).")}</div>`;
+}
+function ptDocs() {
+  return `<div class="ph-head"><div><span class="kicker">Déposés par Manon</span><h1 class="display" style="margin-top:8px">Documents</h1></div></div>
+    <div class="card"><div class="list">${DOCUMENTS.map(d => `<div class="it"><span class="av" style="background:var(--paper-2);color:var(--olive)">${I.file.replace("<svg", '<svg width="20" height="20"')}</span>
+      <div class="grow"><b>${esc(d.title)}</b><div class="tiny muted">${d.type} · ${d.size} · ${fmtD(d.date)}</div></div><button class="btn btn-soft btn-sm" data-act="toast" data-msg="En version finale : ouverture de « ${esc(d.title)} ».">Ouvrir</button></div>`).join("")}</div></div>
+    ${note("Option A : fiches conseils génériques uniquement, aucun bilan ni document médical.")}`;
+}
+function ptArticles() {
+  return `<div class="ph-head"><div><span class="kicker">Journal</span><h1 class="display" style="margin-top:8px">Articles</h1></div></div>
+    <div class="grid g3">${ARTICLES.map((a, i) => { const ok = a.vis === "public" || can("articles"); return `<article class="rcard">${artBox(seedOf(a.id) + i, ["Déjeuner", "Dîner", "Petit-déjeuner", "Collation"][i % 4])}<div class="b">
+      <div class="row between"><span class="kicker">${fmtD(a.date, { day: "numeric", month: "short" })} · ${a.read} min</span>${a.vis === "membres" ? `<span class="tag rose">Membres</span>` : ""}</div>
+      <h4>${esc(a.title)}</h4>${ok ? `<button class="btn btn-line btn-sm" style="align-self:flex-start" data-act="article" data-id="${a.id}">Lire</button>` : `<span class="tiny muted">Non inclus</span>`}</div></article>`; }).join("")}</div>`;
+}
+function ptProfil() {
+  const p = me();
+  return `<div class="ph-head"><div><span class="kicker">Mon compte</span><h1 class="display" style="margin-top:8px">Profil</h1></div></div>
+    <div class="grid g2" style="align-items:start">
+      <div class="card stack"><h3 class="h-s">Mes informations</h3>${[["Nom", fullName(p)], ["Email", p.email], ["Téléphone", p.phone]].map(([l, v]) => `<div class="field"><span class="lbl">${l}</span><span>${esc(v)}</span></div>`).join("")}
+        <div><button class="btn btn-soft btn-sm" data-act="toast" data-msg="En version finale : email de changement de mot de passe.">Changer mon mot de passe</button></div></div>
+      <div class="card stack"><h3 class="h-s">Mon dossard</h3><div>${planTag(p.plan)}</div><p class="small muted">Depuis le ${fmtD(p.start)}${p.end ? `, jusqu'au ${fmtD(p.end)}` : ""}.</p><p class="small">Pour changer de formule, parlez-en à Manon.</p>${note("Montée immédiate, descente au mois suivant (hypothèse, règle 7).")}</div>
+      <div class="card stack"><h3 class="h-s">Notifications</h3>${[["rappels", "Rappels de séances et de consultations"], ["nouveautes", "Nouvelles recettes et vidéos"], ["resume", "Résumé de la semaine"]].map(([k, l]) => `<div class="row between" style="flex-wrap:nowrap"><span>${l}</span><label class="toggle"><input type="checkbox" id="n-${k}" data-change="notif" data-k="${k}" ${S.notif[k] ? "checked" : ""}><span></span></label></div>`).join("")}</div>
+    </div>`;
+}
+function ptPlus() {
+  return `<div class="ph-head"><h1 class="display">Plus</h1></div><div class="grid g2">${PT_NAV.slice(4).map(([k, l, ic, f]) => `<button class="card row" style="cursor:pointer;text-align:left;flex-wrap:nowrap" data-act="pt" data-p="${k}"><span class="av" style="background:var(--paper-2);color:var(--ink)">${I[ic]}</span><b style="flex:1">${l}</b>${f && !can(f) ? I.lock : I.arrow}</button>`).join("")}</div>`;
+}
+
+/* =========================================================
+   BACK-OFFICE
+   ========================================================= */
+const AD_NAV = [["dashboard", "Tableau de bord", "grid"], ["patientes", "Patientes", "users"], ["programmes", "Programmes", "bowl"], ["recettes", "Recettes", "leaf"], ["videos", "Vidéos", "video"], ["articles", "Articles", "book"], ["seances", "Séances", "dumbbell"], ["rdv", "Rendez-vous", "cal"], ["parametres", "Paramètres", "gear"]];
+function admin() {
+  const page = { dashboard: adDashboard, patientes: adPatients, programmes: adProgrammes, recettes: adRecettes, videos: adVideos, articles: adArticles, seances: adSeances, rdv: adRdv, parametres: adParams }[S.adPage]();
+  return `<div class="wrap app admin"><nav class="rail" aria-label="Back-office"><div class="me"><div class="av" style="background:var(--olive);color:var(--olive-ink)">MG</div><div><b>Manon Garrione</b><div class="tiny muted">Administratrice</div></div></div>
+    ${AD_NAV.map(([k, l, ic]) => `<button class="nv ${S.adPage === k ? "on" : ""}" data-act="ad" data-p="${k}">${I[ic]}<span>${l}</span></button>`).join("")}</nav>
+    <main class="main" id="main">${page}</main></div>`;
+}
+const actives = () => PATIENTS.filter(p => p.status === "active");
+function statusTag(p) {
+  if (p.status === "suspendue") return `<span class="tag warn">Suspendue</span>`;
+  if (p.status === "archivée") return `<span class="tag">Archivée</span>`;
+  if (p.end && daysUntil(p.end) >= 0 && daysUntil(p.end) <= 15) return `<span class="tag crit">Expire J-${daysUntil(p.end)}</span>`;
+  return `<span class="tag ok">Active</span>`;
+}
+function adDashboard() {
+  const act = actives(), byPlan = PLAN_ORDER.map(k => [k, act.filter(p => p.plan === k).length]), max = Math.max(...byPlan.map(b => b[1]), 1);
+  const mrr = act.filter(p => p.plan !== "suivi").reduce((n, p) => n + PLANS[p.plan].price, 0);
+  const expiring = act.filter(p => p.end && daysUntil(p.end) >= 0 && daysUntil(p.end) <= 15);
+  const noProg = act.filter(p => ACCESS.nutri[p.plan] && !p.nutri);
+  const next = SESSIONS.filter(s => daysUntil(s.date) >= 0)[0], scheduled = RECIPES.filter(r => r.status === "programmée");
+  return `<div class="ph-head"><div><span class="kicker">${fmtDay(TODAY_ISO)}</span><h1 class="display" style="margin-top:8px">Bonjour <span class="serif">Manon</span></h1></div><button class="btn btn-olive" data-act="newpatient">${I.plus}Nouvelle patiente</button></div>
+    <div class="kpis">
+      <div class="card co kpi"><div class="v num">${act.length}</div><div class="l" style="color:inherit;opacity:.85">Patientes actives</div></div>
+      <div class="card kpi"><div class="v num">${mrr} €</div><div class="l">Revenu mensuel théorique (formules × tarif)</div></div>
+      <div class="card kpi"><div class="v num" style="color:${expiring.length ? "var(--crit)" : "inherit"}">${expiring.length}</div><div class="l">Abonnements qui expirent sous 15 jours</div></div>
+      <div class="card ci kpi"><div class="v num">${next ? next.inscrits.length + "/" + next.places : "—"}</div><div class="l" style="color:inherit">Inscrites prochaine séance</div></div>
+    </div>
+    <div class="grid g2" style="align-items:start">
+      <div class="card stack"><h3 class="h-s">Patientes actives par formule</h3><div class="bars">${byPlan.map(([k, n]) => `<div class="bar"><span>${PLANS[k].code} · ${{ suivi: "Suivi simple", f1: "Nutrition", f2: "+ Recettes", f3: "+ Sport" }[k]}</span><div class="tr"><div class="fl" style="width:${n / max * 100}%"></div></div><b class="mono">${n}</b></div>`).join("")}</div></div>
+      <div class="card stack" style="gap:6px"><h3 class="h-s">À traiter</h3><div class="list">
+        ${expiring.map(p => `<div class="it"><span class="tag crit">Expire</span><div class="grow small">${esc(fullName(p))} · ${PLANS[p.plan].code} · ${fmtD(p.end)}</div><button class="btn btn-text btn-sm" data-act="openpatient" data-id="${p.id}">Ouvrir</button></div>`).join("")}
+        ${noProg.map(p => `<div class="it"><span class="tag warn">Programme</span><div class="grow small">${esc(fullName(p))} n'a pas de semainier</div><button class="btn btn-text btn-sm" data-act="openpatient" data-id="${p.id}">Attribuer</button></div>`).join("")}
+        ${scheduled.map(r => `<div class="it"><span class="tag f1">Programmée</span><div class="grow small">« ${esc(r.title)} » le ${fmtD(r.date)}</div></div>`).join("")}
+        ${next ? `<div class="it"><span class="tag f3">Séance</span><div class="grow small">${esc(next.title)} · ${fmtDay(next.date)} · ${next.inscrits.length}/${next.places}</div><button class="btn btn-text btn-sm" data-act="inscrits" data-id="${next.id}">Inscrites</button></div>` : ""}
+      </div></div>
+    </div>`;
+}
+function patientRows(list) {
+  return `<div class="table-wrap"><table><thead><tr><th>Patiente</th><th>Formule</th><th>Fin</th><th>Statut</th><th>Prochaine consultation</th><th></th></tr></thead><tbody>
+    ${list.map(p => `<tr><td><div class="row" style="flex-wrap:nowrap;gap:10px"><span class="av" style="width:36px;height:36px;font-size:12px">${initials(p)}</span><div><b>${esc(fullName(p))}</b><div class="tiny muted">${esc(p.email)}</div></div></div></td>
+      <td>${planTag(p.plan)}</td><td class="mono small">${p.end ? fmtD(p.end, { day: "2-digit", month: "2-digit", year: "2-digit" }) : "—"}</td><td>${statusTag(p)}</td>
+      <td class="small">${p.next ? `${fmtD(p.next.date, { day: "numeric", month: "short" })} · ${fmtT(p.next.time)}<br><span class="muted">${esc(p.next.mode)}</span>` : `<span class="muted">—</span>`}</td>
+      <td><div class="row" style="flex-wrap:nowrap;gap:6px"><button class="btn btn-soft btn-sm" data-act="openpatient" data-id="${p.id}">Ouvrir</button><button class="btn btn-text btn-sm" data-act="viewas" data-id="${p.id}">Voir son espace</button></div></td></tr>`).join("") || `<tr><td colspan="6" class="muted">Aucune patiente ne correspond.</td></tr>`}
+  </tbody></table></div>`;
+}
+const filteredPatients = () => { const q = S.adQ.toLowerCase(); return PATIENTS.filter(p => (!q || (fullName(p) + p.email).toLowerCase().includes(q)) && (!S.adPlan || p.plan === S.adPlan)); };
+function adPatients() {
+  return `<div class="ph-head"><div><span class="kicker">${actives().length} actives · ${PATIENTS.length} au total</span><h1 class="display" style="margin-top:8px">Patientes</h1></div><button class="btn btn-olive" data-act="newpatient">${I.plus}Nouvelle patiente</button></div>
+    <div class="filters"><input type="search" id="ad-q" placeholder="Nom ou email" value="${esc(S.adQ)}" data-input="adq" aria-label="Rechercher une patiente">
+      <select id="ad-plan" data-change="adplan" aria-label="Formule"><option value="">Toutes les formules</option>${PLAN_ORDER.map(k => `<option value="${k}" ${S.adPlan === k ? "selected" : ""}>${PLANS[k].code} · ${esc(planName(k))}</option>`).join("")}</select></div>
+    <div id="ad-results">${patientRows(filteredPatients())}</div>`;
+}
+function newPatientModal() {
+  return `<form data-form="newpatient"><div class="m-head"><h2 class="display h-m" style="font-size:1.6rem">Nouvelle <span class="serif">patiente</span></h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><p class="muted small">Après la première consultation Doctolib. La patiente reçoit un email pour choisir son mot de passe.</p>
+      <div class="form-grid">
+        <div class="field"><label for="np-first">Prénom</label><input id="np-first" name="first" required></div>
+        <div class="field"><label for="np-last">Nom</label><input id="np-last" name="last" required></div>
+        <div class="field"><label for="np-mail">Email</label><input id="np-mail" name="email" type="email" required></div>
+        <div class="field"><label for="np-phone">Téléphone</label><input id="np-phone" name="phone"></div>
+        <div class="field"><label for="np-plan">Formule</label><select id="np-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${k === "f1" ? "selected" : ""}>${PLANS[k].code} · ${esc(planName(k))}</option>`).join("")}</select></div>
+        <div class="field"><label for="np-nutri">Programme nutritionnel</label><select id="np-nutri" name="nutri"><option value="">Plus tard</option>${Object.entries(NUTRI_TEMPLATES).map(([k, t]) => `<option value="${k}">${esc(t.name)}</option>`).join("")}</select></div>
+        <div class="field"><label for="np-start">Début</label><input id="np-start" name="start" type="date" value="${TODAY_ISO}" required></div>
+        <div class="field"><label for="np-end">Fin</label><input id="np-end" name="end" type="date" value="${isoAdd(TODAY_ISO, 3)}"><span class="hint">Vide pour le Suivi simple</span></div>
+      </div>${note("Fin par défaut : début + 3 mois (hypothèse d'engagement, règle 4). Paiement hors plateforme en v1.")}</div>
+    <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Créer et inviter</button></div></form>`;
+}
+function patientModal(id) {
+  const p = patientById(id), regs = SESSIONS.filter(s => s.inscrits.includes(p.id));
+  return `<form data-form="editpatient" data-id="${p.id}"><div class="m-head"><div class="row" style="flex-wrap:nowrap"><span class="av">${initials(p)}</span><div><h2 class="h-s">${esc(fullName(p))}</h2><div class="tiny muted">${esc(p.email)} · ${esc(p.phone)}</div></div></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body">
+      <div class="form-grid">
+        <div class="field"><label for="ep-plan">Formule</label><select id="ep-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${PLANS[k].code} · ${esc(planName(k))}</option>`).join("")}</select></div>
+        <div class="field"><label for="ep-end">Fin d'abonnement</label><input id="ep-end" name="end" type="date" value="${p.end}"></div>
+        <div class="field"><label for="ep-nutri">Programme nutritionnel</label><select id="ep-nutri" name="nutri"><option value="">Aucun</option>${Object.entries(NUTRI_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.nutri === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
+        <div class="field"><label for="ep-sport">Programme sportif (F3)</label><select id="ep-sport" name="sport"><option value="">Aucun</option>${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.sport === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
+      </div>
+      <div class="card ti stack" style="gap:10px"><h4 class="h-s" style="font-size:1rem">Prochaine consultation (recopiée depuis Doctolib)</h4><div class="form-grid">
+        <div class="field"><label for="ep-ndate">Date</label><input id="ep-ndate" name="ndate" type="date" value="${p.next ? p.next.date : ""}"></div>
+        <div class="field"><label for="ep-ntime">Heure</label><input id="ep-ntime" name="ntime" type="time" value="${p.next ? p.next.time : ""}"></div>
+        <div class="field"><label for="ep-nmode">Lieu</label><select id="ep-nmode" name="nmode">${["Visio", "Cabinet Hyères", "Cabinet La Garde", "Domicile"].map(m => `<option ${p.next && p.next.mode === m ? "selected" : ""}>${m}</option>`).join("")}</select></div></div></div>
+      <div class="grid g2"><div class="card stack" style="gap:6px"><h4 class="h-s" style="font-size:1rem">Séances collectives</h4>${regs.length ? regs.map(s => `<span class="small">${esc(s.title)} · ${fmtD(s.date)}</span>`).join("") : `<span class="small muted">Aucune inscription</span>`}</div>
+        <div class="card stack" style="gap:6px"><h4 class="h-s" style="font-size:1rem">Documents partagés</h4>${DOCUMENTS.map(d => `<span class="small">${esc(d.title)}</span>`).join("")}</div></div>
+      ${note("Option A : pas de notes médicales ni de mesures dans la fiche patiente.")}</div>
+    <div class="m-foot"><button type="button" class="btn btn-text" data-act="toast" data-msg="Invitation renvoyée à ${esc(p.email)} (simulation).">Renvoyer l'invitation</button>
+      <button type="button" class="btn btn-soft" data-act="pstatus" data-id="${p.id}" data-s="${p.status === "active" ? "suspendue" : "active"}">${p.status === "active" ? "Suspendre" : "Réactiver"}</button>
+      <button type="button" class="btn btn-soft" data-act="viewas" data-id="${p.id}">Voir son espace</button><button class="btn btn-olive">Enregistrer</button></div></form>`;
+}
+function adProgrammes() {
+  return `<div class="ph-head"><div><span class="kicker">Modèles réutilisables</span><h1 class="display" style="margin-top:8px">Programmes</h1></div></div>
+    <section class="stack"><h2 class="h-s">Nutrition</h2><div class="grid g3">${Object.entries(NUTRI_TEMPLATES).map(([k, t], i) => `<div class="rcard">${artBox(i * 3 + 1, "Déjeuner", "aspect-ratio:16/7")}<div class="b"><h4 class="h-s">${esc(t.name)}</h4><p class="small muted">${esc(t.desc)}</p>
+      <span class="mono tiny">${PATIENTS.filter(p => p.nutri === k && p.status === "active").length} patientes</span><button class="btn btn-line btn-sm" style="align-self:flex-start" data-act="edittmpl" data-id="${k}">Modifier le semainier</button></div></div>`).join("")}
+      <button class="panel stack" style="gap:8px;border-style:dashed;cursor:pointer;align-items:flex-start;text-align:left" data-act="newtmpl">${I.plus}<b>Nouveau modèle</b><span class="small muted">Dupliqué depuis « Énergie »</span></button></div></section>
+    <section class="stack"><h2 class="h-s">Sport</h2><div class="grid g3">${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<div class="card stack" style="gap:8px"><h4 class="h-s">${esc(t.name)}</h4><p class="small muted">${esc(t.desc)}</p><div class="small">${t.sessions.map(s => `<b>${s.day}</b> · ${esc(s.title)}`).join("<br>")}</div><span class="mono tiny">${PATIENTS.filter(p => p.sport === k && p.status === "active").length} patientes</span></div>`).join("")}</div></section>
+    ${note("Nommer les modèles par objectif, jamais par pathologie (option A).")}`;
+}
+function tmplModal(id) {
+  const t = NUTRI_TEMPLATES[id];
+  const opt = v => `${publishedRecipes().map(r => `<option value="${r.id}" ${v === r.id ? "selected" : ""}>${esc(r.title)}</option>`).join("")}${recipe(v) ? "" : `<option value="${esc(v)}" selected>Texte : ${esc(v)}</option>`}`;
+  return `<form data-form="tmpl" data-id="${id}"><div class="m-head"><div><span class="kicker">Semainier</span><h2 class="display h-m" style="font-size:1.6rem">${esc(t.name)}</h2></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="field"><label for="t-name">Nom du modèle</label><input id="t-name" name="name" value="${esc(t.name)}"></div>
+      <div style="overflow-x:auto"><div class="tmpl"><span></span>${SLOTS.map(s => `<b class="kicker">${s}</b>`).join("")}${t.days.map((d, i) => `<b class="small">${DAYS[i]}</b>${d.map((v, j) => `<select name="c-${i}-${j}" id="t-${i}-${j}" aria-label="${DAYS[i]} ${SLOTS[j]}">${opt(v)}</select>`).join("")}`).join("")}</div></div>
+      <p class="small muted">Chaque case renvoie vers une recette, ou garde un texte libre (« Fruit + 10 amandes »).</p></div>
+    <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Enregistrer le modèle</button></div></form>`;
+}
+function adRecettes() {
+  return `<div class="ph-head"><div><span class="kicker">${RECIPES.length} recettes</span><h1 class="display" style="margin-top:8px">Recettes</h1></div><button class="btn btn-olive" data-act="newrecipe">${I.plus}Nouvelle recette</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Recette</th><th>Repas</th><th>Thèmes</th><th>kcal</th><th>Statut</th><th></th></tr></thead><tbody>
+    ${[...RECIPES].sort((a, b) => b.date.localeCompare(a.date)).map(r => `<tr><td><b>${esc(r.title)}</b><div class="tiny muted">${totalTime(r)} min · ${r.portions} portion${r.portions > 1 ? "s" : ""}</div></td><td class="small">${esc(r.meal)}</td><td class="tiny">${r.themes.map(esc).join(", ")}</td><td class="mono small">${r.macro.kcal}</td>
+      <td>${r.status === "publiée" ? `<span class="tag ok">Publiée</span>` : r.status === "programmée" ? `<span class="tag f1">Le ${fmtD(r.date, { day: "numeric", month: "short" })}</span>` : `<span class="tag">Brouillon</span>`}</td>
+      <td><div class="row" style="flex-wrap:nowrap;gap:6px"><button class="btn btn-soft btn-sm" data-act="recipe" data-id="${r.id}">Aperçu</button><button class="btn btn-text btn-sm" data-act="rstatus" data-id="${r.id}">${r.status === "publiée" ? "Dépublier" : "Publier"}</button></div></td></tr>`).join("")}
+    </tbody></table></div>`;
+}
+function recipeFormModal() {
+  return `<form data-form="recipe"><div class="m-head"><h2 class="display h-m" style="font-size:1.6rem">Nouvelle <span class="serif">recette</span></h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="form-grid">
+      <div class="field full"><label for="nr-title">Titre</label><input id="nr-title" name="title" required placeholder="Ex. : Tartine avocat et œuf mollet"></div>
+      <div class="field"><label for="nr-meal">Type de repas</label><select id="nr-meal" name="meal">${MEALS.map(m => `<option>${m}</option>`).join("")}</select></div>
+      <div class="field"><label for="nr-diff">Difficulté</label><select id="nr-diff" name="diff">${DIFFS.map(d => `<option>${d}</option>`).join("")}</select></div>
+      <div class="field"><label for="nr-prep">Préparation (min)</label><input id="nr-prep" name="prep" type="number" min="0" value="10"></div>
+      <div class="field"><label for="nr-cook">Cuisson (min)</label><input id="nr-cook" name="cook" type="number" min="0" value="5"></div>
+      <div class="field"><label for="nr-por">Portions</label><input id="nr-por" name="portions" type="number" min="1" value="1"></div>
+      <div class="field"><label for="nr-date">Publication</label><input id="nr-date" name="date" type="date" value="${TODAY_ISO}"><span class="hint">Une date future programme la sortie</span></div>
+      <div class="field full"><span class="lbl">Thèmes</span><div class="checks">${THEMES.map((t, i) => `<label><input type="checkbox" name="themes" value="${t}" id="nr-th-${i}"> ${t}</label>`).join("")}</div></div>
+      <div class="field full"><label for="nr-ingr">Ingrédients (un par ligne : quantité, unité, ingrédient)</label><textarea id="nr-ingr" name="ingr" placeholder="1 tranche pain complet&#10;0.5 avocat&#10;1 œuf" required></textarea></div>
+      <div class="field full"><label for="nr-steps">Étapes (une par ligne)</label><textarea id="nr-steps" name="steps" placeholder="Faire cuire l'œuf 6 minutes.&#10;Écraser l'avocat sur le pain grillé." required></textarea></div>
+      ${[["kcal", "kcal / portion", 350], ["p", "Protéines (g)", 15], ["g", "Glucides (g)", 30], ["l", "Lipides (g)", 18], ["f", "Fibres (g)", 7]].map(([n, l, v]) => `<div class="field"><label for="nr-${n}">${l}</label><input id="nr-${n}" name="${n}" type="number" min="0" value="${v}"></div>`).join("")}
+      <div class="field full"><span class="lbl">Allergènes</span><div class="checks">${ALLERGENS.map((a, i) => `<label><input type="checkbox" name="allergens" value="${a}" id="nr-al-${i}"> ${a}</label>`).join("")}</div></div>
+      <div class="field full"><span class="lbl">Régimes</span><div class="checks">${DIETS.map((d, i) => `<label><input type="checkbox" name="diets" value="${d}" id="nr-di-${i}"> ${d}</label>`).join("")}</div></div>
+      <div class="field full"><label for="nr-tip">Conseil de la diététicienne</label><input id="nr-tip" name="tip" placeholder="Une phrase utile pour la patiente"></div>
+      <div class="field full"><label for="nr-video">Vidéo tutoriel (facultatif)</label><input id="nr-video" name="video" type="url" placeholder="Lien d'un Reel Instagram ou d'une vidéo"></div>
+    </div></div>
+    <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Enregistrer</button></div></form>`;
+}
+function adVideos() {
+  return `<div class="ph-head"><div><span class="kicker">${VIDEOS.length} vidéos</span><h1 class="display" style="margin-top:8px">Vidéos</h1></div><button class="btn btn-olive" data-act="newvideo">${I.plus}Ajouter</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Vidéo</th><th>Thème</th><th>Durée</th><th>Niveau</th><th>Matériel</th></tr></thead><tbody>
+    ${VIDEOS.map(v => `<tr><td><b>${esc(v.title)}</b><div class="tiny muted">${fmtD(v.date)}</div></td><td class="small">${esc(v.theme)}</td><td class="mono small">${v.dur} min</td><td><span class="tag">${esc(v.level)}</span></td><td class="tiny">${v.equip.map(esc).join(", ")}</td></tr>`).join("")}
+    </tbody></table></div>${note("Hébergeur vidéo à choisir (Vimeo, Bunny Stream…). Le lien collé ici suffira.")}`;
+}
+function videoFormModal() {
+  return `<form data-form="video"><div class="m-head"><h2 class="display h-m" style="font-size:1.6rem">Ajouter <span class="serif">une vidéo</span></h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="form-grid">
+      <div class="field full"><label for="nv-title">Titre</label><input id="nv-title" name="title" required></div>
+      <div class="field full"><label for="nv-url">Lien de la vidéo</label><input id="nv-url" name="url" type="url" placeholder="https://"></div>
+      <div class="field"><label for="nv-theme">Thème</label><select id="nv-theme" name="theme">${VIDEO_THEMES.map(t => `<option>${t}</option>`).join("")}</select></div>
+      <div class="field"><label for="nv-dur">Durée (min)</label><input id="nv-dur" name="dur" type="number" min="1" value="20" required></div>
+      <div class="field"><label for="nv-level">Niveau</label><select id="nv-level" name="level">${LEVELS.map(l => `<option>${l}</option>`).join("")}</select></div>
+      <div class="field full"><span class="lbl">Matériel</span><div class="checks">${EQUIPMENT.map((e, i) => `<label><input type="checkbox" name="equip" value="${e}" id="nv-eq-${i}" ${e === "Tapis" ? "checked" : ""}> ${e}</label>`).join("")}</div></div>
+      <div class="field full"><label for="nv-desc">Description et consignes de sécurité</label><textarea id="nv-desc" name="desc"></textarea></div>
+    </div></div><div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Enregistrer</button></div></form>`;
+}
+function adArticles() {
+  return `<div class="ph-head"><div><span class="kicker">${ARTICLES.length} articles</span><h1 class="display" style="margin-top:8px">Articles</h1></div><button class="btn btn-olive" data-act="newarticle">${I.plus}Nouvel article</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Article</th><th>Visibilité</th><th>Date</th><th></th></tr></thead><tbody>
+    ${ARTICLES.map(a => `<tr><td><b>${esc(a.title)}</b></td><td>${a.vis === "public" ? `<span class="tag ok">Public</span>` : `<span class="tag rose">Membres</span>`}</td><td class="mono small">${fmtD(a.date, { day: "2-digit", month: "2-digit" })}</td><td><button class="btn btn-soft btn-sm" data-act="article" data-id="${a.id}">Aperçu</button></td></tr>`).join("")}
+    </tbody></table></div>`;
+}
+function articleFormModal() {
+  return `<form data-form="article"><div class="m-head"><h2 class="display h-m" style="font-size:1.6rem">Nouvel <span class="serif">article</span></h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="field"><label for="na-title">Titre</label><input id="na-title" name="title" required></div>
+      <div class="field"><label for="na-vis">Visibilité</label><select id="na-vis" name="vis"><option value="public">Public : visible sur le site</option><option value="membres">Membres : réservé aux patientes</option></select></div>
+      <div class="field"><label for="na-body">Texte</label><textarea id="na-body" name="body" style="min-height:180px" required></textarea><span class="hint">En version finale : éditeur avec titres, gras et images.</span></div></div>
+    <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Publier</button></div></form>`;
+}
+function adSeances() {
+  return `<div class="ph-head"><div><span class="kicker">Dossard 03</span><h1 class="display" style="margin-top:8px">Séances</h1></div><button class="btn btn-olive" data-act="newsession">${I.plus}Nouveau créneau</button></div>
+    <div class="stack" style="gap:12px">${SESSIONS.map(s => { const d = parseD(s.date); return `<div class="ticket"><div class="stub"><b class="num">${d.getDate()}</b><span>${d.toLocaleDateString("fr-FR", { month: "short" }).replace(".", "")}</span></div>
+      <div class="info"><h4 class="h-s" style="font-size:1.08rem">${esc(s.title)}</h4><span class="tiny muted">${fmtDay(s.date)} · ${fmtT(s.time)} · ${esc(s.link.replace("https://", ""))}</span><div class="seats">${Array.from({ length: s.places }, (_, i) => `<i class="${i < s.inscrits.length ? "f" : ""}"></i>`).join("")}</div><span class="tiny">${s.inscrits.length}/${s.places} inscrites${s.wait.length ? ` · ${s.wait.length} en attente` : ""}</span></div>
+      <div class="act" style="gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="inscrits" data-id="${s.id}">Inscrites</button><button class="btn btn-text btn-sm" data-act="toast" data-msg="Email envoyé aux ${s.inscrits.length} inscrites (simulation).">Écrire</button></div></div>`; }).join("")}</div>
+    ${note("Capacité : 2 séances × 10 places = 20 places/mois. Au-delà de 10 abonnées F3, ouvrir un créneau (règle 14).")}`;
+}
+function sessionFormModal() {
+  return `<form data-form="session"><div class="m-head"><h2 class="display h-m" style="font-size:1.6rem">Nouveau <span class="serif">créneau</span></h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="form-grid">
+      <div class="field full"><label for="ns-title">Titre et thème</label><input id="ns-title" name="title" required value="Mobilité et renfo doux"></div>
+      <div class="field"><label for="ns-date">Date</label><input id="ns-date" name="date" type="date" value="2026-12-01" required></div>
+      <div class="field"><label for="ns-time">Heure</label><input id="ns-time" name="time" type="time" value="19:00" required></div>
+      <div class="field"><label for="ns-places">Places</label><input id="ns-places" name="places" type="number" min="1" value="10"></div>
+      <div class="field full"><label for="ns-link">Lien visio</label><input id="ns-link" name="link" type="url" value="https://visio.exemple.fr/seance"></div>
+      <div class="field full"><label for="ns-gear">Matériel à prévoir</label><input id="ns-gear" name="gear" value="Tapis"></div>
+    </div></div><div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Créer</button></div></form>`;
+}
+function adRdv() {
+  const list = actives().sort((a, b) => (a.next ? a.next.date + a.next.time : "9").localeCompare(b.next ? b.next.date + b.next.time : "9"));
+  return `<div class="ph-head"><div><span class="kicker">Recopiés depuis Doctolib</span><h1 class="display" style="margin-top:8px">Rendez-vous</h1></div>${doctolib("Ouvrir Doctolib", "btn-line btn-sm")}</div>
+    ${note("Doctolib ne partage pas son agenda : Manon recopie la prochaine consultation pour qu'elle s'affiche dans l'espace de la patiente.")}
+    <div class="table-wrap"><table><thead><tr><th>Date</th><th>Patiente</th><th>Lieu</th><th></th></tr></thead><tbody>
+    ${list.map(p => `<tr><td class="small">${p.next ? `<b>${fmtD(p.next.date, { weekday: "short", day: "numeric", month: "short" })}</b> · ${fmtT(p.next.time)}` : `<span class="muted">À planifier</span>`}</td><td>${esc(fullName(p))} ${planTag(p.plan)}</td><td class="small">${p.next ? esc(p.next.mode) : "—"}</td><td><button class="btn btn-soft btn-sm" data-act="openpatient" data-id="${p.id}">${p.next ? "Modifier" : "Saisir"}</button></td></tr>`).join("")}
+    </tbody></table></div>`;
+}
+function adParams() {
+  return `<div class="ph-head"><div><span class="kicker">Réglages</span><h1 class="display" style="margin-top:8px">Paramètres</h1></div></div>
+    <div class="card stack"><h3 class="h-s">Formules et tarifs</h3><div class="form-grid">${PLAN_ORDER.map(k => `<div class="field"><label for="pr-${k}">${PLANS[k].code} · ${esc(planName(k))} (€)</label><input id="pr-${k}" type="number" min="0" value="${PLANS[k].price}" data-change="price" data-k="${k}"></div>`).join("")}</div></div>
+    <section class="stack" style="gap:10px"><h3 class="h-s">Ce que chaque formule débloque</h3>${note("Cochez ou décochez : l'espace patiente et la page Formules changent immédiatement.")}
+      <div class="table-wrap"><table><thead><tr><th>Fonctionnalité</th>${PLAN_ORDER.map(k => `<th class="c">${PLANS[k].code}</th>`).join("")}</tr></thead><tbody>
+      ${FEATURES.map(f => `<tr><td>${esc(f.label)}</td>${PLAN_ORDER.map(k => `<td class="c"><input type="checkbox" id="m-${f.key}-${k}" aria-label="${esc(f.label)} pour ${PLANS[k].code}" data-change="matrix" data-k="${f.key}" data-p="${k}" ${ACCESS[f.key][k] ? "checked" : ""}></td>`).join("")}</tr>`).join("")}
+      </tbody></table></div></section>
+    <div class="card stack"><h3 class="h-s">Liens</h3><div class="form-grid">
+      <div class="field full"><label for="st-doc">Page Doctolib</label><input id="st-doc" value="${esc(SETTINGS.doctolib)}" data-change="setting" data-k="doctolib"></div>
+      <div class="field"><label for="st-wa">Numéro WhatsApp</label><input id="st-wa" value="${esc(SETTINGS.whatsapp)}" data-change="setting" data-k="whatsapp"></div>
+      <div class="field"><label for="st-ig">Instagram</label><input id="st-ig" value="${esc(SETTINGS.instagram)}" data-change="setting" data-k="instagram"></div></div></div>`;
+}
+
+/* =========================================================
+   RENDU, MODALES, EFFETS
+   ========================================================= */
+function openModal(html, wide = false) {
+  $("#modal-root").innerHTML = `<div class="overlay" data-act="overlay"><div class="modal ${wide ? "wide" : ""}" role="dialog" aria-modal="true">${html}</div></div>`;
+  const f = $("#modal-root input, #modal-root select, #modal-root button"); if (f) f.focus({ preventScroll: true });
+}
+function closeModal() { $("#modal-root").innerHTML = ""; S.modal = null; }
+let toastTimer;
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; t.style.animation = "none"; void t.offsetWidth; t.style.animation = ""; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3600); }
+function render() {
+  $("#app").innerHTML = protobar() + (S.view === "site" ? site() : S.view === "patient" ? patient() : admin());
+  document.body.classList.toggle("no-notes", !S.notes);
+  revealWords();
+}
+function revealWords() {
+  document.querySelectorAll(".words").forEach(el => {
+    const r = el.getBoundingClientRect(), vh = innerHeight, ws = el.querySelectorAll(".wd");
+    const prog = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .3)));
+    const n = REDUCE ? ws.length : Math.round(prog * ws.length);
+    ws.forEach((w, i) => w.classList.toggle("on", i < n));
+  });
+}
+addEventListener("scroll", () => requestAnimationFrame(revealWords), { passive: true });
+function go(fn) {
+  const run = () => { fn(); render(); window.scrollTo({ top: 0, behavior: "instant" }); };
+  if (document.startViewTransition && !REDUCE) document.startViewTransition(run); else run();
+}
+function rerenderRecipe() { if (S.modal && S.modal.type === "recipe") openModal(recipeModal(S.modal.id, S.modal.portions), true); }
+function burst(el) {
+  if (REDUCE) return;
+  const r = el.getBoundingClientRect(), cols = ["#C78460", "#404F1D", "#866452", "#7C914C", "#F1DDD3"];
+  for (let i = 0; i < 16; i++) {
+    const s = document.createElement("span"); s.className = "burst";
+    const a = (i / 16) * Math.PI * 2, d = 50 + (i % 4) * 18;
+    s.style.cssText = `left:${r.left + r.width / 2 - 7}px;top:${r.top + r.height / 2 - 7}px;background:${cols[i % cols.length]};--bx:${Math.cos(a) * d}px;--by:${Math.sin(a) * d}px;--br:${(i * 47) % 360}deg;border-radius:${i % 3 ? "3px" : "50%"}`;
+    document.body.appendChild(s); setTimeout(() => s.remove(), 950);
+  }
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+const A = {
+  view: t => go(() => { S.view = t.dataset.v; S.menu = false; }),
+  site: t => go(() => { S.sitePage = t.dataset.p; S.menu = false; }),
+  menu: () => { S.menu = !S.menu; render(); },
+  heromode: t => { S.heroMode = t.dataset.m; render(); },
+  wday: t => { S.wday = +t.dataset.d; render(); },
+  ptab: t => { S.ptab = t.dataset.t; render(); },
+  slide: t => { const el = document.getElementById(t.dataset.t); if (el) el.scrollBy({ left: +t.dataset.d * (el.clientWidth * .8), behavior: REDUCE ? "auto" : "smooth" }); },
+  "site-offres": () => go(() => { S.view = "site"; S.sitePage = "offres"; }),
+  pt: t => go(() => { S.ptPage = t.dataset.p; }),
+  ad: t => go(() => { S.adPage = t.dataset.p; }),
+  toast: t => toast(t.dataset.msg),
+  wa: () => toast(`En version finale : ouvre WhatsApp vers ${SETTINGS.whatsapp} avec un message prérempli.`),
+  close: () => closeModal(),
+  recipe: t => { const r = recipe(t.dataset.id); S.modal = { type: "recipe", id: r.id, portions: S.shopping.get(r.id) || r.portions }; rerenderRecipe(); },
+  portions: t => { S.modal.portions = Math.max(1, Math.min(12, S.modal.portions + +t.dataset.d)); rerenderRecipe(); },
+  favr: t => { const id = t.dataset.id, on = !S.favR.has(id); on ? S.favR.add(id) : S.favR.delete(id); if (on) burst(t); if (S.modal) rerenderRecipe(); render(); },
+  favv: t => { const id = t.dataset.id, on = !S.favV.has(id); on ? S.favV.add(id) : S.favV.delete(id); if (on) burst(t); render(); },
+  addshop: t => { S.shopping.set(t.dataset.id, S.modal.portions); burst(t); toast(`Ajoutée à la liste pour ${S.modal.portions} portion${S.modal.portions > 1 ? "s" : ""}.`); rerenderRecipe(); render(); },
+  shopping: () => { S.modal = { type: "shop" }; openModal(shoppingModal()); },
+  clearshop: () => { S.shopping.clear(); openModal(shoppingModal()); render(); },
+  copyshop: () => { const txt = "Liste de courses\n" + S._shopText; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(() => toast("Liste copiée."), () => toast("Copie impossible ici : sélectionnez la liste à la main.")); else toast("Copie impossible ici : sélectionnez la liste à la main."); },
+  rtheme: t => { S.rf.theme = t.dataset.t; render(); },
+  rfav: () => { S.rf.fav = !S.rf.fav; render(); },
+  sporttab: t => { S.sportTab = t.dataset.t; render(); },
+  done: t => { const k = t.dataset.k, on = !S.done.has(k); on ? S.done.add(k) : S.done.delete(k); if (on) burst(t); render(); },
+  video: t => {
+    const v = video(t.dataset.id);
+    openModal(`<div class="m-head"><div><span class="kicker">${esc(v.theme)} · ${v.dur} min</span><h2 class="display h-m" style="font-size:1.6rem;margin-top:4px">${esc(v.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+      <div class="m-body"><div class="player">${artBox(seedOf(v.id), "Dîner", "position:absolute;inset:0;opacity:.35")}<div class="stack" style="align-items:center;gap:12px;position:relative"><span class="play" style="width:70px;height:70px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center">${I.play.replace("<svg", '<svg width="28" height="28"')}</span><span class="mono small">Lecteur de l'hébergeur vidéo (à choisir)</span></div></div>
+      <div class="row"><span class="tag">${esc(v.level)}</span><span class="tag">${v.equip.map(esc).join(", ")}</span></div><p>${esc(v.desc)}</p></div>`, true);
+  },
+  join: t => { const s = SESSIONS.find(x => x.id === t.dataset.id), id = me().id; if (s.inscrits.length < s.places) { s.inscrits.push(id); burst(t); toast("Inscription confirmée. Rappel la veille et 1 h avant (simulation)."); } else { s.wait.push(id); toast("Vous êtes sur liste d'attente. Email dès qu'une place se libère."); } render(); },
+  leave: t => {
+    const s = SESSIONS.find(x => x.id === t.dataset.id), id = me().id;
+    if (s.inscrits.includes(id)) { s.inscrits = s.inscrits.filter(x => x !== id); if (s.wait.length) { s.inscrits.push(s.wait.shift()); toast("Désinscription faite. La place va à la première personne en attente."); } else toast("Désinscription faite."); }
+    else { s.wait = s.wait.filter(x => x !== id); toast("Retirée de la liste d'attente."); }
+    render();
+  },
+  article: t => { const a = ARTICLES.find(x => x.id === t.dataset.id); openModal(`<div class="m-head"><div><span class="kicker">${fmtD(a.date)} · ${a.read} min</span><h2 class="display h-m" style="font-size:1.6rem;margin-top:4px">${esc(a.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div><div class="m-body" style="max-width:66ch">${a.body.map(p => `<p style="font-size:1.05rem">${esc(p)}</p>`).join("")}</div>`); },
+  newpatient: () => openModal(newPatientModal()),
+  openpatient: t => openModal(patientModal(t.dataset.id)),
+  viewas: t => { closeModal(); go(() => { S.patientId = t.dataset.id; S.view = "patient"; S.ptPage = "home"; }); },
+  pstatus: t => { const p = patientById(t.dataset.id); p.status = t.dataset.s; toast(`${fullName(p)} : compte ${p.status === "active" ? "réactivé" : "suspendu"}.`); closeModal(); render(); },
+  inscrits: t => {
+    const s = SESSIONS.find(x => x.id === t.dataset.id);
+    openModal(`<div class="m-head"><div><span class="kicker">${fmtDay(s.date)} · ${fmtT(s.time)}</span><h2 class="h-s">${esc(s.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+      <div class="m-body"><h4 class="h-s" style="font-size:1rem">Inscrites (${s.inscrits.length}/${s.places})</h4><div class="list">${s.inscrits.map(id => { const p = patientById(id); return `<div class="it"><span class="av" style="width:32px;height:32px;font-size:11px">${initials(p)}</span><div class="grow">${esc(fullName(p))}</div>${planTag(p.plan)}</div>`; }).join("") || `<span class="muted">Personne pour l'instant.</span>`}</div>
+      ${s.wait.length ? `<h4 class="h-s" style="font-size:1rem">Liste d'attente</h4><div class="list">${s.wait.map(id => `<div class="it">${esc(fullName(patientById(id)))}</div>`).join("")}</div>` : ""}</div>`);
+  },
+  newrecipe: () => openModal(recipeFormModal(), true),
+  rstatus: t => { const r = recipe(t.dataset.id); r.status = r.status === "publiée" ? "brouillon" : "publiée"; if (r.status === "publiée" && r.date > TODAY_ISO) r.date = TODAY_ISO; toast(`« ${r.title} » : ${r.status === "publiée" ? "publiée" : "dépubliée"}.`); render(); },
+  newvideo: () => openModal(videoFormModal()),
+  newarticle: () => openModal(articleFormModal()),
+  newsession: () => openModal(sessionFormModal()),
+  edittmpl: t => openModal(tmplModal(t.dataset.id), true),
+  newtmpl: () => { const k = "modele" + (Object.keys(NUTRI_TEMPLATES).length + 1); NUTRI_TEMPLATES[k] = JSON.parse(JSON.stringify(NUTRI_TEMPLATES.energie)); NUTRI_TEMPLATES[k].name = "Nouveau modèle"; render(); openModal(tmplModal(k), true); }
+};
+const CHANGE = {
+  plan: t => { me().plan = t.value; render(); toast(`Vue patiente : formule ${PLANS[t.value].code}.`); },
+  notes: t => { S.notes = t.checked; render(); },
+  rf: t => { S.rf[t.dataset.k] = t.value; $("#r-results").innerHTML = recipeResults(); },
+  vf: t => { S.vf[t.dataset.k] = t.value; render(); },
+  adplan: t => { S.adPlan = t.value; render(); },
+  notif: t => { S.notif[t.dataset.k] = t.checked; toast("Préférence enregistrée."); },
+  price: t => { PLANS[t.dataset.k].price = Math.max(0, +t.value || 0); toast("Tarif mis à jour (site public et revenu théorique)."); },
+  matrix: t => { ACCESS[t.dataset.k][t.dataset.p] = t.checked; toast("Accès mis à jour : visible tout de suite dans l'espace patiente."); },
+  setting: t => { SETTINGS[t.dataset.k] = t.value; toast("Lien mis à jour."); }
+};
+const INPUT = {
+  rq: t => { S.rf.q = t.value; $("#r-results").innerHTML = recipeResults(); },
+  adq: t => { S.adQ = t.value; $("#ad-results").innerHTML = patientRows(filteredPatients()); }
+};
+function parseIngr(line) {
+  const m = line.trim().match(/^([\d.,]+)\s*(g|kg|ml|cl|l|c\. à soupe|c\. à café|pincée|tranche)?\s+(.+)$/i);
+  return m ? [parseFloat(m[1].replace(",", ".")), m[2] || "", m[3]] : [null, "", line.trim()];
+}
+const FORMS = {
+  contact: f => { f.reset(); toast("Prototype : le message n'est pas envoyé. En version finale, il arrivera par email à Manon."); },
+  login: () => { go(() => { S.view = "patient"; S.patientId = "p1"; S.ptPage = "home"; }); toast("Connectée en tant que Camille (démo)."); },
+  newpatient: f => {
+    const d = Object.fromEntries(new FormData(f));
+    const p = { id: "p" + Date.now(), first: d.first.trim(), last: d.last.trim(), email: d.email.trim(), phone: d.phone.trim(), plan: d.plan, start: d.start, end: d.plan === "suivi" ? "" : d.end, status: "active", nutri: d.nutri, sport: "", next: null };
+    PATIENTS.unshift(p); closeModal(); S.view = "admin"; S.adPage = "patientes"; render(); toast(`Compte créé. Invitation envoyée à ${p.email} (simulation).`);
+  },
+  editpatient: f => {
+    const p = patientById(f.dataset.id), d = Object.fromEntries(new FormData(f));
+    Object.assign(p, { plan: d.plan, end: d.end, nutri: d.nutri, sport: d.sport, next: d.ndate ? { date: d.ndate, time: d.ntime || "09:00", mode: d.nmode } : null });
+    closeModal(); render(); toast(`Fiche de ${fullName(p)} enregistrée. Son espace est à jour.`);
+  },
+  tmpl: f => { const t = NUTRI_TEMPLATES[f.dataset.id], d = new FormData(f); t.name = d.get("name") || t.name; t.days = t.days.map((row, i) => row.map((v, j) => d.get(`c-${i}-${j}`) || v)); closeModal(); render(); toast(`Modèle « ${t.name} » enregistré.`); },
+  recipe: f => {
+    const d = new FormData(f), g = k => d.get(k), date = g("date") || TODAY_ISO;
+    const r = { id: "r" + Date.now(), title: g("title").trim(), meal: g("meal"), themes: d.getAll("themes"), prep: +g("prep") || 0, cook: +g("cook") || 0, diff: g("diff"), portions: Math.max(1, +g("portions") || 1),
+      ingr: g("ingr").split("\n").filter(l => l.trim()).map(parseIngr), steps: g("steps").split("\n").filter(l => l.trim()),
+      macro: { kcal: +g("kcal") || 0, p: +g("p") || 0, g: +g("g") || 0, l: +g("l") || 0, f: +g("f") || 0 }, allergens: d.getAll("allergens"), diets: d.getAll("diets"), tip: g("tip") || "—", status: date > TODAY_ISO ? "programmée" : "publiée", date };
+    RECIPES.push(r); closeModal(); render(); toast(r.status === "publiée" ? `« ${r.title} » publiée : visible par les patientes F2 et F3.` : `« ${r.title} » programmée pour le ${fmtD(date)}.`);
+  },
+  video: f => { const d = new FormData(f); VIDEOS.unshift({ id: "v" + Date.now(), title: d.get("title").trim(), theme: d.get("theme"), dur: +d.get("dur") || 1, level: d.get("level"), equip: d.getAll("equip").length ? d.getAll("equip") : ["Aucun"], desc: d.get("desc") || "", date: TODAY_ISO }); closeModal(); render(); toast("Vidéo ajoutée à la bibliothèque F3."); },
+  article: f => { const d = new FormData(f); ARTICLES.unshift({ id: "a" + Date.now(), title: d.get("title").trim(), vis: d.get("vis"), date: TODAY_ISO, read: Math.max(1, Math.round(d.get("body").split(/\s+/).length / 200)), body: d.get("body").split("\n").filter(Boolean) }); closeModal(); render(); toast("Article publié."); },
+  session: f => { const d = new FormData(f); SESSIONS.push({ id: "s" + Date.now(), date: d.get("date"), time: d.get("time"), title: d.get("title"), places: Math.max(1, +d.get("places") || 10), link: d.get("link") || "https://visio.exemple.fr", gear: d.get("gear") || "", inscrits: [], wait: [] }); SESSIONS.sort((a, b) => a.date.localeCompare(b.date)); closeModal(); render(); toast("Créneau créé. Les abonnées F3 reçoivent un email (simulation)."); }
+};
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-act]");
+  if (!t) return;
+  if (t.dataset.act === "overlay") { if (e.target === t) closeModal(); return; }
+  const fn = A[t.dataset.act];
+  if (fn && t.tagName !== "A") { e.preventDefault(); fn(t, e); }
+});
+document.addEventListener("change", e => { const t = e.target.closest("[data-change]"); if (t && CHANGE[t.dataset.change]) CHANGE[t.dataset.change](t); });
+document.addEventListener("input", e => { const t = e.target.closest("[data-input]"); if (t && INPUT[t.dataset.input]) INPUT[t.dataset.input](t); });
+document.addEventListener("submit", e => { const f = e.target.closest("[data-form]"); if (f && FORMS[f.dataset.form]) { e.preventDefault(); FORMS[f.dataset.form](f); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#modal-root").innerHTML) closeModal(); });
+let tilted = null;
+document.addEventListener("pointermove", e => {
+  if (REDUCE || e.pointerType === "touch") return;
+  const hero = e.target.closest("[data-hero], .final");
+  if (hero) { const r = hero.getBoundingClientRect(); hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3)); hero.style.setProperty("--my", ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3)); }
+  const b = e.target.closest(".bib");
+  if (tilted && tilted !== b) { tilted.style.transform = ""; tilted = null; }
+  if (b) { const r = b.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; b.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 10}deg) translateY(-8px)`; tilted = b; }
+});
+
+let lastSeed = 0;
+document.addEventListener("pointermove", e => {
+  if (REDUCE || e.pointerType !== "mouse" || S.view !== "site" || $("#modal-root").innerHTML) return;
+  const now = performance.now(); if (now - lastSeed < 45) return; lastSeed = now;
+  const d = document.createElement("span"), cols = ["#C78460", "#404F1D", "#866452", "#7C914C"], k = Math.floor(now / 45) % cols.length;
+  d.className = "seed";
+  d.style.cssText = `left:${e.clientX - 5}px;top:${e.clientY - 8}px;background:${cols[k]};--sx:${(k - 1.5) * 10}px;--sy:${18 + k * 4}px;--sr:${k * 70 - 90}deg`;
+  document.body.appendChild(d); setTimeout(() => d.remove(), 950);
+});
+
+render();
+</script>
+</body>
+</html>

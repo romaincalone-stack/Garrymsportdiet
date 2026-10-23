@@ -9,7 +9,7 @@ Comptes : chaque service est ouvert **au nom de Manon** (adresse pro à créer, 
 | Service | Rôle | Statut | Compte | Variables d'environnement | Limites / coûts indicatifs |
 | --- | --- | --- | --- | --- | --- |
 | **GitHub** | Code source, historique, revues | Actif : `romaincalone-stack/Garrymsportdiet` | Compte du développeur ; ajouter Manon en lecture | — | Gratuit |
-| **Claude (Artifacts)** | Aperçus privés consultables sur téléphone | Actifs : prototype applicatif https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz ; site public v4 https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo | Compte claude.ai de Romain | — | Privé ; partage depuis le menu « Partager » de la page |
+| **Claude (Artifacts)** | Aperçus privés consultables sur téléphone | Actifs : prototype à trois vues (site public, espace patiente, back-office) https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz ; site public seul https://claude.ai/artifact/GaowBpyDd9xSvNujvoimSo | Compte claude.ai de Romain | — | Privé ; partage depuis le menu « Partager » de la page |
 | **Doctolib** | Prise de rendez-vous (lien sortant uniquement) | Actif | Compte praticien de Manon | — (URL stockée dans `settings.doctolib_url`) | Abonnement Doctolib existant. Aucune API publique : pas de synchronisation possible |
 | **WhatsApp** | Contact patiente → Manon (lien `wa.me` avec message prérempli) | Prévu | Numéro pro de Manon | — (numéro dans `settings.whatsapp_number`) | Gratuit. WhatsApp Business conseillé (messages d'absence, horaires) |
 | **Instagram** | Affichage des derniers posts sur le site | À décider | Compte `@garrymsportdiet` (doit être professionnel) | `INSTAGRAM_ACCESS_TOKEN` | API Instagram : jeton à renouveler. Alternative sans API : 6 visuels choisis à la main dans le back-office |

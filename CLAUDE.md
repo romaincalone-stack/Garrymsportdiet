@@ -29,8 +29,8 @@ Documents de référence : `APP_SPEC.md` (produit), `BRAND_BRIEF.md` (identité)
 ## Architecture
 
 ### Actuelle (phase 1 : prototype)
-- `site/index.html` : **site public v4** (accueil seul), direction « Oliveraie et abricot » (`BRAND_BRIEF.md` v4.1). Un seul fichier ; bibliothèques par CDN à versions figées : three.js 0.160 (module jsDelivr), GSAP 3.12.5 + ScrollTrigger (cdnjs), Lenis 1.1.13 (jsDelivr). Photos provisoires dans `site/img/` (crédits : `site/img/CREDITS.md`). Blocs du script : photos et lien Doctolib (`IMG`, `DOCTOLIB`), défilement doux, scène WebGL des fruits (`initGL` : géométries `G` en révolution ou sphères déformées, liste `FRUITS` avec position, taille et couleurs, matière `mat()` partagée avec ondulation au bruit `NOISE`), chargement puis entrée (`heroIntro`), animations au défilement, lignes topographiques (`drawTopo`, carrés marchants sur un bruit de Perlin), révélation au pointeur, formules (`PLANS`, `renderPlans`), curseur et aperçu du journal.
-- `prototype/index.html` : prototype cliquable de l'**application** (espace patiente, back-office) et ancien site v3, en un seul fichier (HTML, CSS, JS vanilla). Données fictives en mémoire, rien n'est enregistré.
+- `site/index.html` : **site public v4** (accueil seul), palette « Calanque et citron » (`BRAND_BRIEF.md` v5.0-B). Un seul fichier ; bibliothèques par CDN à versions figées : three.js 0.160 (module jsDelivr), GSAP 3.12.5 + ScrollTrigger (cdnjs), Lenis 1.1.13 (jsDelivr). Photos provisoires dans `site/img/` (crédits : `site/img/CREDITS.md`). Blocs du script : photos et lien Doctolib (`IMG`, `DOCTOLIB`), défilement doux, scène WebGL des fruits (`initGL` : textures peintes au canvas `T`, matières physiques `M`, géométries `G`, composition `FRUITS`, physique `step()` à sous-pas, qualité adaptative `degrade()`), chargement puis entrée (`heroIntro`), animations au défilement, lignes topographiques (`drawTopo`, carrés marchants sur un bruit de Perlin), révélation au pointeur, formules (`PLANS`, `renderPlans`), curseur et aperçu du journal.
+- `prototype/index.html` : prototype cliquable à trois vues, en un seul fichier (HTML, CSS, JS vanilla), palette v5-B. La vue « Site public » affiche `site/index.html` dans un cadre (`siteFrame()`, `SITE_URL`) ; le bouton « Mon espace » du site envoie `postMessage({ garrym: "login" })` et le prototype ouvre sa page de connexion. Espace patiente et back-office dessinés ici. Le code de l'ancien site v3 subsiste mais n'est plus affiché. Données fictives en mémoire, rien n'est enregistré.
 - Le bandeau « Prototype » bascule entre les trois vues et la formule de la patiente démo.
 - `prototype/archive/` : versions précédentes, pour comparaison.
 
@@ -59,12 +59,13 @@ open prototype/index.html            # macOS ; sinon double-clic sur le fichier
 
 # Vérifier le prototype (parcours automatisé, erreurs JS, débordement mobile)
 npm install                          # une fois (installe Playwright)
-npm run check                        # attendu : "mobile scrollWidth 390" puis "NO ERRORS"
+npm run check                        # trois vues (site dans le cadre, connexion, patiente, admin) ; attendu : "mobile scrollWidth 390" puis "NO ERRORS"
 npm run check:site                   # site v4 : WebGL, erreurs JS, 390 px, captures tools/shots/site-*.png ; attendu "NO ERRORS"
 
 # Publier l'aperçu en ligne (page privée claude.ai, lisible sur téléphone)
 node tools/build-artifact.mjs        # produit dist/prototype-garrym.html (ignoré par git)
-# puis republier ce fichier avec l'outil Artifact sur la même URL :
+# puis republier ce fichier avec l'outil Artifact sur la même URL, en joignant le site (option files) :
+# "site/index.html" → site/index.html et "site/img/xxx.jpg" → site/img/xxx.jpg
 # https://claude.ai/artifact/TFtcKDNYB3zCkUfyoQKbPz
 node tools/build-artifact.mjs site   # produit dist/site-garrym.html ; republier avec les images
 # (option files de l'outil Artifact : "img/xxx.jpg" → site/img/xxx.jpg) sur :
@@ -93,4 +94,6 @@ Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (
 - **Photos libres** : Unsplash et Pexels bloquent les robots ; passer par l'API Wikimedia Commons, lire la licence, créditer dans `site/img/CREDITS.md` (incident 21).
 - **`pkill -f`** : jamais avec un motif présent dans sa propre commande, il tue le shell (incident 18).
 - **Analyse de sites de référence** : REA (`npx -y rea-agents@6.7.0 inspect-web-page <cdp> <target>`) pour la preuve, captures Playwright pour le rendu. Ne reprendre que les techniques et compositions, jamais le code, les images, les modèles 3D ni les polices payantes.
+- **Simulation** : toute physique suit le temps réel en sous-pas et protège les divisions par l'intervalle de temps (incidents 23, 24). Le navigateur de test rend la 3D à moins d'une image par seconde : attendre longtemps avant de capturer.
+- **Site dans le cadre du prototype** : chemins relatifs à `site/` ; à la publication, joindre `site/index.html` et `site/img/*` au prototype (voir Commandes).
 - **Copyright des références** : le dépôt `justinhartman/ui-ux-design-library` contient des livres sous droits. Ne pas les copier ici ; lien seulement.

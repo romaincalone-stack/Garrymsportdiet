@@ -11,6 +11,8 @@ const out = join(root, "tools", "shots");
 mkdirSync(out, { recursive: true });
 
 const launchOpts = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {};
+if (process.env.HTTPS_PROXY) launchOpts.proxy = { server: process.env.HTTPS_PROXY }; // le site public charge ses bibliothèques par CDN
+launchOpts.args = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"];
 const browser = await chromium.launch(launchOpts);
 const errors = [];
 const watch = (page, tag) => {
@@ -22,10 +24,18 @@ const settle = p => p.waitForTimeout(500); // laisse finir les View Transitions 
 const pg = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 watch(pg, "desktop");
 await pg.goto(url); await pg.waitForTimeout(1200);
-await pg.screenshot({ path: join(out, "1-site.png") });
 const click = async s => { await pg.click(s); await settle(pg); };
-
-await click("[data-act=site][data-p=offres]");
+// Vue « Site public » : site/index.html dans un cadre ; « Mon espace » ouvre la connexion, qui mène à l'espace patiente
+const frame = pg.frameLocator("#siteframe");
+await frame.locator("#loader").waitFor({ state: "hidden", timeout: 90000 });
+await pg.waitForTimeout(800);
+await pg.screenshot({ path: join(out, "1-site.png") });
+await frame.locator("#espace").click(); await pg.waitForSelector("form[data-form=login]"); await pg.waitForTimeout(1500);
+await pg.screenshot({ path: join(out, "1b-connexion.png") });
+await click("form[data-form=login] .btn-olive");
+if (!(await pg.$("[data-act=pt]"))) errors.push("connexion : l'espace patiente ne s'ouvre pas");
+await click("[data-act=view][data-v=site]");
+if (!(await pg.$("#siteframe"))) errors.push("retour au site : cadre absent");
 await click("[data-act=view][data-v=patient]");
 await pg.screenshot({ path: join(out, "2-patiente.png"), fullPage: true });
 await click("[data-act=pt][data-p=recettes]");
@@ -73,7 +83,7 @@ const m = await browser.newPage({ viewport: { width: 390, height: 844 } });
 watch(m, "mobile");
 await m.goto(url); await m.waitForTimeout(1000);
 await m.screenshot({ path: join(out, "5-mobile-site.png") });
-await m.click("[data-act=view][data-v=patient]"); await settle(m);
+await m.click("[data-act=view][data-v=patient]"); await m.waitForSelector("[data-act=pt]", { state: "attached" }); await m.waitForTimeout(1500);
 await m.screenshot({ path: join(out, "6-mobile-patiente.png") });
 const width = await m.evaluate(() => document.documentElement.scrollWidth);
 console.log("mobile scrollWidth", width);
