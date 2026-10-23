@@ -1,6 +1,7 @@
 # BRAND_BRIEF : identité
 
-Version 4.0 · 2026-10-23 · Direction « Nuit varoise », site public mélangeant cinq références haut de gamme · À valider par Manon.
+Version 4.1 · 2026-10-23 · Direction « Oliveraie et abricot », site public mélangeant cinq références haut de gamme · À valider par Manon.
+La v4.0 « Nuit varoise » (quasi-noir et citron néon) a été jugée trop éloignée du métier : ces codes évoquent la tech et la performance mécanique, pas la santé ni l'alimentation. La v4.1 garde les compositions et remplace la palette.
 La v3 « Olivier et argile » a été rejetée par Romain (« Je n'aime pas du tout »). Elle reste la base de l'**espace patiente et du back-office** (`prototype/index.html`) tant qu'aucune décision n'est prise pour eux : ses tokens sont conservés plus bas, section « Application (v3) ».
 
 ## Références v4 (site public, `site/index.html`)
@@ -34,34 +35,39 @@ Le visuel est spectaculaire, le texte reste simple et chaleureux. Le contraste f
 
 ## Logo
 
-Marque provisoire : un **cercle au trait citron** (le soleil, l'assiette) et une **feuille pleine crème**, mot-symbole « GARRYM » en Mona Sans 700. À faire dessiner (vectoriel, favicon, version monochrome) avant le lancement.
+Marque provisoire : un **cercle au trait abricot** (le soleil, l'assiette) et une **feuille pleine crème**, mot-symbole « GARRYM » en Mona Sans 700. À faire dessiner (vectoriel, favicon, version monochrome) avant le lancement.
 
-## Couleurs (site public v4)
+## Couleurs (site public v4.1)
 
-| Token | Valeur | Origine | Usage |
+Principe : chaque couleur doit pouvoir se manger ou se cueillir dans le Var. Le vert forêt (feuille d'olivier) porte la confiance et la santé ; le crème (lin, pain) la douceur ; l'abricot l'appétit et l'énergie du sport. Une seule couleur vive.
+
+| Token | Valeur | Évoque | Usage |
 | --- | --- | --- | --- |
-| `--nuit` | `#0B0A07` | KÖM `#060504`, Symphony `#0A0901` | Fond du héros, des thématiques, du chargement |
-| `--olive` | `#22261B` | Lando `#282C20` | Sections sombres (Au quotidien, Formules, pied de page) |
-| `--olive-2` | `#30361F` | Lando `#343A26` | Fond des emplacements photo, mot géant du pied de page |
-| `--creme` | `#F2F0E8` | Lando `#F4F4ED` | Sections claires, texte sur fond sombre |
-| `--sable` | `#E1D9D1` | Symphony `#E1D9D1` | Texte du chapitre « Le bilan » |
-| `--cuivre` | `#9C6E49` | Symphony `#9C6E49` | Halo de la carte de formule mise en avant, teinte de la scène 3D |
-| `--citron` | `#D7FF1F` | Lando `#D2FF00`, Terminal `#ABFF02` | **Seule couleur vive** : boutons principaux, mots serif des titres, traits dessinés, focus clavier |
-| `--ink` | `#111112` | | Texte sur fond crème |
-| `--gris` | `#7C7F75` | | Étiquettes mono sur fond sombre |
+| `--foret` | `#121C16` | Feuillage à l'ombre | Fond du héros, des thématiques, du chargement |
+| `--vert` | `#1F2E22` | Feuille d'olivier | Sections sombres (Au quotidien, Formules, pied de page) |
+| `--vert-2` | `#2C3F2F` | | Fond des emplacements photo, mot géant du pied de page |
+| `--sauge` | `#A8B89A` | Sauge, revers de la feuille d'olivier | Étiquettes mono et lignes sur fond vert |
+| `--creme` | `#F6F1E7` | Lin, mie de pain | Sections claires, texte sur fond vert |
+| `--sable` | `#EBDFCC` | | Texte du chapitre « Le bilan » |
+| `--abricot` | `#FF8A4C` | Abricot mûr | **Seule couleur vive**, sur fond vert : boutons principaux, mots serif des titres, traits dessinés, focus clavier |
+| `--terre` | `#B5481B` | Terre cuite | Accents sur fond crème (traits, bouton rond, mots serif), là où l'abricot manquerait de contraste |
+| `--ink` | `#16211A` | | Texte sur crème (vert très sombre, jamais noir pur) |
+| `--gris` | `#5E665C` | | Texte secondaire sur crème |
 
-Teintes dérivées (pas de nouvelle teinte, seulement des nuances des tokens ci-dessus) : `#55584F` et `#6B6E64` pour le texte secondaire sur crème (contraste 6,4:1 et 4,6:1), `#151510` pour le fond des cartes de thématiques, `#2A2E20` pour le centre du dégradé du héros, `#2a2016` pour le fond du chapitre « Le bilan » avant chargement de la photo, `#F4ECE2` pour son titre. Transparences du crème et de l'encre pour les filets (`rgba(…,.1)` à `.16`).
+Teintes dérivées : `#24382A` (centre du dégradé du héros), `#18251B` (fond des cartes de thématiques), `#2a2016` (fond du chapitre « Le bilan » avant chargement de la photo), `#F4ECE2` (son titre). Transparences du crème et de l'encre pour les filets (`rgba(…,.1)` à `.16`). Couleurs des fruits 3D du héros : valeurs propres à chaque fruit dans `FRUITS` (`site/index.html`), toutes dans les familles vert, jaune, abricot, figue.
 
-Répartition : 50 % nuit et olive, 40 % crème, 10 % citron au maximum. Le citron ne remplit jamais une surface plus grande qu'un bouton. Contrastes : crème sur nuit ≈ 17:1 ; citron sur nuit ≈ 17:1 ; encre sur citron ≈ 16:1 ; crème sur olive `#22261B` ≈ 13,5:1 ; étiquettes grises `#7C7F75` sur nuit ≈ 4,9:1.
+Répartition : 50 % verts, 40 % crème, 10 % abricot au maximum. L'abricot ne remplit jamais une surface plus grande qu'un bouton.
 
-**Risque connu** : la v2 « citron vert » avait été rejetée pour sa palette. Ici le citron est un accent sur fond nuit, comme chez Lando Norris, pas une couleur de fond. Si Manon ou Romain ne l'aiment pas, il se remplace par un seul token (`--citron`), par exemple par le cuivre clair `#E0A27F`.
+Contrastes (WCAG) : crème sur forêt 15,5:1 ; abricot sur forêt 7,5:1 ; abricot sur vert 6,1:1 ; encre sur abricot 7,1:1 ; crème sur vert 12,7:1 ; sauge sur forêt 8,3:1 ; encre sur crème 14,7:1 ; gris sur crème 5,3:1 ; terre sur crème 4,8:1.
+
+Historique : v4.0 « Nuit varoise » (`#0B0A07`, `#22261B`, `#D7FF1F`…), remplacée le 2026-10-23.
 
 ## Typographies (site public v4)
 
 | Rôle | Police (Google Fonts, libre) | Réglages | Référence |
 | --- | --- | --- | --- |
 | Titres forts | **Mona Sans** variable | Graisse 800, largeur 78 à 82 (`font-variation-settings: "wdth"`), capitales, interlignage 0,84, interlettrage −0,03 em | Lando (Mona Sans), Terminal (Suisse Intl serré) |
-| Mots d'accent | **Bellefair** | Capitales fines dans la même ligne qu'un mot gras, en citron ; titres du chapitre « Le bilan » | Lando (Brier), Symphony (Bellefair) |
+| Mots d'accent | **Bellefair** | Capitales fines dans la même ligne qu'un mot gras, en abricot (terre sur fond crème) ; titres du chapitre « Le bilan » | Lando (Brier), Symphony (Bellefair) |
 | Texte | **Mona Sans** | 15 à 16 px, graisse 400-500 | |
 | Étiquettes, chiffres | **Geist Mono** | 11 px, capitales, interlettrage 0,14 em, numérotation « (01) » | Terminal (Geist Mono) |
 
@@ -71,11 +77,11 @@ En production : polices auto-hébergées (RGPD).
 
 | Section | Composition | Référence |
 | --- | --- | --- |
-| Chargement | Fond nuit, « GARRYM » en Bellefair géant lettre par lettre, compteur 000 → 100, barre citron, rideau qui remonte | Symphony, Resn |
-| Héros | Scène WebGL plein écran (sphère déformée par un bruit, reflets cuivre et citron, poussière), mentions mono en haut, titre en trois lignes en bas à gauche, texte et boutons en bas à droite, « Défilez pour explorer » | Resn, KÖM, Terminal, Lando |
+| Chargement | Fond forêt, « GARRYM » en Bellefair géant lettre par lettre, compteur 000 → 100, barre abricot, rideau qui remonte | Symphony, Resn |
+| Héros | Scène WebGL plein écran : corbeille de fruits du Var en 3D (abricot, citron, pomme, figue, olives, feuilles d'olivier) qui flottent, ondulent doucement, suivent la souris et s'écartent au défilement ; reflets et liseré lumineux, poussière en suspension ; mentions mono en haut, titre en trois lignes en bas à gauche, texte et boutons en bas à droite, « Défilez pour explorer » | Resn, KÖM, Terminal, Lando |
 | (01) Manifeste | Fond crème, une phrase centrée qui s'éclaire mot à mot, trait manuscrit qui se dessine | Terminal |
 | (02) Au quotidien | Fond olive avec lignes topographiques, photos dispersées en parallaxe avec légendes mono, citation au centre et signature tracée | Lando |
-| L'assiette / Le terrain | Deux moitiés, titre géant et trait citron ; la photo se révèle en cercle depuis le pointeur | Lando (On track / Off track) |
+| L'assiette / Le terrain | Deux moitiés, titre géant et trait terre cuite ; la photo se révèle en cercle depuis le pointeur | Lando (On track / Off track) |
 | (03) Thématiques | Titre à gauche, défilement horizontal épinglé de cartes à coins coupés (balayage au doigt sur mobile) | KÖM, Lando |
 | Le bilan | Chapitre plein écran, photo sépia en zoom lent, vignettage, grand titre serif, pilule fine | Symphony |
 | (04) Formules | Fond olive, bascule mensuel / à l'unité, cartes avec halo qui suit le curseur, carte mise en avant en crème | KÖM |
@@ -99,7 +105,8 @@ Les cinq références reposent sur des photos et des modèles 3D produits par de
 ## À ne jamais faire
 
 - Statistiques ou témoignages inventés.
-- Plus d'une couleur vive par écran ; citron en aplat sur une grande surface.
+- Plus d'une couleur vive par écran ; abricot en aplat sur une grande surface ; abricot en texte sur fond crème (utiliser la terre).
+- Noir pur, vert néon, codes visuels « tech » ou « salle de sport ».
 - Dégradé violet-bleu, effets néon multiples, photos de « salle de sport néon ».
 - Texte courant en capitales : les capitales sont réservées aux titres et aux étiquettes mono.
 - Animation qui bloque la lecture ou démarre à opacité nulle sans repli.

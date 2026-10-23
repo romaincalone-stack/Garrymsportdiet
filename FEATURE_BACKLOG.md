@@ -17,8 +17,10 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-22 | Croissance au défilement et traînée de graines | Formes de « La méthode » qui poussent ; traînée derrière le curseur sur le site public (souris uniquement) |
 | 2026-10-22 | Script de vérification | `npm run check` : parcours automatisé, erreurs JS, débordement mobile |
 | 2026-10-23 | Analyse de cinq sites de référence avec REA | Terminal Industries, Lando Norris, Symphony of Vines, KÖM, Resn (`references/DESIGN_REFERENCES.md`) |
-| 2026-10-23 | Site public v4 « Nuit varoise » (accueil) | `site/index.html` : chargement chiffré, scène WebGL (three.js), défilement doux (Lenis), animations au défilement (GSAP ScrollTrigger), collage topographique, défilement horizontal épinglé, chapitre sépia, cartes à halo, curseur à libellé ; photos provisoires Wikimedia Commons |
+| 2026-10-23 | Site public v4 (accueil) | `site/index.html` : chargement chiffré, scène WebGL (three.js), défilement doux (Lenis), animations au défilement (GSAP ScrollTrigger), collage topographique, défilement horizontal épinglé, chapitre sépia, cartes à halo, curseur à libellé ; photos provisoires Wikimedia Commons |
 | 2026-10-23 | Vérification du site v4 | `npm run check:site` : erreurs JS, WebGL actif, débordement à 390 px, captures ordinateur et mobile |
+| 2026-10-23 | Palette v4.1 « Oliveraie et abricot » | Vert forêt, crème, abricot à la place du quasi-noir et du citron néon, jugés trop « tech » pour une diététicienne et coach sportive |
+| 2026-10-23 | Corbeille de fruits 3D dans le héros | Abricot, citron, pomme, figue, olives et feuilles d'olivier modélisés en code (pas de modèle externe), même matière ondulante que l'ancienne sphère, apparition au chargement, souris, écartement au défilement |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 
 ## En cours
@@ -35,6 +37,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | --- | --- | --- |
 | P0 | Pages secondaires du site dans le style v4 (Manon, Formules, Thématiques, Journal, Cabinets, Connexion) | Validation de l'accueil v4 |
 | P1 | Décider si l'espace patiente et le back-office passent au style v4 | Validation de l'accueil v4 |
+| P2 | Remplacer les fruits modélisés en code par des modèles 3D réalisés sur mesure (photogrammétrie de vrais fruits), si le budget le permet | Validation v4 |
 | P1 | Version allégée de la scène WebGL pour téléphones d'entrée de gamme (image fixe si le rendu est lent) | Mesures sur vrais appareils |
 | P0 | Choix définitif de la stack (proposée : Next.js + Supabase + Vercel) | Validation prototype |
 | P0 | Projet Supabase UE, schéma et RLS (`DATA_DICTIONARY.md`) | Stack |
