@@ -12,7 +12,7 @@ await page.evaluate(() => document.fonts.ready);
 await page.pdf({
   path: out, format: "A4", printBackground: true, preferCSSPageSize: true, displayHeaderFooter: true,
   headerTemplate: "<span></span>",
-  footerTemplate: '<div style="width:100%;padding:0 16mm;font-family:monospace;font-size:7px;letter-spacing:1.4px;color:#55676A;display:flex;justify-content:space-between"><span>GARRYM · BRIEF FONCTIONNEL</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>'
+  footerTemplate: '<div style="width:100%;padding:0 16mm;font-family:monospace;font-size:7px;letter-spacing:1.4px;color:#5C6B63;display:flex;justify-content:space-between"><span>GM SPORT ET NUTRITION · BRIEF FONCTIONNEL</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>'
 });
 await browser.close();
 console.log(out);

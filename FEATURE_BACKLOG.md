@@ -31,14 +31,19 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-23 | Brief fonctionnel en PDF | 8 pages : les trois espaces, ce que débloque chaque formule, automatismes, conformité, statut (prototype / à construire / à décider), questions pour Manon ; `npm run build:brief` |
 | 2026-10-23 | Fichier HTML unique | `dist/garrym-prototype.html` : les trois vues et le site intégré (photos en data URI, environ 3 Mo), construit par `npm run build:standalone` et vérifié par `npm run check:standalone` |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
+| 2026-10-26 | Direction artistique v6 « GM Sport et Nutrition » | Couleurs et polices tirées du logo de Manon (vert #18694B, tilleul #B2E388, nuit #12231B ; Poppins et Bellefair) sur le site et l'application ; logo dans la navigation, la connexion et le pied de page ; textes orientés vers la clientèle (femmes, mamans, péri-ménopause) |
+| 2026-10-26 | Espace patiente refait en application mobile, rendu TSE | Thème sombre, quatre onglets (Aujourd'hui, Training, Nutrition, Évolution), cartes en éventail, recherche, disciplines, zones, vidéos par durée ; 4 vidéos ajoutées (périnée, Pilates, marche, yoga du soir) |
+| 2026-10-26 | Semainier partagé | La patiente note chaque repas (« fait comme prévu » ou ce qu'elle a mangé, quantité, remarque) et propose sa semaine ; Manon valide ou conseille repas par repas (« Suivi des repas » dans le back-office) |
+| 2026-10-26 | Rubrique Évolution | Mesures (poids facultatif, tours de taille et de hanches), ressentis de 1 à 5, courbes, historique ; poids masquable par Manon ou la patiente |
 
 ## En cours
 
 | Priorité | Fonctionnalité | Prochaine action |
 | --- | --- | --- |
-| P0 | Avis de Romain puis de Manon sur le prototype v5-B (trois vues) | Aperçu en ligne + captures |
+| P0 | Avis de Romain puis de Manon sur la v6 (logo, application à la TSE) | Aperçu en ligne + captures |
+| P0 | Décision option B (données de santé) | Manon : choix de l'hébergeur HDS, AIPD, texte de consentement ; sinon retirer repas notés et mesures |
 | P0 | Validation du prototype par Manon | Rendez-vous de 45 min avec le prototype + tableau des hypothèses (APP_SPEC §6) |
-| P0 | Nom de marque et logo | Confirmer « Garrym · Sport Diet », faire dessiner le logo |
+| P0 | Nom de marque et logo | Confirmer « GM Sport et Nutrition », obtenir le logo en vectoriel (SVG ou PDF) et un favicon |
 
 ## À faire
 
@@ -66,6 +71,10 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | P1 | Référencement local (Google Business Profile, balises, mots-clés du brief) | Site public |
 | P1 | Nom de domaine et adresse email pro | Manon |
 | P0 | Shooting photo (Manon, cabinets, plats vus du dessus, mains, pinède) | Manon |
+| P0 | Tournage des vidéos (10 à 30 min, par discipline et par zone) et photos des vignettes : le rendu TSE repose sur ces images | Manon |
+| P0 | Hébergeur HDS, AIPD, consentement explicite pour les rubriques Nutrition (repas notés) et Évolution | Décision option B |
+| P1 | Notifications : « Manon vous a répondu », semainier revu | Emails |
+| P1 | Page de consentement à la première ouverture de Nutrition et d'Évolution | Texte validé par Manon |
 | P1 | Mot géant translucide qui passe sous une photo (réf. Farm Minerals) | Photos |
 | P2 | Portrait détouré de Manon dans le site (réf. Lando Norris) | Shooting |
 | P2 | Son d'ambiance optionnel, coupé par défaut (réf. Symphony of Vines) | Validation v4 |
@@ -84,4 +93,4 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | Paiement des formules par Stripe | Hors v1 ; nécessite CGV et ventilation TVA |
 | Replays des séances collectives | Consentement des participantes si enregistrement |
 | Défis mensuels (« 4 semaines mobilité ») | Engagement, contenu réutilisable |
-| Option B (suivi des mesures, messagerie) | Impose un hébergement HDS et une nouvelle analyse RGPD |
+| Messagerie intégrée | Toujours exclue : WhatsApp reste le canal ; impose aussi l'hébergement HDS |

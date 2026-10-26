@@ -1,8 +1,63 @@
 # BRAND_BRIEF : identité
 
-Version 5.0-B · 2026-10-23 · Direction « Calanque et citron », site public mélangeant cinq références haut de gamme · À valider par Manon.
-Palette fournie par Romain (`references/brief-couleurs-v5-citron.html`, variante B de la v5 : le citron remplace le corail). Historique : v4.0 « Nuit varoise » (quasi-noir et citron néon, trop « tech »), v4.1 « Oliveraie et abricot » (vert forêt, crème, abricot), remplacées le 2026-10-23.
-La v3 « Olivier et argile » a été rejetée par Romain (« Je n'aime pas du tout »). Elle reste la base de l'**espace patiente et du back-office** (`prototype/index.html`) tant qu'aucune décision n'est prise pour eux : ses tokens sont conservés plus bas, section « Application (v3) ».
+Version 6.0 · 2026-10-26 · Direction « GM Sport et Nutrition », construite autour du logo de Manon · À valider par Manon.
+Retour de Manon transmis par Romain le 2026-10-26 : la direction artistique doit partir de son logo (monogramme « GM » et bandeau « SPORT ET NUTRITION ») ; l'espace patiente doit reprendre le rendu de l'application TSE sur téléphone (fond sombre, grandes photos, tuiles, barre d'onglets), avec trois rubriques de contenu et une rubrique « Évolution ». Priorité : très simple à utiliser pour des femmes pressées, en péri-ménopause ou ménopause, orientées santé.
+Historique : v5.0-B « Calanque et citron » (2026-10-23, conservée plus bas pour mémoire), v4.1 « Oliveraie et abricot », v4.0 « Nuit varoise », v3 « Olivier et argile » (rejetée).
+
+## Version 6 : « GM Sport et Nutrition »
+
+### Logo
+Fichiers : `site/img/logo.png` (original, vert sur fond transparent, 640 × 422) et `site/img/logoclair.png` (variante pour fond sombre : monogramme en blanc, bandeau tilleul conservé). Tirés du fichier Word transmis par Manon, recadrés et réduits à 64 couleurs (12 Ko). **À obtenir en vectoriel (SVG ou PDF) auprès de Manon ou de sa graphiste** avant la mise en ligne, avec un favicon.
+- Le logo apparaît dans la capsule de navigation (40 px de haut), en filigrane géant à 14 % dans le pied de page, sur la page de connexion.
+- Ne pas le déformer, ne pas le recolorer hors des deux variantes, garder une marge libre égale à la hauteur du bandeau.
+
+### Couleurs
+Tirées des pixels du logo : vert profond du monogramme, tilleul du bandeau.
+
+| Token | Valeur | Usage |
+| --- | --- | --- |
+| `--nuit` | `#12231B` | Fond des sections sombres du site, fond de l'application patiente, texte courant sur fond clair (`--ink`) |
+| `--nuit-2` | `#1C3428` | Cartes et surfaces sur fond nuit |
+| `--vert` | `#18694B` | Vert du logo : liens, boutons sur fond clair, validations |
+| `--tilleul` | `#B2E388` | Bandeau du logo. **Seule couleur vive** : boutons principaux sur fond sombre, mots d'accent, anneaux, onglet actif |
+| `--brume` | `#E3F1D6` | Fonds doux, sections teintées |
+| `--blanc` | `#F6F9F3` | Fond clair, texte sur fond nuit |
+| `--gris` | `#5C6B63` | Texte secondaire sur fond clair |
+
+Surfaces de l'application sombre : `#1C3428` (cartes), `#24402F` (cartes surélevées), `#2E4A3C` (filets, pastilles), `#0C1A13` (barre d'onglets) ; texte secondaire `#B4C7BA`.
+
+Contrastes (WCAG, calculés) : blanc sur nuit 17,4:1 ; tilleul sur nuit 11,8:1 ; vert sur blanc 6,6:1 ; gris sur blanc 5,2:1 ; vert sur tilleul 4,5:1 (grands textes et boutons seulement) ; tilleul sur blanc 1,4:1 (**interdit** : jamais de texte tilleul sur fond clair).
+
+### Typographies
+| Rôle | Police | Réglages |
+| --- | --- | --- |
+| Titres, texte, boutons, étiquettes | **Poppins** (300 à 700) | Titres en graisse 600, casse de phrase, interlignage 1,05 ; texte 15 à 16 px en 400 |
+| Mots d'accent | **Bellefair** | Un ou deux mots par titre, en tilleul sur fond sombre, en vert sur fond clair |
+
+Mona Sans et Geist Mono sont retirées. Plus de titres en capitales : la clientèle lit mieux en casse de phrase.
+
+### Formes
+Boutons et pastilles en pilule (rayon 999 px), cartes à rayon 20 à 24 px, sans coin coupé. Hauteur minimale des cibles 44 px.
+
+### Application patiente (rendu « TSE »)
+Thème sombre fixe (fond nuit), indépendant du réglage de l'appareil. Composants :
+- **En-tête** : salutation, date, avatar rond ; titre de rubrique en Poppins 600.
+- **Cartes en éventail** (`.mfan`) : trois grandes cartes photo inclinées (séance du jour, menu du jour, évolution).
+- **Pilule de recherche blanche** (`.msearch`) avec bouton de filtres.
+- **Ronds de disciplines** (`.mcircles`) : photo ronde et libellé (Cardio doux, Renfo, Pilates, Mobilité, Yoga, Périnée).
+- **Pastilles de zones** (`.zones`) : Abdos-fessiers, Bas du corps, Haut du corps, Dos et posture, Full body.
+- **Liste de vidéos** (`.vitem`) : vignette, titre, durée, intensité en trois points, case « fait ».
+- **Planificateur de semaine** (`.planner`) : sept jours, état de chaque repas (prévu, fait comme prévu, noté autrement, réponse de Manon).
+- **Barre d'onglets** (`.mtab`) en bas : Aujourd'hui, Training, Nutrition, Évolution.
+
+### Back-office
+Fond clair (blanc et brume), surfaces fortes en nuit, mêmes polices et formes que le site.
+
+---
+
+## Historique v5.0-B « Calanque et citron » (remplacée le 2026-10-26)
+
+Les sections ci-dessous décrivent la direction précédente. Les compositions du site (mises en page, mouvement, photographie) restent valables ; les couleurs, polices et noms de tokens sont remplacés par la v6 (correspondance : calanque → nuit, posidonie → vert, lagon → brume, écume → blanc, citron → tilleul, galet → gris).
 
 ## Références v4 (site public, `site/index.html`)
 
@@ -18,9 +73,9 @@ Sites choisis par Romain, **ouverts et mesurés** le 2026-10-23 : inspection REA
 
 ## Nom et promesse
 
-- **Nom de marque** : Garrym · Sport Diet (repris de `@garrymsportdiet`, **à confirmer**). La personne : Manon Garrione.
+- **Nom de marque** : GM Sport et Nutrition (lu sur le logo, **à confirmer** ; ancien nom de travail « Garrym · Sport Diet », compte Instagram `@garrymsportdiet`). La personne : Manon Garrione.
 - **Promesse** : « Manger mieux, bouger plus, à votre rythme. »
-- **Positionnement** : diététicienne-nutritionniste et coach sportive sur la côte varoise, spécialisée en santé féminine (endométriose, SOPK, ménopause) et en nutrition du sport.
+- **Positionnement** : diététicienne-nutritionniste et coach sportive sur la côte varoise, spécialisée en santé féminine (péri-ménopause, ménopause, SOPK, endométriose) ; clientèle principale : femmes pressées, souvent mamans, qui cherchent la santé plutôt que la performance.
 
 ## Ton
 
@@ -35,7 +90,7 @@ Le visuel est spectaculaire, le texte reste simple et chaleureux. Le contraste f
 
 ## Logo
 
-Marque provisoire : un **cercle au trait citron** (le soleil, l'assiette) et une **feuille pleine écume**, mot-symbole « GARRYM » en Mona Sans 700. À faire dessiner (vectoriel, favicon, version monochrome) avant le lancement.
+Remplacé par le logo de Manon (voir Version 6). L'ancienne marque provisoire (cercle citron et feuille) n'est plus utilisée.
 
 ## Couleurs (site public v5.0-B)
 
@@ -100,38 +155,19 @@ Les cinq références reposent sur des photos et des modèles 3D produits par de
 ## À ne jamais faire
 
 - Statistiques ou témoignages inventés.
-- Plus d'une couleur vive par écran ; citron en aplat sur une grande surface ; texte, bordure ou icône citron sur fond clair (surligneur uniquement).
-- Jaune qui tire vers le vert (citron vert, néon, fluo), noir pur, rouge « salle de sport », dégradés.
+- Plus d'une couleur vive par écran ; tilleul en aplat sur une grande surface ; texte tilleul sur fond clair.
+- Couleur hors palette (le vert du logo et le tilleul suffisent), noir pur, rouge « salle de sport », dégradés.
+- Logo déformé, recoloré, ou posé sur une photo chargée sans voile.
+- Interface chargée : une action principale par écran, des libellés en toutes lettres, pas de jargon (la clientèle n'est pas technophile).
 - Dégradé violet-bleu, effets néon multiples, photos de « salle de sport néon ».
 - Texte courant en capitales : les capitales sont réservées aux titres et aux étiquettes mono.
 - Animation qui bloque la lecture ou démarre à opacité nulle sans repli.
 - Copier le code, les images, les modèles 3D ou les polices payantes des références.
 
-## Application (espace patiente et back-office)
+## Application v5-B (historique)
 
-Depuis le 2026-10-23, l'application (`prototype/index.html`) utilise la palette v5-B et les polices du site (Mona Sans, Bellefair, Geist Mono). Les noms de tokens v3 sont conservés dans le code pour ne pas réécrire les écrans ; leur valeur suit cette correspondance :
-
-| Token de l'application | Valeur v5-B | Rôle |
-| --- | --- | --- |
-| `--paper` / `--paper-2` / `--card` | `#F4F6F1` écume / `#E6EFEB` / `#FFFFFF` | Fonds |
-| `--ink` / `--ink-2` / `--line` | `#0B2D33` calanque / `#55676A` galet / `#D3E0DB` | Texte, texte secondaire, filets |
-| `--olive` (+ `--olive-btn`) | `#0B2D33` calanque, texte de bouton `#F5D547` citron | Boutons principaux, surfaces fortes, formule F3 |
-| `--sauge`, `--moka`, `--argile`, `--ok` | `#2B6A5D` posidonie | Validations, mots d'accent, illustrations |
-| `--sable` | `#F5D547` citron | Surligneur, petites pastilles, progression, formule F2 ; jamais de grand aplat |
-| `--olive-soft`, `--sauge-soft`, `--brume`, `--rose`, `--sable-soft` | `#D6E8E2` lagon / `#E6EFEB` | Fonds doux, cartes mises en avant |
-
-Langage visuel commun avec le site (couche « Harmonisation » en fin de feuille de `prototype/index.html`) :
-- **Surfaces fortes** en calanque avec lignes topographiques (`--topo`, peintes au chargement) : barre latérale, bandeau de titre de chaque écran, barre d'onglets mobile, cartes mises en avant, incitation à changer de formule, en-tête de la connexion.
-- **Titres** en Mona Sans 800 capitales, largeur 80 ; mot d'accent en Bellefair capitales, citron sur fond sombre, surligné de citron sur fond clair.
-- **Navigation** en capitales mono numérotées « (01) », élément actif en citron avec filet à gauche.
-- **Boutons** en capitales mono, rayon 10 px, flèche ↗ ; principal = citron sur fond sombre, calanque à texte citron sur fond clair. Hauteur minimale 44 px.
-- **Étiquettes** mono capitales, rayon 6 px (police de texte dans les tableaux, pour la place). **Cartes** rayon 14 px, filet 1 px ; coin coupé en bas à droite sur les cartes recettes, vidéos et mises en avant.
-- **Chiffres** (indicateurs, anneau de progression) en Mona Sans 300 étroite, comme les repères du site ; leurs légendes en capitales mono.
-- **Titres de cartes** et noms de jours en Mona Sans 800 capitales étroites ; titres de recettes en Mona Sans 600 ; libellés de champs en capitales mono ; texte courant 16 px.
-- **Mouvement** (`animateView()`) : bandeau qui s'ouvre en rideau, titre qui monte mot par mot derrière un masque, contenu qui entre en décalé puis au défilement (courbe expo), chiffres qui comptent, barres et anneaux qui se remplissent, barre latérale qui entre au changement d'espace, curseur du site, lignes topographiques qui suivent le pointeur. Rien de tout cela si `prefers-reduced-motion`.
-
-Teintes dérivées propres à l'application : `#E6EFEB` (fond secondaire), `#D3E0DB` (filets) ; dégradés des emplacements photo (`.ph-*`) tirés de calanque, posidonie, lagon et citron. Pas de mode sombre : comme le site, l'application garde ses fonds clairs et ses surfaces calanque quel que soit le réglage de l'appareil (sinon les bandeaux se fondent dans le fond et certains textes deviennent illisibles). Les couleurs v3 restent consultables dans `prototype/archive/v3-2026-10-23.html`.
+Remplacée par la section « Application patiente (rendu TSE) » de la v6. Les noms de tokens v3 (`--paper`, `--olive`, `--sable`…) restent dans `prototype/index.html` ; leurs valeurs suivent désormais la v6 : `--paper` `#F6F9F3`, `--ink` `#12231B`, `--ink-2` `#5C6B63`, `--line` `#D6E2D3`, `--olive` `#18694B`, `--sable` et `--citron` `#B2E388`, `--lagon` `#E3F1D6`, `--calanque` `#12231B`. L'espace patiente redéfinit ces tokens en sombre sous `body.v-patient`.
 
 ## Mots-clés de référencement
 
-diététicienne Hyères · diététicienne La Garde · diététicienne Toulon · nutritionniste Var · coach sportive Hyères · coaching sportif à domicile Hyères · alimentation endométriose · diététicienne SOPK · nutrition ménopause · rééquilibrage alimentaire · nutrition du sport · téléconsultation diététicienne · recettes santé féminine.
+diététicienne Hyères · diététicienne La Garde · diététicienne Toulon · nutritionniste Var · coach sportive Hyères · coaching sportif à domicile Hyères · alimentation endométriose · diététicienne SOPK · nutrition ménopause · péri-ménopause alimentation · sport à la maison femmes · rééquilibrage alimentaire · nutrition du sport · téléconsultation diététicienne · recettes santé féminine.

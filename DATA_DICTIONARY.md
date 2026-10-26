@@ -1,8 +1,8 @@
 # DATA_DICTIONARY : modèle de données
 
-Version 2026-10-22 · Cible : Supabase (Postgres, région UE) · Statut : proposé, rien n'est encore créé.
+Version 2026-10-26 · Cible : Postgres (Supabase pour les données courantes ; hébergeur HDS pour les tables « Santé », voir `INTEGRATIONS.md`) · Statut : proposé, rien n'est encore créé.
 
-Légende sensibilité RGPD : **P** = donnée personnelle ; **—** = non personnelle ; **Santé** = interdite en option A (aucune colonne de ce type n'existe).
+Légende sensibilité RGPD : **P** = donnée personnelle ; **—** = non personnelle ; **Santé** = donnée de santé (RGPD, art. 9), introduite par l'option B le 2026-10-26 : hébergement HDS, consentement explicite, accès limité à la patiente et à Manon.
 Conservation par défaut des données personnelles : durée de la relation + 3 ans après le dernier contact, puis suppression ou anonymisation (à valider par Manon et inscrire dans la politique de confidentialité).
 
 ## Comptes et formules
@@ -38,7 +38,7 @@ Conservation par défaut des données personnelles : durée de la relation + 3 a
 | plan_features.feature_key | text → features | oui | `recettes` |
 | plan_features.enabled | bool | oui | true |
 
-Clés : `docs`, `rdv`, `articles`, `nutri`, `contact`, `visio`, `recettes`, `videos`, `sport`, `collectives`, `individuelle`.
+Clés : `docs`, `rdv`, `articles`, `nutri`, `contact`, `visio`, `recettes`, `videos`, `sport`, `collectives`, `individuelle`, `journal` (repas notés et semainier proposé, F1 à F3), `evolution` (mesures et ressentis, toutes formules).
 
 ### `subscriptions` (historique des formules)
 | Champ | Type | Oblig. | Exemple | RGPD | Conservation |
@@ -116,6 +116,76 @@ id · slug · title · body_md · cover_path · visibility (enum `public`, `memb
 
 Point de vigilance : des favoris concentrés sur un thème (« endométriose ») permettent une déduction. Ne jamais les exploiter pour du profilage ni les afficher à Manon nominativement.
 
+## Suivi nutritionnel et évolution (option B, données de santé)
+
+Tables ajoutées le 2026-10-26 à la demande de Manon. Elles ne peuvent exister en production que chez un hébergeur certifié HDS, après AIPD et consentement (`APP_SPEC.md` §8). Dans le prototype : `MEALLOG`, `PROPOSALS`, `PROGRESS`, `SHOW_WEIGHT`.
+
+### `health_consents`
+| Champ | Type | Oblig. | Exemple | RGPD | Conservation |
+| --- | --- | --- | --- | --- | --- |
+| patient_id | uuid → profiles | oui | | P | durée du compte + 5 ans (preuve) |
+| scope | enum `journal`, `evolution` | oui | `journal` | P | idem |
+| granted_at, withdrawn_at | timestamptz | oui / non | 2026-10-26 | P | idem |
+| text_version | text | oui | `v1` | — | idem |
+
+Retrait du consentement : les lignes des tables ci-dessous sont supprimées sous 30 jours (hypothèse à valider).
+
+### `meal_logs` (un repas noté)
+| Champ | Type | Oblig. | Exemple | RGPD | Conservation |
+| --- | --- | --- | --- | --- | --- |
+| id | uuid PK | oui | | — | relation + 3 ans (hypothèse) |
+| patient_id | uuid → profiles | oui | | P | idem |
+| day | date | oui | 2026-10-21 | P | idem |
+| slot | smallint 0-3 (petit-déjeuner, déjeuner, collation, dîner) | oui | 1 | P | idem |
+| status | enum `ok` (fait comme prévu), `autre` | oui | `autre` | Santé | idem |
+| text | text (obligatoire si `autre`) | non | Salade de lentilles et une pomme | Santé | idem |
+| qty | enum `moins`, `prevu`, `plus` | non | `prevu` | Santé | idem |
+| note | text | non | Pas faim ce midi | Santé | idem |
+| updated_at | timestamptz | oui | | P | idem |
+
+Contrainte : unique (patient_id, day, slot).
+
+### `meal_reviews` (réponse de Manon à un repas)
+| Champ | Type | Oblig. | Exemple | RGPD |
+| --- | --- | --- | --- | --- |
+| meal_log_id | uuid → meal_logs (PK) | oui | | P |
+| kind | enum `valide`, `conseil` | oui | `conseil` | Santé |
+| text | text | non | Ajoutez une portion de légumes au dîner. | Santé |
+| reviewed_at | timestamptz | oui | | P |
+
+Une modification de `meal_logs` supprime la ligne `meal_reviews` liée (trigger) : le repas repasse « à relire ».
+
+### `weekly_proposals` et `proposal_slots` (semainier proposé par la patiente)
+| Table.champ | Type | Oblig. | Exemple | RGPD |
+| --- | --- | --- | --- | --- |
+| weekly_proposals.id | uuid PK | oui | | — |
+| weekly_proposals.patient_id | uuid → profiles | oui | | P |
+| weekly_proposals.week_start | date (lundi) | oui | 2026-10-26 | P |
+| weekly_proposals.status | enum `brouillon`, `envoye`, `revu` | oui | `envoye` | P |
+| weekly_proposals.comment | text (mot général de Manon) | non | Belle semaine équilibrée | Santé |
+| weekly_proposals.sent_at, reviewed_at | timestamptz | non | | P |
+| proposal_slots.proposal_id, day (0-6), slot (0-3) | PK composite | oui | | P |
+| proposal_slots.text | text | non | Omelette, pain complet | Santé |
+| proposal_slots.review_kind | enum `valide`, `conseil` | non | `valide` | Santé |
+| proposal_slots.review_text | text | non | | Santé |
+
+### `progress_entries` (mesures et ressentis)
+| Champ | Type | Oblig. | Exemple | RGPD | Conservation |
+| --- | --- | --- | --- | --- | --- |
+| id | uuid PK | oui | | — | relation + 3 ans (hypothèse) |
+| patient_id | uuid → profiles | oui | | P | idem |
+| date | date | oui | 2026-10-20 | P | idem |
+| weight_kg | numeric(5,1) | non | 68,4 | Santé | idem |
+| waist_cm, hips_cm | numeric(5,1) | non | 80 | Santé | idem |
+| energy, sleep, digestion | smallint 1-5 | non | 4 | Santé | idem |
+
+### `patient_settings`
+| Champ | Type | Oblig. | Exemple | RGPD |
+| --- | --- | --- | --- | --- |
+| patient_id | uuid → profiles (PK) | oui | | P |
+| show_weight | bool (réglé par Manon) | oui | true | Santé (le fait de masquer le poids est révélateur) |
+| hide_weight_self | bool (réglé par la patiente) | oui | false | P |
+
 ## Paramètres et traçabilité
 
 - `settings` : key text PK, value jsonb (`doctolib_url`, `whatsapp_number`, `instagram_url`). Non personnel.
@@ -130,6 +200,8 @@ recipes 1─n recipe_ingredients · recipe_steps · recipe_themes · recipe_alle
 nutrition_templates 1─n nutrition_template_slots n─1 recipes
 sport_templates 1─n sport_template_sessions 1─n sport_session_videos n─1 videos
 group_sessions 1─n session_registrations n─1 profiles
+profiles 1─n meal_logs 1─1 meal_reviews · profiles 1─n weekly_proposals 1─n proposal_slots
+profiles 1─n progress_entries · profiles 1─1 patient_settings · profiles 1─n health_consents
 ```
 
 ## Règles RLS (Row Level Security)
@@ -153,6 +225,12 @@ Fonctions SQL `security definer` :
 | group_sessions | `has_feature('collectives')` ; admin : tout | admin |
 | session_registrations | ses lignes ; admin : tout | insertion de soi si `has_feature('collectives')` ; capacité et liste d'attente gérées par une fonction `register_to_session()` |
 | favorites, workout_completions, shopping_list_items, notification_preferences | ses lignes | ses lignes |
-| audit_log | admin | trigger seulement |
+| meal_logs | ses lignes si consentement `journal` actif et `has_feature('journal')` ; admin : tout | ses lignes (mêmes conditions) |
+| meal_reviews | celles de ses repas ; admin : tout | admin |
+| weekly_proposals, proposal_slots | ses lignes ; admin : celles au statut `envoye` ou `revu` (pas les brouillons) | patiente : tant que `brouillon` ; admin : champs de revue et passage à `revu` |
+| progress_entries | ses lignes si consentement `evolution` actif ; `weight_kg` masqué par une vue si `show_weight = false` ; admin : tout | ses lignes |
+| patient_settings | soi-même ; admin : tout | admin : `show_weight` ; patiente : `hide_weight_self` |
+| health_consents | soi-même ; admin : tout | patiente (accord, retrait) |
+| audit_log | admin | trigger seulement ; toute lecture par l'admin d'une table « Santé » y est tracée |
 
 Toute nouvelle table : RLS activée dès la création, aucune politique `using (true)` en écriture.

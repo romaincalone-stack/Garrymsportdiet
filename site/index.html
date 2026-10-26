@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Garrym</title>
+<title>GM Sport et Nutrition</title>
 <meta name="description" content="Manon Garrione, diététicienne-nutritionniste et coach sportive à Hyères, La Garde et en visio.">
-<meta name="theme-color" content="#0B2D33">
+<meta name="theme-color" content="#12231B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Bellefair&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bellefair&display=swap">
 <style>
-/* Garrym · site public v4. Mélange de cinq références (Terminal Industries, Lando Norris, Symphony of Vines, KÖM, Resn) :
+/* GM Sport et Nutrition · site public v6 (logo de Manon). Structure v4 : Mélange de cinq références (Terminal Industries, Lando Norris, Symphony of Vines, KÖM, Resn) :
    scène WebGL d'ouverture, chargement chiffré, titres qui mêlent linéale grasse et capitales serif, micro-étiquettes en mono,
    alternance calanque / écume / lagon, lignes topographiques, défilement horizontal épinglé, chapitre cinéma.
    Palette v5-B « Calanque et citron » : bleu-vert profond, écume, lagon, une seule couleur vive (citron, en surligneur sur fond clair). */
 :root{
-  --calanque:#0B2D33; --calanque-2:#14444B; --posidonie:#2B6A5D; --lagon:#D6E8E2; --ecume:#F4F6F1;
-  --citron:#F5D547; --ink:#0B2D33; --galet:#55676A; --ligne:rgba(11,45,51,.14); --ligne-claire:rgba(244,246,241,.16);
-  --hl:linear-gradient(transparent 52%,var(--citron) 52%,var(--citron) 94%,transparent 94%);
-  --f-sans:"Mona Sans", "Helvetica Neue", Arial, sans-serif;
+  --nuit:#12231B; --nuit-2:#1C3428; --vert:#18694B; --brume:#E3F1D6; --blanc:#F6F9F3;
+  --tilleul:#B2E388; --ink:#12231B; --gris:#5C6B63; --ligne:rgba(18,35,27,.14); --ligne-claire:rgba(246,249,243,.16);
+  --hl:linear-gradient(transparent 52%,var(--tilleul) 52%,var(--tilleul) 94%,transparent 94%);
+  --f-sans:"Poppins", "Helvetica Neue", Arial, sans-serif;
   --f-serif:"Bellefair", "Didot", "Times New Roman", serif;
-  --f-mono:"Geist Mono", ui-monospace, Menlo, monospace;
+  --f-mono:"Poppins", "Helvetica Neue", Arial, sans-serif;
   --ease:cubic-bezier(.65,.05,0,1); --ease-out:cubic-bezier(.16,1,.3,1);
   --pad:clamp(18px,3.2vw,48px);
   color-scheme:dark;
@@ -29,20 +29,20 @@
 html{-webkit-text-size-adjust:100%}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
-body{margin:0;background:var(--calanque);color:var(--ecume);font-family:var(--f-sans);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--nuit);color:var(--blanc);font-family:var(--f-sans);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:200;background:var(--calanque)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:200;background:var(--nuit)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
-::selection{background:var(--citron);color:var(--ink)}
-:focus-visible{outline:2px solid var(--citron);outline-offset:4px;border-radius:4px}
+::selection{background:var(--tilleul);color:var(--ink)}
+:focus-visible{outline:2px solid var(--tilleul);outline-offset:4px;border-radius:4px}
 [hidden]{display:none!important}
 .mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;line-height:1.4}
 .serif{font-family:var(--f-serif);font-weight:400;letter-spacing:-.01em}
-.acc{color:var(--citron)}
-.light .acc,.tint .acc{color:var(--calanque);background:var(--hl);padding:0 .08em}
-.light :focus-visible,.tint :focus-visible{outline-color:var(--calanque)}
+.acc{color:var(--tilleul)}
+.light .acc,.tint .acc{color:var(--nuit);background:var(--hl);padding:0 .08em}
+.light :focus-visible,.tint :focus-visible{outline-color:var(--nuit)}
 .wrap{padding-left:max(var(--pad),env(safe-area-inset-left,0px));padding-right:max(var(--pad),env(safe-area-inset-right,0px))}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
@@ -52,12 +52,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-2%)}75%{transform:translate(-2%,-4%)}100%{transform:translate(0,0)}}
 
 /* Chargement (Symphony of Vines, Resn) */
-.loader{position:fixed;inset:0;z-index:300;background:var(--calanque);display:flex;flex-direction:column;justify-content:space-between;padding:var(--pad);clip-path:inset(0 0 0 0)}
+.loader{position:fixed;inset:0;z-index:300;background:var(--nuit);display:flex;flex-direction:column;justify-content:space-between;padding:var(--pad);clip-path:inset(0 0 0 0)}
 .loader .top,.loader .bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
 .loader .word{font-family:var(--f-serif);font-size:clamp(3.4rem,13vw,12rem);line-height:.82;letter-spacing:-.02em;display:flex;overflow:hidden}
 .loader .word span{display:inline-block;transform:translateY(105%)}
 .loader .count{font-family:var(--f-sans);font-weight:300;font-variation-settings:"wdth" 75;font-size:clamp(3rem,10vw,9rem);line-height:.8;font-variant-numeric:tabular-nums}
-.loader .bar{position:absolute;left:0;bottom:0;height:2px;background:var(--citron);width:0}
+.loader .bar{position:absolute;left:0;bottom:0;height:2px;background:var(--tilleul);width:0}
 
 /* Curseur */
 .cursor{position:fixed;left:0;top:0;z-index:250;pointer-events:none;mix-blend-mode:difference}
@@ -70,7 +70,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 
 /* Navigation (Terminal Industries) */
 .nav{position:fixed;z-index:120;top:calc(env(safe-area-inset-top,0px) + 16px);left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px 6px 6px 16px;border-radius:14px;
-  background:rgba(11,45,51,.62);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(244,246,241,.1);transition:transform .6s var(--ease),opacity .4s;max-width:calc(100% - 24px)}
+  background:rgba(18,35,27,.62);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(246,249,243,.1);transition:transform .6s var(--ease),opacity .4s;max-width:calc(100% - 24px)}
 .nav{opacity:0}
 body.ready .nav{opacity:1}
 .nav.hide{transform:translate(-50%,-140%)}
@@ -78,48 +78,48 @@ body.ready .nav{opacity:1}
 .nav .logo svg{width:22px;height:22px}
 .nav .links{display:flex;gap:2px}
 .nav .links a{padding:9px 12px;border-radius:9px;transition:background .25s}
-.nav .links a:hover{background:rgba(244,246,241,.08)}
+.nav .links a:hover{background:rgba(246,249,243,.08)}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;white-space:nowrap;transition:background .3s,color .3s,transform .3s var(--ease-out)}
 .btn:active{transform:scale(.97)}
-.btn-acc{background:var(--citron);color:var(--ink)}
-.btn-acc:hover{background:var(--ecume)}
-.btn-ghost{background:rgba(244,246,241,.1)}
-.btn-ghost:hover{background:var(--ecume);color:var(--ink)}
-.btn-ink{background:var(--calanque);color:var(--citron)}
-.light .btn-acc,.tint .btn-acc{background:var(--calanque);color:var(--citron)}
+.btn-acc{background:var(--tilleul);color:var(--ink)}
+.btn-acc:hover{background:var(--blanc)}
+.btn-ghost{background:rgba(246,249,243,.1)}
+.btn-ghost:hover{background:var(--blanc);color:var(--ink)}
+.btn-ink{background:var(--nuit);color:var(--tilleul)}
+.light .btn-acc,.tint .btn-acc{background:var(--nuit);color:var(--tilleul)}
 .btn-line{border:1px solid currentColor}
 .btn svg{width:14px;height:14px}
 @media (max-width:900px){.nav .links,.nav .hide-s{display:none}}
 
 /* Ouverture WebGL (Resn, KÖM, Terminal) */
-.hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:radial-gradient(120% 90% at 70% 40%,#17505A 0%,var(--calanque) 62%)}
+.hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:radial-gradient(120% 90% at 70% 40%,#1F3D2E 0%,var(--nuit) 62%)}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero .fallback{position:absolute;right:8%;top:16%;width:min(46vw,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F4F6F1,#F5D547 40%,#0B2D33 75%);filter:blur(2px);opacity:.85}
-.hero .meta{position:absolute;top:calc(env(safe-area-inset-top,0px) + 92px);left:0;right:0;display:flex;justify-content:space-between;gap:20px;color:rgba(244,246,241,.72)}
+.hero .fallback{position:absolute;right:8%;top:16%;width:min(46vw,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F6F9F3,#B2E388 40%,#12231B 75%);filter:blur(2px);opacity:.85}
+.hero .meta{position:absolute;top:calc(env(safe-area-inset-top,0px) + 92px);left:0;right:0;display:flex;justify-content:space-between;gap:20px;color:rgba(246,249,243,.72)}
 .hero .meta .r{text-align:right}
-.hero .meta > div,.hero .side p{text-shadow:0 1px 14px rgba(11,45,51,.9),0 0 2px rgba(11,45,51,.8)}
+.hero .meta > div,.hero .side p{text-shadow:0 1px 14px rgba(18,35,27,.9),0 0 2px rgba(18,35,27,.8)}
 .hero .content{position:absolute;left:0;right:0;bottom:clamp(70px,9vh,110px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end}
 .hero h1{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;font-size:clamp(3rem,calc((100vw - 460px) / 6.6),10.5rem);line-height:.84;letter-spacing:-.025em}
 .hero h1 .l{display:block;overflow:hidden;padding:.16em 0 .04em;margin-top:-.16em}
 .hero h1 .l > span{display:inline-block}
 .hero h1 .serif{font-weight:400;text-transform:uppercase;letter-spacing:-.03em}
 .hero .side{max-width:330px;display:flex;flex-direction:column;gap:20px;padding-bottom:12px}
-.hero .side p{margin:0;color:rgba(244,246,241,.78);font-size:15px}
+.hero .side p{margin:0;color:rgba(246,249,243,.78);font-size:15px}
 .hero .side .row{display:flex;gap:8px;flex-wrap:wrap}
-.hero .scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(244,246,241,.6)}
-.hero .scroll i{display:block;width:1px;height:38px;background:linear-gradient(var(--citron),transparent);transform-origin:top;animation:scrollLine 2.2s var(--ease) infinite}
+.hero .scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(246,249,243,.6)}
+.hero .scroll i{display:block;width:1px;height:38px;background:linear-gradient(var(--tilleul),transparent);transform-origin:top;animation:scrollLine 2.2s var(--ease) infinite}
 @keyframes scrollLine{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media (max-width:820px){.hero .content{grid-template-columns:minmax(0,1fr)}.hero .meta .r{display:none}.hero h1{font-size:clamp(3rem,13vw,6rem)}}
 
 /* Sections */
 .sec{position:relative}
-.label{display:flex;gap:16px;align-items:center;color:var(--lagon)}
+.label{display:flex;gap:16px;align-items:center;color:var(--brume)}
 .label b{font-weight:500;color:inherit}
-.light{background:var(--ecume);color:var(--ink)}
-.light .label{color:var(--galet)}
-.deep{background:var(--calanque);color:var(--ecume)}
-.tint{background:var(--lagon);color:var(--calanque)}
-.tint .label{color:var(--galet)}
+.light{background:var(--blanc);color:var(--ink)}
+.light .label{color:var(--gris)}
+.deep{background:var(--nuit);color:var(--blanc)}
+.tint{background:var(--brume);color:var(--nuit)}
+.tint .label{color:var(--gris)}
 
 /* Manifeste (Terminal : révélation mot à mot) */
 .manifest{padding-block:clamp(110px,16vw,220px) clamp(90px,12vw,170px);text-align:center}
@@ -138,62 +138,62 @@ body.ready .nav{opacity:1}
 .univers .side + .side{border-left:1px solid var(--ligne)}
 .univers .reveal{position:absolute;inset:0;clip-path:circle(0% at var(--mx,50%) var(--my,50%));transition:clip-path .7s var(--ease);z-index:0}
 .univers .reveal img{width:100%;height:100%;object-fit:cover}
-.univers .reveal::after{content:"";position:absolute;inset:0;background:rgba(11,45,51,.35)}
+.univers .reveal::after{content:"";position:absolute;inset:0;background:rgba(18,35,27,.35)}
 .univers .side:hover .reveal,.univers .side.on .reveal{clip-path:circle(140% at var(--mx,50%) var(--my,50%))}
-.univers .side:hover,.univers .side.on{color:var(--ecume)}
+.univers .side:hover,.univers .side.on{color:var(--blanc)}
 .univers .in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:18px}
 .univers .sur{font-family:var(--f-serif);font-size:clamp(1.4rem,2.4vw,2.2rem);margin-bottom:-.3em}
 .univers h2{margin:0;font-weight:800;font-variation-settings:"wdth" 78;text-transform:uppercase;font-size:clamp(3rem,8.4vw,8.4rem);line-height:.84;letter-spacing:-.03em;position:relative}
 .univers h2 svg{position:absolute;left:-6%;bottom:-.18em;width:112%;overflow:visible}
-.univers h2 svg path{fill:none;stroke:var(--citron);stroke-width:5;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.1s var(--ease)}
+.univers h2 svg path{fill:none;stroke:var(--tilleul);stroke-width:5;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.1s var(--ease)}
 .univers .side:hover h2 svg path,.univers .side.on h2 svg path{stroke-dashoffset:0}
 .univers p{margin:0;max-width:24em;font-size:15px;opacity:.8}
-.univers .go{width:46px;height:46px;border-radius:12px;background:var(--calanque);color:var(--citron);display:grid;place-items:center}
+.univers .go{width:46px;height:46px;border-radius:12px;background:var(--nuit);color:var(--tilleul);display:grid;place-items:center}
 @media (max-width:760px){.univers{grid-template-columns:1fr}.univers .side{min-height:70vh}.univers .side + .side{border-left:0;border-top:1px solid var(--ligne)}}
 
 /* Accompagnements en défilement horizontal (KÖM, Lando) */
-.programmes{background:var(--calanque);overflow:hidden}
+.programmes{background:var(--nuit);overflow:hidden}
 .programmes .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding-top:clamp(90px,10vw,140px);padding-bottom:50px}
 .programmes h2{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;font-size:clamp(2.6rem,6.4vw,6.4rem);line-height:.86;letter-spacing:-.03em}
-.programmes .head p{max-width:22em;margin:0;color:rgba(244,246,241,.7)}
+.programmes .head p{max-width:22em;margin:0;color:rgba(246,249,243,.7)}
 .track{display:flex;gap:18px;padding-bottom:clamp(90px,10vw,140px);width:max-content}
-.card{position:relative;width:min(420px,78vw);flex:none;background:#0F363D;padding:12px;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,34px 100%,0 calc(100% - 34px))}
-.card .im{aspect-ratio:4/5;overflow:hidden;background:var(--calanque-2);clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,0 100%)}
+.card{position:relative;width:min(420px,78vw);flex:none;background:#1C3428;padding:12px;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,34px 100%,0 calc(100% - 34px))}
+.card .im{aspect-ratio:4/5;overflow:hidden;background:var(--nuit-2);clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,0 100%)}
 .card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
 .card:hover img{transform:scale(1.06)}
 .card .tx{padding:18px 8px 8px;display:flex;flex-direction:column;gap:10px}
-.card .tag{display:flex;justify-content:space-between;color:rgba(244,246,241,.55)}
-.card .tag b{color:var(--citron);font-weight:500}
+.card .tag{display:flex;justify-content:space-between;color:rgba(246,249,243,.55)}
+.card .tag b{color:var(--tilleul);font-weight:500}
 .card h3{margin:0;font-weight:800;font-variation-settings:"wdth" 82;text-transform:uppercase;font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:.9;letter-spacing:-.02em}
-.card p{margin:0;color:rgba(244,246,241,.72);font-size:15px}
+.card p{margin:0;color:rgba(246,249,243,.72);font-size:15px}
 @media (max-width:820px){.programmes .head{flex-direction:column;align-items:flex-start}.track-wrap{overflow-x:auto;scroll-snap-type:x mandatory}.card{scroll-snap-align:start}}
 
 /* Chapitre cinéma (Symphony of Vines) */
 .bilan{position:relative;height:120vh;overflow:hidden;display:grid;place-items:center;text-align:center}
-.bilan .bg{position:absolute;inset:-6%;background:#0B2D33}
+.bilan .bg{position:absolute;inset:-6%;background:#12231B}
 .bilan .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) saturate(.8) brightness(.6)}
-.bilan::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 50%,rgba(11,45,51,.25) 30%,rgba(11,45,51,.8) 100%);pointer-events:none}
-.bilan .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:22px;color:var(--lagon);padding:0 var(--pad)}
+.bilan::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 50%,rgba(18,35,27,.25) 30%,rgba(18,35,27,.8) 100%);pointer-events:none}
+.bilan .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:22px;color:var(--brume);padding:0 var(--pad)}
 .bilan .le{font-family:var(--f-serif);font-size:clamp(1.6rem,3vw,2.8rem);margin-bottom:-.5em}
 .bilan h2{margin:0;font-family:var(--f-serif);font-weight:400;text-transform:uppercase;font-size:clamp(4rem,15vw,15rem);line-height:.8;letter-spacing:-.03em;color:#F4F6F1}
 .bilan p{margin:0;max-width:26em;font-family:var(--f-serif);font-size:clamp(1.05rem,1.6vw,1.35rem);line-height:1.3}
-.pill{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;border:1px solid rgba(214,232,226,.55);font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
-.pill:hover{background:var(--lagon);color:var(--calanque)}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;border:1px solid rgba(227,241,214,.55);font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
+.pill:hover{background:var(--brume);color:var(--nuit)}
 
 /* Formules (KÖM) */
 .formules{padding-block:clamp(100px,12vw,170px)}
 .formules .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
 .formules h2{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;font-size:clamp(2.6rem,6.4vw,6.4rem);line-height:.86;letter-spacing:-.03em}
 .formules h2 .serif{font-weight:400}
-.toggle{display:inline-flex;padding:4px;border-radius:12px;background:rgba(244,246,241,.08);gap:2px}
+.toggle{display:inline-flex;padding:4px;border-radius:12px;background:rgba(246,249,243,.08);gap:2px}
 .toggle button{padding:10px 16px;border-radius:9px;transition:background .3s,color .3s}
-.toggle button.on{background:var(--ecume);color:var(--ink)}
+.toggle button.on{background:var(--blanc);color:var(--ink)}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
-.plan{--gx:50%;--gy:0%;position:relative;padding:30px 26px 26px;border-radius:18px;background:rgba(244,246,241,.04);border:1px solid rgba(244,246,241,.1);overflow:hidden;display:flex;flex-direction:column;gap:22px;isolation:isolate}
-.plan::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(245,213,71,.16),transparent 55%);opacity:0;transition:opacity .4s}
+.plan{--gx:50%;--gy:0%;position:relative;padding:30px 26px 26px;border-radius:18px;background:rgba(246,249,243,.04);border:1px solid rgba(246,249,243,.1);overflow:hidden;display:flex;flex-direction:column;gap:22px;isolation:isolate}
+.plan::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(178,227,136,.16),transparent 55%);opacity:0;transition:opacity .4s}
 .plan:hover::before{opacity:1}
-.plan.feat{background:var(--ecume);color:var(--ink);border-color:transparent}
-.plan.feat::before{background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(245,213,71,.22),transparent 55%)}
+.plan.feat{background:var(--blanc);color:var(--ink);border-color:transparent}
+.plan.feat::before{background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(178,227,136,.22),transparent 55%)}
 .plan .top{display:flex;justify-content:space-between;color:inherit;opacity:.7}
 .plan h3{margin:0;font-weight:700;font-size:1.6rem;letter-spacing:-.02em;line-height:1.05}
 .plan h3 .serif{font-weight:400}
@@ -203,7 +203,7 @@ body.ready .nav{opacity:1}
 .plan li{display:grid;grid-template-columns:16px 1fr;gap:10px}
 .plan li::before{content:"↗";font-size:12px;opacity:.6;line-height:1.7}
 .plan .btn{justify-content:space-between;margin-top:auto}
-.formules .fine{margin-top:22px;color:rgba(244,246,241,.5)}
+.formules .fine{margin-top:22px;color:rgba(246,249,243,.5)}
 
 /* Cabinets et chiffres (Terminal) */
 .cabinets{padding-block:clamp(100px,12vw,170px)}
@@ -211,16 +211,16 @@ body.ready .nav{opacity:1}
 .stats .s{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:20px 0;border-top:1px solid var(--ligne)}
 .stats .s:last-child{border-bottom:1px solid var(--ligne)}
 .stats b{font-weight:300;font-variation-settings:"wdth" 75;font-size:clamp(3.4rem,7vw,6.4rem);line-height:.85;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.stats span{text-align:right;color:var(--galet)}
+.stats span{text-align:right;color:var(--gris)}
 .places h2{margin:0 0 30px;font-weight:500;font-size:clamp(2rem,3.6vw,3.4rem);line-height:1;letter-spacing:-.035em}
 .places h2 .serif{font-size:1.06em}
 .place{display:grid;grid-template-columns:110px 1fr auto;gap:18px;padding:20px 0;border-top:1px solid var(--ligne);align-items:center}
 .place:last-of-type{border-bottom:1px solid var(--ligne)}
-.place .d{color:var(--galet)}
+.place .d{color:var(--gris)}
 .place b{display:block;font-weight:600;font-size:1.1rem;letter-spacing:-.01em}
-.place small{color:var(--galet);font-size:14px}
+.place small{color:var(--gris);font-size:14px}
 .place a{width:40px;height:40px;border-radius:10px;border:1px solid var(--ligne);display:grid;place-items:center;transition:background .3s}
-.place a:hover{background:var(--ink);color:var(--ecume)}
+.place a:hover{background:var(--ink);color:var(--blanc)}
 @media (max-width:860px){.cabinets .grid{grid-template-columns:1fr}.place{grid-template-columns:90px 1fr auto}}
 
 /* Journal (KÖM : liste avec image qui suit le curseur) */
@@ -230,27 +230,55 @@ body.ready .nav{opacity:1}
 .journal .rw:last-child{border-bottom:1px solid var(--ligne)}
 .journal .rw h3{margin:0;font-weight:500;font-size:clamp(1.3rem,2.6vw,2.4rem);letter-spacing:-.03em;line-height:1.05}
 .journal .rw:hover{padding-left:18px}
-.journal .rw .tg{text-align:right;color:var(--galet)}
+.journal .rw .tg{text-align:right;color:var(--gris)}
 .peek{position:fixed;left:0;top:0;z-index:90;width:260px;aspect-ratio:4/3;overflow:hidden;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .3s,transform .4s var(--ease-out)}
 .peek.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .peek img{width:100%;height:100%;object-fit:cover}
 @media (max-width:700px){.journal .rw{grid-template-columns:1fr}.journal .rw .tg{text-align:left}}
 
 /* Pied de page (Terminal) */
-.foot{background:var(--calanque);color:var(--ecume);padding-top:clamp(100px,12vw,160px);overflow:hidden;position:relative}
+.foot{background:var(--nuit);color:var(--blanc);padding-top:clamp(100px,12vw,160px);overflow:hidden;position:relative}
 .foot .cta{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
 .foot .cta h2{margin:0;font-family:var(--f-serif);font-weight:400;font-size:clamp(3rem,8vw,7.6rem);line-height:.86;letter-spacing:-.02em;text-transform:uppercase}
 .foot .cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:90px;padding-top:30px;border-top:1px solid var(--ligne-claire)}
 .foot .cols div{display:flex;flex-direction:column;gap:8px}
-.foot .cols .mono{color:rgba(244,246,241,.5);margin-bottom:6px}
-.foot .cols a,.foot .cols button{text-align:left;color:rgba(244,246,241,.85)}
-.foot .cols a:hover{color:var(--citron)}
-.foot .giant{font-weight:900;font-variation-settings:"wdth" 125;text-transform:uppercase;font-size:clamp(5rem,22vw,22rem);line-height:.76;letter-spacing:-.06em;margin:70px 0 -.12em;white-space:nowrap;color:var(--calanque-2)}
-.foot .legal{display:flex;justify-content:space-between;gap:20px;padding-block:18px 26px;color:rgba(244,246,241,.45);flex-wrap:wrap;position:relative}
+.foot .cols .mono{color:rgba(246,249,243,.5);margin-bottom:6px}
+.foot .cols a,.foot .cols button{text-align:left;color:rgba(246,249,243,.85)}
+.foot .cols a:hover{color:var(--tilleul)}
+.foot .giant{font-weight:900;font-variation-settings:"wdth" 125;text-transform:uppercase;font-size:clamp(5rem,22vw,22rem);line-height:.76;letter-spacing:-.06em;margin:70px 0 -.12em;white-space:nowrap;color:var(--nuit-2)}
+.foot .legal{display:flex;justify-content:space-between;gap:20px;padding-block:18px 26px;color:rgba(246,249,243,.45);flex-wrap:wrap;position:relative}
 @media (max-width:760px){.foot .cols{grid-template-columns:1fr 1fr}}
 .note{display:inline-block;padding:4px 8px;border:1px dashed currentColor;border-radius:6px;opacity:.6}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:260;background:var(--ecume);color:var(--ink);padding:12px 18px;border-radius:12px;font-size:14px;max-width:min(92vw,520px)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:260;background:var(--blanc);color:var(--ink);padding:12px 18px;border-radius:12px;font-size:14px;max-width:min(92vw,520px)}
 
+
+/* ===== Surcharges v6 « GM Sport et Nutrition » : titres en Poppins, casse normale, rayons arrondis ===== */
+body{font-weight:400}
+.mono{font-size:10.5px;letter-spacing:.2em;font-weight:500}
+.hero h1,.univers h2,.programmes h2,.formules h2,.card h3,.plan .price,.places h2,.manifest p{text-transform:none;font-variation-settings:normal;letter-spacing:-.025em}
+.hero h1{font-weight:600;font-size:clamp(2.6rem,calc((100vw - 460px) / 11 + 1.2rem),6.4rem);line-height:1.02}
+.hero h1 .serif,.univers h2 .serif,.programmes h2 .serif,.formules h2 .serif{text-transform:none;font-size:1.12em;letter-spacing:-.01em;font-weight:400}
+.univers h2{font-weight:600;font-size:clamp(2.6rem,6vw,5.6rem);line-height:1}
+.programmes h2,.formules h2{font-weight:600;font-size:clamp(2.2rem,4.6vw,4.4rem);line-height:1.02}
+.card h3{font-weight:600;font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.1}
+.manifest p{font-weight:500;font-size:clamp(1.8rem,4.4vw,4.2rem);line-height:1.12}
+.plan .price{font-weight:600;letter-spacing:-.04em}
+.plan h3{font-weight:600}
+.stats b,.loader .count{font-variation-settings:normal;font-weight:300}
+.loader .word{font-size:clamp(6rem,24vw,20rem)}
+.nav{border-radius:999px;padding:6px 6px 6px 18px}
+.nav .logo{flex:none;margin-right:10px}
+.nav .logo img{height:40px;width:auto;max-width:none;display:block}
+.btn{border-radius:999px;padding:12px 20px}
+.card,.card .im{clip-path:none;border-radius:24px}
+.card{padding:10px}
+.card .im{border-radius:18px}
+.plan{border-radius:24px}
+.toggle,.toggle button{border-radius:999px}
+.univers .go,.place a{border-radius:50%}
+.foot .giant{margin:60px 0 -10px;line-height:0}
+.foot .giant img{width:min(560px,80vw);opacity:.14;display:block}
+@media (max-width:820px){.hero h1{font-size:clamp(2.4rem,11vw,4.2rem)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.manifest .w{opacity:1}}
 </style>
 </head>
@@ -260,13 +288,13 @@ body.ready .nav{opacity:1}
 <div class="peek" aria-hidden="true"><img alt="" src=""></div>
 
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="top"><span class="mono">Garrym · Sport · Diet</span><span class="mono">Hyères — La Garde — Visio</span></div>
-  <div class="bottom"><div class="word">GARRYM</div><div class="count"><span id="count">000</span></div></div>
+  <div class="top"><span class="mono">Sport et nutrition · Manon Garrione</span><span class="mono">Hyères — La Garde — Visio</span></div>
+  <div class="bottom"><div class="word">GM</div><div class="count"><span id="count">000</span></div></div>
   <div class="bar" id="bar"></div>
 </div>
 
 <nav class="nav" id="nav" aria-label="Navigation principale">
-  <a class="logo" href="#top" data-cursor="ACCUEIL"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="13" fill="none" stroke="#F5D547" stroke-width="2.4"/><path d="M13 39C4 29 5 13 16 3C23 14 25 27 13 39Z" fill="#F4F6F1"/></svg>GARRYM</a>
+  <a class="logo" href="#top" data-cursor="ACCUEIL" aria-label="GM Sport et Nutrition, accueil"><img src="img/logoclair.png" alt="" width="64" height="42"></a>
   <div class="links mono"><a href="#manifeste">Méthode</a><a href="#programmes">Thématiques</a><a href="#formules">Formules</a><a href="#cabinets">Cabinets</a></div>
   <a class="btn btn-ghost mono hide-s" href="#" id="espace">Mon espace</a>
   <a class="btn btn-acc mono doctolib" href="#" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Bilan · 70 €</a>
@@ -280,7 +308,7 @@ body.ready .nav{opacity:1}
     <div class="content wrap">
       <h1 id="title"><span class="l"><span>Manger</span> <span class="serif acc">mieux,</span></span><span class="l"><span class="serif acc">bouger</span> <span>plus,</span></span><span class="l"><span>à votre rythme.</span></span></h1>
       <div class="side">
-        <p>Bilan, semainier, recettes et séances de sport : un accompagnement qui continue entre les rendez-vous.</p>
+        <p>Pour les femmes qui veulent prendre soin d'elles sans prise de tête : une alimentation adaptée, des séances courtes à faire chez soi, et Manon à vos côtés.</p>
         <div class="row"><a class="btn btn-acc mono doctolib" href="#" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Réserver le bilan <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="btn btn-ghost mono" href="#manifeste">La méthode</a></div>
       </div>
     </div>
@@ -295,9 +323,9 @@ body.ready .nav{opacity:1}
 
 
   <section class="sec light univers" id="univers">
-    <canvas class="topo" data-color="rgba(11,45,51,.07)" aria-hidden="true"></canvas>
+    <canvas class="topo" data-color="rgba(18,35,27,.07)" aria-hidden="true"></canvas>
     <a class="side" href="#formules" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="assiette" alt=""></div><div class="in"><span class="sur">sur</span><h2>L'assiette<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20C90 6 190 26 280 12C330 6 370 10 396 8"/></svg></h2><p>Bilan, semainier, recettes classées par thème, repères adaptés à la santé féminine.</p><span class="go" aria-hidden="true">↗</span></div></a>
-    <a class="side" href="#programmes" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="terrain" alt=""></div><div class="in"><span class="sur">sur</span><h2>Le terrain<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C80 26 170 6 260 18C320 26 360 14 396 18"/></svg></h2><p>Séances en vidéo, visio collective et coaching à domicile, du niveau débutant à avancé.</p><span class="go" aria-hidden="true">↗</span></div></a>
+    <a class="side" href="#programmes" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="terrain" alt=""></div><div class="in"><span class="sur">sur</span><h2>Le terrain<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C80 26 170 6 260 18C320 26 360 14 396 18"/></svg></h2><p>Des vidéos de 10 à 30 minutes à faire chez vous, par zone du corps, des séances collectives en visio et du coaching à domicile.</p><span class="go" aria-hidden="true">↗</span></div></a>
   </section>
 
   <section class="sec programmes" id="programmes">
@@ -305,8 +333,8 @@ body.ready .nav{opacity:1}
     <div class="track-wrap"><div class="track wrap" id="track">
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="yoga" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>01</b></div><h3>Endométriose</h3><p>Des repères alimentaires pour mieux vivre au quotidien, en lien avec votre suivi médical.</p></div></article>
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="table" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>02</b></div><h3>SOPK</h3><p>Stabiliser l'énergie dans la journée et construire des repas qui tiennent.</p></div></article>
-      <article class="card" data-cursor="VOIR"><div class="im"><img data-img="etirement" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>03</b></div><h3>Ménopause</h3><p>Adapter l'assiette et le mouvement à ce nouveau rythme.</p></div></article>
-      <article class="card" data-cursor="VOIR"><div class="im"><img data-img="course" alt=""></div><div class="tx"><div class="tag mono"><span>Performance</span><b>04</b></div><h3>Sportives</h3><p>Manger pour performer et récupérer, du loisir à la compétition.</p></div></article>
+      <article class="card" data-cursor="VOIR"><div class="im"><img data-img="etirement" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>03</b></div><h3>Péri-ménopause et ménopause</h3><p>Adapter l'assiette et le mouvement à ce nouveau rythme.</p></div></article>
+      <article class="card" data-cursor="VOIR"><div class="im"><img data-img="course" alt=""></div><div class="tx"><div class="tag mono"><span>Au quotidien</span><b>04</b></div><h3>Mamans pressées</h3><p>Des repas simples et des séances de 15 minutes, quand vous trouvez le temps.</p></div></article>
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="assiette" alt=""></div><div class="tx"><div class="tag mono"><span>Équilibre</span><b>05</b></div><h3>Rééquilibrage</h3><p>Des repères simples et durables, sans restriction.</p></div></article>
     </div></div>
   </section>
@@ -367,9 +395,9 @@ body.ready .nav{opacity:1}
       <div><span class="mono">Suivre</span><a href="https://www.instagram.com/garrymsportdiet/" target="_blank" rel="noopener">Instagram</a><a class="doctolib" href="#" target="_blank" rel="noopener">Doctolib</a></div>
       <div><span class="mono">Légal</span><a href="#" data-toast="Page à rédiger avant la mise en ligne.">Mentions légales</a><a href="#" data-toast="Page à rédiger avant la mise en ligne.">Confidentialité</a><a href="#" data-toast="Page à rédiger avant la mise en ligne.">CGV</a></div>
     </div>
-    <div class="giant" aria-hidden="true">Garrym</div>
+    <div class="giant" aria-hidden="true"><img src="img/logoclair.png" alt=""></div>
   </div>
-  <div class="legal wrap mono"><span>© 2026 Garrym · Manon Garrione</span><span>Prototype · photos provisoires Wikimedia Commons (CC BY / BY-SA), crédits dans img/CREDITS.md</span></div>
+  <div class="legal wrap mono"><span>© 2026 GM Sport et Nutrition · Manon Garrione</span><span>Prototype · photos provisoires Wikimedia Commons (CC BY / BY-SA), crédits dans img/CREDITS.md</span></div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -430,12 +458,12 @@ function initGL() {
 
   /* Ambiance : ciel lagon, sol calanque et trois boîtes à lumière, converties en carte d'environnement */
   const pmrem = new THREE.PMREMGenerator(renderer), env = new THREE.Scene();
-  const sky = new THREE.SphereGeometry(10, 32, 16), skyCol = [], cTop = new THREE.Color("#EAF3EF"), cBot = new THREE.Color("#0B2D33");
+  const sky = new THREE.SphereGeometry(10, 32, 16), skyCol = [], cTop = new THREE.Color("#EEF6E8"), cBot = new THREE.Color("#12231B");
   for (let i = 0; i < sky.attributes.position.count; i++) { const c = cBot.clone().lerp(cTop, THREE.MathUtils.smoothstep(sky.attributes.position.getY(i) / 10, -.4, .8)); skyCol.push(c.r, c.g, c.b); }
   sky.setAttribute("color", new THREE.Float32BufferAttribute(skyCol, 3));
   env.add(new THREE.Mesh(sky, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.BackSide })));
   const softbox = (w, h, c, k, p) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(k), side: THREE.DoubleSide })); m.position.set(...p); m.lookAt(0, 0, 0); env.add(m); };
-  softbox(6, 4, "#FFF3DA", 6, [-5, 6, 5]); softbox(4, 6, "#CFE9E2", 2.5, [7, 1, -2]); softbox(8, 2, "#FFFFFF", 1.4, [0, -2, 8]);
+  softbox(6, 4, "#FFF3DA", 6, [-5, 6, 5]); softbox(4, 6, "#D8EFC6", 2.5, [7, 1, -2]); softbox(8, 2, "#FFFFFF", 1.4, [0, -2, 8]);
   scene.environment = pmrem.fromScene(env, .04).texture;
 
   /* Lumières : soleil chaud qui porte les ombres, contre-jour lagon, ciel / sol */
@@ -444,8 +472,8 @@ function initGL() {
   Object.assign(sun.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 1, far: 22 });
   sun.shadow.bias = -.0004; sun.shadow.normalBias = .02;
   scene.add(sun, sun.target);
-  const rim = new THREE.DirectionalLight("#9FD6C8", 1.6); rim.position.set(5, 2, -6); scene.add(rim);
-  scene.add(new THREE.HemisphereLight("#D6E8E2", "#0B2D33", .35));
+  const rim = new THREE.DirectionalLight("#C9EBB0", 1.6); rim.position.set(5, 2, -6); scene.add(rim);
+  scene.add(new THREE.HemisphereLight("#E3F1D6", "#12231B", .35));
 
   /* Textures peintes : couleur, taches, stries, pores (le haut du canvas correspond au haut du fruit) */
   const TS = TOUCH ? 512 : 1024;
@@ -475,8 +503,8 @@ function initGL() {
     figue: paint(TS, TS / 2, (x, w, h) => { vgrad(x, w, h, [[0, "#5F6A35"], [.18, "#5B4A3A"], [.4, "#4A2240"], [1, "#2E1428"]]);
       for (let i = 0; i < 70; i++) { const px = i / 70 * w + rng() * 6; x.strokeStyle = `rgba(150,110,140,${.06 + rng() * .08})`; x.lineWidth = (1 + rng() * 2) * K * 2; x.beginPath(); x.moveTo(px, h * .15); x.lineTo(px + (rng() - .5) * 8, h); x.stroke(); }
       dots(x, w, h, 1500 * K, .5, 1.2, () => "rgba(210,190,200,.25)", .2, 1); }),
-    feuille: paint(256, 512, (x, w, h) => { const g = x.createLinearGradient(0, 0, w, 0); g.addColorStop(0, "#1F5A4E"); g.addColorStop(.5, "#2B6A5D"); g.addColorStop(1, "#1F5A4E"); x.fillStyle = g; x.fillRect(0, 0, w, h);
-      vgrad(x, w, h, [[0, "rgba(111,165,146,.55)"], [1, "rgba(111,165,146,0)"]]);
+    feuille: paint(256, 512, (x, w, h) => { const g = x.createLinearGradient(0, 0, w, 0); g.addColorStop(0, "#14573E"); g.addColorStop(.5, "#18694B"); g.addColorStop(1, "#14573E"); x.fillStyle = g; x.fillRect(0, 0, w, h);
+      vgrad(x, w, h, [[0, "rgba(127,191,143,.55)"], [1, "rgba(127,191,143,0)"]]);
       x.strokeStyle = "rgba(190,220,205,.55)"; x.lineWidth = 3; x.beginPath(); x.moveTo(w / 2, h); x.lineTo(w / 2, 0); x.stroke();
       x.lineWidth = 1; x.strokeStyle = "rgba(190,220,205,.2)"; for (let i = 1; i < 12; i++) { const y = h * i / 12; x.beginPath(); x.moveTo(w / 2, y); x.quadraticCurveTo(w * .3, y - 18, 0, y - 40); x.moveTo(w / 2, y); x.quadraticCurveTo(w * .7, y - 18, w, y - 40); x.stroke(); } })
   };
@@ -490,7 +518,7 @@ function initGL() {
     oliveV: PM({ map: olive("#5E7432", "#3F5424"), roughness: .28, clearcoat: 1, clearcoatRoughness: .12 }),
     oliveN: PM({ map: olive("#2A2B22", "#16170F"), roughness: .25, clearcoat: 1, clearcoatRoughness: .1 }),
     oliveC: PM({ map: olive("#4E6E2E", "#33491D"), roughness: .3, clearcoat: 1, clearcoatRoughness: .14 }),
-    feuille: PM({ map: T.feuille, roughness: .5, side: THREE.DoubleSide, sheen: .4, sheenColor: new THREE.Color("#CFE5DC"), sheenRoughness: .5 }),
+    feuille: PM({ map: T.feuille, roughness: .5, side: THREE.DoubleSide, sheen: .4, sheenColor: new THREE.Color("#D8EFC6"), sheenRoughness: .5 }),
     tige: PM({ color: "#5A3E26", roughness: .8 })
   };
 
@@ -542,7 +570,7 @@ function initGL() {
   const N = TOUCH ? 400 : 1100, pos = new Float32Array(N * 3);
   for (let i = 0; i < N; i++) { const r = 3.2 + Math.random() * 5, a = Math.random() * TAU, c = Math.acos(2 * Math.random() - 1); pos.set([r * Math.sin(c) * Math.cos(a), r * Math.sin(c) * Math.sin(a), r * Math.cos(c) - 2], i * 3); }
   const pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-  const dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xD6E8E2, size: .022, transparent: true, opacity: .45, depthWrite: false }));
+  const dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xE3F1D6, size: .022, transparent: true, opacity: .45, depthWrite: false }));
   scene.add(dust);
 
   let gx = 2, gy = .15, gs = 1;
@@ -724,9 +752,9 @@ $$(".univers .side").forEach(s => {
 /* ---------- Formules ---------- */
 const PLANS = {
   mois: [
-    { top: ["Formule 01", "Nutrition"], h: "Nutrition", price: "60 €", unit: "/ mois", list: ["Visio de 30 min tous les 15 jours", "Semainier et repères personnalisés", "Contact rapide par WhatsApp", "Fiches conseils et articles"] },
+    { top: ["Formule 01", "Nutrition"], h: "Nutrition", price: "60 €", unit: "/ mois", list: ["Visio de 30 min tous les 15 jours", "Semainier partagé : Manon le prépare, vous notez vos repas, elle vous répond", "Suivi de votre évolution", "Contact rapide par WhatsApp"] },
     { top: ["Formule 02", "Recettes"], h: 'Nutrition <span class="serif">+ recettes</span>', price: "70 €", unit: "/ mois", list: ["Tout le contenu de la formule 01", "30 recettes classées par thème", "2 à 3 nouvelles recettes par mois", "Liste de courses automatique"] },
-    { top: ["Formule 03", "La plus complète"], h: 'Nutrition, recettes <span class="serif">+ sport</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de la formule 02", "Vidéos de sport filtrables", "Programme sportif", "2 séances collectives par mois en visio"] }
+    { top: ["Formule 03", "La plus complète"], h: 'Nutrition, recettes <span class="serif">+ sport</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de la formule 02", "Vidéos de 10 à 30 min, à choisir selon votre temps", "Par zone du corps : abdos-fessiers, dos, bas du corps…", "2 séances collectives par mois en visio"] }
   ],
   unite: [
     { top: ["Pour commencer", "Doctolib"], h: 'Bilan <span class="serif">initial</span>', price: "70 €", unit: "la séance", feat: true, list: ["Une heure, au cabinet ou en visio", "Habitudes, objectifs, mode de vie", "Choix de l'accompagnement ensuite"] },

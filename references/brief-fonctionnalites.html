@@ -2,26 +2,27 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<title>Garrym · Brief fonctionnel</title>
+<title>GM Sport et Nutrition · Brief fonctionnel</title>
 <!-- Source du PDF « Brief fonctionnel » : node tools/build-brief-pdf.mjs → dist/Brief-fonctionnel-Garrym.pdf
      Contenu tiré de APP_SPEC.md, FEATURE_BACKLOG.md et INTEGRATIONS.md ; à régénérer quand ils changent. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Bellefair&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bellefair&display=swap">
 <style>
-:root{--calanque:#0B2D33;--calanque-2:#14444B;--posidonie:#2B6A5D;--lagon:#D6E8E2;--ecume:#F4F6F1;--citron:#F5D547;--galet:#55676A;--ligne:rgba(11,45,51,.14);
-  --sans:"Mona Sans","Helvetica Neue",Arial,sans-serif;--serif:"Bellefair",Georgia,serif;--mono:"Geist Mono",ui-monospace,Menlo,monospace;
-  --hl:linear-gradient(transparent 52%,var(--citron) 52%,var(--citron) 94%,transparent 94%)}
+/* Tokens v6 « GM Sport et Nutrition » (BRAND_BRIEF.md) ; anciens noms conservés : calanque = nuit, posidonie = vert, lagon = brume, écume = blanc, citron = tilleul, galet = gris */
+:root{--calanque:#12231B;--calanque-2:#1C3428;--posidonie:#18694B;--lagon:#E3F1D6;--ecume:#F6F9F3;--citron:#B2E388;--galet:#5C6B63;--ligne:rgba(18,35,27,.14);
+  --sans:"Poppins","Helvetica Neue",Arial,sans-serif;--serif:"Bellefair",Georgia,serif;--mono:"Poppins","Helvetica Neue",Arial,sans-serif;
+  --hl:none}
 @page{size:A4;margin:16mm 16mm 18mm}
 @page :first{margin:0}
 *{box-sizing:border-box}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{margin:0;font-family:var(--sans);font-size:10pt;line-height:1.5;color:var(--calanque);background:#fff}
-.mono{font-family:var(--mono);font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
-h1,h2,h3{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+.mono{font-family:var(--mono);font-size:7pt;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.02}
 .serif{font-family:var(--serif);font-weight:400;font-variation-settings:normal}
 h2{font-size:26pt;margin:6px 0 14px}
-h2 .serif{background:var(--hl);padding:0 .06em}
+h2 .serif{color:var(--posidonie)}
 h3{font-size:12pt;font-variation-settings:"wdth" 84;margin:0 0 6px;line-height:1}
 p{margin:0 0 8px}
 .label{display:flex;gap:10px;color:var(--galet)}
@@ -33,7 +34,8 @@ section{break-before:page}
 .cover canvas{position:absolute;inset:0;width:100%;height:100%}
 .cover > *{position:relative}
 .cover .top{display:flex;justify-content:space-between;color:var(--lagon)}
-.cover h1{font-size:54pt;line-height:.86}
+.cover h1{font-size:50pt;line-height:1}
+.cover .logo{height:34mm;width:auto;display:block;margin-bottom:12mm}
 .cover h1 .serif{color:var(--citron)}
 .cover .sub{font-size:13pt;max-width:30em;margin-top:18px;color:rgba(244,246,241,.86);line-height:1.4}
 .cover .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:1px solid rgba(244,246,241,.2);padding-top:14px}
@@ -85,8 +87,9 @@ td b{font-weight:650}
 
 <div class="cover">
   <canvas id="topo"></canvas>
-  <div class="top mono"><span>Garrym · Sport · Diet</span><span>Brief fonctionnel · 23.10.2026</span></div>
+  <div class="top mono"><span>GM Sport et Nutrition</span><span>Brief fonctionnel · 26.10.2026</span></div>
   <div>
+    <img class="logo" src="../site/img/logoclair.png" alt="Logo GM Sport et Nutrition">
     <h1>Ce que fait<br><span class="serif">la plateforme</span></h1>
     <p class="sub">Le site public, l'espace patiente et l'outil de Manon : ce que chacun permet, pour qui, et ce que l'on voit déjà dans le prototype.</p>
   </div>
@@ -103,8 +106,8 @@ td b{font-weight:650}
   <p class="lead">Objectif : faire réserver un bilan sur Doctolib, puis accompagner chaque patiente entre les consultations, avec un contenu qui dépend de sa formule.</p>
   <div class="cards">
     <div class="card deep"><span class="mono">Site public · visiteuses</span><h3>Découvrir et réserver</h3><p>Comprendre l'approche, les thématiques et les formules, puis réserver le bilan sur Doctolib.</p></div>
-    <div class="card tint"><span class="mono">Espace patiente · abonnées</span><h3>Suivre son programme</h3><p>Semainier, recettes, liste de courses, sport, séances, documents. Débloqué selon la formule.</p></div>
-    <div class="card"><span class="mono">Back-office · Manon</span><h3>Tout gérer seule</h3><p>Créer les comptes, attribuer les formules, publier les contenus, suivre les échéances.</p></div>
+    <div class="card tint"><span class="mono">Espace patiente · abonnées</span><h3>Suivre son programme</h3><p>Application sur téléphone : Aujourd'hui, Training, Nutrition, Évolution. Semainier partagé avec Manon, vidéos à la carte, suivi de l'évolution.</p></div>
+    <div class="card"><span class="mono">Back-office · Manon</span><h3>Tout gérer seule</h3><p>Créer les comptes, attribuer les formules, publier les contenus, répondre aux repas notés, suivre les échéances.</p></div>
   </div>
   <div class="two">
     <div>
@@ -114,7 +117,7 @@ td b{font-weight:650}
         <li><b>Prise de rendez-vous</b> : Doctolib reste l'unique outil ; aucune connexion à Doctolib (pas d'API).</li>
         <li><b>Paiement en ligne</b> : encaissement hors plateforme en v1.</li>
         <li><b>Messagerie intégrée</b> : le contact passe par WhatsApp.</li>
-        <li><b>Données de santé</b> (option A) : ni poids, ni mensurations, ni journal alimentaire, ni bilan, ni note médicale.</li>
+        <li><b>Dossier médical</b> : ni bilan, ni note médicale. Les repas notés et les mesures (option B, demandée par Manon) restent au stade du prototype tant que l'hébergement HDS n'est pas en place.</li>
         <li><b>Inscription libre</b> : seule Manon crée les comptes.</li>
         <li><b>Application des stores</b> : site web, installable sur l'écran d'accueil plus tard.</li>
       </ul>
@@ -131,7 +134,9 @@ td b{font-weight:650}
   <ol class="steps">
     <li><span><b>Découverte → bilan</b> : Instagram ou Google → site public → « Réserver le bilan » → Doctolib.</span></li>
     <li><span><b>Bilan → compte</b> : après la consultation, Manon crée le compte (nom, email, formule, dates, programme). La patiente reçoit une invitation, choisit son mot de passe et arrive sur son accueil.</span></li>
-    <li><span><b>Chaque semaine</b> : accueil (prochaine consultation, menu du jour) → semainier → recette → liste de courses ; vidéo de sport → case « fait ».</span></li>
+    <li><span><b>Chaque jour</b> : la patiente note ses repas (« fait comme prévu » en un geste, ou ce qu'elle a mangé et la quantité) ; Manon valide ou donne un conseil, la réponse s'affiche sous le repas.</span></li>
+    <li><span><b>Chaque semaine</b> : la patiente propose son semainier de la semaine suivante ; Manon valide chaque repas ou le corrige. Elle ajoute aussi ses mesures et ressentis dans « Évolution ».</span></li>
+    <li><span><b>Séance à la carte (F3)</b> : « J'ai 20 minutes », une discipline (Pilates, yoga, renfo…) ou une zone (abdos-fessiers…) → vidéo → « C'est fait ».</span></li>
     <li><span><b>Séance collective (F3)</b> : « Je viens » → rappels → lien visio. Si c'est complet : liste d'attente, place attribuée automatiquement quand elle se libère.</span></li>
     <li><span><b>Monter en gamme</b> : un contenu non inclus reste visible, flouté, avec la formule qui le débloque et un bouton pour en parler à Manon. Manon change la formule : l'accès change aussitôt.</span></li>
     <li><span><b>Fin d'abonnement</b> : email à J-7 à la patiente et à Manon ; ensuite accès réduit (hypothèse : documents en lecture seule pendant 3 mois).</span></li>
@@ -148,7 +153,7 @@ td b{font-weight:650}
       <tr><td><b>Ouverture</b></td><td>Écran de chargement, puis une corbeille de fruits en 3D (citron, abricot, pomme, figue, olives) qui réagit au doigt et au défilement. Titre « Manger mieux, bouger plus, à votre rythme », bouton « Réserver le bilan ».</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Manifeste</b></td><td>L'approche de Manon, une phrase qui s'éclaire mot à mot au défilement.</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>L'assiette / Le terrain</b></td><td>Choisir l'univers nutrition ou sport ; la photo se révèle sous le doigt ou la souris.</td><td><span class="st ok">Prototype</span></td></tr>
-      <tr><td><b>Thématiques</b></td><td>Endométriose, SOPK, ménopause, sportives, rééquilibrage : cartes en défilement horizontal, toujours « en complément de votre suivi médical ».</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Thématiques</b></td><td>Péri-ménopause et ménopause, SOPK, endométriose, mamans pressées, rééquilibrage : cartes en défilement horizontal, toujours « en complément de votre suivi médical ».</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Le bilan</b></td><td>Une heure pour comprendre habitudes, contraintes et envies ; au cabinet ou en visio ; 70 € ; réservation Doctolib.</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Formules</b></td><td>Comparer les formules (mensuel ou à l'unité) et leurs prix ; chaque carte renvoie au bilan.</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Repères et cabinets</b></td><td>Chiffres vrais (70 €, 2 cabinets, 30 min de visio, 10 places) ; Studio GS Sport à Hyères (lundi), Les Jardins de la Closeraie à La Garde (mardi, mercredi, vendredi), visio, coaching à domicile ; lien vers la carte.</td><td><span class="st ok">Prototype</span></td></tr>
@@ -183,6 +188,8 @@ td b{font-weight:650}
       <tr><td>Bouton « Reprendre rendez-vous » (Doctolib)</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
       <tr><td>Articles réservés aux membres</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
       <tr><td>Programme nutritionnel et semainier</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>Semainier partagé : repas notés, semaine proposée, réponses de Manon</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>Évolution : mesures et ressentis</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
       <tr><td>Contact WhatsApp avec Manon</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
       <tr><td>Consultation visio de 30 min tous les 15 jours</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
       <tr><td>Bibliothèque de recettes complète</td><td class="part">3 en aperçu</td><td class="part">3 en aperçu</td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
@@ -201,17 +208,13 @@ td b{font-weight:650}
 <section>
   <div class="label mono"><b>(04)</b><span>Espace patiente</span></div>
   <h2>Entre deux <span class="serif">rendez-vous</span></h2>
-  <p class="lead">Sur téléphone d'abord, avec une barre d'onglets en bas (Accueil, Programme, Recettes, Sport, Plus). Même identité visuelle que le site.</p>
-  <div class="mod"><div><h3>Accueil</h3><span class="st ok">Prototype</span></div><div><p>Message de bienvenue, formule et échéance ; prochaine consultation (date, heure, lieu, recopiée par Manon depuis Doctolib) avec bouton « Reprendre rendez-vous » ; menu du jour tiré du semainier ; progression des vidéos de la semaine ; prochaine séance collective.</p></div></div>
-  <div class="mod"><div><h3>Programme</h3><span class="st ok">Prototype</span></div><div><p>Programme nutritionnel nommé par objectif (« Énergie »), jamais par pathologie. Repères clés et semainier de 7 jours × 4 repas (petit-déjeuner, déjeuner, collation, dîner), jour courant mis en avant, lien vers chaque recette. Export PDF du semainier <span class="st todo">À construire</span></p></div></div>
-  <div class="mod"><div><h3>Recettes</h3><span class="st ok">Prototype</span></div><div><ul><li>Recherche par recette ou ingrédient ; filtres par thème, repas, temps, régime (végétarien, vegan, sans gluten, sans lactose), sans allergène (14 allergènes réglementaires) ; favoris.</li><li>Fiche : ingrédients, étapes, temps, difficulté, astuce de Manon, allergènes ; <b>portions ajustables</b> (les quantités se recalculent) ; étiquette nutritionnelle (kcal, protéines, glucides, lipides, fibres).</li></ul></div></div>
-  <div class="mod"><div><h3>Liste de courses</h3><span class="st ok">Prototype</span></div><div><p>Ajout depuis une fiche recette ; un même ingrédient dans la même unité devient une seule ligne additionnée ; cases à cocher au magasin.</p></div></div>
-  <div class="mod"><div><h3>Sport</h3><span class="st ok">Prototype</span></div><div><p>Programme sportif par niveau (ex. « Remise en forme », débutant) : séances de la semaine, vidéos à cocher « fait », barre de progression. Bibliothèque de vidéos filtrable par thème, durée, niveau et matériel.</p></div></div>
-  <div class="mod"><div><h3>Séances</h3><span class="st ok">Prototype</span></div><div><p>Séances collectives en visio (10 places) : « Je viens », places restantes, liste d'attente automatique, désinscription. Rappels la veille et 1 h avant <span class="st todo">À construire</span>. Séance individuelle réservée sur Doctolib (nouveau motif) <span class="st dec">À décider</span></p></div></div>
-  <div class="mod"><div><h3>Documents</h3><span class="st ok">Prototype</span></div><div><p>Fiches conseils déposées par Manon (génériques, aucun document médical).</p></div></div>
-  <div class="mod"><div><h3>Articles</h3><span class="st ok">Prototype</span></div><div><p>Articles réservés aux membres, en plus des articles publics du journal.</p></div></div>
-  <div class="mod"><div><h3>Profil</h3><span class="st ok">Prototype</span></div><div><p>Informations du compte, formule et échéance, préférences de notifications par email.</p></div></div>
-  <div class="mod"><div><h3>Contact</h3><span class="st ok">Prototype</span></div><div><p>Bouton WhatsApp avec message prérempli (dès la F1). Délai de réponse annoncé : 48 h ouvrées <span class="st dec">À décider</span></p></div></div>
+  <p class="lead">Une application sur téléphone, au rendu proche de l'application TSE : fond sombre, grandes photos, peu de choix par écran. Quatre onglets en bas : Aujourd'hui, Training, Nutrition, Évolution. Pensée pour des femmes pressées, sans aisance particulière avec le numérique.</p>
+  <div class="mod"><div><h3>Aujourd'hui</h3><span class="st ok">Prototype</span></div><div><p>Grandes cartes du jour (séance, menu, évolution) ; « Manon vous a répondu » ; séance du jour ; semaine en un coup d'œil (état de chaque repas) ; contenus en cours ; bouton WhatsApp. Prochaine consultation recopiée par Manon depuis Doctolib, avec « Reprendre rendez-vous ».</p></div></div>
+  <div class="mod"><div><h3>Nutrition · semainier partagé</h3><span class="st ok">Prototype</span></div><div><ul><li>Manon prépare le semainier (7 jours × 4 repas), nommé par objectif (« Énergie »), jamais par pathologie.</li><li>Pour chaque repas, la patiente indique « fait comme prévu », ou ce qu'elle a mangé, la quantité (moins, comme prévu, plus) et une remarque.</li><li>Manon valide ou donne un conseil ; la réponse apparaît sous le repas.</li><li>« Proposer ma semaine » : la patiente remplit la semaine suivante et l'envoie ; Manon valide ou corrige chaque repas et ajoute un mot général.</li></ul></div></div>
+  <div class="mod"><div><h3>Recettes</h3><span class="st ok">Prototype</span></div><div><p>Recherche, filtres (repas, temps, régime, allergènes), favoris ; fiche avec <b>portions ajustables</b>, étiquette nutritionnelle, astuce de Manon ; liste de courses additionnée automatiquement.</p></div></div>
+  <div class="mod"><div><h3>Training</h3><span class="st ok">Prototype</span></div><div><p>Vidéos de 10 à 30 min à faire chez soi : choix par durée (« j'ai 20 minutes »), par discipline (cardio doux, renfo, Pilates, mobilité, yoga, périnée) et par zone (abdos-fessiers, bas du corps, haut du corps, dos et posture, full body) ; intensité en trois points ; case « c'est fait ». Séances collectives en visio (10 places, liste d'attente). Les programmes passent au second plan. Tournage des vidéos <span class="st dec">À décider</span></p></div></div>
+  <div class="mod"><div><h3>Évolution</h3><span class="st ok">Prototype</span></div><div><p>La patiente ajoute une mesure quand elle veut : poids (facultatif), tour de taille, tour de hanches, et trois ressentis notés de 1 à 5 (énergie, sommeil, digestion). Courbes et historique. Le poids peut être masqué par Manon ou par la patiente, pour celles que la balance décourage. Ouvert à toutes les formules <span class="st dec">À décider</span></p></div></div>
+  <div class="mod"><div><h3>Profil et contact</h3><span class="st ok">Prototype</span></div><div><p>Formule et échéance, notifications, documents et articles réservés ; WhatsApp avec message prérempli (dès la F1), délai de réponse annoncé 48 h ouvrées <span class="st dec">À décider</span></p></div></div>
 </section>
 
 <section>
@@ -219,6 +222,7 @@ td b{font-weight:650}
   <h2>L'outil <span class="serif">de Manon</span></h2>
   <p class="lead">Tout se fait sans compétence technique, depuis un ordinateur ou un téléphone.</p>
   <div class="mod"><div><h3>Tableau de bord</h3><span class="st ok">Prototype</span></div><div><p>Patientes actives, revenu mensuel théorique (somme des formules actives), abonnements qui expirent sous 15 jours, inscrites à la prochaine séance, répartition par formule, liste « À traiter » (expirations, patientes sans semainier, recettes programmées, séances).</p></div></div>
+  <div class="mod"><div><h3>Suivi des repas</h3><span class="st ok">Prototype</span></div><div><ul><li>Liste des patientes : repas notés, repas à relire, semainier proposé, nombre de mesures ; les plus urgentes en haut, rappel dans « À traiter ».</li><li>Fiche de suivi : semaine en grille (prévu / mangé / état), un clic sur un repas pour valider ou conseiller ; semainier proposé avec un conseil par case ; évolution en courbes et réglage « Afficher le poids ».</li></ul></div></div>
   <div class="mod"><div><h3>Patientes</h3><span class="st ok">Prototype</span></div><div><ul><li>Liste avec recherche et filtre par formule ; statut (active, expire bientôt, suspendue, archivée).</li><li>Création d'un compte : prénom, nom, email, formule, dates (fin par défaut : début + 3 mois), programme → invitation par email <span class="st todo">À construire</span></li><li>Fiche : changer formule, dates, statut, programme ; saisir la prochaine consultation ; « Voir son espace » pour vérifier ce que voit la patiente.</li></ul></div></div>
   <div class="mod"><div><h3>Programmes</h3><span class="st ok">Prototype</span></div><div><p>Modèles de semainier réutilisables, nommés par objectif ; une case par jour et par repas ; attribution à une ou plusieurs patientes.</p></div></div>
   <div class="mod"><div><h3>Recettes</h3><span class="st ok">Prototype</span></div><div><p>Création et modification : titre, repas, thèmes, temps, difficulté, portions, ingrédients avec quantités, étapes, valeurs nutritionnelles, allergènes, régimes, astuce. Statut brouillon, publiée ou programmée (visible à une date future).</p></div></div>
@@ -249,7 +253,7 @@ td b{font-weight:650}
     <div class="box">
       <h3>Confiance et <span class="serif">données</span></h3>
       <ul style="font-size:9.2pt">
-        <li>Aucune donnée de santé collectée (option A). Passer à un suivi des mesures imposerait un hébergeur certifié HDS : décision de Manon.</li>
+        <li><b>Données de santé (option B)</b> : les repas notés et les mesures en sont. Avant la mise en ligne : hébergeur certifié HDS, analyse d'impact (AIPD), consentement explicite de chaque patiente. Seules la patiente et Manon y ont accès.</li>
         <li>Comptes créés uniquement par Manon ; données hébergées dans l'Union européenne.</li>
         <li>Aucune allégation thérapeutique : « adapté à », « en complément de votre suivi médical ».</li>
         <li>Aucun avis ni chiffre inventé ; les emplacements à fournir restent visibles.</li>
@@ -263,7 +267,8 @@ td b{font-weight:650}
         <li>Conditions générales de vente : durée, renouvellement, résiliation, rétractation de 14 jours.</li>
         <li>Diplôme et numéro de carte professionnelle de coach sportive affichés.</li>
         <li>Facturation et TVA à valider avec le comptable.</li>
-        <li>Photos de Manon et des cabinets (shooting) à la place des photos provisoires.</li>
+        <li>Photos de Manon et des cabinets (shooting), tournage des vidéos.</li>
+        <li>Hébergeur HDS choisi, AIPD et texte de consentement validés.</li>
       </ul>
     </div>
   </div>
@@ -274,8 +279,8 @@ td b{font-weight:650}
   <h2>Du prototype <span class="serif">au vrai site</span></h2>
   <div class="cards">
     <div class="card deep"><span class="mono">Aujourd'hui</span><h3>Prototype cliquable</h3><p>Les trois espaces sont visibles dans un seul fichier HTML, avec des données fictives. Rien n'est enregistré, aucun email ne part.</p></div>
-    <div class="card tint"><span class="mono">Ensuite</span><h3>Vraie application</h3><p>Proposée : Next.js, base Supabase dans l'UE, hébergement Vercel, emails Resend ou Brevo, vidéos Bunny Stream ou Vimeo.</p></div>
-    <div class="card"><span class="mono">Coût estimé</span><h3>Environ 50 € par mois</h3><p>Hébergement, base de données, vidéos et domaine, à revérifier au moment de souscrire. Comptes au nom de Manon.</p></div>
+    <div class="card tint"><span class="mono">Ensuite</span><h3>Vraie application</h3><p>Proposée : Next.js, hébergement Vercel, emails Resend ou Brevo, vidéos Bunny Stream ou Vimeo ; base Supabase dans l'UE, et hébergeur certifié HDS pour les repas notés et les mesures.</p></div>
+    <div class="card"><span class="mono">Coût estimé</span><h3>50 à 200 € par mois</h3><p>Environ 50 € sans données de santé ; 100 à 200 € avec l'hébergement HDS (estimation à confirmer par devis). Comptes au nom de Manon.</p></div>
   </div>
   <h3>Questions <span class="serif">pour Manon</span></h3>
   <table>
@@ -288,13 +293,17 @@ td b{font-weight:650}
       <tr><td>Séance individuelle</td><td>Réservée à la F3 ; 20 € en visio, 35 € en présentiel</td></tr>
       <tr><td>Contenus au lancement</td><td>30 recettes et 15 vidéos, puis 2 à 3 recettes par mois et 6 vidéos par trimestre</td></tr>
       <tr><td>Après la fin d'abonnement</td><td>Documents en lecture seule pendant 3 mois</td></tr>
-      <tr><td>Nom de marque et logo</td><td>« Garrym · Sport Diet », à confirmer et à faire dessiner</td></tr>
+      <tr><td>Nom de marque et logo</td><td>« GM Sport et Nutrition » d'après le logo ; logo à fournir en vectoriel</td></tr>
+      <tr><td>Données de santé (option B)</td><td>Gardées : hébergeur HDS, AIPD, consentement ; sinon on retire repas notés et mesures</td></tr>
+      <tr><td>Évolution</td><td>Ouverte à toutes les formules ; poids affiché par défaut, masquable</td></tr>
+      <tr><td>Réponse aux repas notés</td><td>Sous 48 h ouvrées</td></tr>
     </tbody>
   </table>
   <h3>Prochaines <span class="serif">étapes</span></h3>
   <ol class="steps">
     <li><span>Présenter le prototype à Manon (45 min) et trancher les questions ci-dessus.</span></li>
-    <li><span>Réaliser le shooting photo (Manon, cabinets, plats, gestes) et rédiger les textes définitifs.</span></li>
+    <li><span>Réaliser le shooting photo et tourner les vidéos (10 à 30 min, par discipline et par zone) ; rédiger les textes définitifs.</span></li>
+    <li><span>Choisir l'hébergeur HDS et faire l'AIPD si l'option B est confirmée.</span></li>
     <li><span>Construire la vraie application : comptes et invitations, formules, contenus, emails.</span></li>
     <li><span>Rédiger les pages légales, acheter le domaine, mettre en ligne.</span></li>
   </ol>
@@ -309,7 +318,7 @@ td b{font-weight:650}
   const n = (a, b) => { const X = Math.floor(a) & 255, Y = Math.floor(b) & 255; a -= Math.floor(a); b -= Math.floor(b); const u = f(a), v = f(b), A = p[X] + Y, B = p[X + 1] + Y; return (1 - v) * ((1 - u) * g(p[A], a, b) + u * g(p[B], a - 1, b)) + v * ((1 - u) * g(p[A + 1], a, b - 1) + u * g(p[B + 1], a - 1, b - 1)); };
   const cell = 14, cols = Math.ceil(W / cell) + 1, rows = Math.ceil(H / cell) + 1, sc = .0024, v = [];
   for (let j = 0; j < rows; j++) { v[j] = []; for (let i = 0; i < cols; i++) v[j][i] = n(i * cell * sc, j * cell * sc) + .5 * n(i * cell * sc * 2.1 + 9, j * cell * sc * 2.1); }
-  x.strokeStyle = "rgba(214,232,226,.14)"; x.lineWidth = 1.6;
+  x.strokeStyle = "rgba(227,241,214,.12)"; x.lineWidth = 1.6;
   for (let lv = -1; lv <= 1; lv += .09) { x.beginPath();
     for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
       const a = v[j][i], b = v[j][i + 1], c = v[j + 1][i + 1], d = v[j + 1][i], X = i * cell, Y = j * cell, q = [], t = (m, o) => (lv - m) / (o - m);
