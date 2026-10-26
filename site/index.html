@@ -15,15 +15,15 @@
    alternance calanque / écume / lagon, lignes topographiques, défilement horizontal épinglé, chapitre cinéma.
    Palette v5-B « Calanque et citron » : bleu-vert profond, écume, lagon, une seule couleur vive (citron, en surligneur sur fond clair). */
 :root{
-  --nuit:#12231B; --nuit-2:#1C3428; --vert:#18694B; --brume:#E3F1D6; --blanc:#F6F9F3;
-  --tilleul:#B2E388; --ink:#12231B; --gris:#5C6B63; --ligne:rgba(18,35,27,.14); --ligne-claire:rgba(246,249,243,.16);
+  --nuit:#18694B; --nuit-2:#135A3F; --vert:#18694B; --brume:#E8F5DC; --blanc:#FFFFFF;
+  --tilleul:#B2E388; --ink:#0F3A2A; --gris:#5C6B63; --ligne:rgba(15,58,42,.14); --ligne-claire:rgba(255,255,255,.2);
   --hl:linear-gradient(transparent 52%,var(--tilleul) 52%,var(--tilleul) 94%,transparent 94%);
   --f-sans:"Poppins", "Helvetica Neue", Arial, sans-serif;
   --f-serif:"Bellefair", "Didot", "Times New Roman", serif;
   --f-mono:"Poppins", "Helvetica Neue", Arial, sans-serif;
   --ease:cubic-bezier(.65,.05,0,1); --ease-out:cubic-bezier(.16,1,.3,1);
   --pad:clamp(18px,3.2vw,48px);
-  color-scheme:dark;
+  color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -279,6 +279,82 @@ body{font-weight:400}
 .foot .giant{margin:60px 0 -10px;line-height:0}
 .foot .giant img{width:min(560px,80vw);opacity:.14;display:block}
 @media (max-width:820px){.hero h1{font-size:clamp(2.4rem,11vw,4.2rem)}}
+/* ===== Surcharges v6.1 : dominante blanche, vert du logo, vert clair (retour de Romain, 2026-10-26) =====
+   Blanc ~60 % (héros, manifeste, univers, journal), vert clair ~15 % (thématiques, cabinets),
+   vert du logo ~25 % (formules, chapitre « Le bilan », pied de page). Tilleul : bandeau du logo,
+   surligneur derrière les mots d'accent, boutons sur fond vert (texte vert foncé). */
+body{background:var(--blanc);color:var(--ink)}
+body::before{background:var(--blanc)}
+:focus-visible{outline-color:var(--vert)}
+.deep :focus-visible,.foot :focus-visible,.bilan :focus-visible{outline-color:var(--tilleul)}
+.acc,.light .acc,.tint .acc,.hero .acc,.programmes .acc{color:var(--vert);background:var(--hl);padding:0 .08em}
+.deep .acc,.foot .acc{color:var(--tilleul);background:none;padding:0}
+.btn-acc,.light .btn-acc,.tint .btn-acc{background:var(--vert);color:#fff}
+.btn-acc:hover,.light .btn-acc:hover,.tint .btn-acc:hover{background:var(--ink);color:#fff}
+.deep .btn-acc,.foot .btn-acc{background:var(--tilleul);color:var(--ink)}
+.deep .btn-acc:hover,.foot .btn-acc:hover{background:#fff;color:var(--ink)}
+.btn-ghost{background:var(--brume);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-ink{background:var(--vert);color:#fff}
+.btn-ink:hover{background:var(--ink)}
+/* Chargement */
+.loader{background:var(--blanc);color:var(--ink)}
+.loader .word{color:var(--vert)}
+.loader .bar{background:var(--vert)}
+/* Navigation : capsule blanche */
+.nav{background:rgba(255,255,255,.82);border:1px solid var(--ligne);box-shadow:0 8px 30px rgba(15,58,42,.08);color:var(--ink)}
+.nav .links a:hover{background:var(--brume)}
+/* Héros clair */
+.hero{background:radial-gradient(110% 90% at 72% 42%,#EEF8E4 0%,#FFFFFF 60%)}
+.hero .meta{color:var(--gris)}
+.hero .meta > div,.hero .side p{text-shadow:0 0 18px #fff,0 0 4px #fff}
+.hero .side p{color:var(--ink)}
+.hero .scroll{color:var(--gris)}
+.hero .scroll i{background:linear-gradient(var(--vert),transparent)}
+.hero .fallback{background:radial-gradient(circle at 35% 30%,#FFFFFF,#B2E388 45%,#18694B 80%)}
+.label{color:var(--gris)}
+.deep .label,.foot .label{color:rgba(255,255,255,.75)}
+/* Univers */
+.univers .reveal::after{background:rgba(15,58,42,.5)}
+.univers h2 svg path{stroke:var(--tilleul)}
+.univers .side:hover .acc,.univers .side.on .acc{color:#fff;background:none}
+.univers .go{background:var(--vert);color:#fff}
+/* Thématiques : fond vert clair, cartes blanches */
+.programmes{background:var(--brume);color:var(--ink)}
+.programmes .head p{color:var(--gris)}
+.card{background:#fff;box-shadow:0 10px 30px rgba(15,58,42,.07)}
+.card .im{background:var(--brume)}
+.card .tag{color:var(--gris)}
+.card .tag b{color:var(--vert)}
+.card p{color:var(--gris)}
+/* Chapitre « Le bilan » : photo sous voile vert */
+.bilan .bg{background:var(--ink)}
+.bilan .bg img{filter:grayscale(.3) saturate(.85) brightness(.75)}
+.bilan::after{background:linear-gradient(rgba(15,58,42,.35),rgba(15,58,42,.35)),radial-gradient(70% 60% at 50% 50%,rgba(15,58,42,.1) 30%,rgba(15,58,42,.75) 100%)}
+.bilan .in{color:#fff}
+.bilan h2{color:#fff}
+.pill{border-color:rgba(255,255,255,.7)}
+.pill:hover{background:var(--tilleul);color:var(--ink)}
+/* Formules : fond vert du logo */
+.toggle{background:rgba(255,255,255,.14)}
+.plan{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2)}
+.plan::before{background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(178,227,136,.22),transparent 55%)}
+.plan.feat{background:#fff;color:var(--ink)}
+.formules .fine{color:rgba(255,255,255,.78)}
+/* Cabinets, journal */
+.place a:hover{background:var(--vert);color:#fff}
+.manifest .scribble path{stroke:var(--vert)}
+/* Pied de page vert */
+.foot .cols .mono{color:rgba(255,255,255,.72)}
+.foot .cols a,.foot .cols button{color:#fff}
+.foot .legal{color:rgba(255,255,255,.72)}
+.foot .giant img{opacity:.18}
+.loader .word img{height:clamp(120px,24vw,280px);width:auto;max-width:none;display:block}
+/* Logo en grand dans le héros ; celui de la capsule n'apparaît qu'après le héros (pas de doublon) */
+.nav .logo{max-width:0;margin-right:0;opacity:0;overflow:hidden;transition:max-width .5s var(--ease),margin .5s var(--ease),opacity .3s}
+.nav.past .logo{max-width:90px;margin-right:10px;opacity:1}
+.hero .meta .brand{height:clamp(70px,8vw,112px);width:auto;max-width:none;margin:0 0 14px -6px}
+@media (max-width:820px){.hero .meta .brand{display:none}.nav .logo{max-width:90px;margin-right:10px;opacity:1}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.manifest .w{opacity:1}}
 </style>
 </head>
@@ -289,12 +365,12 @@ body{font-weight:400}
 
 <div class="loader" id="loader" aria-hidden="true">
   <div class="top"><span class="mono">Sport et nutrition · Manon Garrione</span><span class="mono">Hyères — La Garde — Visio</span></div>
-  <div class="bottom"><div class="word">GM</div><div class="count"><span id="count">000</span></div></div>
+  <div class="bottom"><div class="word"><span><img src="img/logo.png" alt="" width="640" height="422"></span></div><div class="count"><span id="count">000</span></div></div>
   <div class="bar" id="bar"></div>
 </div>
 
 <nav class="nav" id="nav" aria-label="Navigation principale">
-  <a class="logo" href="#top" data-cursor="ACCUEIL" aria-label="GM Sport et Nutrition, accueil"><img src="img/logoclair.png" alt="" width="64" height="42"></a>
+  <a class="logo" href="#top" data-cursor="ACCUEIL" aria-label="GM Sport et Nutrition, accueil"><img src="img/logo.png" alt="" width="64" height="42"></a>
   <div class="links mono"><a href="#manifeste">Méthode</a><a href="#programmes">Thématiques</a><a href="#formules">Formules</a><a href="#cabinets">Cabinets</a></div>
   <a class="btn btn-ghost mono hide-s" href="#" id="espace">Mon espace</a>
   <a class="btn btn-acc mono doctolib" href="#" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Bilan · 70 €</a>
@@ -304,7 +380,7 @@ body{font-weight:400}
   <section class="hero" id="hero">
     <div class="fallback" id="fallback" hidden></div>
     <canvas id="gl" aria-hidden="true"></canvas>
-    <div class="meta wrap mono"><div>Diététicienne-nutritionniste<br>Coach sportive diplômée</div><div class="r">43°07′N · 6°07′E<br>Hyères — La Garde — Visio</div></div>
+    <div class="meta wrap mono"><div><img class="brand" src="img/logo.png" alt="GM Sport et Nutrition" width="640" height="422">Diététicienne-nutritionniste<br>Coach sportive diplômée</div><div class="r">43°07′N · 6°07′E<br>Hyères — La Garde — Visio</div></div>
     <div class="content wrap">
       <h1 id="title"><span class="l"><span>Manger</span> <span class="serif acc">mieux,</span></span><span class="l"><span class="serif acc">bouger</span> <span>plus,</span></span><span class="l"><span>à votre rythme.</span></span></h1>
       <div class="side">
@@ -323,7 +399,7 @@ body{font-weight:400}
 
 
   <section class="sec light univers" id="univers">
-    <canvas class="topo" data-color="rgba(18,35,27,.07)" aria-hidden="true"></canvas>
+    <canvas class="topo" data-color="rgba(24,105,75,.09)" aria-hidden="true"></canvas>
     <a class="side" href="#formules" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="assiette" alt=""></div><div class="in"><span class="sur">sur</span><h2>L'assiette<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20C90 6 190 26 280 12C330 6 370 10 396 8"/></svg></h2><p>Bilan, semainier, recettes classées par thème, repères adaptés à la santé féminine.</p><span class="go" aria-hidden="true">↗</span></div></a>
     <a class="side" href="#programmes" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="terrain" alt=""></div><div class="in"><span class="sur">sur</span><h2>Le terrain<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C80 26 170 6 260 18C320 26 360 14 396 18"/></svg></h2><p>Des vidéos de 10 à 30 minutes à faire chez vous, par zone du corps, des séances collectives en visio et du coaching à domicile.</p><span class="go" aria-hidden="true">↗</span></div></a>
   </section>
@@ -458,7 +534,7 @@ function initGL() {
 
   /* Ambiance : ciel lagon, sol calanque et trois boîtes à lumière, converties en carte d'environnement */
   const pmrem = new THREE.PMREMGenerator(renderer), env = new THREE.Scene();
-  const sky = new THREE.SphereGeometry(10, 32, 16), skyCol = [], cTop = new THREE.Color("#EEF6E8"), cBot = new THREE.Color("#12231B");
+  const sky = new THREE.SphereGeometry(10, 32, 16), skyCol = [], cTop = new THREE.Color("#EEF6E8"), cBot = new THREE.Color("#4F7A5E");
   for (let i = 0; i < sky.attributes.position.count; i++) { const c = cBot.clone().lerp(cTop, THREE.MathUtils.smoothstep(sky.attributes.position.getY(i) / 10, -.4, .8)); skyCol.push(c.r, c.g, c.b); }
   sky.setAttribute("color", new THREE.Float32BufferAttribute(skyCol, 3));
   env.add(new THREE.Mesh(sky, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.BackSide })));
@@ -473,7 +549,7 @@ function initGL() {
   sun.shadow.bias = -.0004; sun.shadow.normalBias = .02;
   scene.add(sun, sun.target);
   const rim = new THREE.DirectionalLight("#C9EBB0", 1.6); rim.position.set(5, 2, -6); scene.add(rim);
-  scene.add(new THREE.HemisphereLight("#E3F1D6", "#12231B", .35));
+  scene.add(new THREE.HemisphereLight("#FFFFFF", "#7FA98C", .5));
 
   /* Textures peintes : couleur, taches, stries, pores (le haut du canvas correspond au haut du fruit) */
   const TS = TOUCH ? 512 : 1024;
@@ -570,7 +646,7 @@ function initGL() {
   const N = TOUCH ? 400 : 1100, pos = new Float32Array(N * 3);
   for (let i = 0; i < N; i++) { const r = 3.2 + Math.random() * 5, a = Math.random() * TAU, c = Math.acos(2 * Math.random() - 1); pos.set([r * Math.sin(c) * Math.cos(a), r * Math.sin(c) * Math.sin(a), r * Math.cos(c) - 2], i * 3); }
   const pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-  const dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xE3F1D6, size: .022, transparent: true, opacity: .45, depthWrite: false }));
+  const dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0x18694B, size: .02, transparent: true, opacity: .22, depthWrite: false }));
   scene.add(dust);
 
   let gx = 2, gy = .15, gs = 1;
@@ -660,7 +736,7 @@ function initGL() {
 hero = initGL();
 
 /* ---------- Chargement chiffré puis entrée ---------- */
-const letters = $(".loader .word"); letters.innerHTML = [...letters.textContent].map(c => `<span>${c}</span>`).join("");
+const letters = $(".loader .word"); if (!letters.children.length) letters.innerHTML = [...letters.textContent].map(c => `<span>${c}</span>`).join("");
 const count = $("#count"), bar = $("#bar");
 const prog = { v: 0 };
 const ready = Promise.all([document.fonts.ready, new Promise(r => document.readyState === "complete" ? r() : addEventListener("load", r)), new Promise(r => setTimeout(r, REDUCE ? 200 : 1800))]);
@@ -783,7 +859,7 @@ $$(".journal .rw").forEach(r => { r.addEventListener("pointerenter", () => { if 
 renderPlans("mois");
 
 /* ---------- Navigation qui se cache en descendant ---------- */
-let lastY = 0; addEventListener("scroll", () => { const y = scrollY; $("#nav").classList.toggle("hide", y > lastY && y > 300); lastY = y; }, { passive: true });
+let lastY = 0; addEventListener("scroll", () => { const y = scrollY, nav = $("#nav"); nav.classList.toggle("hide", y > lastY && y > 300); nav.classList.toggle("past", y > innerHeight * .5); lastY = y; }, { passive: true });
 addEventListener("load", () => ScrollTrigger.refresh());
 </script>
 </body>

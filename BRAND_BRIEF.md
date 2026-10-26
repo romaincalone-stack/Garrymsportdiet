@@ -1,6 +1,7 @@
 # BRAND_BRIEF : identité
 
-Version 6.0 · 2026-10-26 · Direction « GM Sport et Nutrition », construite autour du logo de Manon · À valider par Manon.
+Version 6.1 · 2026-10-26 · Direction « GM Sport et Nutrition », construite autour du logo de Manon · À valider par Manon.
+6.1 (retour de Romain le même jour) : le site doit être **blanc, vert foncé, vert clair**, avec le logo. Le quasi-noir de la 6.0 (`#12231B`) disparaît : le site passe en dominante blanche, les sections fortes prennent le vert du logo, et l'application sombre prend un vert foncé tiré du logo.
 Retour de Manon transmis par Romain le 2026-10-26 : la direction artistique doit partir de son logo (monogramme « GM » et bandeau « SPORT ET NUTRITION ») ; l'espace patiente doit reprendre le rendu de l'application TSE sur téléphone (fond sombre, grandes photos, tuiles, barre d'onglets), avec trois rubriques de contenu et une rubrique « Évolution ». Priorité : très simple à utiliser pour des femmes pressées, en péri-ménopause ou ménopause, orientées santé.
 Historique : v5.0-B « Calanque et citron » (2026-10-23, conservée plus bas pour mémoire), v4.1 « Oliveraie et abricot », v4.0 « Nuit varoise », v3 « Olivier et argile » (rejetée).
 
@@ -8,7 +9,7 @@ Historique : v5.0-B « Calanque et citron » (2026-10-23, conservée plus bas po
 
 ### Logo
 Fichiers : `site/img/logo.png` (original, vert sur fond transparent, 640 × 422) et `site/img/logoclair.png` (variante pour fond sombre : monogramme en blanc, bandeau tilleul conservé). Tirés du fichier Word transmis par Manon, recadrés et réduits à 64 couleurs (12 Ko). **À obtenir en vectoriel (SVG ou PDF) auprès de Manon ou de sa graphiste** avant la mise en ligne, avec un favicon.
-- Le logo apparaît dans la capsule de navigation (40 px de haut), en filigrane géant à 14 % dans le pied de page, sur la page de connexion.
+- Le logo apparaît en grand à l'écran de chargement et en haut à gauche du héros (version verte) ; dans la capsule de navigation blanche une fois le héros dépassé (et dès l'arrivée sur mobile, où les fruits occupent le haut) ; en filigrane dans le pied de page vert (version claire) ; sur la page de connexion.
 - Ne pas le déformer, ne pas le recolorer hors des deux variantes, garder une marge libre égale à la hauteur du bandeau.
 
 ### Couleurs
@@ -16,17 +17,19 @@ Tirées des pixels du logo : vert profond du monogramme, tilleul du bandeau.
 
 | Token | Valeur | Usage |
 | --- | --- | --- |
-| `--nuit` | `#12231B` | Fond des sections sombres du site, fond de l'application patiente, texte courant sur fond clair (`--ink`) |
-| `--nuit-2` | `#1C3428` | Cartes et surfaces sur fond nuit |
-| `--vert` | `#18694B` | Vert du logo : liens, boutons sur fond clair, validations |
-| `--tilleul` | `#B2E388` | Bandeau du logo. **Seule couleur vive** : boutons principaux sur fond sombre, mots d'accent, anneaux, onglet actif |
-| `--brume` | `#E3F1D6` | Fonds doux, sections teintées |
-| `--blanc` | `#F6F9F3` | Fond clair, texte sur fond nuit |
+| `--blanc` | `#FFFFFF` | **Couleur dominante du site** : héros, manifeste, univers, journal ; texte sur fond vert |
+| `--vert` (= `--nuit` dans le code du site) | `#18694B` | Vert du logo : sections fortes (formules, pied de page), boutons principaux sur fond blanc (texte blanc), liens |
+| `--ink` | `#0F3A2A` | Vert foncé : texte courant et titres sur fond clair ; voile du chapitre « Le bilan » ; fond de l'application patiente |
+| `--nuit-2` | `#135A3F` | Cartes sur fond vert |
+| `--brume` | `#E8F5DC` | Vert clair doux : sections teintées (thématiques, cabinets), boutons secondaires |
+| `--tilleul` | `#B2E388` | Bandeau du logo. **Seule couleur vive** : surligneur derrière les mots d'accent (comme le bandeau du logo), boutons sur fond vert (texte vert foncé), anneaux, onglet actif |
 | `--gris` | `#5C6B63` | Texte secondaire sur fond clair |
 
-Surfaces de l'application sombre : `#1C3428` (cartes), `#24402F` (cartes surélevées), `#2E4A3C` (filets, pastilles), `#0C1A13` (barre d'onglets) ; texte secondaire `#B4C7BA`.
+Répartition du site : blanc environ 60 %, vert clair 15 %, vert du logo et vert foncé 25 %. Pas de noir ni de quasi-noir.
 
-Contrastes (WCAG, calculés) : blanc sur nuit 17,4:1 ; tilleul sur nuit 11,8:1 ; vert sur blanc 6,6:1 ; gris sur blanc 5,2:1 ; vert sur tilleul 4,5:1 (grands textes et boutons seulement) ; tilleul sur blanc 1,4:1 (**interdit** : jamais de texte tilleul sur fond clair).
+Surfaces de l'application sombre : `#0F3A2A` (fond), `#164A36` (cartes), `#1B5640` (cartes surélevées), `#26624A` (filets, pastilles), `#0B2E21` (barre d'onglets) ; texte secondaire `#B4C7BA`.
+
+Contrastes (WCAG, calculés) : vert foncé sur blanc 12,7:1 ; blanc sur vert du logo 6,6:1 ; vert du logo sur vert clair 5,9:1 ; gris sur vert clair 5,0:1 ; vert foncé sur tilleul 8,6:1 ; tilleul sur vert du logo 4,5:1 (grands textes seulement) ; texte secondaire `#B4C7BA` sur `#1B5640` 4,8:1 ; tilleul sur blanc 1,4:1 (**interdit** : le tilleul ne sert que de fond ou de surligneur sur fond clair).
 
 ### Typographies
 | Rôle | Police | Réglages |
@@ -40,7 +43,7 @@ Mona Sans et Geist Mono sont retirées. Plus de titres en capitales : la client�
 Boutons et pastilles en pilule (rayon 999 px), cartes à rayon 20 à 24 px, sans coin coupé. Hauteur minimale des cibles 44 px.
 
 ### Application patiente (rendu « TSE »)
-Thème sombre fixe (fond nuit), indépendant du réglage de l'appareil. Composants :
+Thème sombre fixe (fond vert foncé `#0F3A2A`), indépendant du réglage de l'appareil. Composants :
 - **En-tête** : salutation, date, avatar rond ; titre de rubrique en Poppins 600.
 - **Cartes en éventail** (`.mfan`) : trois grandes cartes photo inclinées (séance du jour, menu du jour, évolution).
 - **Pilule de recherche blanche** (`.msearch`) avec bouton de filtres.
@@ -166,7 +169,7 @@ Les cinq références reposent sur des photos et des modèles 3D produits par de
 
 ## Application v5-B (historique)
 
-Remplacée par la section « Application patiente (rendu TSE) » de la v6. Les noms de tokens v3 (`--paper`, `--olive`, `--sable`…) restent dans `prototype/index.html` ; leurs valeurs suivent désormais la v6 : `--paper` `#F6F9F3`, `--ink` `#12231B`, `--ink-2` `#5C6B63`, `--line` `#D6E2D3`, `--olive` `#18694B`, `--sable` et `--citron` `#B2E388`, `--lagon` `#E3F1D6`, `--calanque` `#12231B`. L'espace patiente redéfinit ces tokens en sombre sous `body.v-patient`.
+Remplacée par la section « Application patiente (rendu TSE) » de la v6. Les noms de tokens v3 (`--paper`, `--olive`, `--sable`…) restent dans `prototype/index.html` ; leurs valeurs suivent désormais la v6 : `--paper` `#F6F9F3`, `--ink` `#0F3A2A`, `--ink-2` `#5C6B63`, `--line` `#D6E2D3`, `--olive` `#18694B`, `--sable` et `--citron` `#B2E388`, `--lagon` `#E3F1D6`, `--calanque` `#0F3A2A`. L'espace patiente redéfinit ces tokens en sombre sous `body.v-patient`.
 
 ## Mots-clés de référencement
 
