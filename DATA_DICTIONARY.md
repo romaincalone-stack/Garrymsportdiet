@@ -25,7 +25,7 @@ Conservation par défaut des données personnelles : durée de la relation + 3 a
 | --- | --- | --- | --- | --- |
 | code | text PK | oui | `f3` | — |
 | name | text | oui | Nutrition + Recettes + Sport | — |
-| price_cents | int | oui | 9000 | — |
+| price_cents | int | oui | 9000 (F2) ; F1 6500, F3 4000 | — |
 | billing_unit | enum `consultation`, `mois` | oui | `mois` | — |
 | sort_order | int | oui | 4 | — |
 

@@ -1,6 +1,6 @@
 # Garrym · Sport Diet
 
-Plateforme de Manon Garrione, diététicienne-nutritionniste et coach sportive (Hyères, La Garde, visio) : site public, espace patiente selon la formule, back-office.
+Plateforme de Manon Garrione, diététicienne-nutritionniste et coach sportive (La Garde, visio) : site public, espace patiente selon la formule, back-office.
 
 **Statut** : phase 1, prototype cliquable en validation auprès de Manon. Aucune donnée réelle.
 

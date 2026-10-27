@@ -9,7 +9,7 @@ Fichiers redimensionnés à 1 280 px et recompressés, sans autre modification. 
 | `course.jpg` | Dülmen, Hausdülmen, Hochzeitsallee -- 2020 -- 7996.jpg | Dietmar Rabich | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Hausd%C3%BClmen,_Hochzeitsallee_--_2020_--_7996.jpg) |
 | `citrons.jpg` | Citrus x limon (Outjo).jpg | Hans Hillewaert | CC BY-SA 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Citrus_x_limon_(Outjo).jpg) |
 | `assiette.jpg` | At New York City 2024 120.jpg | Photograph by Mike Peel (www.mikepeel.net). | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:At_New_York_City_2024_120.jpg) |
-| `terrain.jpg` | Leichtathletik Gala Linz 2016-6882.jpg | Isiwal | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Leichtathletik_Gala_Linz_2016-6882.jpg) |
+| `terrain.jpg` | Pilates Dachterrasse.jpg | NikStryker | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Pilates_Dachterrasse.jpg) |
 | `yoga.jpg` | Top view of a woman lying on the yoga mat.jpg | Shixart1985 | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Top_view_of_a_woman_lying_on_the_yoga_mat.jpg) |
 | `table.jpg` | Lemon - whole and split.jpg | Ivar Leidus | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Lemon_-_whole_and_split.jpg) |
 | `etirement.jpg` | Outdoor yoga.jpg | Tz drunk poet | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Outdoor_yoga.jpg) |

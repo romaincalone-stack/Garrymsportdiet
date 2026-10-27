@@ -15,7 +15,7 @@ async function run(name, viewport, mobile) {
   page.on("console", m => { if (m.type() === "error") errors.push(`${name} console: ${m.text()}`); });
   page.on("requestfailed", r => errors.push(`${name} requestfailed: ${r.url()} ${r.failure()?.errorText}`));
   await page.goto(url, { waitUntil: "load", timeout: 90000 });
-  await page.waitForFunction(() => getComputedStyle(document.getElementById("loader")).display === "none", null, { timeout: 60000 });
+  await page.waitForFunction(() => document.body.classList.contains("ready"), null, { timeout: 60000 });
   await wait(2600);
   const gl = await page.evaluate(() => !document.getElementById("gl").hidden);
   console.log(`${name} webgl ${gl}`);

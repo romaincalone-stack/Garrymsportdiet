@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GM Sport et Nutrition</title>
-<meta name="description" content="Manon Garrione, diététicienne-nutritionniste et coach sportive à Hyères, La Garde et en visio.">
+<meta name="description" content="Manon Garrione, diététicienne-nutritionniste et coach sportive à La Garde et en visio.">
 <meta name="theme-color" content="#12231B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,13 +51,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-2%)}75%{transform:translate(-2%,-4%)}100%{transform:translate(0,0)}}
 
-/* Chargement (Symphony of Vines, Resn) */
-.loader{position:fixed;inset:0;z-index:300;background:var(--nuit);display:flex;flex-direction:column;justify-content:space-between;padding:var(--pad);clip-path:inset(0 0 0 0)}
-.loader .top,.loader .bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
-.loader .word{font-family:var(--f-serif);font-size:clamp(3.4rem,13vw,12rem);line-height:.82;letter-spacing:-.02em;display:flex;overflow:hidden}
-.loader .word span{display:inline-block;transform:translateY(105%)}
-.loader .count{font-family:var(--f-sans);font-weight:300;font-variation-settings:"wdth" 75;font-size:clamp(3rem,10vw,9rem);line-height:.8;font-variant-numeric:tabular-nums}
-.loader .bar{position:absolute;left:0;bottom:0;height:2px;background:var(--tilleul);width:0}
 
 /* Curseur */
 .cursor{position:fixed;left:0;top:0;z-index:250;pointer-events:none;mix-blend-mode:difference}
@@ -264,8 +257,7 @@ body{font-weight:400}
 .manifest p{font-weight:500;font-size:clamp(1.8rem,4.4vw,4.2rem);line-height:1.12}
 .plan .price{font-weight:600;letter-spacing:-.04em}
 .plan h3{font-weight:600}
-.stats b,.loader .count{font-variation-settings:normal;font-weight:300}
-.loader .word{font-size:clamp(6rem,24vw,20rem)}
+.stats b{font-variation-settings:normal;font-weight:300}
 .nav{border-radius:999px;padding:6px 6px 6px 18px}
 .nav .logo{flex:none;margin-right:10px}
 .nav .logo img{height:40px;width:auto;max-width:none;display:block}
@@ -298,9 +290,6 @@ body::before{background:var(--blanc)}
 .btn-ink{background:var(--vert);color:#fff}
 .btn-ink:hover{background:var(--ink)}
 /* Chargement */
-.loader{background:var(--blanc);color:var(--ink)}
-.loader .word{color:var(--vert)}
-.loader .bar{background:var(--vert)}
 /* Navigation : capsule blanche */
 .nav{background:rgba(255,255,255,.82);border:1px solid var(--ligne);box-shadow:0 8px 30px rgba(15,58,42,.08);color:var(--ink)}
 .nav .links a:hover{background:var(--brume)}
@@ -341,6 +330,7 @@ body::before{background:var(--blanc)}
 .plan::before{background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(178,227,136,.22),transparent 55%)}
 .plan.feat{background:#fff;color:var(--ink)}
 .formules .fine{color:rgba(255,255,255,.78)}
+.plan .after{margin:auto 0 0;padding:13px 16px;border:1px dashed rgba(255,255,255,.45);border-radius:999px;text-align:center;color:rgba(255,255,255,.85)}
 /* Cabinets, journal */
 .place a:hover{background:var(--vert);color:#fff}
 .manifest .scribble path{stroke:var(--vert)}
@@ -349,7 +339,6 @@ body::before{background:var(--blanc)}
 .foot .cols a,.foot .cols button{color:#fff}
 .foot .legal{color:rgba(255,255,255,.72)}
 .foot .giant img{opacity:.18}
-.loader .word img{height:clamp(120px,24vw,280px);width:auto;max-width:none;display:block}
 /* Logo en grand dans le héros ; celui de la capsule n'apparaît qu'après le héros (pas de doublon) */
 .nav .logo{max-width:0;margin-right:0;opacity:0;overflow:hidden;transition:max-width .5s var(--ease),margin .5s var(--ease),opacity .3s}
 .nav.past .logo{max-width:90px;margin-right:10px;opacity:1}
@@ -363,10 +352,6 @@ body::before{background:var(--blanc)}
 <div class="cursor" aria-hidden="true"><div class="dot"></div><div class="ring"><span>VOIR</span></div></div>
 <div class="peek" aria-hidden="true"><img alt="" src=""></div>
 
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="top"><span class="mono">Sport et nutrition · Manon Garrione</span><span class="mono">Hyères — La Garde — Visio</span></div>
-  <div class="bottom"><div class="word"><span><img src="img/logo.png" alt="" width="640" height="422"></span></div><div class="count"><span id="count">000</span></div></div>
-  <div class="bar" id="bar"></div>
 </div>
 
 <nav class="nav" id="nav" aria-label="Navigation principale">
@@ -380,7 +365,7 @@ body::before{background:var(--blanc)}
   <section class="hero" id="hero">
     <div class="fallback" id="fallback" hidden></div>
     <canvas id="gl" aria-hidden="true"></canvas>
-    <div class="meta wrap mono"><div><img class="brand" src="img/logo.png" alt="GM Sport et Nutrition" width="640" height="422">Diététicienne-nutritionniste<br>Coach sportive diplômée</div><div class="r">43°07′N · 6°07′E<br>Hyères — La Garde — Visio</div></div>
+    <div class="meta wrap mono"><div><img class="brand" src="img/logo.png" alt="GM Sport et Nutrition" width="640" height="422">Diététicienne-nutritionniste<br>Coach sportive diplômée</div><div class="r">43°07′N · 6°01′E<br>La Garde — Visio</div></div>
     <div class="content wrap">
       <h1 id="title"><span class="l"><span>Manger</span> <span class="serif acc">mieux,</span></span><span class="l"><span class="serif acc">bouger</span> <span>plus,</span></span><span class="l"><span>à votre rythme.</span></span></h1>
       <div class="side">
@@ -401,14 +386,14 @@ body::before{background:var(--blanc)}
   <section class="sec light univers" id="univers">
     <canvas class="topo" data-color="rgba(24,105,75,.09)" aria-hidden="true"></canvas>
     <a class="side" href="#formules" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="assiette" alt=""></div><div class="in"><span class="sur">sur</span><h2>L'assiette<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20C90 6 190 26 280 12C330 6 370 10 396 8"/></svg></h2><p>Bilan, semainier, recettes classées par thème, repères adaptés à la santé féminine.</p><span class="go" aria-hidden="true">↗</span></div></a>
-    <a class="side" href="#programmes" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="terrain" alt=""></div><div class="in"><span class="sur">sur</span><h2>Le terrain<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C80 26 170 6 260 18C320 26 360 14 396 18"/></svg></h2><p>Des vidéos de 10 à 30 minutes à faire chez vous, par zone du corps, des séances collectives en visio et du coaching à domicile.</p><span class="go" aria-hidden="true">↗</span></div></a>
+    <a class="side" href="#programmes" data-cursor="DÉCOUVRIR"><div class="reveal"><img data-img="terrain" alt=""></div><div class="in"><span class="sur">sur</span><h2>Le terrain<svg viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C80 26 170 6 260 18C320 26 360 14 396 18"/></svg></h2><p>Des vidéos de 10 à 30 minutes à faire chez vous (cardio, renfo, étirements…), 2 séances collectives par mois en visio et du coaching à domicile.</p><span class="go" aria-hidden="true">↗</span></div></a>
   </section>
 
   <section class="sec programmes" id="programmes">
-    <div class="head wrap"><div><div class="label mono" style="margin-bottom:24px"><b>(02)</b><span>Thématiques</span></div><h2>Pour chaque<br><span class="serif acc" style="font-weight:400">étape de vie</span></h2></div><p>Chaque accompagnement est personnalisé lors du bilan, en complément de votre suivi médical.</p></div>
+    <div class="head wrap"><div><div class="label mono" style="margin-bottom:24px"><b>(02)</b><span>Thématiques</span></div><h2>Pour chaque<br><span class="serif acc" style="font-weight:400">femme</span></h2></div><p>Chaque accompagnement est personnalisé lors du bilan, en complément de votre suivi médical.</p></div>
     <div class="track-wrap"><div class="track wrap" id="track">
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="yoga" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>01</b></div><h3>Endométriose</h3><p>Des repères alimentaires pour mieux vivre au quotidien, en lien avec votre suivi médical.</p></div></article>
-      <article class="card" data-cursor="VOIR"><div class="im"><img data-img="table" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>02</b></div><h3>SOPK</h3><p>Stabiliser l'énergie dans la journée et construire des repas qui tiennent.</p></div></article>
+      <article class="card" data-cursor="VOIR"><div class="im"><img data-img="table" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine · ex-SOPK</span><b>02</b></div><h3>SMOP</h3><p>Trouver votre équilibre entre vos symptômes, votre assiette et le mouvement.</p></div></article>
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="etirement" alt=""></div><div class="tx"><div class="tag mono"><span>Santé féminine</span><b>03</b></div><h3>Péri-ménopause et ménopause</h3><p>Adapter l'assiette et le mouvement à ce nouveau rythme.</p></div></article>
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="course" alt=""></div><div class="tx"><div class="tag mono"><span>Au quotidien</span><b>04</b></div><h3>Mamans pressées</h3><p>Des repas simples et des séances de 15 minutes, quand vous trouvez le temps.</p></div></article>
       <article class="card" data-cursor="VOIR"><div class="im"><img data-img="assiette" alt=""></div><div class="tx"><div class="tag mono"><span>Équilibre</span><b>05</b></div><h3>Rééquilibrage</h3><p>Des repères simples et durables, sans restriction.</p></div></article>
@@ -438,13 +423,12 @@ body::before{background:var(--blanc)}
     <div class="grid">
       <div class="stats">
         <div class="s"><b data-count="70" data-suffix=" €">0 €</b><span class="mono">Le bilan<br>initial</span></div>
-        <div class="s"><b data-count="2">0</b><span class="mono">Cabinets<br>dans le Var</span></div>
+        <div class="s"><b data-count="2">0</b><span class="mono">Séances collectives<br>par mois en visio</span></div>
         <div class="s"><b data-count="30" data-suffix=" min">0 min</b><span class="mono">De visio<br>tous les 15 jours</span></div>
         <div class="s"><b data-count="10">0</b><span class="mono">Places par séance<br>collective</span></div>
       </div>
       <div class="places">
-        <h2>Deux cabinets, <span class="serif acc">et la visio.</span></h2>
-        <div class="place"><span class="d mono">Lundi</span><div><b>Studio GS Sport</b><small>26 avenue de Toulon, 83400 Hyères</small></div><a href="https://www.google.com/maps/search/?api=1&query=26+avenue+de+Toulon+83400+Hy%C3%A8res" target="_blank" rel="noopener" aria-label="Voir Studio GS Sport sur la carte" data-cursor="CARTE">↗</a></div>
+        <h2>Un cabinet, <span class="serif acc">et la visio.</span></h2>
         <div class="place"><span class="d mono">Mar · Mer · Ven</span><div><b>Les Jardins de la Closeraie</b><small>137 rue des Oliviers, 83130 La Garde</small></div><a href="https://www.google.com/maps/search/?api=1&query=137+rue+des+Oliviers+83130+La+Garde" target="_blank" rel="noopener" aria-label="Voir l'espace santé sur la carte" data-cursor="CARTE">↗</a></div>
         <div class="place"><span class="d mono">Partout</span><div><b>Visio</b><small>Consultations et séances collectives</small></div><span></span></div>
         <div class="place"><span class="d mono">Chez vous</span><div><b>Coaching à domicile</b><small>Sur demande</small></div><span></span></div>
@@ -735,22 +719,9 @@ function initGL() {
 }
 hero = initGL();
 
-/* ---------- Chargement chiffré puis entrée ---------- */
-const letters = $(".loader .word"); if (!letters.children.length) letters.innerHTML = [...letters.textContent].map(c => `<span>${c}</span>`).join("");
-const count = $("#count"), bar = $("#bar");
-const prog = { v: 0 };
-const ready = Promise.all([document.fonts.ready, new Promise(r => document.readyState === "complete" ? r() : addEventListener("load", r)), new Promise(r => setTimeout(r, REDUCE ? 200 : 1800))]);
-gsap.to(".loader .word span", { y: 0, duration: 1.1, stagger: .06, ease: "expo.out", delay: .15 });
-const counter = gsap.to(prog, { v: 92, duration: 2.2, ease: "power2.out", onUpdate: () => { count.textContent = String(Math.round(prog.v)).padStart(3, "0"); bar.style.width = prog.v + "%"; } });
-ready.then(() => {
-  counter.kill();
-  gsap.timeline()
-    .to(prog, { v: 100, duration: .5, ease: "power1.inOut", onUpdate: () => { count.textContent = String(Math.round(prog.v)).padStart(3, "0"); bar.style.width = prog.v + "%"; } })
-    .to(".loader .word span", { y: "-105%", duration: .7, stagger: .04, ease: "expo.in" }, "+=.15")
-    .to("#loader", { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "expo.inOut" }, "-=.25")
-    .add(() => { $("#loader").style.display = "none"; document.body.classList.add("ready"); lenis && lenis.start(); })
-    .add(heroIntro(), "-=.7");
-});
+/* ---------- Entrée (sans écran de chargement, retiré à la demande de Romain le 2026-10-27) ---------- */
+document.body.classList.add("ready"); lenis && lenis.start();
+heroIntro();
 function heroIntro() {
   const tl = gsap.timeline();
   if (hero) tl.to(hero.uniforms.uIntro, { value: 1, duration: 2.4, ease: "expo.out" }, 0);
@@ -828,18 +799,18 @@ $$(".univers .side").forEach(s => {
 /* ---------- Formules ---------- */
 const PLANS = {
   mois: [
-    { top: ["Formule 01", "Nutrition"], h: "Nutrition", price: "60 €", unit: "/ mois", list: ["Visio de 30 min tous les 15 jours", "Semainier partagé : Manon le prépare, vous notez vos repas, elle vous répond", "Suivi de votre évolution", "Contact rapide par WhatsApp"] },
-    { top: ["Formule 02", "Recettes"], h: 'Nutrition <span class="serif">+ recettes</span>', price: "70 €", unit: "/ mois", list: ["Tout le contenu de la formule 01", "30 recettes classées par thème", "2 à 3 nouvelles recettes par mois", "Liste de courses automatique"] },
-    { top: ["Formule 03", "La plus complète"], h: 'Nutrition, recettes <span class="serif">+ sport</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de la formule 02", "Vidéos de 10 à 30 min, à choisir selon votre temps", "Par zone du corps : abdos-fessiers, dos, bas du corps…", "2 séances collectives par mois en visio"] }
+    { top: ["Formule 01", "Suivi"], h: 'Nutrition <span class="serif">+ recettes</span>', price: "65 €", unit: "/ mois", list: ["Visio de 30 min tous les 15 jours", "Semainier partagé : Manon le prépare, vous notez vos repas, elle vous répond", "Recettes classées par thème et liste de courses automatique", "Suivi de votre évolution", "Contact rapide par WhatsApp"] },
+    { top: ["Formule 02", "La plus complète"], h: 'Nutrition, recettes <span class="serif">+ sport</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de la formule 01", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio"] },
+    { top: ["Formule 03", "Après le suivi"], h: 'Recettes <span class="serif">+ sport</span>', price: "40 €", unit: "/ mois", after: true, list: ["Toutes les recettes et la liste de courses", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio", "Suivi de votre évolution", "Pour garder le rythme une fois votre suivi terminé"] }
   ],
   unite: [
     { top: ["Pour commencer", "Doctolib"], h: 'Bilan <span class="serif">initial</span>', price: "70 €", unit: "la séance", feat: true, list: ["Une heure, au cabinet ou en visio", "Habitudes, objectifs, mode de vie", "Choix de l'accompagnement ensuite"] },
     { top: ["Sans engagement", "Doctolib"], h: 'Consultation <span class="serif">de suivi</span>', price: "50 €", unit: "la séance", list: ["Quand vous le souhaitez", "Accès à votre espace et aux fiches conseils", "Réservation sur Doctolib"] },
-    { top: ["Formule 03", "Supplément"], h: 'Séance <span class="serif">individuelle</span>', price: "20 €", unit: "visio · 35 € présentiel", list: ["Une heure : échauffement, renfo, cardio", "Au cabinet ou chez vous", "En supplément de la formule 03"] }
+    { top: ["Formule 02", "Supplément"], h: 'Séance <span class="serif">individuelle</span>', price: "20 €", unit: "visio · 35 € présentiel", list: ["Une heure : échauffement, renfo, cardio", "Au cabinet ou chez vous", "En supplément de la formule 02"] }
   ]
 };
 function renderPlans(k) {
-  $("#plans").innerHTML = PLANS[k].map(p => `<article class="plan ${p.feat ? "feat" : ""}"><div class="top mono"><span>${p.top[0]}</span><span>${p.top[1]}</span></div><h3>${p.h}</h3><div class="price">${p.price}<small>${p.unit}</small></div><ul>${p.list.map(x => `<li>${x}</li>`).join("")}</ul><a class="btn ${p.feat ? "btn-ink" : "btn-acc"} mono" href="${DOCTOLIB}" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Commencer par le bilan <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></article>`).join("");
+  $("#plans").innerHTML = PLANS[k].map(p => `<article class="plan ${p.feat ? "feat" : ""}"><div class="top mono"><span>${p.top[0]}</span><span>${p.top[1]}</span></div><h3>${p.h}</h3><div class="price">${p.price}<small>${p.unit}</small></div><ul>${p.list.map(x => `<li>${x}</li>`).join("")}</ul>${p.after ? `<p class="after mono">Proposée à la fin de votre suivi</p>` : `<a class="btn ${p.feat ? "btn-ink" : "btn-acc"} mono" href="${DOCTOLIB}" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Commencer par le bilan <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>`}</article>`).join("");
   $$(".plan").forEach(p => p.addEventListener("pointermove", e => { const r = p.getBoundingClientRect(); p.style.setProperty("--gx", (e.clientX - r.left) + "px"); p.style.setProperty("--gy", (e.clientY - r.top) + "px"); }));
   bindCursor();
 }

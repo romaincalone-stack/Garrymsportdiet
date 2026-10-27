@@ -9,7 +9,7 @@ Historique : v5.0-B « Calanque et citron » (2026-10-23, conservée plus bas po
 
 ### Logo
 Fichiers : `site/img/logo.png` (original, vert sur fond transparent, 640 × 422) et `site/img/logoclair.png` (variante pour fond sombre : monogramme en blanc, bandeau tilleul conservé). Tirés du fichier Word transmis par Manon, recadrés et réduits à 64 couleurs (12 Ko). **À obtenir en vectoriel (SVG ou PDF) auprès de Manon ou de sa graphiste** avant la mise en ligne, avec un favicon.
-- Le logo apparaît en grand à l'écran de chargement et en haut à gauche du héros (version verte) ; dans la capsule de navigation blanche une fois le héros dépassé (et dès l'arrivée sur mobile, où les fruits occupent le haut) ; en filigrane dans le pied de page vert (version claire) ; sur la page de connexion.
+- Le logo apparaît en grand en haut à gauche du héros (version verte) ; dans la capsule de navigation blanche une fois le héros dépassé (et dès l'arrivée sur mobile, où les fruits occupent le haut) ; en filigrane dans le pied de page vert (version claire) ; sur la page de connexion.
 - Ne pas le déformer, ne pas le recolorer hors des deux variantes, garder une marge libre égale à la hauteur du bandeau.
 
 ### Couleurs
@@ -56,7 +56,7 @@ Thème sombre fixe (fond vert foncé `#0F3A2A`), indépendant du réglage de l'a
 Sur ordinateur (≥ 1 024 px) : barre latérale `#0B2E21` de 248 px (logo clair, rubriques en ligne, élément actif sur `#164A36`, profil en bas), contenu jusqu'à 1 180 px, accueil en deux colonnes.
 
 ### Back-office
-Fond clair (blanc et brume), surfaces fortes en nuit, mêmes polices et formes que le site.
+Fond clair (blanc et brume), surfaces fortes en nuit, mêmes polices et formes que le site. Sur téléphone : barre d'onglets blanche en bas (onglet actif vert du logo sur brume, pastille verte du nombre à traiter), panneau « Plus » en tuiles de deux colonnes, tableaux en cartes.
 
 ### Aperçu du prototype (bandeau « Affichage »)
 Fond de scène `#E8F5DC` (brume) ; cadre de téléphone : bordure 10 px `#0B2E21`, rayon 48 px, ombre `0 30px 60px -24px rgba(15,58,42,.5)` ; écran d'ordinateur : filet `rgba(15,58,42,.16)`, rayon 12 px. Ces éléments n'existent que dans le prototype.
@@ -83,7 +83,7 @@ Sites choisis par Romain, **ouverts et mesurés** le 2026-10-23 : inspection REA
 
 - **Nom de marque** : GM Sport et Nutrition (lu sur le logo, **à confirmer** ; ancien nom de travail « Garrym · Sport Diet », compte Instagram `@garrymsportdiet`). La personne : Manon Garrione.
 - **Promesse** : « Manger mieux, bouger plus, à votre rythme. »
-- **Positionnement** : diététicienne-nutritionniste et coach sportive sur la côte varoise, spécialisée en santé féminine (péri-ménopause, ménopause, SOPK, endométriose) ; clientèle principale : femmes pressées, souvent mamans, qui cherchent la santé plutôt que la performance.
+- **Positionnement** : diététicienne-nutritionniste et coach sportive sur la côte varoise, spécialisée en santé féminine (péri-ménopause, ménopause, SMOP ex-SOPK, endométriose) ; cabinet à La Garde et visio ; clientèle principale : femmes pressées, souvent mamans, qui cherchent la santé plutôt que la performance.
 
 ## Ton
 
@@ -137,7 +137,7 @@ En production : polices auto-hébergées (RGPD).
 
 | Section | Composition | Référence |
 | --- | --- | --- |
-| Chargement | Fond calanque, « GARRYM » en Bellefair géant lettre par lettre, compteur 000 → 100, barre citron, rideau qui remonte | Symphony, Resn |
+| Chargement | Retiré le 2026-10-27 (jugé inutile par Romain) : le héros s'affiche directement | — |
 | Héros | Scène WebGL plein écran : corbeille de fruits en 3D réalistes (citron au centre, abricot, pomme, figue, olives, feuilles) : matières physiques (velours, pores, cire, laque), éclairage d'ambiance, ombres portées ; chute à l'arrivée, flottaison, poussée du pointeur, collisions douces, élan du défilement ; poussière en suspension ; mentions mono en haut, titre en trois lignes en bas à gauche, texte et boutons en bas à droite, « Défilez pour explorer » | Resn, KÖM, Terminal, Lando |
 | (01) Manifeste | Fond écume, fin de phrase surlignée de citron, une phrase centrée qui s'éclaire mot à mot, trait manuscrit qui se dessine | Terminal |
 | L'assiette / Le terrain | Deux moitiés, titre géant ; la photo se révèle (assombrie) avec un trait citron sous le titre ; bouton rond calanque à flèche citron ; en cercle depuis le pointeur | Lando (On track / Off track) |
@@ -178,4 +178,4 @@ Remplacée par la section « Application patiente (rendu TSE) » de la v6. Les n
 
 ## Mots-clés de référencement
 
-diététicienne Hyères · diététicienne La Garde · diététicienne Toulon · nutritionniste Var · coach sportive Hyères · coaching sportif à domicile Hyères · alimentation endométriose · diététicienne SOPK · nutrition ménopause · péri-ménopause alimentation · sport à la maison femmes · rééquilibrage alimentaire · nutrition du sport · téléconsultation diététicienne · recettes santé féminine.
+diététicienne La Garde · diététicienne Toulon · nutritionniste Var · coach sportive La Garde · coaching sportif à domicile Var · SMOP alimentation · alimentation endométriose · diététicienne SOPK · nutrition ménopause · péri-ménopause alimentation · sport à la maison femmes · rééquilibrage alimentaire · nutrition du sport · téléconsultation diététicienne · recettes santé féminine.

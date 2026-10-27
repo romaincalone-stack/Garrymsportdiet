@@ -1,6 +1,6 @@
 # APP_SPEC : spécification produit
 
-Version 2026-10-26 · Statut : prototype en validation · Remplace le « Cahier des charges v2 » rédigé dans Claude Docs.
+Version 2026-10-27 · Statut : prototype en validation · Remplace le « Cahier des charges v2 » rédigé dans Claude Docs.
 
 Structure inspirée des cinq plans de J. J. Garrett (*The Elements of User Experience*) : stratégie → périmètre → structure → ossature → surface.
 
@@ -16,9 +16,9 @@ Donner à chaque patiente de Manon un accompagnement qui continue entre les cons
 | --- | --- | --- |
 | **Visiteuse** venue d'Instagram ou de Google | Comprendre l'offre, réserver un bilan | Aucune |
 | **Patiente en suivi simple** | Retrouver ses fiches conseils, reprendre rendez-vous | Suivi simple (50 €/consult.) |
-| **Abonnée nutrition** | Savoir quoi manger cette semaine | F1 (60 €/mois) |
-| **Abonnée recettes** | Cuisiner varié, adapté à son thème (SOPK, endométriose…) | F2 (70 €/mois) |
-| **Abonnée sport** | Bouger chez elle 10 à 30 min, choisir une vidéo selon son temps et la zone à travailler | F3 (90 €/mois, hypothèse) |
+| **Abonnée suivi** | Savoir quoi manger cette semaine, cuisiner varié, être suivie par Manon | F1 Nutrition + Recettes (65 €/mois, 60 ou 65 € à trancher) |
+| **Abonnée complète** | Le suivi, plus bouger chez elle 10 à 30 min (cardio, renfo, étirements…) et 2 séances collectives par mois | F2 Nutrition + Recettes + Sport (90 €/mois) |
+| **Ancienne patiente** | Garder l'élan une fois le suivi terminé : recettes, vidéos, séances collectives | F3 Recettes + Sport (40 €/mois) |
 | **Manon (administratrice)** | Créer les comptes, publier, relire les repas notés et les semainiers proposés, voir qui expire | — |
 
 Clientèle principale (vocaux de Manon, 2026-10-26) : des femmes, souvent mamans sans temps, en péri-ménopause ou ménopause, ou concernées par les mêmes problèmes de santé que Manon ; elles cherchent la santé, pas la performance. Conséquence : interface très simple, peu de choix par écran, séances courtes à la maison.
@@ -51,12 +51,12 @@ La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la 
 
 | Écran | Contenu clé |
 | --- | --- |
-| Accueil (v4, `site/index.html`) | Page unique : chargement chiffré, héros WebGL (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 n'est plus affiché ; il reste dans `prototype/archive/v3-2026-10-23.html` |
+| Accueil (v4, `site/index.html`) | Page unique : héros WebGL (sans écran de chargement depuis le 2026-10-27) (corbeille de fruits 3D) avec titre et bouton Doctolib, manifeste révélé mot à mot, partage « L'assiette / Le terrain », thématiques en défilement horizontal, chapitre « Le bilan » (70 €, Doctolib), formules mensuel / à l'unité, repères chiffrés et cabinets, journal, pied de page avec appel final (détail : `BRAND_BRIEF.md`, Mises en page v4). L'accueil v3 n'est plus affiché ; il reste dans `prototype/archive/v3-2026-10-23.html` |
 | Manon | Présentation, diplômes (diététique, coach sportive + n° de carte pro), approche |
 | Formules | Bilan 70 €, suivi 50 €, formules F1/F2/F3, tableau comparatif généré depuis la matrice d'accès, séance individuelle |
-| Thématiques | Péri-ménopause et ménopause, SOPK, endométriose, mamans pressées, rééquilibrage |
+| Thématiques | « Pour chaque femme » : péri-ménopause et ménopause, SMOP (ex-SOPK : « Trouver votre équilibre entre vos symptômes, votre assiette et le mouvement »), endométriose, mamans pressées, rééquilibrage |
 | Journal | Articles publics ; articles « Membres » signalés |
-| Cabinets | Hyères (lundi), La Garde (mar/mer/ven), cartes, formulaire de contact |
+| Cabinet | La Garde (mar/mer/ven), visio, coaching à domicile, carte, formulaire de contact. Hyères retiré à la demande de Manon (2026-10-27) |
 | Connexion | Email + mot de passe, pas d'inscription |
 
 ### Espace patiente (application mobile, rendu « TSE »)
@@ -74,7 +74,7 @@ Sous-pages : recettes, vidéos, semainier, proposer ma semaine, séances, profil
 **Sur ordinateur** (à partir de 1 024 px) : les onglets deviennent une barre latérale (logo, quatre rubriques, profil en bas) ; l'accueil passe en deux colonnes (cartes du jour sur toute la largeur, séance du jour, en cours et bibliothèque à gauche ; réponse de Manon, semaine et WhatsApp à droite) ; les listes de vidéos et de recettes passent en grille. Un contenu non inclus dans la formule reste visible, verrouillé, avec la formule qui le débloque.
 
 ### Back-office
-Tableau de bord (actives, revenu théorique, expirations sous 15 j, inscrites ; « À traiter » : repas à relire, semainiers proposés) · Suivi des repas (liste des patientes, repas à relire, semainier proposé, mesures ; fiche de suivi à trois onglets : semaine en cours en grille 7 × 4, semainier proposé avec un conseil par case, évolution avec courbes et réglage « Afficher le poids ») · Patientes (création, fiche, « Voir son espace ») · Programmes (modèles de semainier) · Recettes · Vidéos · Articles · Séances · Rendez-vous (saisie depuis Doctolib) · Paramètres (tarifs, matrice d'accès, liens).
+Sur téléphone : barre d'onglets en bas (Accueil, Patientes, Suivi avec le nombre de repas et semainiers à traiter, Plus), panneau « Plus » en tuiles pour les autres rubriques, tableaux affichés en cartes. Tableau de bord (actives, revenu théorique, expirations sous 15 j, inscrites ; « À traiter » : repas à relire, semainiers proposés) · Suivi des repas (liste des patientes, repas à relire, semainier proposé, mesures ; fiche de suivi à trois onglets : semaine en cours en grille 7 × 4, semainier proposé avec un conseil par case, évolution avec courbes et réglage « Afficher le poids ») · Patientes (création, fiche, « Voir son espace ») · Programmes (modèles de semainier) · Recettes · Vidéos · Articles · Séances · Rendez-vous (saisie depuis Doctolib) · Paramètres (tarifs, matrice d'accès, liens).
 
 ## 6. Règles métier
 
@@ -82,7 +82,7 @@ Tableau de bord (actives, revenu théorique, expirations sous 15 j, inscrites ; 
 | --- | --- |
 | R1 | Un compte n'existe que s'il est créé par l'administratrice. Aucune inscription publique. |
 | R2 | L'accès à chaque fonctionnalité dépend de la matrice formule × fonctionnalité (table `plan_features`). Modifier la matrice modifie l'accès immédiatement. |
-| R3 | Matrice par défaut : Suivi = profil, documents, Doctolib, articles membres ; F1 = + semainier, WhatsApp, visio 30 min/15 j ; F2 = + recettes complètes ; F3 = + vidéos, programme sportif, séances collectives, séance individuelle payante. |
+| R3 | Matrice par défaut (2026-10-27) : Suivi = profil, documents, Doctolib, articles membres, évolution ; F1 Nutrition + Recettes = + semainier partagé, WhatsApp, visio 30 min/15 j, recettes complètes ; F2 Complète = F1 + vidéos, programme sportif, 2 séances collectives/mois, séance individuelle payante ; F3 Recettes + Sport = Suivi + recettes, vidéos, programme sportif, séances collectives (sans semainier, visio, WhatsApp). Un contenu verrouillé propose la formule la moins chère qui garde tout ce que la patiente a déjà. |
 | R4 | Sans accès « recettes », la patiente voit les 3 recettes publiées les plus anciennes et toutes celles de son programme. |
 | R5 | Une recette dont la date de publication est future est « programmée » et invisible pour les patientes jusqu'à cette date. |
 | R6 | Séance collective : capacité par défaut 10. Au-delà : liste d'attente ordonnée. Une désinscription donne la place au premier en attente et lui envoie un email. |
@@ -104,9 +104,10 @@ Tableau de bord (actives, revenu théorique, expirations sous 15 j, inscrites ; 
 | H5 | Consultation non prise | Reportée d'un mois maximum |
 | H6 | Pause possible | 1 mois par an |
 | H7 | Changement de formule | Montée immédiate, descente au mois suivant |
-| H8 | Prix F3 | 90 € (90 ou 100 €) |
+| H8 | Prix F1 Nutrition + Recettes | 65 € (Manon hésite entre 60 et 65 €) |
+| H8b | Accès à la F3 Recettes + Sport (40 €) | Réservée aux patientes qui ont terminé un suivi (proposée à la fin du suivi, pas de bouton Doctolib sur le site) |
 | H9 | Séance individuelle visio | 20 € au total |
-| H10 | Séance individuelle | Réservée à la F3 |
+| H10 | Séance individuelle | Réservée à la F2 |
 | H11 | Réservation séance individuelle | Nouveau motif Doctolib |
 | H12 | Créneaux collectifs | 1er et 3e mardi à 19 h |
 | H13 | Replay | Non |
@@ -127,7 +128,7 @@ Réponses déjà obtenues : diplôme de coach sportive confirmé ; option B dema
 | Fonction | Critère (vérifiable par oui / non) |
 | --- | --- |
 | Création de compte | Quand Manon valide le formulaire, la patiente apparaît dans la liste avec le statut « Active » et une invitation part à son email. |
-| Matrice d'accès | Quand Manon décoche « Vidéos » pour F3, une patiente F3 voit l'onglet Sport verrouillé au rechargement. |
+| Matrice d'accès | Quand Manon décoche « Vidéos » pour F2, une patiente F2 voit l'onglet Training verrouillé au rechargement. |
 | Contenu verrouillé | Une patiente F1 voit 3 recettes ouvertes et les autres floutées, avec la formule qui les débloque. |
 | Portions | Passer de 1 à 2 portions double chaque quantité chiffrée ; les ingrédients sans quantité restent inchangés. |
 | Liste de courses | Deux recettes contenant le même ingrédient dans la même unité donnent une seule ligne additionnée. |
