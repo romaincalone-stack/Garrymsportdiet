@@ -944,6 +944,54 @@ body.v-patient .grain{opacity:.03}
 body.v-patient .modal .display .serif{background:none;color:var(--olive);padding:0}
 body.v-patient .tag.f2{color:#0F3A2A}
 .rimg{--argile:#18694B;--olive:#26624A;--moka:#7FBF8F;--sauge:#18694B}
+/* ===== Aperçu Téléphone / Ordinateur (bandeau « Affichage ») ===== */
+.pdev{flex-basis:100%;display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;padding-top:8px;border-top:1px solid color-mix(in srgb,var(--paper) 14%,transparent)}
+.pdev .seg button{display:inline-flex;align-items:center;gap:7px;min-height:36px}
+.pdev .seg svg{width:17px;height:17px}
+.pdev .small{font-size:12.5px;opacity:.78}
+body.framed{background:#E8F5DC}
+.devstage{display:flex;justify-content:center;align-items:flex-start;padding:32px 16px}
+.dev-d{padding:12px}
+.devbox{position:relative;overflow:hidden;flex:none;background:#FFFFFF}
+.dev-m .devbox{box-sizing:content-box;border:10px solid #0B2E21;border-radius:48px;box-shadow:0 30px 60px -24px rgba(15,58,42,.5)}
+.dev-d .devbox{border:1px solid rgba(15,58,42,.16);border-radius:12px;box-shadow:0 20px 50px -24px rgba(15,58,42,.45)}
+.devbox iframe{position:absolute;left:0;top:0;border:0;display:block;transform-origin:0 0;background:#FFFFFF}
+
+/* ===== Espace patiente sur ordinateur : barre latérale, contenu large, accueil en deux colonnes ===== */
+.mtab .mlogo-d,.mtab .mprof-d{display:none}
+.mcols{display:flex;flex-direction:column}
+.mcol{display:contents}
+@media (min-width:1024px){
+  body.v-patient .mtab{left:0;right:auto;top:var(--pbh,0px);bottom:0;transform:none;width:248px;max-width:none;display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:26px 16px 20px;border-top:0;border-right:1px solid rgba(246,249,243,.08)}
+  body.v-patient .mtab .mlogo-d{display:block;height:48px;width:auto;align-self:flex-start;margin:0 0 30px 8px}
+  body.v-patient .mtab button{flex-direction:row;justify-content:flex-start;gap:14px;padding:10px 14px;min-height:50px;border-radius:14px;font-size:15px}
+  body.v-patient .mtab button svg{width:24px;height:24px}
+  body.v-patient .mtab button.on{background:#164A36}
+  body.v-patient .mtab button:hover{color:#FFFFFF}
+  body.v-patient .mtab .mprof-d{display:flex;align-items:center;gap:12px;margin-top:auto;text-align:left}
+  .mprof-d .mav{width:40px;height:40px;font-size:13px;border-width:2px}
+  .mprof-d b{display:block;font-size:14px;font-weight:600;color:#FFFFFF}
+  .mprof-d small{display:block;font-size:12.5px;color:#B4C7BA}
+  body.v-patient .mob{max-width:1180px;margin:0 0 0 max(248px,calc(50vw - 466px));padding:40px clamp(28px,4vw,56px) 80px;font-size:16px}
+  .mhead h1{font-size:2.4rem}
+  .mcols{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(320px,1fr);gap:32px;align-items:start}
+  .mcol{display:flex;flex-direction:column;min-width:0}
+  .mcol.side{position:sticky;top:calc(var(--pbh,0px) + 24px)}
+  .mblk.wide{grid-column:1/-1;order:-1!important}
+  .mfan{margin:0 -8px;padding:16px 8px 30px}
+  .fcard{width:176px;min-height:196px}
+  .promo{min-height:300px}
+  .promo > div{padding:32px;max-width:62%}
+  .promo h2{font-size:1.9rem}
+  .mrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));overflow:visible;margin:0;padding:2px 0 6px}
+  .mini{width:auto}
+  .mlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rgrid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .mcircles{flex-wrap:wrap;overflow:visible;margin:0;padding:2px 0 6px}
+  .zones{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+  .kpi3 b{font-size:2.2rem}
+  .mcard .chart{max-height:380px}
+}
 </style>
 </head>
 <body>
@@ -952,6 +1000,10 @@ body.v-patient .tag.f2{color:#0F3A2A}
 <div id="modal-root"></div>
 <div id="toast" class="toast" role="status" hidden></div>
 <script>
+/* Aperçu Téléphone / Ordinateur : quand la largeur réelle de l'écran ne correspond pas à l'appareil choisi,
+   le prototype se recharge lui-même dans un cadre de la bonne taille (window.EMBED), sans bandeau. */
+const EMBED = window.EMBED || null;
+const SELF_SRC = EMBED ? "" : document.currentScript.textContent;
 /* =========================================================
    DONNÉES FICTIVES (prototype) — rien n'est enregistré
    ========================================================= */
@@ -1148,7 +1200,7 @@ const SESSIONS = [
    ÉTAT
    ========================================================= */
 const S = {
-  view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false,
+  view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false, device: innerWidth < 760 ? "mobile" : "desktop",
   rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false },
   vf: { max: "", disc: "", zone: "", level: "" },
   ptSub: null, pday: (TODAY.getDay() + 6) % 7, libTab: "v", vq: "", metric: "poids", hideW: false, vdone: new Set(["v3", "v9"]), suiviTab: "semaine",
@@ -1227,6 +1279,8 @@ const I = {
   ext: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
   copy: svg('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/>'),
   chart: svg('<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>'),
+  phone: svg('<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>'),
+  monitor: svg('<rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'),
   search: svg('<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>'),
   sliders: svg('<path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/>'),
   edit: svg('<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/>'),
@@ -1292,6 +1346,10 @@ function protobar() {
     ${S.view === "patient" ? `<select id="pb-plan" data-change="plan" aria-label="Formule de la patiente">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${esc(p.first)} · ${PLANS[k].code} ${k !== "suivi" ? esc(PLANS[k].name) : "Suivi simple"}</option>`).join("")}</select>` : ""}
     <span class="sp"></span>
     <label><input type="checkbox" id="pb-notes" data-change="notes" ${S.notes ? "checked" : ""}> Notes CDC</label>
+    <div class="pdev"><span class="lbl">Affichage</span>
+      <div class="seg" role="tablist" aria-label="Choisir l'appareil">${[["mobile", "Téléphone", "phone"], ["desktop", "Ordinateur", "monitor"]].map(([k, l, ic]) => `<button class="${S.device === k ? "on" : ""}" data-act="device" data-d="${k}" role="tab" aria-selected="${S.device === k}">${I[ic]}${l}</button>`).join("")}</div>
+      <span class="small">${S.device === "mobile" ? "390 px de large" : "1 280 px de large"}${framed() === "d" ? " · tournez le téléphone pour agrandir" : ""}</span>
+    </div>
   </div></div>`;
 }
 
@@ -1574,7 +1632,7 @@ const inPreview = r => publishedRecipes().slice(0, RECIPE_PREVIEW).includes(r);
    ESPACE PATIENTE v6 : application mobile en 4 rubriques (réf. application TSE)
    Aujourd'hui · Training · Nutrition · Évolution. Sous-pages : recettes, vidéos, semainier, proposer, séances, profil.
    ========================================================= */
-const ASSET = n => (window.ASSETS && window.ASSETS[n]) || ((/\/prototype\/(index\.html)?$/.test(location.pathname) ? "../site/img/" : "site/img/") + n);
+const ASSET = n => (window.ASSETS && window.ASSETS[n]) || ((/\/prototype\/(index\.html)?$/.test(new URL(document.baseURI).pathname) ? "../site/img/" : "site/img/") + n);
 const photo = n => `<img src="${ASSET(n + ".jpg")}" alt="" decoding="async">`;
 const PHOTO_V = ["yoga", "etirement", "course", "terrain"], PHOTO_R = ["assiette", "table", "citrons"];
 const vPhoto = v => ({ Cardio: "course", Mobilité: "etirement", Yoga: "etirement" }[DISC_OF(v)] || "yoga");
@@ -1664,7 +1722,7 @@ function patient() {
   const subs = { recettes: mRecettes, videos: mVideos, semainier: mSemainier, proposer: mProposer, seances: mSeances, profil: mProfil };
   const page = (S.ptSub && subs[S.ptSub] ? subs[S.ptSub] : { home: mHome, training: mTraining, nutrition: mNutrition, evolution: mEvolution }[S.ptPage])();
   return `<div class="mob" id="main">${page}</div>
-    <nav class="mtab" aria-label="Rubriques">${MTABS.map(([k, l, ic]) => `<button class="${S.ptPage === k ? "on" : ""}" data-act="mtab" data-p="${k}" ${S.ptPage === k ? 'aria-current="page"' : ""}>${I[ic]}<span>${l}</span></button>`).join("")}</nav>`;
+    <nav class="mtab" aria-label="Rubriques"><img class="mlogo-d" src="${ASSET("logoclair.png")}" alt="GM Sport et Nutrition">${MTABS.map(([k, l, ic]) => `<button class="${S.ptPage === k ? "on" : ""}" data-act="mtab" data-p="${k}" ${S.ptPage === k ? 'aria-current="page"' : ""}>${I[ic]}<span>${l}</span></button>`).join("")}<button class="mprof-d ${S.ptSub === "profil" ? "on" : ""}" data-act="msub" data-s="profil"><span class="mav">${initials(p)}</span><span><b>${esc(fullName(p))}</b><small>Mon profil</small></span></button></nav>`;
 }
 
 /* ---------- Aujourd'hui ---------- */
@@ -1683,18 +1741,38 @@ function mHome() {
   ].filter(Boolean).join("");
   const suggestion = VIDEOS.filter(v => v.dur <= 20 && v.level === "Débutant")[DAY_IDX % 3] || VIDEOS[0];
   return `${mHead(`Bonjour ${esc(p.first)}`, "Heureuse de vous revoir")}
+    <div class="mcols">
+      <div class="mblk wide" style="order:1">
     <div class="mfan" role="list">${cards}</div>
-    ${replies && can("journal") ? `<button class="mnotice" data-act="msub" data-s="semainier">${I.chat}<span><b>Manon vous a répondu</b> sur ${replies} repas de la semaine</span>${chevron}</button>` : ""}
+      </div>
+     <div class="mcol">
+      <div class="mblk" style="order:3">
     ${can("videos") ? `<section class="promo">${photo(vPhoto(suggestion))}<div><span class="pk">Votre séance du jour</span><h2>${esc(suggestion.title)}</h2><p>${suggestion.dur} minutes, sans matériel compliqué.</p><button class="mbtn" data-act="video" data-id="${suggestion.id}">C'est parti</button></div></section>`
       : `<section class="promo">${photo("assiette")}<div><span class="pk">Le saviez-vous ?</span><h2>Des recettes et un semainier entre les rendez-vous</h2><p>Les formules incluent un suivi de vos repas avec Manon.</p><button class="mbtn" data-act="site-offres">Voir les formules</button></div></section>`}
-    ${secT("cal", "Ma semaine", seeAll('data-act="msub" data-s="semainier"'))}
-    ${planner()}
+      </div>
+      <div class="mblk" style="order:5">
     ${secT("clock", "En cours")}
     <div class="mrow">${[...S.vdone].slice(-2).map(id => video(id)).filter(Boolean).map(v => `<button class="mini" data-act="video" data-id="${v.id}">${photo(vPhoto(v))}<span><b>${esc(v.title)}</b><small>Faite cette semaine · refaire</small></span></button>`).join("") || `<p class="muted small">Vos séances de la semaine s'afficheront ici.</p>`}</div>
+      </div>
+      <div class="mblk" style="order:6">
     ${secT("heart", "Ma bibliothèque")}
     <div class="mchips">${[["v", "Mes vidéos favorites"], ["r", "Mes recettes favorites"]].map(([k, l]) => `<button class="mchip ${S.libTab === k ? "on" : ""}" data-act="libtab" data-t="${k}">${l}</button>`).join("")}</div>
     <div class="mrow">${S.libTab === "r" ? [...S.favR].map(recipe).filter(Boolean).map(r => rTile(r)).join("") || `<p class="muted small">Touchez le cœur d'une recette pour la retrouver ici.</p>` : [...S.favV].map(video).filter(Boolean).map(v => `<button class="mini" data-act="video" data-id="${v.id}">${photo(vPhoto(v))}<span><b>${esc(v.title)}</b><small>${v.dur} min</small></span></button>`).join("") || `<p class="muted small">Touchez le cœur d'une vidéo pour la retrouver ici.</p>`}</div>
+      </div>
+     </div>
+     <div class="mcol side">
+      <div class="mblk" style="order:2">
+    ${replies && can("journal") ? `<button class="mnotice" data-act="msub" data-s="semainier">${I.chat}<span><b>Manon vous a répondu</b> sur ${replies} repas de la semaine</span>${chevron}</button>` : ""}
+      </div>
+      <div class="mblk" style="order:4">
+    ${secT("cal", "Ma semaine", seeAll('data-act="msub" data-s="semainier"'))}
+    ${planner()}
+      </div>
+      <div class="mblk" style="order:7">
     ${can("contact") ? `<button class="mcard wa" data-act="wa">${I.chat}<span><b>Une question ?</b><small>Écrivez à Manon sur WhatsApp</small></span>${chevron}</button>` : ""}
+      </div>
+     </div>
+    </div>
     ${note("Option B : repas et mesures saisis par la patiente = données de santé. Hébergement certifié HDS obligatoire avant la mise en ligne (INTEGRATIONS.md).")}`;
 }
 function planner() {
@@ -2253,20 +2331,61 @@ if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
   document.documentElement.style.setProperty("--topo", `url(${c.toDataURL("image/png")})`);
 })();
 /* Le site public est le fichier site/index.html, affiché dans un cadre. Seule la connexion reste dessinée ici. */
-const SITE_URL = /\/prototype\/(index\.html)?$/.test(location.pathname) ? "../site/index.html" : "site/index.html";
+const SITE_URL = /\/prototype\/(index\.html)?$/.test(new URL(document.baseURI).pathname) ? "../site/index.html" : "site/index.html";
 const SITE_ANCHOR = { home: "", about: "#manifeste", offres: "#formules", themes: "#programmes", blog: "#journal", contact: "#cabinets" };
 /* Version autonome (tools/build-standalone.mjs) : le site est intégré dans window.SITE_HTML et chargé en srcdoc */
 function siteFrame() { const h = SITE_ANCHOR[S.sitePage] || ""; return window.SITE_HTML ? `<iframe class="siteframe" id="siteframe" data-hash="${h}" title="Site public Garrym"></iframe>` : `<iframe class="siteframe" id="siteframe" src="${SITE_URL}${h}" title="Site public Garrym"></iframe>`; }
 function loadFrame() { const f = $("#siteframe"); if (!f || !window.SITE_HTML) return; const h = f.dataset.hash; if (h) f.addEventListener("load", () => f.contentWindow.postMessage({ garrym: "goto", hash: h }, "*"), { once: true }); f.srcdoc = window.SITE_HTML; }
 function fitFrame() { const f = $("#siteframe"), b = $(".protobar"); if (f) f.style.height = (innerHeight - (b ? b.getBoundingClientRect().bottom : 0)) + "px"; }
 addEventListener("resize", fitFrame);
-addEventListener("message", e => { if (e.data && e.data.garrym === "login") go(() => { S.view = "site"; S.sitePage = "login"; }); });
+addEventListener("message", e => {
+  if (!e.data) return;
+  if (e.data.garrym === "login") go(() => { S.view = "site"; S.sitePage = "login"; });
+  /* L'aperçu intégré signale où l'on se trouve : le bandeau suit, sans recharger le cadre */
+  if (e.data.garrym === "state" && !EMBED && framed()) { Object.assign(S, e.data.s); const pb = $(".protobar"); if (pb) pb.outerHTML = protobar(); }
+});
+/* Cadre d'aperçu : "m" = téléphone affiché sur un grand écran, "d" = ordinateur affiché sur un petit écran, null = rendu direct */
+const DEV = { m: [390, 844], d: [1280, 800] };
+function framed() { if (EMBED) return null; return S.device === "mobile" ? (innerWidth > 560 ? "m" : null) : (innerWidth < 1024 ? "d" : null); }
+function devStage(fr) {
+  return `<div class="devstage dev-${fr}"><div class="devbox" id="devbox"><iframe id="devframe" title="Aperçu ${fr === "m" ? "téléphone" : "ordinateur"}"></iframe></div></div>`;
+}
+function fitDev() {
+  const box = $("#devbox"), f = $("#devframe"), b = $(".protobar"); if (!box) return;
+  const fr = box.parentNode.classList.contains("dev-m") ? "m" : "d", [W, H] = DEV[fr];
+  const top = b ? b.getBoundingClientRect().bottom : 0, availW = innerWidth - (fr === "m" ? 64 : 24), availH = innerHeight - top - (fr === "m" ? 64 : 24);
+  const k = Math.min(1, availW / W, fr === "m" ? availH / H : 1);
+  const h = fr === "d" ? Math.round(Math.min(1200, Math.max(H, availH / k))) : H; // sur téléphone, l'écran PC prend la hauteur disponible
+  Object.assign(f.style, { width: W + "px", height: h + "px", transform: `scale(${k})` });
+  Object.assign(box.style, { width: W * k + "px", height: h * k + "px" });
+}
+function loadDev() {
+  const f = $("#devframe"); if (!f) return;
+  const st = [...document.querySelectorAll("style")].find(x => x.textContent.includes(".protobar"));
+  const emb = { view: S.view, sitePage: S.sitePage, ptPage: S.ptPage, ptSub: S.ptSub, adPage: S.adPage, patientId: S.patientId, notes: S.notes, plan: me().plan };
+  f.srcdoc = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">`
+    + `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bellefair&display=swap">${st ? st.outerHTML : ""}`
+    + `<script>window.EMBED = ${JSON.stringify(emb)}; try { window.SITE_HTML = parent.SITE_HTML; window.ASSETS = parent.ASSETS; } catch (e) {}<\/script></head>`
+    + `<body><div class="grain" aria-hidden="true"></div><div id="app"></div><div id="modal-root"></div><div id="toast" class="toast" role="status" hidden></div>`
+    + `<script>${SELF_SRC.replace(/<\/script/gi, "<\\/script")}<\/script></body></html>`;
+}
+let lastFramed;
+addEventListener("resize", () => { if (framed() !== lastFramed) render(); else fitDev(); });
 function render() {
-  $("#app").innerHTML = protobar() + (S.view === "site" ? (S.sitePage === "login" ? site() : siteFrame()) : S.view === "patient" ? patient() : admin());
-  document.body.classList.toggle("v-patient", S.view === "patient");
-  fitFrame(); loadFrame(); animateView();
+  const fr = lastFramed = framed();
+  document.body.classList.toggle("framed", !!fr);
   document.body.classList.toggle("no-notes", !S.notes);
+  if (fr) {
+    $("#app").innerHTML = protobar() + devStage(fr);
+    document.body.classList.remove("v-patient", "on-site");
+    fitDev(); loadDev(); return;
+  }
+  $("#app").innerHTML = (EMBED ? "" : protobar()) + (S.view === "site" ? (S.sitePage === "login" ? site() : siteFrame()) : S.view === "patient" ? patient() : admin());
+  document.body.classList.toggle("v-patient", S.view === "patient");
+  const pb = $(".protobar"); document.documentElement.style.setProperty("--pbh", (pb ? pb.offsetHeight : 0) + "px");
+  fitFrame(); loadFrame(); animateView();
   revealWords();
+  if (EMBED) try { parent.postMessage({ garrym: "state", s: { view: S.view, sitePage: S.sitePage, ptPage: S.ptPage, ptSub: S.ptSub, adPage: S.adPage, patientId: S.patientId } }, "*"); } catch (e) {}
 }
 function revealWords() {
   document.querySelectorAll(".words").forEach(el => {
@@ -2298,6 +2417,7 @@ function burst(el) {
    ========================================================= */
 const A = {
   view: t => go(() => { S.view = t.dataset.v; S.menu = false; }),
+  device: t => go(() => { S.device = t.dataset.d; }),
   site: t => go(() => { S.sitePage = t.dataset.p; S.menu = false; }),
   menu: () => { S.menu = !S.menu; render(); },
   heromode: t => { S.heroMode = t.dataset.m; render(); },
@@ -2470,6 +2590,7 @@ document.addEventListener("pointermove", e => {
   document.body.appendChild(d); setTimeout(() => d.remove(), 950);
 });
 
+if (EMBED) { const { plan, ...st } = EMBED; Object.assign(S, st); if (plan) me().plan = plan; }
 render();
 </script>
 </body>

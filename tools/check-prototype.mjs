@@ -134,6 +134,32 @@ const width = await m.evaluate(() => document.documentElement.scrollWidth);
 console.log("mobile scrollWidth", width);
 if (width > 390) errors.push(`mobile : débordement horizontal (${width}px)`);
 
+// Bandeau « Affichage » : version téléphone sur ordinateur, version ordinateur sur téléphone (cadre #devframe)
+for (const [vw, vh, dev, tag] of [[1280, 900, "mobile", "7-pc-apercu-tel"], [390, 844, "desktop", "8-tel-apercu-pc"]]) {
+  const d = await browser.newPage({ viewport: { width: vw, height: vh } });
+  watch(d, tag);
+  await d.goto(url); await d.waitForTimeout(800);
+  await d.click(`[data-act=device][data-d=${dev}]`); await d.waitForTimeout(600);
+  if (!(await d.$("#devframe"))) { errors.push(`${tag} : cadre d'aperçu absent`); await d.close(); continue; }
+  const dv = d.frameLocator("#devframe");
+  await dv.frameLocator("#siteframe").locator("#loader").waitFor({ state: "hidden", timeout: 120000 });
+  await d.waitForTimeout(1500);
+  await d.screenshot({ path: join(out, `${tag}-site.png`) });
+  await d.click("[data-act=view][data-v=patient]"); await d.waitForTimeout(600);
+  await d.frameLocator("#devframe").locator("[data-act=mtab]").first().waitFor({ state: "attached", timeout: 20000 });
+  await d.waitForTimeout(1800);
+  await d.screenshot({ path: join(out, `${tag}-patiente.png`) });
+  await d.frameLocator("#devframe").locator(".mtab [data-p=evolution]").click(); await d.waitForTimeout(1200);
+  if (!(await d.$("#pb-plan"))) errors.push(`${tag} : bandeau non synchronisé avec l'aperçu`);
+  await d.click("[data-act=view][data-v=admin]"); await d.waitForTimeout(600);
+  await d.frameLocator("#devframe").locator("#main, .app").first().waitFor({ state: "attached", timeout: 20000 });
+  await d.waitForTimeout(1800);
+  await d.screenshot({ path: join(out, `${tag}-admin.png`) });
+  const w = await d.evaluate(() => document.documentElement.scrollWidth);
+  if (w > vw) errors.push(`${tag} : débordement horizontal (${w}px)`);
+  await d.close();
+}
+
 console.log(errors.length ? errors.join("\n") : "NO ERRORS");
 await browser.close();
 process.exit(errors.length ? 1 : 0);

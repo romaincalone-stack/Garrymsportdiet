@@ -47,7 +47,7 @@ Clientèle principale (vocaux de Manon, 2026-10-26) : des femmes, souvent mamans
 ## 5. Écrans
 
 ### Site public
-La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la vue « Site public » affiche ce site dans un cadre ; son bouton « Mon espace » ouvre la page de connexion de l'espace patiente. Une version en un seul fichier (`dist/garrym-prototype.html`) intègre le site et ses photos. Les pages secondaires (Manon, Formules, Thématiques, Journal, Cabinets) restent à refaire dans le style v4 ; en attendant, leurs liens mènent à la section correspondante de l'accueil.
+La v4 ne contient que l'accueil. Dans le prototype (`prototype/index.html`), la vue « Site public » affiche ce site dans un cadre ; son bouton « Mon espace » ouvre la page de connexion de l'espace patiente. Une version en un seul fichier (`dist/garrym-prototype.html`) intègre le site et ses photos. Pour chaque vue, la ligne « Affichage » du bandeau montre la version **téléphone** (390 px, dans un cadre de téléphone sur un grand écran) ou **ordinateur** (1 280 px, réduite à la largeur sur un téléphone). Les pages secondaires (Manon, Formules, Thématiques, Journal, Cabinets) restent à refaire dans le style v4 ; en attendant, leurs liens mènent à la section correspondante de l'accueil.
 
 | Écran | Contenu clé |
 | --- | --- |
@@ -69,7 +69,9 @@ Thème sombre fixe, pensé d'abord pour le téléphone (`BRAND_BRIEF.md`, v6). B
 | **Nutrition** (F1+) | Semainier de la semaine proposé par Manon, repas à noter, réponses de Manon, « Proposer ma semaine », recettes (F2) avec portions et liste de courses |
 | **Évolution** (toutes formules) | Trois chiffres clés, « Ajouter une mesure », choix de l'indicateur, courbe, ressentis (énergie, sommeil, digestion), historique, « Masquer le poids » |
 
-Sous-pages : recettes, vidéos, semainier, proposer ma semaine, séances, profil (formule, notifications, WhatsApp, Doctolib). Un contenu non inclus dans la formule reste visible, verrouillé, avec la formule qui le débloque.
+Sous-pages : recettes, vidéos, semainier, proposer ma semaine, séances, profil (formule, notifications, WhatsApp, Doctolib).
+
+**Sur ordinateur** (à partir de 1 024 px) : les onglets deviennent une barre latérale (logo, quatre rubriques, profil en bas) ; l'accueil passe en deux colonnes (cartes du jour sur toute la largeur, séance du jour, en cours et bibliothèque à gauche ; réponse de Manon, semaine et WhatsApp à droite) ; les listes de vidéos et de recettes passent en grille. Un contenu non inclus dans la formule reste visible, verrouillé, avec la formule qui le débloque.
 
 ### Back-office
 Tableau de bord (actives, revenu théorique, expirations sous 15 j, inscrites ; « À traiter » : repas à relire, semainiers proposés) · Suivi des repas (liste des patientes, repas à relire, semainier proposé, mesures ; fiche de suivi à trois onglets : semaine en cours en grille 7 × 4, semainier proposé avec un conseil par case, évolution avec courbes et réglage « Afficher le poids ») · Patientes (création, fiche, « Voir son espace ») · Programmes (modèles de semainier) · Recettes · Vidéos · Articles · Séances · Rendez-vous (saisie depuis Doctolib) · Paramètres (tarifs, matrice d'accès, liens).

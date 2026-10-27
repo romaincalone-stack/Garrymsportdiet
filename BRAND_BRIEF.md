@@ -53,8 +53,13 @@ Thème sombre fixe (fond vert foncé `#0F3A2A`), indépendant du réglage de l'a
 - **Planificateur de semaine** (`.planner`) : sept jours, état de chaque repas (prévu, fait comme prévu, noté autrement, réponse de Manon).
 - **Barre d'onglets** (`.mtab`) en bas : Aujourd'hui, Training, Nutrition, Évolution.
 
+Sur ordinateur (≥ 1 024 px) : barre latérale `#0B2E21` de 248 px (logo clair, rubriques en ligne, élément actif sur `#164A36`, profil en bas), contenu jusqu'à 1 180 px, accueil en deux colonnes.
+
 ### Back-office
 Fond clair (blanc et brume), surfaces fortes en nuit, mêmes polices et formes que le site.
+
+### Aperçu du prototype (bandeau « Affichage »)
+Fond de scène `#E8F5DC` (brume) ; cadre de téléphone : bordure 10 px `#0B2E21`, rayon 48 px, ombre `0 30px 60px -24px rgba(15,58,42,.5)` ; écran d'ordinateur : filet `rgba(15,58,42,.16)`, rayon 12 px. Ces éléments n'existent que dans le prototype.
 
 ---
 
