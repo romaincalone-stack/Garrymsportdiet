@@ -344,6 +344,10 @@ body::before{background:var(--blanc)}
 .nav.past .logo{max-width:90px;margin-right:10px;opacity:1}
 .hero .meta .brand{height:clamp(70px,8vw,112px);width:auto;max-width:none;margin:0 0 14px -6px}
 @media (max-width:820px){.hero .meta .brand{display:none}.nav .logo{max-width:90px;margin-right:10px;opacity:1}}
+/* Mutuelle et « + sport » en gras (retour de Manon, 2026-10-28) */
+.plan h3 b{font-weight:inherit}
+.formules .mutuelle{display:flex;gap:14px;align-items:flex-start;margin:28px 0 0;padding:18px 22px;border-radius:20px;background:rgba(255,255,255,.1);color:#fff;max-width:760px;font-size:1rem;line-height:1.5}
+.formules .mutuelle svg{width:26px;height:26px;flex:none;color:#B2E388;margin-top:1px}
 /* ===== Brief de réunion du 2026-10-30 : trois boutons d'accueil, prestations, lexique, test ===== */
 .hero .side{max-width:300px}
 .hero .ctas{display:flex;flex-direction:column;gap:8px;width:100%}
@@ -474,7 +478,7 @@ body::before{background:var(--blanc)}
       <span class="mono">Chapitre premier</span>
       <span class="le">Tout commence par</span>
       <h2>Le bilan</h2>
-      <p>Une heure pour comprendre vos habitudes, vos contraintes et vos envies. Au cabinet ou en visio, sur Doctolib.</p>
+      <p>Une heure pour comprendre vos habitudes, vos contraintes et vos envies. Au cabinet ou en visio, sur Doctolib. Les consultations diététiques peuvent être remboursées par votre mutuelle.</p>
       <a class="pill doctolib" href="#" target="_blank" rel="noopener" data-cursor="RÉSERVER">Réserver le bilan · 70 €</a>
     </div>
   </section>
@@ -483,6 +487,7 @@ body::before{background:var(--blanc)}
     <div class="head"><div><div class="label mono" style="margin-bottom:24px"><b>(03)</b><span>Formules</span></div><h2>Choisissez<br><span class="serif acc">votre rythme</span></h2></div>
 </div>
     <div class="plans" id="plans"></div>
+    <p class="mutuelle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Pensez à votre mutuelle :</b> les consultations diététiques peuvent être remboursées, selon votre contrat. Une note d’honoraires vous est remise après chaque consultation.</span></p>
     <p class="fine mono">Tarifs indicatifs, en cours de validation · Offres mensuelles avec engagement de 2 ou 3 mois · D'autres offres (recettes et sport sans consultation, coaching individuel) sont proposées ensuite dans votre espace</p>
   </section>
 
