@@ -136,8 +136,8 @@ td b{font-weight:650}
     <li><span><b>Bilan → compte</b> : après la consultation, Manon crée le compte (nom, email, formule, dates, programme). La patiente reçoit une invitation, choisit son mot de passe et arrive sur son accueil.</span></li>
     <li><span><b>Chaque jour</b> : la patiente note ses repas (« fait comme prévu » en un geste, ou ce qu'elle a mangé et la quantité) ; Manon valide ou donne un conseil, la réponse s'affiche sous le repas.</span></li>
     <li><span><b>Chaque semaine</b> : la patiente propose son semainier de la semaine suivante ; Manon valide chaque repas ou le corrige. Elle ajoute aussi ses mesures et ressentis dans « Évolution ».</span></li>
-    <li><span><b>Séance à la carte (F2, F3)</b> : « J'ai 20 minutes », une discipline (Pilates, yoga, renfo…) ou une zone (abdos-fessiers…) → vidéo → « C'est fait ».</span></li>
-    <li><span><b>Séance collective (F2, F3)</b> : « Je viens » → rappels → lien visio. Si c'est complet : liste d'attente, place attribuée automatiquement quand elle se libère.</span></li>
+    <li><span><b>Séance à la carte (All in, Recettes + sport)</b> : « J'ai 20 minutes », une discipline (Pilates, yoga, renfo…) ou une zone (abdos-fessiers…) → vidéo → « C'est fait ».</span></li>
+    <li><span><b>Séance collective (All in, Recettes + sport)</b> : « Je viens » → rappels → lien visio. Si c'est complet : liste d'attente, place attribuée automatiquement quand elle se libère.</span></li>
     <li><span><b>Monter en gamme</b> : un contenu non inclus reste visible, flouté, avec la formule qui le débloque et un bouton pour en parler à Manon. Manon change la formule : l'accès change aussitôt.</span></li>
     <li><span><b>Fin d'abonnement</b> : email à J-7 à la patiente et à Manon ; ensuite accès réduit (hypothèse : documents en lecture seule pendant 3 mois).</span></li>
   </ol>
@@ -150,13 +150,14 @@ td b{font-weight:650}
   <table>
     <thead><tr><th style="width:22%">Section</th><th>Ce que la visiteuse voit et peut faire</th><th style="width:14%">Statut</th></tr></thead>
     <tbody>
-      <tr><td><b>Ouverture</b></td><td>Une corbeille de fruits en 3D (citron, abricot, pomme, figue, olives) qui réagit au doigt et au défilement. Titre « Manger mieux, bouger plus, à votre rythme », bouton « Réserver le bilan ».</td><td><span class="st ok">Prototype</span></td></tr>
-      <tr><td><b>Manifeste</b></td><td>L'approche de Manon, une phrase qui s'éclaire mot à mot au défilement.</td><td><span class="st ok">Prototype</span></td></tr>
-      <tr><td><b>L'assiette / Le terrain</b></td><td>Choisir l'univers nutrition ou sport ; la photo se révèle sous le doigt ou la souris.</td><td><span class="st ok">Prototype</span></td></tr>
-      <tr><td><b>Thématiques</b></td><td>Péri-ménopause et ménopause, SMOP (ex-SOPK), endométriose, mamans pressées, rééquilibrage : cartes en défilement horizontal, toujours « en complément de votre suivi médical ».</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Ouverture</b></td><td>Une corbeille de fruits en 3D qui réagit au doigt et au défilement, le logo, le titre « Manger mieux, bouger plus, à votre rythme » et trois boutons : « Réserver le bilan » (Doctolib), « Tester mon alimentation », « La méthode Garry M ».</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Tester mon alimentation</b></td><td>8 questions, un résultat indicatif et trois pistes simples, puis le bouton Doctolib. Rien n'est enregistré ni envoyé.</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>La méthode Garry M</b></td><td>Nutrition et sport, dans l'assiette et sur le terrain ; Manon présente au quotidien, pas seulement le jour de la consultation. Puis ce que comprend la méthode : bilan, suivi mensuel, suivi hebdomadaire du semainier, recettes, coaching sportif.</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Votre besoin</b></td><td>Santé féminine (SMOP, endométriose, péri-ménopause), mamans pressées, nutrition sportive, rééquilibrage, toujours « en complément de votre suivi médical ».</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Le bilan</b></td><td>Une heure pour comprendre habitudes, contraintes et envies ; au cabinet ou en visio ; 70 € ; réservation Doctolib.</td><td><span class="st ok">Prototype</span></td></tr>
-      <tr><td><b>Formules</b></td><td>Comparer les formules (mensuel ou à l'unité) et leurs prix ; chaque carte renvoie au bilan.</td><td><span class="st ok">Prototype</span></td></tr>
-      <tr><td><b>Repères et cabinet</b></td><td>Chiffres vrais (70 €, 2 séances collectives par mois, 30 min de visio, 10 places) ; Les Jardins de la Closeraie à La Garde (mardi, mercredi, vendredi), visio, coaching à domicile</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Formules</b></td><td>Quatre tarifs : bilan 70 € (avec un mois d'application offert), suivi 50 €, offre Nutrition 60 €/mois, offre All in 90 €/mois (engagement 2 ou 3 mois).</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Lexique</b></td><td>Bilan, suivi, plan alimentaire, semainier, suivi hebdomadaire, séance collective, rééquilibrage, SMOP : expliqués simplement.</td><td><span class="st ok">Prototype</span></td></tr>
+      <tr><td><b>Repères et cabinet</b></td><td>Chiffres vrais (70 €, 2 séances collectives par mois, 1 mois d'application offert, 10 places) ; Les Jardins de la Closeraie à La Garde (mardi, mercredi, vendredi), visio, coaching à domicile</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Journal</b></td><td>Derniers articles (recettes, repères, sport) avec aperçu au survol.</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Pied de page</b></td><td>Appel final vers Doctolib, Instagram, pages légales.</td><td><span class="st ok">Prototype</span></td></tr>
       <tr><td><b>Mon espace</b></td><td>Accès à la connexion de l'espace patiente (email et mot de passe, pas d'inscription).</td><td><span class="st ok">Prototype</span></td></tr>
@@ -181,22 +182,18 @@ td b{font-weight:650}
   <h2>Ce que débloque <span class="serif">chaque formule</span></h2>
   <p class="lead">Toute formule commence par le bilan (70 €). Manon coche et décoche ce tableau dans ses réglages : l'espace des patientes change immédiatement.</p>
   <table class="matrix">
-    <thead><tr><th style="width:40%">Fonctionnalité</th><th>Suivi simple</th><th>F1 Nutrition + recettes</th><th>F2 Complète</th><th>F3 Recettes + sport</th></tr></thead>
+    <thead><tr><th style="width:34%">Fonctionnalité</th><th>À l'unité</th><th>Mois offert</th><th>Nutrition</th><th>All in</th><th>Recettes + sport</th></tr></thead>
     <tbody>
-      <tr><td><b>Tarif</b></td><td><span class="price">50 €</span><br><span class="small">la consultation</span></td><td><span class="price">65 €</span><br><span class="small">par mois · 60 ou 65 €</span></td><td><span class="price">90 €</span><br><span class="small">par mois</span></td><td><span class="price">40 €</span><br><span class="small">par mois · après le suivi</span></td></tr>
-      <tr><td>Profil et fiches conseils</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Bouton « Reprendre rendez-vous » (Doctolib)</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Articles réservés aux membres</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Programme nutritionnel et semainier</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
-      <tr><td>Semainier partagé : repas notés, semaine proposée, réponses de Manon</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
-      <tr><td>Évolution : mesures et ressentis</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Contact WhatsApp avec Manon</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
-      <tr><td>Consultation visio de 30 min tous les 15 jours</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
-      <tr><td>Bibliothèque de recettes complète</td><td class="part">3 en aperçu</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Vidéos de sport (cardio, renfo, étirements…)</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Programme sportif</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>2 séances collectives par mois en visio</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
-      <tr><td>Séance individuelle (20 € visio, 35 € présentiel, en supplément)</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td class="n">—</td></tr>
+      <tr><td><b>Tarif</b></td><td><span class="price">50 €</span><br><span class="small">la consultation</span></td><td><span class="price">0 €</span><br><span class="small">30 jours après le bilan</span></td><td><span class="price">60 €</span><br><span class="small">par mois · engagement 2-3 mois</span></td><td><span class="price">90 €</span><br><span class="small">par mois · engagement 2-3 mois</span></td><td><span class="price">40 €</span><br><span class="small">par mois · après le suivi</span></td></tr>
+      <tr><td>Profil, fiches conseils, Doctolib, articles</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>Évolution : mesures et ressentis</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>Semainier partagé : repas notés, semaine proposée, réponses de Manon</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
+      <tr><td>Bibliothèque de recettes complète</td><td class="part">3 en aperçu</td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>Suivi nutritionnel 1 fois par mois (cabinet ou visio)</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
+      <tr><td>Contact WhatsApp avec Manon</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td><td class="n">—</td></tr>
+      <tr><td>Vidéos de sport (cardio, renfo, étirements…)</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>2 séances collectives par mois en visio</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td><span class="y"></span></td></tr>
+      <tr><td>Coaching individuel (20 € visio, 35 € présentiel, en supplément)</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td><span class="y"></span></td><td class="n">—</td></tr>
     </tbody>
   </table>
   <div class="two">
@@ -214,6 +211,8 @@ td b{font-weight:650}
   <div class="mod"><div><h3>Recettes</h3><span class="st ok">Prototype</span></div><div><p>Recherche, filtres (repas, temps, régime, allergènes), favoris ; fiche avec <b>portions ajustables</b>, étiquette nutritionnelle, astuce de Manon ; liste de courses additionnée automatiquement.</p></div></div>
   <div class="mod"><div><h3>Training</h3><span class="st ok">Prototype</span></div><div><p>Vidéos de 10 à 30 min à faire chez soi : choix par durée (« j'ai 20 minutes »), par discipline (cardio doux, renfo, Pilates, mobilité, yoga, périnée) et par zone (abdos-fessiers, bas du corps, haut du corps, dos et posture, full body) ; intensité en trois points ; case « c'est fait ». Séances collectives en visio (10 places, liste d'attente). Les programmes passent au second plan. Tournage des vidéos <span class="st dec">À décider</span></p></div></div>
   <div class="mod"><div><h3>Évolution</h3><span class="st ok">Prototype</span></div><div><p>La patiente ajoute une mesure quand elle veut : poids (facultatif), tour de taille, tour de hanches, et trois ressentis notés de 1 à 5 (énergie, sommeil, digestion). Courbes et historique. Le poids peut être masqué par Manon ou par la patiente, pour celles que la balance décourage. Ouvert à toutes les formules <span class="st dec">À décider</span></p></div></div>
+  <div class="mod"><div><h3>Mes offres</h3><span class="st ok">Prototype</span></div><div><p>Mois offert après le bilan (bandeau « encore X jours ») ; offres Nutrition, All in, Recettes + sport après le suivi, coaching individuel ; « Je suis intéressée » prévient Manon. Paiement <span class="st dec">À décider</span></p></div></div>
+  <div class="mod"><div><h3>Lexique</h3><span class="st ok">Prototype</span></div><div><p>Les mots du suivi expliqués simplement, comme sur le site.</p></div></div>
   <div class="mod"><div><h3>Profil et contact</h3><span class="st ok">Prototype</span></div><div><p>Formule et échéance, notifications, documents et articles réservés ; WhatsApp avec message prérempli (dès la F1), délai de réponse annoncé 48 h ouvrées <span class="st dec">À décider</span></p></div></div>
 </section>
 
@@ -286,15 +285,17 @@ td b{font-weight:650}
   <table>
     <thead><tr><th style="width:42%">Question</th><th>Hypothèse du prototype</th></tr></thead>
     <tbody>
-      <tr><td>Prix de la F1 (nutrition + recettes)</td><td>65 € par mois (60 ou 65 €)</td></tr>
-      <tr><td>Formule F3 (recettes + sport, 40 €)</td><td>Réservée aux patientes qui ont terminé un suivi</td></tr>
+      <tr><td>Prix des offres Nutrition et All in</td><td>60 € et 90 € par mois (« prix à définir »)</td></tr>
+      <tr><td>Durée d'engagement</td><td>2 ou 3 mois ; 3 mois pour Recettes + sport</td></tr>
+      <tr><td>Paiement</td><td>Prélèvement mensuel ? acompte ? au cabinet ? À quel moment du parcours ?</td></tr>
+      <tr><td>Recettes + sport (40 €)</td><td>Proposée dans l'espace patiente, après un suivi</td></tr>
       <tr><td>Engagement minimum</td><td>3 mois, puis mensuel</td></tr>
       <tr><td>Durées du bilan et du suivi</td><td>1 h et 45 min</td></tr>
       <tr><td>Créneaux des séances collectives</td><td>1er et 3e mardi à 19 h, sans replay</td></tr>
-      <tr><td>Séance individuelle</td><td>Réservée à la F2 ; 20 € en visio, 35 € en présentiel</td></tr>
+      <tr><td>Coaching individuel</td><td>Proposé dans « Mes offres » ; 20 € en visio, 35 € en présentiel</td></tr>
       <tr><td>Contenus au lancement</td><td>30 recettes et 15 vidéos, puis 2 à 3 recettes par mois et 6 vidéos par trimestre</td></tr>
       <tr><td>Après la fin d'abonnement</td><td>Documents en lecture seule pendant 3 mois</td></tr>
-      <tr><td>Nom de marque et logo</td><td>« GM Sport et Nutrition » d'après le logo ; logo à fournir en vectoriel</td></tr>
+      <tr><td>Nom de marque et logo</td><td>« GM Sport et Nutrition » (logo) et « méthode Garry M » : à harmoniser ; logo à fournir en vectoriel</td></tr>
       <tr><td>Données de santé (option B)</td><td>Gardées : hébergeur HDS, AIPD, consentement ; sinon on retire repas notés et mesures</td></tr>
       <tr><td>Évolution</td><td>Ouverte à toutes les formules ; poids affiché par défaut, masquable</td></tr>
       <tr><td>Réponse aux repas notés</td><td>Sous 48 h ouvrées</td></tr>

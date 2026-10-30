@@ -32,6 +32,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-23 | Fichier HTML unique | `dist/garrym-prototype.html` : les trois vues et le site intégré (photos en data URI, environ 3 Mo), construit par `npm run build:standalone` et vérifié par `npm run check:standalone` |
 | 2026-10-23 | Aperçu en ligne du site v4 | Page claude.ai privée distincte du prototype applicatif (`node tools/build-artifact.mjs site`) |
 | 2026-10-26 | Direction artistique v6 « GM Sport et Nutrition » | Couleurs et polices tirées du logo de Manon (vert #18694B, tilleul #B2E388, nuit #12231B ; Poppins et Bellefair) sur le site et l'application ; logo dans la navigation, la connexion et le pied de page ; textes orientés vers la clientèle (femmes, mamans, péri-ménopause) |
+| 2026-10-30 | Brief de réunion « Optimisation site / appli » | Accueil à trois boutons (bilan, test, méthode) ; « La méthode Garry M » et ce qu'elle comprend ; « Votre besoin » en 4 profils ; 4 tarifs (bilan avec un mois d'application offert, suivi, Nutrition, All in) ; lexique ; test « Tester mon alimentation » ; dans l'espace patiente : mois offert, « Mes offres » (dont Recettes + sport et coaching individuel), lexique, semainier remplissable sans modèle |
 | 2026-10-27 | Retours de Manon sur le site | Hyères retiré (La Garde seule) ; photo du « Terrain » en sport santé (pilates en groupe) ; texte : cardio, renfo, étirements et 2 séances collectives par mois ; « Pour chaque femme » ; SMOP (ex-SOPK) ; formules refondues : F1 Nutrition + Recettes 65 €, F2 Complète 90 €, F3 Recettes + Sport 40 € après le suivi |
 | 2026-10-27 | Écran de chargement du site retiré | Le héros s'affiche directement |
 | 2026-10-27 | Back-office adapté au téléphone | Barre d'onglets en bas avec « Plus », tableaux en cartes, semaine de suivi en deux colonnes |
@@ -46,6 +47,9 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | Priorité | Fonctionnalité | Prochaine action |
 | --- | --- | --- |
 | P0 | Avis de Romain puis de Manon sur la v6 (logo, application à la TSE) | Aperçu en ligne + captures |
+| P0 | Paiement des offres avec engagement | Manon : moyen (prélèvement SEPA, carte, au cabinet), moment dans le parcours, CGV ; puis choix Stripe ou GoCardless |
+| P0 | Prix des offres Nutrition et All in, durée d'engagement | Manon (brief : « prix à définir ») |
+| P0 | Calendrier : construction en novembre, test en décembre, mise en ligne en janvier 2027 | Confirmer les années du rétroplanning du brief |
 | P0 | Décision option B (données de santé) | Manon : choix de l'hébergeur HDS, AIPD, texte de consentement ; sinon retirer repas notés et mesures |
 | P0 | Validation du prototype par Manon | Rendez-vous de 45 min avec le prototype + tableau des hypothèses (APP_SPEC §6) |
 | P0 | Nom de marque et logo | Confirmer « GM Sport et Nutrition », obtenir le logo en vectoriel (SVG ou PDF) et un favicon |

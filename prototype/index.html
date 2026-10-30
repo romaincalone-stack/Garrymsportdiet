@@ -105,7 +105,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:650;background:var(--paper-2);color:var(--ink);white-space:nowrap}
 .tag svg{width:13px;height:13px}
 .tag.mono{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.02em}
-.tag.suivi{background:var(--paper-2)} .tag.f1{background:var(--brume)} .tag.f2{background:var(--sable);color:var(--ink)} .tag.f3{background:var(--olive);color:var(--olive-ink)}
+.tag.suivi{background:var(--paper-2)} .tag.decouverte{background:var(--paper);border:1.5px dashed var(--olive);color:var(--olive)} .tag.f1{background:var(--brume)} .tag.f2{background:var(--sable);color:var(--ink)} .tag.f3{background:var(--olive);color:var(--olive-ink)}
 .tag.ok{background:var(--ok-soft);color:var(--ok)} .tag.warn{background:var(--warn-soft);color:var(--warn)} .tag.crit{background:var(--crit-soft);color:var(--crit)}
 .tag.rose{background:var(--rose)} .tag.outline{background:none;border:1.5px solid currentColor}
 
@@ -1021,6 +1021,19 @@ body.framed{background:#E8F5DC}
   .sgrid > b.small{grid-column:1/-1;margin-top:10px}
   .scell[data-slot]::before{content:attr(data-slot);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
 }
+/* ===== Offres, mois offert et lexique dans l'espace patiente ===== */
+.mnotice.gift{background:#B2E388;color:#0F3A2A}
+.offer .oprice{display:block;font-family:var(--f-display);font-weight:600;font-size:2rem;line-height:1;margin:6px 0 10px}
+.offer .oprice small{font-size:.9rem;font-weight:500;opacity:.8}
+.offer.cur{outline:2px solid #B2E388}
+.offer .mbtn{margin-top:6px}
+.mlx{border-top:1px solid #26624A}
+.mlx:first-child{border-top:0}
+.mlx summary{min-height:50px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;font-weight:600;list-style:none}
+.mlx summary::-webkit-details-marker{display:none}
+.mlx summary::after{content:"+";font-size:20px;color:#B2E388;transition:transform .3s}
+.mlx[open] summary::after{transform:rotate(45deg)}
+.mlx p{margin:0 0 14px}
 </style>
 </head>
 <body>
@@ -1042,12 +1055,13 @@ const SETTINGS = {
   whatsapp: "06 00 00 00 00 (numéro fictif)",
   instagram: "https://www.instagram.com/garrymsportdiet/"
 };
-const PLAN_ORDER = ["suivi", "f1", "f2", "f3"];
-const PLANS = {
-  suivi: { code: "Suivi", name: "Suivi simple", price: 50, unit: "€ la consultation" },
-  f1: { code: "F1", name: "Nutrition + Recettes", price: 65, unit: "€ / mois" },
-  f2: { code: "F2", name: "Nutrition + Recettes + Sport", price: 90, unit: "€ / mois" },
-  f3: { code: "F3", name: "Recettes + Sport", price: 40, unit: "€ / mois" } // après le suivi : garder l'accès aux contenus (retour de Manon, 2026-10-27)
+const PLAN_ORDER = ["suivi", "decouverte", "f1", "f2", "f3"];
+const PLANS = { // brief de réunion du 2026-10-30 : 3 à 4 tarifs sur le site, offres supplémentaires dans l'espace patiente
+  suivi: { code: "À l'unité", name: "Consultation à l'unité", price: 50, unit: "€ la consultation" },
+  decouverte: { code: "Mois offert", name: "Mois offert après le bilan", price: 0, unit: "€ · 30 jours" },
+  f1: { code: "Nutrition", name: "Offre Nutrition", price: 60, unit: "€ / mois", commit: "Engagement 2 ou 3 mois" },
+  f2: { code: "All in", name: "Offre All in", price: 90, unit: "€ / mois", commit: "Engagement 2 ou 3 mois" },
+  f3: { code: "Recettes + sport", name: "Recettes + sport, après le suivi", price: 40, unit: "€ / mois", commit: "Engagement 3 mois" }
 };
 const FEATURES = [
   { key: "docs", label: "Profil et fiches conseils" },
@@ -1055,7 +1069,7 @@ const FEATURES = [
   { key: "articles", label: "Articles réservés aux membres" },
   { key: "nutri", label: "Programme nutritionnel et semainier" },
   { key: "contact", label: "Contact WhatsApp avec Manon" },
-  { key: "visio", label: "Consultation visio de 30 min tous les 15 jours" },
+  { key: "visio", label: "Suivi nutritionnel 1 fois par mois (cabinet ou visio)" },
   { key: "recettes", label: "Bibliothèque de recettes complète" },
   { key: "videos", label: "Bibliothèque de vidéos de sport" },
   { key: "sport", label: "Programme sportif" },
@@ -1065,19 +1079,19 @@ const FEATURES = [
   { key: "evolution", label: "Suivi de l'évolution (mesures et ressentis)" }
 ];
 const ACCESS = {
-  docs:        { suivi: true,  f1: true,  f2: true,  f3: true },
-  rdv:         { suivi: true,  f1: true,  f2: true,  f3: true },
-  articles:    { suivi: true,  f1: true,  f2: true,  f3: true },
-  nutri:       { suivi: false, f1: true,  f2: true,  f3: false },
-  contact:     { suivi: false, f1: true,  f2: true,  f3: false },
-  visio:       { suivi: false, f1: true,  f2: true,  f3: false },
-  recettes:    { suivi: false, f1: true,  f2: true,  f3: true },
-  videos:      { suivi: false, f1: false, f2: true,  f3: true },
-  sport:       { suivi: false, f1: false, f2: true,  f3: true },
-  collectives: { suivi: false, f1: false, f2: true,  f3: true },
-  individuelle:{ suivi: false, f1: false, f2: true,  f3: false },
-  journal:     { suivi: false, f1: true,  f2: true,  f3: false },
-  evolution:   { suivi: true,  f1: true,  f2: true,  f3: true }
+  docs:        { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true },
+  rdv:         { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true },
+  articles:    { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true },
+  nutri:       { suivi: false, decouverte: true,  f1: true,  f2: true,  f3: false },
+  contact:     { suivi: false, decouverte: false, f1: true,  f2: true,  f3: false },
+  visio:       { suivi: false, decouverte: false, f1: true,  f2: true,  f3: false },
+  recettes:    { suivi: false, decouverte: true,  f1: true,  f2: true,  f3: true },
+  videos:      { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
+  sport:       { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
+  collectives: { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
+  individuelle:{ suivi: false, decouverte: false, f1: false, f2: true,  f3: false },
+  journal:     { suivi: false, decouverte: true,  f1: true,  f2: true,  f3: false },
+  evolution:   { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true }
 };
 const RECIPE_PREVIEW = 3;
 
@@ -1213,7 +1227,7 @@ const PATIENTS = [
   { id: "p6", first: "Claire", last: "Durand", email: "claire.durand@exemple.fr", phone: "06 61 72 83 94", plan: "suivi", start: "2026-10-01", end: "", status: "active", nutri: "", sport: "", next: { date: "2026-11-12", time: "17:00", mode: "Visio" } },
   { id: "p7", first: "Emma", last: "Giraud", email: "emma.giraud@exemple.fr", phone: "06 71 82 93 04", plan: "f2", start: "2026-10-01", end: "2026-12-31", status: "active", nutri: "sportive", sport: "remise", next: { date: "2026-10-30", time: "12:30", mode: "Visio" } },
   { id: "p8", first: "Nadia", last: "Haddad", email: "nadia.haddad@exemple.fr", phone: "06 81 92 03 14", plan: "f3", start: "2026-06-01", end: "2026-11-30", status: "active", nutri: "energie", sport: "renfo", next: { date: "2026-11-02", time: "11:00", mode: "Cabinet La Garde" } },
-  { id: "p9", first: "Pauline", last: "Ricard", email: "pauline.ricard@exemple.fr", phone: "06 91 02 13 24", plan: "f1", start: "2026-09-15", end: "2026-12-15", status: "active", nutri: "energie", sport: "", next: { date: "2026-10-27", time: "18:00", mode: "Visio" } },
+  { id: "p9", first: "Pauline", last: "Ricard", email: "pauline.ricard@exemple.fr", phone: "06 91 02 13 24", plan: "decouverte", start: "2026-10-12", end: "2026-11-11", status: "active", nutri: "", sport: "", next: { date: "2026-10-27", time: "18:00", mode: "Visio" } },
   { id: "p10", first: "Chloé", last: "Vidal", email: "chloe.vidal@exemple.fr", phone: "07 12 23 34 45", plan: "f2", start: "2026-10-12", end: "2027-01-12", status: "active", nutri: "reequilibrage", sport: "remise", next: { date: "2026-10-29", time: "15:30", mode: "Cabinet La Garde" } },
   { id: "p11", first: "Sophie", last: "Lambert", email: "sophie.lambert@exemple.fr", phone: "07 22 33 44 55", plan: "suivi", start: "2026-09-20", end: "", status: "active", nutri: "", sport: "", next: null },
   { id: "p12", first: "Anaïs", last: "Petit", email: "anais.petit@exemple.fr", phone: "07 32 43 54 65", plan: "f1", start: "2026-09-01", end: "2026-12-01", status: "suspendue", nutri: "energie", sport: "", next: null },
@@ -1260,10 +1274,10 @@ const me = () => patientById(S.patientId);
 const can = key => !!ACCESS[key][me().plan];
 const minPlan = key => {
   const cur = S.view === "patient" ? me().plan : null, keep = cur ? FEATURES.map(f => f.key).filter(k => ACCESS[k][cur]) : [];
-  return PLAN_ORDER.filter(p => p !== "suivi" && ACCESS[key][p] && keep.every(k => ACCESS[k][p])).sort((a, b) => PLANS[a].price - PLANS[b].price)[0] || PLAN_ORDER.find(p => ACCESS[key][p]);
+  return PLAN_ORDER.filter(p => PLANS[p].price > 0 && p !== "suivi" && ACCESS[key][p] && keep.every(k => ACCESS[k][p])).sort((a, b) => PLANS[a].price - PLANS[b].price)[0] || PLAN_ORDER.find(p => ACCESS[key][p]);
 };
-const planName = k => k === "suivi" ? "Suivi simple" : PLANS[k].name;
-const planTag = p => `<span class="tag ${p}">${PLANS[p].code}${p !== "suivi" ? " · " + esc(PLANS[p].name) : ""}</span>`;
+const planName = k => PLANS[k].name;
+const planTag = p => `<span class="tag ${p}">${esc(PLANS[p].code)}</span>`;
 const fullName = p => p.first + " " + p.last;
 const initials = p => (p.first[0] + p.last[0]).toUpperCase();
 const totalTime = r => r.prep + r.cook;
@@ -1311,6 +1325,7 @@ const I = {
   ext: svg('<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'),
   copy: svg('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/>'),
   chart: svg('<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>'),
+  gift: svg('<rect x="3.5" y="8" width="17" height="13" rx="2"/><path d="M12 8v13M3.5 12.5h17M12 8C10 4 6 4 6.5 6.5S10 8 12 8zm0 0c2-4 6-4 5.5-1.5S14 8 12 8z"/>'),
   more: svg('<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>'),
   phone: svg('<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>'),
   monitor: svg('<rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'),
@@ -1376,7 +1391,7 @@ function protobar() {
     <div class="seg" role="tablist" aria-label="Choisir la vue">
       ${[["site", "Site public"], ["patient", "Espace patiente"], ["admin", "Back-office Manon"]].map(([k, l]) => `<button class="${S.view === k ? "on" : ""}" data-act="view" data-v="${k}" role="tab" aria-selected="${S.view === k}">${l}</button>`).join("")}
     </div>
-    ${S.view === "patient" ? `<select id="pb-plan" data-change="plan" aria-label="Formule de la patiente">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${esc(p.first)} · ${PLANS[k].code} ${k !== "suivi" ? esc(PLANS[k].name) : "Suivi simple"}</option>`).join("")}</select>` : ""}
+    ${S.view === "patient" ? `<select id="pb-plan" data-change="plan" aria-label="Formule de la patiente">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${esc(p.first)} · ${esc(planName(k))}</option>`).join("")}</select>` : ""}
     <span class="sp"></span>
     <label><input type="checkbox" id="pb-notes" data-change="notes" ${S.notes ? "checked" : ""}> Notes CDC</label>
     <div class="pdev"><span class="lbl">Affichage</span>
@@ -1601,9 +1616,9 @@ function siteLogin() {
    ========================================================= */
 function upsell(feat, title) {
   const t = minPlan(feat);
-  return `<div class="upsell"><span class="tag f2">${I.lock}Formule 0${t.slice(1)}</span><h3 class="display h-m" style="font-size:1.7rem">${title}</h3>
-    <p class="muted">Inclus à partir de la formule <b>${esc(PLANS[t].name)}</b> (${PLANS[t].price} €/mois). Parlez-en à Manon : elle change votre formule en un clic.</p>
-    <div class="row">${can("contact") ? `<button class="btn btn-wa btn-sm" data-act="wa">${I.chat}Écrire à Manon</button>` : ""}${doctolib("En parler en consultation", "btn-line btn-sm")}</div></div>`;
+  return `<div class="upsell"><span class="tag f2">${I.lock}${esc(PLANS[t].code)}</span><h3 class="display h-m" style="font-size:1.7rem">${title}</h3>
+    <p class="muted">Inclus dans : <b>${esc(planName(t))}</b> (${PLANS[t].price} €/mois). Manon change votre offre en un clic.</p>
+    <div class="row"><button class="btn btn-olive btn-sm" data-act="msub" data-s="offres">Voir les offres</button>${can("contact") ? `<button class="btn btn-wa btn-sm" data-act="wa">${I.chat}Écrire à Manon</button>` : ""}</div></div>`;
 }
 function ticket(s) {
   const p = me(), d = parseD(s.date);
@@ -1739,20 +1754,21 @@ const ring = (v, max, label) => `<div class="mring" style="--p:${max ? Math.roun
 const intensity = v => { const n = Math.min(4, ({ "Débutant": 1, "Intermédiaire": 2, "Avancé": 3 }[v.level] || 1) + (v.theme === "Cardio" ? 1 : 0)); return `<span class="int" aria-label="Intensité ${n} sur 4">${[1, 2, 3, 4].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`; };
 const vItem = v => `<button class="vitem" data-act="video" data-id="${v.id}"><span class="vth">${photo(vPhoto(v))}${S.vdone.has(v.id) ? `<i class="vdone" aria-label="Faite">${I.check}</i>` : ""}</span><span class="vtx"><b>${esc(v.title)}</b><span class="vmeta">${I.clock}${v.dur} min<i class="sep"></i>${intensity(v)}</span><span class="vmeta2">${esc(ZONE_OF[v.id] || v.theme)} · ${esc(v.equip.join(", "))}</span></span></button>`;
 const rVisual = r => { const i = RECIPES.indexOf(r); return i % 4 < 2 ? photo(PHOTO_R[i % 3]) : artBox(seedOf(r.id), r.meal, "position:absolute;inset:0"); };
-const rTile = (r, locked = false) => `<button class="rtile${locked ? " locked" : ""}" ${locked ? `data-act="toast" data-msg="Recette incluse dans la formule ${PLANS[minPlan("recettes")].code}. Parlez-en à Manon."` : `data-act="recipe" data-id="${r.id}"`} aria-label="${esc(r.title)}${locked ? " (non incluse)" : ""}"><span class="rimg">${rVisual(r)}</span>${locked ? `<i class="lk">${I.lock}</i>` : S.favR.has(r.id) ? `<i class="lk">${I.heartF}</i>` : ""}<span class="rtx"><b>${esc(r.title)}</b><span>${totalTime(r)} min · ${r.macro.kcal} kcal</span></span></button>`;
+const rTile = (r, locked = false) => `<button class="rtile${locked ? " locked" : ""}" ${locked ? `data-act="toast" data-msg="Recette incluse dans : ${esc(planName(minPlan("recettes")))}. Parlez-en à Manon."` : `data-act="recipe" data-id="${r.id}"`} aria-label="${esc(r.title)}${locked ? " (non incluse)" : ""}"><span class="rimg">${rVisual(r)}</span>${locked ? `<i class="lk">${I.lock}</i>` : S.favR.has(r.id) ? `<i class="lk">${I.heartF}</i>` : ""}<span class="rtx"><b>${esc(r.title)}</b><span>${totalTime(r)} min · ${r.macro.kcal} kcal</span></span></button>`;
 const searchPill = (id, ph, input, value, filterAttrs) => `<div class="msearch">${I.search}<label class="sr" for="${id}">${ph}</label><input id="${id}" type="search" placeholder="${ph}" value="${esc(value)}" data-input="${input}">${filterAttrs ? `<button class="mfilter" ${filterAttrs} aria-label="Filtres">${I.sliders}</button>` : ""}</div>`;
 const mLocked = (feat, title, preview) => `<div class="locked mlocked"><div class="blur">${preview}</div>${upsell(feat, title)}</div>`;
 const slotState = (pid, iso, j) => { const l = logOf(pid, iso, j); if (!l) return ["vide", "À noter"]; if (l.review) return ["rev", l.review.kind === "valide" ? "Validé par Manon" : "Conseil de Manon"]; return l.status === "ok" ? ["ok", "Fait"] : ["note", "Noté"]; };
 const stateIcon = k => ({ ok: I.check, rev: I.chat, note: I.edit, vide: I.plus }[k]);
 const planValue = (p, d, j) => { const t = NUTRI_TEMPLATES[p.nutri]; return t ? t.days[d][j] : ""; };
 const valueLabel = v => { const r = recipe(v); return r ? r.title : v; };
+const planLabel = (p, d, j) => valueLabel(planValue(p, d, j)) || "À compléter";
 
 const MTABS = [["home", "Aujourd'hui", "home"], ["training", "Training", "dumbbell"], ["nutrition", "Nutrition", "bowl"], ["evolution", "Évolution", "chart"]];
 function patient() {
   const p = me();
   if (p.status !== "active") return `<div class="mob"><div class="mcard stack"><h2 class="mh2">Compte ${esc(p.status)}</h2><p class="muted">Ce compte n'a plus accès à l'espace. Manon peut le réactiver depuis son back-office.</p></div></div>`;
   if (!MTABS.some(t => t[0] === S.ptPage)) S.ptPage = "home";
-  const subs = { recettes: mRecettes, videos: mVideos, semainier: mSemainier, proposer: mProposer, seances: mSeances, profil: mProfil };
+  const subs = { recettes: mRecettes, videos: mVideos, semainier: mSemainier, proposer: mProposer, seances: mSeances, profil: mProfil, offres: mOffres, lexique: mLexique };
   const page = (S.ptSub && subs[S.ptSub] ? subs[S.ptSub] : { home: mHome, training: mTraining, nutrition: mNutrition, evolution: mEvolution }[S.ptPage])();
   return `<div class="mob" id="main">${page}</div>
     <nav class="mtab" aria-label="Rubriques"><img class="mlogo-d" src="${ASSET("logoclair.png")}" alt="GM Sport et Nutrition">${MTABS.map(([k, l, ic]) => `<button class="${S.ptPage === k ? "on" : ""}" data-act="mtab" data-p="${k}" ${S.ptPage === k ? 'aria-current="page"' : ""}>${I[ic]}<span>${l}</span></button>`).join("")}<button class="mprof-d ${S.ptSub === "profil" ? "on" : ""}" data-act="msub" data-s="profil"><span class="mav">${initials(p)}</span><span><b>${esc(fullName(p))}</b><small>Mon profil</small></span></button></nav>`;
@@ -1767,13 +1783,15 @@ function mHome() {
   const replies = Object.entries(MEALLOG).filter(([k, l]) => k.startsWith(p.id + "|") && l.review && l.review.text).length;
   const cards = [
     `<button class="fcard c-tilleul" data-act="msub" data-s="profil"><span class="fk">Prochaine consultation</span>${p.next ? `<b class="fbig">${fmtD(p.next.date, { day: "numeric", month: "short" })}</b><span>${fmtT(p.next.time)} · ${esc(p.next.mode)}</span>` : `<b class="fbig">À prévoir</b><span>Sur Doctolib</span>`}</button>`,
-    can("journal") && tmpl ? `<button class="fcard c-vert" data-act="mtab" data-p="nutrition"><span class="fk">Mes repas du jour</span>${ring(mealsDone, 4, "notés")}</button>` : "",
+    can("journal") ? `<button class="fcard c-vert" data-act="mtab" data-p="nutrition"><span class="fk">Mes repas du jour</span>${ring(mealsDone, 4, "notés")}</button>` : "",
     can("videos") ? `<button class="fcard c-gris" data-act="mtab" data-p="training"><span class="fk">Mes séances</span>${ring(Math.min(S.vdone.size, 3), 3, "cette semaine")}</button>` : "",
     can("evolution") ? `<button class="fcard c-creme" data-act="mtab" data-p="evolution"><span class="fk">Mon évolution</span>${last ? `${spark(prog.map(e => e.energie), 5)}<span>Énergie ${last.energie}/5</span>` : `<b class="fbig">+</b><span>Première mesure</span>`}</button>` : "",
     can("collectives") && next ? `<button class="fcard c-brume" data-act="msub" data-s="seances"><span class="fk">Séance en direct</span><b class="fbig">${fmtD(next.date, { day: "numeric", month: "short" })}</b><span>${esc(next.title)}</span></button>` : ""
   ].filter(Boolean).join("");
   const suggestion = VIDEOS.filter(v => v.dur <= 20 && v.level === "Débutant")[DAY_IDX % 3] || VIDEOS[0];
+  const left = p.plan === "decouverte" && p.end ? Math.min(30, Math.max(0, daysUntil(p.end))) : null;
   return `${mHead(`Bonjour ${esc(p.first)}`, "Heureuse de vous revoir")}
+    ${left !== null ? `<button class="mnotice gift" data-act="msub" data-s="offres">${I.gift}<span><b>Mois offert après votre bilan</b> : encore ${left} jour${left > 1 ? "s" : ""}. Découvrir les offres</span>${chevron}</button>` : ""}
     <div class="mcols">
       <div class="mblk wide" style="order:1">
     <div class="mfan" role="list">${cards}</div>
@@ -1812,7 +1830,7 @@ function planner() {
   const p = me(), d = S.pday, iso = isoDay(WEEK_START, d), sp = can("sport") ? SPORT_TEMPLATES[p.sport] : null;
   const sess = sp && sp.sessions.find(s => s.day === DAYS[d]), coll = can("collectives") && SESSIONS.find(s => s.date === iso);
   return `<div class="planner"><div class="pdays" role="tablist" aria-label="Jours de la semaine">${DAYS.map((n, i) => { const di = isoDay(WEEK_START, i); return `<button class="pday ${i === d ? "on" : ""} ${i === DAY_IDX ? "today" : ""}" data-act="pday" data-d="${i}" role="tab" aria-selected="${i === d}"><span>${n.slice(0, 3)}</span><b>${+di.slice(8)}</b></button>`; }).join("")}</div>
-    <div class="pbody">${can("journal") && NUTRI_TEMPLATES[p.nutri] ? SLOTS.map((s, j) => { const [k, l] = slotState(p.id, iso, j); return `<button class="prow" data-act="meal" data-d="${d}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${SLOT_SHORT[j]}</small><b>${esc(valueLabel(logOf(p.id, iso, j)?.status === "autre" ? logOf(p.id, iso, j).text : planValue(p, d, j)))}</b></span><em class="sl sl-${k}">${l}</em></button>`; }).join("") : `<p class="muted small">Votre semainier apparaîtra ici dès que Manon l'aura préparé.</p>`}
+    <div class="pbody">${can("journal") ? SLOTS.map((s, j) => { const [k, l] = slotState(p.id, iso, j); return `<button class="prow" data-act="meal" data-d="${d}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${SLOT_SHORT[j]}</small><b>${esc(logOf(p.id, iso, j)?.status === "autre" ? logOf(p.id, iso, j).text : planLabel(p, d, j))}</b></span><em class="sl sl-${k}">${l}</em></button>`; }).join("") : `<p class="muted small">Le semainier partagé est inclus dans les offres Nutrition et All in.</p>`}
       ${sess ? `<div class="prow static"><i class="st st-sport">${I.dumbbell}</i><span class="grow"><small>Séance</small><b>${esc(sess.title)}</b></span></div>` : ""}
       ${coll ? `<div class="prow static"><i class="st st-sport">${I.users}</i><span class="grow"><small>En direct · ${fmtT(coll.time)}</small><b>${esc(coll.title)}</b></span></div>` : ""}</div></div>`;
 }
@@ -1876,9 +1894,8 @@ function mNutrition() {
   const done = SLOTS.filter((_, j) => logOf(p.id, iso, j)).length, prop = PROPOSALS[p.id];
   let suivi;
   if (!can("journal")) suivi = mLocked("journal", "Votre semainier avec Manon", `<div class="mcard">${SLOTS.map(s => `<div class="prow static"><i class="st st-vide">${I.plus}</i><span class="grow"><small>${s}</small><b>Repas proposé</b></span></div>`).join("")}</div>`);
-  else if (!tmpl) suivi = `<div class="mcard"><b>Votre semainier arrive</b><p class="small muted">Manon le prépare après votre bilan. Vous pourrez aussi lui proposer le vôtre.</p><button class="mbtn ghost" data-act="msub" data-s="proposer">Proposer mon semainier</button></div>`;
-  else suivi = `<div class="mcard suivi"><div class="row between" style="flex-wrap:nowrap"><div><span class="fk">Aujourd'hui · ${esc(tmpl.name)}</span><h3 class="mh3">${fmtD(iso, { weekday: "long", day: "numeric", month: "long" })}</h3></div>${ring(done, 4, "repas")}</div>
-      ${SLOTS.map((s, j) => { const [k, l] = slotState(p.id, iso, j), lg = logOf(p.id, iso, j); return `<button class="prow" data-act="meal" data-d="${DAY_IDX}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${s}</small><b>${esc(lg && lg.status === "autre" ? lg.text : valueLabel(planValue(p, DAY_IDX, j)))}</b></span><em class="sl sl-${k}">${l}</em></button>`; }).join("")}
+  else suivi = `<div class="mcard suivi"><div class="row between" style="flex-wrap:nowrap"><div><span class="fk">Aujourd'hui · ${tmpl ? esc(tmpl.name) : "semaine à compléter"}</span><h3 class="mh3">${fmtD(iso, { weekday: "long", day: "numeric", month: "long" })}</h3></div>${ring(done, 4, "repas")}</div>
+      ${SLOTS.map((s, j) => { const [k, l] = slotState(p.id, iso, j), lg = logOf(p.id, iso, j); return `<button class="prow" data-act="meal" data-d="${DAY_IDX}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${s}</small><b>${esc(lg && lg.status === "autre" ? lg.text : planLabel(p, DAY_IDX, j))}</b></span><em class="sl sl-${k}">${l}</em></button>`; }).join("")}
       <div class="row" style="gap:8px;margin-top:6px"><button class="mbtn" data-act="msub" data-s="semainier">Voir ma semaine</button><button class="mbtn ghost" data-act="msub" data-s="proposer">Proposer mon semainier${prop ? ` · ${PROP_STATUS[prop.status][0]}` : ""}</button></div></div>`;
   return `${head}
     ${searchPill("m-rq", "Trouvez votre recette", "mrq", S.rf.q, 'data-act="msub" data-s="recettes"')}
@@ -1909,14 +1926,14 @@ function mRecettes() {
 }
 function mSemainier() {
   const p = me(), t = NUTRI_TEMPLATES[p.nutri];
-  if (!can("journal") || !t) return subHead("Ma semaine") + `<div class="mcard"><b>Semainier non disponible</b><p class="small muted">${can("journal") ? "Manon prépare votre semainier." : "Inclus à partir de la formule F1."}</p></div>`;
+  if (!can("journal")) return subHead("Ma semaine") + `<div class="mcard"><b>Semainier non disponible</b><p class="small muted">Inclus dans les offres Nutrition et All in.</p><button class="mbtn ghost" data-act="msub" data-s="offres">Voir les offres</button></div>`;
   const d = S.pday, iso = isoDay(WEEK_START, d);
-  return `${subHead("Ma semaine", `Proposée par Manon · ${esc(t.name)}`)}
+  return `${subHead("Ma semaine", t ? `Proposée par Manon · ${esc(t.name)}` : "À compléter : notez vos repas, Manon vous répond")}
     <div class="planner"><div class="pdays" role="tablist" aria-label="Jours">${DAYS.map((n, i) => { const di = isoDay(WEEK_START, i), cnt = SLOTS.filter((_, j) => logOf(p.id, di, j)).length; return `<button class="pday ${i === d ? "on" : ""} ${i === DAY_IDX ? "today" : ""}" data-act="pday" data-d="${i}" role="tab" aria-selected="${i === d}"><span>${n.slice(0, 3)}</span><b>${+di.slice(8)}</b><i class="pdots">${SLOTS.map((_, j) => `<em class="${j < cnt ? "on" : ""}"></em>`).join("")}</i></button>`; }).join("")}</div></div>
-    <div class="mcard"><span class="fk">Mes repères</span><ul class="mrecos">${t.recos.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
+    ${t ? `<div class="mcard"><span class="fk">Mes repères</span><ul class="mrecos">${t.recos.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>` : ""}
     ${SLOTS.map((s, j) => { const v = planValue(p, d, j), r = recipe(v), lg = logOf(p.id, iso, j), [k, l] = slotState(p.id, iso, j);
       return `<article class="mcard meal"><div class="row between" style="flex-wrap:nowrap"><span class="fk">${s}</span><em class="sl sl-${k}">${l}</em></div>
-        <div class="mprop"><small>Proposé par Manon</small>${r ? `<button class="rlink" data-act="recipe" data-id="${r.id}">${esc(r.title)}</button><span class="tiny muted">${totalTime(r)} min · ${r.macro.kcal} kcal</span>` : `<b>${esc(v)}</b>`}</div>
+        ${v ? `<div class="mprop"><small>Proposé par Manon</small>${r ? `<button class="rlink" data-act="recipe" data-id="${r.id}">${esc(r.title)}</button><span class="tiny muted">${totalTime(r)} min · ${r.macro.kcal} kcal</span>` : `<b>${esc(v)}</b>`}</div>` : ""}
         ${lg ? `<div class="mate"><small>${lg.status === "ok" ? "Vous avez suivi la proposition" : "Vous avez mangé"}</small>${lg.status === "autre" ? `<b>${esc(lg.text)}</b>` : ""}<span class="tiny muted">${QTY[lg.qty] || ""}${lg.note ? " · « " + esc(lg.note) + " »" : ""}</span></div>` : ""}
         ${lg && lg.review ? `<div class="mreply ${lg.review.kind}">${lg.review.kind === "valide" ? I.check : I.chat}<span><b>${lg.review.kind === "valide" ? "Validé par Manon" : "Conseil de Manon"}</b>${lg.review.text ? `<span>${esc(lg.review.text)}</span>` : ""}</span></div>` : ""}
         <button class="mbtn ${lg ? "ghost" : ""}" data-act="meal" data-d="${d}" data-s="${j}">${lg ? "Modifier" : "Noter ce repas"}</button></article>`; }).join("")}
@@ -1926,11 +1943,11 @@ function mealModal(d, j) {
   const p = me(), iso = isoDay(WEEK_START, d), lg = logOf(p.id, iso, j) || {}, v = planValue(p, d, j), r = recipe(v), autre = lg.status === "autre";
   return `<form data-form="meal" data-d="${d}" data-s="${j}"><div class="m-head"><div><span class="kicker">${fmtD(iso, { weekday: "long", day: "numeric", month: "long" })} · ${SLOTS[j]}</span><h2 class="mh2" style="margin-top:4px">Qu'avez-vous mangé ?</h2></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
     <div class="m-body">
-      <div class="mprop"><small>Proposé par Manon</small><b>${esc(r ? r.title : v)}</b></div>
+      ${v ? `<div class="mprop"><small>Proposé par Manon</small><b>${esc(r ? r.title : v)}</b></div>
       <fieldset class="mseg"><legend>Ce repas</legend>
         <label><input type="radio" name="status" value="ok" ${!autre ? "checked" : ""}><span>${I.check}J'ai suivi la proposition</span></label>
-        <label><input type="radio" name="status" value="autre" ${autre ? "checked" : ""}><span>${I.edit}J'ai mangé autre chose</span></label></fieldset>
-      <div class="field"><label for="meal-text">Si autre chose : ce que vous avez mangé</label><textarea id="meal-text" name="text" rows="3" placeholder="Ex. : une salade de pâtes au thon, une pomme">${esc(lg.text || "")}</textarea></div>
+        <label><input type="radio" name="status" value="autre" ${autre ? "checked" : ""}><span>${I.edit}J'ai mangé autre chose</span></label></fieldset>` : `<input type="hidden" name="status" value="autre">`}
+      <div class="field"><label for="meal-text">${v ? "Si autre chose : ce que vous avez mangé" : "Ce que vous avez mangé"}</label><textarea id="meal-text" name="text" rows="3" placeholder="Ex. : une salade de pâtes au thon, une pomme">${esc(lg.text || "")}</textarea></div>
       <fieldset class="mseg three"><legend>Quantité</legend>${Object.entries(QTY).map(([k, l]) => `<label><input type="radio" name="qty" value="${k}" ${(lg.qty || "prevu") === k ? "checked" : ""}><span>${l}</span></label>`).join("")}</fieldset>
       <div class="field"><label for="meal-note">Un mot pour Manon (facultatif)</label><input id="meal-note" name="note" value="${esc(lg.note || "")}" placeholder="Ex. : grosse faim en fin de journée"></div>
       ${lg.review ? `<div class="mreply ${lg.review.kind}">${lg.review.kind === "valide" ? I.check : I.chat}<span><b>${lg.review.kind === "valide" ? "Validé par Manon" : "Conseil de Manon"}</b>${lg.review.text ? `<span>${esc(lg.review.text)}</span>` : ""}</span></div><p class="tiny muted">Si vous modifiez ce repas, Manon le relira à nouveau.</p>` : ""}
@@ -2008,12 +2025,50 @@ function mSeances() {
     <div class="stack" style="gap:12px">${SESSIONS.filter(s => daysUntil(s.date) >= 0).map(ticket).join("")}</div>
     <div class="mcard" style="margin-top:14px"><span class="fk">En supplément</span><h3 class="mh3">Séance individuelle</h3><p class="small muted">Une heure avec Manon, en visio (20 €) ou au cabinet et chez vous (35 €).</p>${doctolib("Réserver sur Doctolib", "btn-olive btn-sm")}</div>`;
 }
+/* ---------- Mes offres (offres supplémentaires après l'acquisition, brief du 2026-10-30) ---------- */
+const OFFER_REQ = [{ pid: "p8", offer: "coaching", date: "2026-10-21" }]; // demandes « Je suis intéressée », visibles dans « À traiter »
+const OFFERS = [
+  ["f1", ["Le bilan, puis 1 suivi par mois (cabinet ou visio)", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Contact WhatsApp avec Manon"]],
+  ["f2", ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio"]],
+  ["f3", ["Pour garder le rythme une fois votre suivi terminé", "Toutes les recettes et la liste de courses", "Vidéos et 2 séances collectives par mois", "Sans consultation"]],
+  ["coaching", ["Une séance d'une heure avec Manon : échauffement, renfo, cardio", "20 € en visio, 35 € au cabinet ou chez vous", "À la séance"]]
+];
+const offerName = k => PLANS[k] ? planName(k) : "Coaching individuel";
+function mOffres() {
+  const p = me(), left = p.plan === "decouverte" && p.end ? Math.min(30, Math.max(0, daysUntil(p.end))) : null;
+  const card = ([k, list]) => {
+    const pl = PLANS[k], cur = p.plan === k, asked = OFFER_REQ.some(r => r.pid === p.id && r.offer === k);
+    return `<article class="mcard offer${cur ? " cur" : ""}"><div class="row between" style="flex-wrap:nowrap"><span class="fk">${esc(pl ? pl.commit : "Sans engagement")}</span>${cur ? `<em class="sl sl-rev">Votre offre</em>` : ""}</div>
+      <h3 class="mh3">${esc(offerName(k))}</h3><b class="oprice">${pl ? pl.price : 20} €<small>${pl ? " / mois" : " / séance en visio"}</small></b>
+      <ul class="mrecos">${list.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${cur ? "" : `<button class="mbtn${asked ? " ghost" : ""}" data-act="offer" data-o="${k}" ${asked ? "disabled" : ""}>${asked ? `${I.check}Demande envoyée` : "Je suis intéressée"}</button>`}</article>`;
+  };
+  return `${subHead("Mes offres", "Changer d'offre ou ajouter un service")}
+    ${left !== null ? `<div class="mnotice gift">${I.gift}<span><b>Mois offert après votre bilan</b> : encore ${left} jour${left > 1 ? "s" : ""} d'accès à l'application.</span></div>` : ""}
+    ${OFFERS.map(card).join("")}
+    ${note("Paiement à définir avec Manon (prélèvement mensuel, paiement au cabinet ou en ligne) : rien n'est encaissé dans l'application en v1. « Je suis intéressée » prévient Manon, qui change l'offre depuis son back-office.")}`;
+}
+/* ---------- Lexique (mêmes définitions que le site) ---------- */
+const LEX = [
+  ["Bilan nutritionnel", "La première consultation, d'environ une heure. Manon fait le point sur vos habitudes, vos objectifs et votre mode de vie, puis vous propose un premier plan alimentaire."],
+  ["Suivi nutritionnel", "Une consultation plus courte, après le bilan, pour voir ce qui marche, ajuster le plan et fixer les prochaines étapes."],
+  ["Plan alimentaire", "Des repères concrets pour composer vos repas : quoi, en quelle quantité, à quel moment. Ce n'est pas un régime."],
+  ["Semainier", "Le tableau de votre semaine : 7 jours et 4 repas par jour. Manon le prépare, vous notez ce que vous avez réellement mangé."],
+  ["Suivi hebdomadaire", "Chaque semaine, Manon regarde votre semainier et vous répond : une validation ou un conseil."],
+  ["Séance collective", "Une séance de sport en visio, en petit groupe (10 places), deux fois par mois."],
+  ["Rééquilibrage alimentaire", "Revenir à une alimentation variée et régulière, sans interdit, pour se sentir mieux sur la durée."],
+  ["SMOP", "Nouveau nom proposé pour le SOPK (syndrome des ovaires polykystiques), un trouble hormonal fréquent qui peut toucher le cycle, la peau, le poids et l'énergie."]
+];
+function mLexique() {
+  return `${subHead("Lexique", "Les mots du suivi, expliqués simplement")}
+    <div class="mcard">${LEX.map(([t, d]) => `<details class="mlx"><summary>${esc(t)}</summary><p class="small muted">${esc(d)}</p></details>`).join("")}</div>`;
+}
 function mProfil() {
   const p = me();
   return `${subHead("Mon profil")}
     <div class="pcover"><span class="mav big">${initials(p)}</span><b>${esc(fullName(p))}</b>${planTag(p.plan)}<small>Suivie depuis le ${fmtD(p.start)}${p.end ? ` · jusqu'au ${fmtD(p.end)}` : ""}</small></div>
     <div class="mcard"><span class="fk">Prochaine consultation</span>${p.next ? `<h3 class="mh3">${fmtD(p.next.date, { weekday: "long", day: "numeric", month: "long" })}</h3><p class="small muted">${fmtT(p.next.time)} · ${esc(p.next.mode)}</p>` : `<h3 class="mh3">À prévoir</h3>`}${doctolib("Reprendre rendez-vous", "btn-olive btn-sm")}</div>
-    <div class="mcard">${[["seances", "Séances en direct", "users"], ["semainier", "Ma semaine", "cal"], ["proposer", "Proposer mon semainier", "edit"]].map(([s, l, ic]) => `<button class="prow" data-act="msub" data-s="${s}">${I[ic]}<span class="grow"><b>${l}</b></span>${chevron}</button>`).join("")}
+    <div class="mcard">${[["offres", "Mes offres", "gift"], ["seances", "Séances en direct", "users"], ["semainier", "Ma semaine", "cal"], ["proposer", "Proposer mon semainier", "edit"], ["lexique", "Lexique", "book"]].map(([s, l, ic]) => `<button class="prow" data-act="msub" data-s="${s}">${I[ic]}<span class="grow"><b>${l}</b></span>${chevron}</button>`).join("")}
       ${can("contact") ? `<button class="prow" data-act="wa">${I.chat}<span class="grow"><b>Écrire à Manon sur WhatsApp</b><small>Réponse sous 48 h ouvrées</small></span>${chevron}</button>` : ""}</div>
     <div class="mcard"><span class="fk">Notifications</span>${[["rappels", "Rappels de séances et de consultations"], ["nouveautes", "Nouvelles recettes et vidéos"], ["resume", "Réponses de Manon et résumé de la semaine"]].map(([k, l]) => `<label class="row between" style="flex-wrap:nowrap;min-height:48px"><span class="small">${l}</span><span class="toggle"><input type="checkbox" id="n-${k}" data-change="notif" data-k="${k}" ${S.notif[k] ? "checked" : ""}><span></span></span></label>`).join("")}</div>
     <div class="mcard" style="display:flex;flex-wrap:wrap;gap:8px"><button class="mbtn ghost" data-act="toast" data-msg="En version finale : email de changement de mot de passe.">Changer mon mot de passe</button><button class="mbtn ghost" data-act="view" data-v="site">Se déconnecter</button></div>
@@ -2067,11 +2122,12 @@ function adDashboard() {
       <div class="card ci kpi"><div class="v num">${next ? next.inscrits.length + "/" + next.places : "—"}</div><div class="l" style="color:inherit">Inscrites prochaine séance</div></div>
     </div>
     <div class="grid g2" style="align-items:start">
-      <div class="card stack"><h3 class="h-s">Patientes actives par formule</h3><div class="bars">${byPlan.map(([k, n]) => `<div class="bar"><span>${PLANS[k].code} · ${{ suivi: "Suivi simple", f1: "Nutrition", f2: "+ Recettes", f3: "+ Sport" }[k]}</span><div class="tr"><div class="fl" style="width:${n / max * 100}%"></div></div><b class="mono">${n}</b></div>`).join("")}</div></div>
+      <div class="card stack"><h3 class="h-s">Patientes actives par formule</h3><div class="bars">${byPlan.map(([k, n]) => `<div class="bar"><span>${esc(PLANS[k].code)}</span><div class="tr"><div class="fl" style="width:${n / max * 100}%"></div></div><b class="mono">${n}</b></div>`).join("")}</div></div>
       <div class="card stack" style="gap:6px"><h3 class="h-s">À traiter</h3><div class="list">
         ${act.filter(p => toReview(p.id).length).map(p => `<div class="it"><span class="tag crit">Repas</span><div class="grow small">${toReview(p.id).length} repas de ${esc(fullName(p))} à relire</div><button class="btn btn-text btn-sm" data-act="suivi" data-id="${p.id}">Relire</button></div>`).join("")}
         ${act.filter(p => PROPOSALS[p.id] && PROPOSALS[p.id].status === "envoye").map(p => `<div class="it"><span class="tag warn">Semainier</span><div class="grow small">${esc(fullName(p))} propose son semainier</div><button class="btn btn-text btn-sm" data-act="suivi" data-id="${p.id}">Voir</button></div>`).join("")}
-        ${expiring.map(p => `<div class="it"><span class="tag crit">Expire</span><div class="grow small">${esc(fullName(p))} · ${PLANS[p.plan].code} · ${fmtD(p.end)}</div><button class="btn btn-text btn-sm" data-act="openpatient" data-id="${p.id}">Ouvrir</button></div>`).join("")}
+        ${OFFER_REQ.map(r => { const p = patientById(r.pid); return `<div class="it"><span class="tag ok">Offre</span><div class="grow small">${esc(fullName(p))} s'intéresse à : ${esc(offerName(r.offer))}</div><button class="btn btn-text btn-sm" data-act="openpatient" data-id="${p.id}">Ouvrir</button></div>`; }).join("")}
+        ${expiring.map(p => `<div class="it"><span class="tag crit">${p.plan === "decouverte" ? "Mois offert" : "Expire"}</span><div class="grow small">${esc(fullName(p))} · ${PLANS[p.plan].code} · ${fmtD(p.end)}</div><button class="btn btn-text btn-sm" data-act="openpatient" data-id="${p.id}">Ouvrir</button></div>`).join("")}
         ${noProg.map(p => `<div class="it"><span class="tag warn">Programme</span><div class="grow small">${esc(fullName(p))} n'a pas de semainier</div><button class="btn btn-text btn-sm" data-act="openpatient" data-id="${p.id}">Attribuer</button></div>`).join("")}
         ${scheduled.map(r => `<div class="it"><span class="tag f1">Programmée</span><div class="grow small">« ${esc(r.title)} » le ${fmtD(r.date)}</div></div>`).join("")}
         ${next ? `<div class="it"><span class="tag f3">Séance</span><div class="grow small">${esc(next.title)} · ${fmtDay(next.date)} · ${next.inscrits.length}/${next.places}</div><button class="btn btn-text btn-sm" data-act="inscrits" data-id="${next.id}">Inscrites</button></div>` : ""}
@@ -2090,7 +2146,7 @@ const filteredPatients = () => { const q = S.adQ.toLowerCase(); return PATIENTS.
 function adPatients() {
   return `<div class="ph-head"><div><span class="kicker">${actives().length} actives · ${PATIENTS.length} au total</span><h1 class="display" style="margin-top:8px">Patientes</h1></div><button class="btn btn-olive" data-act="newpatient">${I.plus}Nouvelle patiente</button></div>
     <div class="filters"><input type="search" id="ad-q" placeholder="Nom ou email" value="${esc(S.adQ)}" data-input="adq" aria-label="Rechercher une patiente">
-      <select id="ad-plan" data-change="adplan" aria-label="Formule"><option value="">Toutes les formules</option>${PLAN_ORDER.map(k => `<option value="${k}" ${S.adPlan === k ? "selected" : ""}>${PLANS[k].code} · ${esc(planName(k))}</option>`).join("")}</select></div>
+      <select id="ad-plan" data-change="adplan" aria-label="Formule"><option value="">Toutes les formules</option>${PLAN_ORDER.map(k => `<option value="${k}" ${S.adPlan === k ? "selected" : ""}>${esc(planName(k))}</option>`).join("")}</select></div>
     <div id="ad-results">${patientRows(filteredPatients())}</div>`;
 }
 function newPatientModal() {
@@ -2101,7 +2157,7 @@ function newPatientModal() {
         <div class="field"><label for="np-last">Nom</label><input id="np-last" name="last" required></div>
         <div class="field"><label for="np-mail">Email</label><input id="np-mail" name="email" type="email" required></div>
         <div class="field"><label for="np-phone">Téléphone</label><input id="np-phone" name="phone"></div>
-        <div class="field"><label for="np-plan">Formule</label><select id="np-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${k === "f1" ? "selected" : ""}>${PLANS[k].code} · ${esc(planName(k))}</option>`).join("")}</select></div>
+        <div class="field"><label for="np-plan">Formule</label><select id="np-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${k === "f1" ? "selected" : ""}>${esc(planName(k))}</option>`).join("")}</select></div>
         <div class="field"><label for="np-nutri">Programme nutritionnel</label><select id="np-nutri" name="nutri"><option value="">Plus tard</option>${Object.entries(NUTRI_TEMPLATES).map(([k, t]) => `<option value="${k}">${esc(t.name)}</option>`).join("")}</select></div>
         <div class="field"><label for="np-start">Début</label><input id="np-start" name="start" type="date" value="${TODAY_ISO}" required></div>
         <div class="field"><label for="np-end">Fin</label><input id="np-end" name="end" type="date" value="${isoAdd(TODAY_ISO, 3)}"><span class="hint">Vide pour le Suivi simple</span></div>
@@ -2113,7 +2169,7 @@ function patientModal(id) {
   return `<form data-form="editpatient" data-id="${p.id}"><div class="m-head"><div class="row" style="flex-wrap:nowrap"><span class="av">${initials(p)}</span><div><h2 class="h-s">${esc(fullName(p))}</h2><div class="tiny muted">${esc(p.email)} · ${esc(p.phone)}</div></div></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
     <div class="m-body">
       <div class="form-grid">
-        <div class="field"><label for="ep-plan">Formule</label><select id="ep-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${PLANS[k].code} · ${esc(planName(k))}</option>`).join("")}</select></div>
+        <div class="field"><label for="ep-plan">Formule</label><select id="ep-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${esc(planName(k))}</option>`).join("")}</select></div>
         <div class="field"><label for="ep-end">Fin d'abonnement</label><input id="ep-end" name="end" type="date" value="${p.end}"></div>
         <div class="field"><label for="ep-nutri">Programme nutritionnel</label><select id="ep-nutri" name="nutri"><option value="">Aucun</option>${Object.entries(NUTRI_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.nutri === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
         <div class="field"><label for="ep-sport">Programme sportif (F2, F3)</label><select id="ep-sport" name="sport"><option value="">Aucun</option>${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.sport === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
@@ -2234,7 +2290,7 @@ function adRdv() {
 }
 function adParams() {
   return `<div class="ph-head"><div><span class="kicker">Réglages</span><h1 class="display" style="margin-top:8px">Paramètres</h1></div></div>
-    <div class="card stack"><h3 class="h-s">Formules et tarifs</h3><div class="form-grid">${PLAN_ORDER.map(k => `<div class="field"><label for="pr-${k}">${PLANS[k].code} · ${esc(planName(k))} (€)</label><input id="pr-${k}" type="number" min="0" value="${PLANS[k].price}" data-change="price" data-k="${k}"></div>`).join("")}</div></div>
+    <div class="card stack"><h3 class="h-s">Formules et tarifs</h3><div class="form-grid">${PLAN_ORDER.map(k => `<div class="field"><label for="pr-${k}">${esc(planName(k))} (€)</label><input id="pr-${k}" type="number" min="0" value="${PLANS[k].price}" data-change="price" data-k="${k}"></div>`).join("")}</div></div>
     <section class="stack" style="gap:10px"><h3 class="h-s">Ce que chaque formule débloque</h3>${note("Cochez ou décochez : l'espace patiente et la page Formules changent immédiatement.")}
       <div class="table-wrap"><table><thead><tr><th>Fonctionnalité</th>${PLAN_ORDER.map(k => `<th class="c">${PLANS[k].code}</th>`).join("")}</tr></thead><tbody>
       ${FEATURES.map(f => `<tr><td>${esc(f.label)}</td>${PLAN_ORDER.map(k => `<td class="c"><input type="checkbox" id="m-${f.key}-${k}" aria-label="${esc(f.label)} pour ${PLANS[k].code}" data-change="matrix" data-k="${f.key}" data-p="${k}" ${ACCESS[f.key][k] ? "checked" : ""}></td>`).join("")}</tr>`).join("")}
@@ -2267,10 +2323,10 @@ function suiviModal(id) {
   const tabs = `<div class="chips">${[["semaine", `Semaine en cours${toReview(p.id).length ? ` (${toReview(p.id).length})` : ""}`], ["propose", "Semainier proposé"], ["evolution", "Évolution"]].map(([k, l]) => `<button type="button" class="chip ${tab === k ? "on" : ""}" data-act="suivitab" data-t="${k}" data-id="${p.id}">${l}</button>`).join("")}</div>`;
   let body;
   if (tab === "semaine") {
-    body = !t ? `<p class="muted">Aucun semainier attribué. Choisissez un programme dans la fiche de la patiente.</p>` : `<p class="small muted">Programme « ${esc(t.name)} » · semaine du ${fmtD(WEEK_START, { day: "numeric", month: "long" })}. Cliquez sur un repas noté pour le valider ou donner un conseil.</p>
+    body = `<p class="small muted">${t ? `Programme « ${esc(t.name)} »` : "Sans programme : semaine remplie par la patiente"} · semaine du ${fmtD(WEEK_START, { day: "numeric", month: "long" })}. Cliquez sur un repas noté pour le valider ou donner un conseil.</p>
       <div style="overflow-x:auto"><div class="sgrid"><span></span>${SLOTS.map(s => `<b class="kicker">${s}</b>`).join("")}
       ${DAYS.map((n, i) => { const iso = isoDay(WEEK_START, i); return `<b class="small">${n} ${+iso.slice(8)}</b>${SLOTS.map((s, j) => { const lg = logOf(p.id, iso, j), [k, l] = slotState(p.id, iso, j);
-        return `<button type="button" class="scell sc-${k}" data-slot="${s}" ${lg ? `data-act="review" data-id="${p.id}" data-k="${logKey(p.id, iso, j)}"` : "disabled"}><small>${esc(valueLabel(t.days[i][j]))}</small>${lg ? `<b>${lg.status === "ok" ? "Suivi" : esc(lg.text)}</b><span class="tiny">${QTY[lg.qty] || ""}</span>` : `<span class="tiny muted">Pas encore noté</span>`}<em>${l}</em></button>`; }).join("")}`; }).join("")}</div></div>`;
+        return `<button type="button" class="scell sc-${k}" data-slot="${s}" ${lg ? `data-act="review" data-id="${p.id}" data-k="${logKey(p.id, iso, j)}"` : "disabled"}><small>${esc(t ? valueLabel(t.days[i][j]) : "Libre")}</small>${lg ? `<b>${lg.status === "ok" ? "Suivi" : esc(lg.text)}</b><span class="tiny">${QTY[lg.qty] || ""}</span>` : `<span class="tiny muted">Pas encore noté</span>`}<em>${l}</em></button>`; }).join("")}`; }).join("")}</div></div>`;
   } else if (tab === "propose") {
     body = !prop || prop.status === "brouillon" ? `<p class="muted">${esc(p.first)} n'a pas encore envoyé de semainier${prop ? " (brouillon en cours)" : ""}.</p>` : `<form data-form="propreview" data-id="${p.id}"><p class="small muted">Semaine du ${fmtD(prop.week, { day: "numeric", month: "long" })} · envoyé le ${fmtD(prop.sent || TODAY_ISO)}. Laissez une case vide pour la valider, ou écrivez un conseil.</p>
       <div style="overflow-x:auto"><div class="sgrid"><span></span>${SLOTS.map(s => `<b class="kicker">${s}</b>`).join("")}
@@ -2290,7 +2346,7 @@ function reviewModal(pid, key) {
   const p = patientById(pid), lg = MEALLOG[key], [, iso, j] = key.split("|"), d = DAYS.indexOf(DAYS.find((_, i) => isoDay(WEEK_START, i) === iso));
   const rv = lg.review || { kind: lg.status === "ok" ? "valide" : "conseil", text: "" };
   return `<form data-form="review" data-id="${pid}" data-k="${key}"><div class="m-head"><div><span class="kicker">${esc(fullName(p))} · ${fmtD(iso, { weekday: "long", day: "numeric", month: "long" })} · ${SLOTS[+j]}</span><h2 class="h-s" style="margin-top:4px">Répondre à ce repas</h2></div><button type="button" class="iconbtn" data-act="suivi" data-id="${pid}" aria-label="Retour au suivi">${I.x}</button></div>
-    <div class="m-body"><div class="grid g2"><div class="card ti"><span class="kicker">Proposé</span><p><b>${esc(valueLabel(planValue(p, d, +j)))}</b></p></div>
+    <div class="m-body"><div class="grid g2"><div class="card ti"><span class="kicker">Proposé</span><p><b>${esc(valueLabel(planValue(p, d, +j)) || "Libre (pas de proposition)")}</b></p></div>
       <div class="card"><span class="kicker">Mangé</span><p><b>${lg.status === "ok" ? "A suivi la proposition" : esc(lg.text)}</b></p><p class="small muted">${QTY[lg.qty] || ""}${lg.note ? ` · « ${esc(lg.note)} »` : ""}</p></div></div>
       <fieldset class="mseg"><legend>Votre retour</legend><label><input type="radio" name="kind" value="valide" ${rv.kind === "valide" ? "checked" : ""}><span>${I.check}Valider</span></label><label><input type="radio" name="kind" value="conseil" ${rv.kind === "conseil" ? "checked" : ""}><span>${I.chat}Donner un conseil</span></label></fieldset>
       <div class="field"><label for="rv-text">Message pour ${esc(p.first)} (facultatif pour une validation)</label><textarea id="rv-text" name="text" rows="3" placeholder="Ex. : bonne idée ! Ajoutez une portion de légumes au dîner.">${esc(rv.text)}</textarea></div></div>
@@ -2494,6 +2550,7 @@ const A = {
   review: t => openModal(reviewModal(t.dataset.id, t.dataset.k), true),
   ad: t => { closeModal(); go(() => { S.adPage = t.dataset.p; }); },
   admore: () => openModal(adMoreSheet()),
+  offer: t => { OFFER_REQ.push({ pid: me().id, offer: t.dataset.o, date: TODAY_ISO }); render(); toast("C'est noté : Manon vous recontacte pour en parler."); },
   toast: t => toast(t.dataset.msg),
   wa: () => toast(`En version finale : ouvre WhatsApp vers ${SETTINGS.whatsapp} avec un message prérempli.`),
   close: () => closeModal(),
@@ -2539,7 +2596,7 @@ const A = {
 const CHANGE = {
   hidew: t => { S.hideW = t.checked; render(); },
   showw: t => { SHOW_WEIGHT[t.dataset.id] = t.checked; toast(t.checked ? "Le poids est visible dans l'espace de la patiente." : "Le poids est masqué pour cette patiente."); },
-  plan: t => { me().plan = t.value; render(); toast(`Vue patiente : formule ${PLANS[t.value].code}.`); },
+  plan: t => { me().plan = t.value; render(); toast(`Vue patiente : ${planName(t.value)}.`); },
   notes: t => { S.notes = t.checked; render(); },
   rf: t => { S.rf[t.dataset.k] = t.value; $("#r-results").innerHTML = recipeResults(); },
   vf: t => { S.vf[t.dataset.k] = t.value; render(); },

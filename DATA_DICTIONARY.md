@@ -23,10 +23,12 @@ Conservation par défaut des données personnelles : durée de la relation + 3 a
 ### `plans`
 | Champ | Type | Oblig. | Exemple | RGPD |
 | --- | --- | --- | --- | --- |
-| code | text PK | oui | `f3` | — |
-| name | text | oui | Nutrition + Recettes + Sport | — |
-| price_cents | int | oui | 9000 (F2) ; F1 6500, F3 4000 | — |
-| billing_unit | enum `consultation`, `mois` | oui | `mois` | — |
+| code | text PK | oui | `suivi`, `decouverte`, `f1` (Nutrition), `f2` (All in), `f3` (Recettes + sport) | — |
+| name | text | oui | Offre All in | — |
+| price_cents | int | oui | 9000 (All in) ; Nutrition 6000, Recettes + sport 4000, mois offert 0, unité 5000 | — |
+| billing_unit | enum `consultation`, `mois`, `offert` | oui | `mois` | — |
+| commitment_months | smallint | non | 2 (Nutrition, All in : 2 ou 3) ; 3 (Recettes + sport) | — |
+| public | bool (affichée sur le site) | oui | true ; false pour `f3` et `decouverte` | — |
 | sort_order | int | oui | 4 | — |
 
 ### `features` et `plan_features` (matrice d'accès)
@@ -47,11 +49,22 @@ Clés : `docs`, `rdv`, `articles`, `nutri`, `contact`, `visio`, `recettes`, `vid
 | patient_id | uuid → profiles | oui | | P | relation + 3 ans |
 | plan_code | text → plans | oui | `f3` | P | idem |
 | start_date | date | oui | 2026-09-01 | P | idem |
-| end_date | date | non (vide = Suivi) | 2026-11-30 | P | idem |
+| end_date | date | non (vide = Suivi) ; mois offert : start_date + 30 jours | 2026-11-30 | P | idem |
+| commitment_end | date | non | fin de l'engagement (2 ou 3 mois) | P | idem |
 | status | enum `active`, `terminee`, `suspendue` | oui | `active` | P | idem |
 | created_by | uuid → profiles | oui | | P | idem |
 
-Une seule souscription `active` par patiente (index unique partiel). Les montants facturés restent dans l'outil comptable (10 ans, Code de commerce), pas ici.
+Une seule souscription `active` par patiente (index unique partiel).
+
+### `offer_requests` (« Je suis intéressée » dans « Mes offres »)
+| Champ | Type | Oblig. | Exemple | RGPD | Conservation |
+| --- | --- | --- | --- | --- | --- |
+| id | uuid PK | oui | | — | 1 an |
+| patient_id | uuid → profiles | oui | | P | idem |
+| offer | text (`plans.code` ou `coaching`) | oui | `f2` | P | idem |
+| created_at, handled_at | timestamptz | oui / non | | P | idem |
+
+Le test « Tester mon alimentation » du site ne crée aucune donnée : calcul dans le navigateur, rien n'est stocké. Les montants facturés restent dans l'outil comptable (10 ans, Code de commerce), pas ici.
 
 ### `appointments` (prochaine consultation recopiée de Doctolib)
 | Champ | Type | Oblig. | Exemple | RGPD | Conservation |

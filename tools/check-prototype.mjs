@@ -130,6 +130,23 @@ await m.goto(url); await m.waitForTimeout(1000);
 await m.screenshot({ path: join(out, "5-mobile-site.png") });
 await m.click("[data-act=view][data-v=patient]"); await m.waitForSelector("[data-act=mtab]", { state: "attached" }); await m.waitForTimeout(1500);
 await m.screenshot({ path: join(out, "6-mobile-patiente.png") });
+// Mois offert après le bilan, page « Mes offres », lexique
+await m.selectOption("#pb-plan", "decouverte"); await m.waitForTimeout(1000);
+if (!(await m.$(".mnotice.gift"))) errors.push("mois offert : bandeau absent sur l'accueil");
+await m.click(".mnotice.gift"); await m.waitForSelector(".offer"); await m.waitForTimeout(1200);
+await m.click("[data-act=offer][data-o=f1]"); await m.waitForTimeout(600);
+if (!(await m.$("[data-act=offer][data-o=f1][disabled]"))) errors.push("offres : la demande n'est pas enregistrée");
+await m.screenshot({ path: join(out, "6b-mobile-offres.png"), fullPage: true });
+await m.evaluate(() => { S.ptSub = "lexique"; render(); }); await m.waitForTimeout(800);
+await m.click(".mlx summary"); await m.waitForTimeout(300);
+await m.screenshot({ path: join(out, "6c-mobile-lexique.png") });
+// Semainier libre : patiente sans programme (Pauline, mois offert) qui note son repas
+await m.evaluate(() => { S.patientId = "p9"; S.ptSub = null; S.ptPage = "nutrition"; render(); }); await m.waitForTimeout(1000);
+await m.click(".mcard.suivi .prow[data-act=meal]"); await m.waitForSelector("#meal-text");
+await m.fill("#meal-text", "Tartine complète, œuf, kiwi"); await m.click("form[data-form=meal] .m-foot .btn-olive"); await m.waitForTimeout(800);
+if (!(await m.evaluate(() => Object.entries(MEALLOG).some(([k, l]) => k.startsWith("p9|") && l.text === "Tartine complète, œuf, kiwi")))) errors.push("semainier libre : le repas n'est pas enregistré");
+await m.screenshot({ path: join(out, "6d-mobile-semainier-libre.png") });
+await m.evaluate(() => { S.patientId = "p1"; render(); });
 // Back-office sur téléphone : onglets en bas, panneau « Plus », tableaux en cartes
 await m.click("[data-act=view][data-v=admin]"); await m.waitForSelector(".adtab"); await m.waitForTimeout(1500);
 await m.screenshot({ path: join(out, "9-mobile-admin.png") });

@@ -83,6 +83,7 @@ Sites choisis par Romain, **ouverts et mesurés** le 2026-10-23 : inspection REA
 
 - **Nom de marque** : GM Sport et Nutrition (lu sur le logo, **à confirmer** ; ancien nom de travail « Garrym · Sport Diet », compte Instagram `@garrymsportdiet`). La personne : Manon Garrione.
 - **Promesse** : « Manger mieux, bouger plus, à votre rythme. »
+- **Méthode** : « la méthode Garry M » : allier nutrition et sport, dans l'assiette et sur le terrain ; un accompagnement au quotidien, pas seulement le jour de la consultation (brief du 2026-10-30).
 - **Positionnement** : diététicienne-nutritionniste et coach sportive sur la côte varoise, spécialisée en santé féminine (péri-ménopause, ménopause, SMOP ex-SOPK, endométriose) ; cabinet à La Garde et visio ; clientèle principale : femmes pressées, souvent mamans, qui cherchent la santé plutôt que la performance.
 
 ## Ton
