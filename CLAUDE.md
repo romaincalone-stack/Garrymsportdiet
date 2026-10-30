@@ -110,4 +110,7 @@ Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (
 - **Image dans une barre flexible** : `flex:none`, sinon elle s'écrase (incident 30).
 - **Chemins dans un `srcdoc`** : `location.pathname` y vaut `srcdoc` ; calculer les chemins relatifs avec `new URL(document.baseURI).pathname` (incident 31).
 - **`order` et grille** : un bloc à `order` en ligne garde cet ordre dans une grille ; le forcer dans la media query (`order:-1!important`) (incident 32).
+- **Survol** : toute règle `:hover` va dans `@media (hover:hover) and (pointer:fine)` ; appui par la propriété `scale` (pas `transform`, qui écraserait les rotations) ; champs en 16 px ; animations de navigation sous 300 ms (`QUICK` dans `animateView()`). Règles : `references/audit-design-2026-10-30.md`.
+- **Bandeau du prototype sur téléphone** : replié par défaut (`.pbtoggle`, `S.pbOpen`) ; dans les tests à 390 px, l'ouvrir avant de cliquer une vue.
+- **Aperçus en ligne modifiés hors dépôt** : si la publication est refusée parce qu'une autre session a publié, lire la version en ligne, la fusionner à trois versions (`git merge-file`) avec le dépôt, puis republier (incident 33).
 - **Copyright des références** : le dépôt `justinhartman/ui-ux-design-library` contient des livres sous droits. Ne pas les copier ici ; lien seulement.

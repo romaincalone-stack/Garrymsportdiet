@@ -34,6 +34,7 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-26 | Direction artistique v6 « GM Sport et Nutrition » | Couleurs et polices tirées du logo de Manon (vert #18694B, tilleul #B2E388, nuit #12231B ; Poppins et Bellefair) sur le site et l'application ; logo dans la navigation, la connexion et le pied de page ; textes orientés vers la clientèle (femmes, mamans, péri-ménopause) |
 | 2026-10-29 | v7-v8 de l'espace patiente d'après l'espace web TSE, factures, ressentis 0 à 10 | Faite par une autre session directement sur l'aperçu en ligne ; fusionnée dans le dépôt le 2026-10-30 (planner semaine/mois, programme en cours, playlists, sélection sport, filtres de recettes, barre du haut sur ordinateur, sous-onglets, factures et avoirs, symptômes digestifs) |
 | 2026-10-28 | Mention mutuelle (retour de Manon) | « Pensez à votre mutuelle » sous les tarifs et dans le chapitre « Le bilan » ; faite directement sur l'aperçu en ligne, reportée dans le dépôt le 2026-10-30 |
+| 2026-10-30 | Audit design et interactions (skills d'Emil Kowalski) | Survol réservé à la souris, retour à l'appui partout, champs 16 px, animations de navigation sous 300 ms, feuilles depuis le bas sur téléphone, barres translucides, bandeau du prototype repliable, back-office plus dense, test du site accessible au clavier ; rapport `references/audit-design-2026-10-30.md` |
 | 2026-10-30 | Brief de réunion « Optimisation site / appli » | Accueil à trois boutons (bilan, test, méthode) ; « La méthode Garry M » et ce qu'elle comprend ; « Votre besoin » en 4 profils ; 4 tarifs (bilan avec un mois d'application offert, suivi, Nutrition, All in) ; lexique ; test « Tester mon alimentation » ; dans l'espace patiente : mois offert, « Mes offres » (dont Recettes + sport et coaching individuel), lexique, semainier remplissable sans modèle |
 | 2026-10-27 | Retours de Manon sur le site | Hyères retiré (La Garde seule) ; photo du « Terrain » en sport santé (pilates en groupe) ; texte : cardio, renfo, étirements et 2 séances collectives par mois ; « Pour chaque femme » ; SMOP (ex-SOPK) ; formules refondues : F1 Nutrition + Recettes 65 €, F2 Complète 90 €, F3 Recettes + Sport 40 € après le suivi |
 | 2026-10-27 | Écran de chargement du site retiré | Le héros s'affiche directement |
@@ -49,6 +50,8 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | Priorité | Fonctionnalité | Prochaine action |
 | --- | --- | --- |
 | P0 | Avis de Romain puis de Manon sur la v6 (logo, application à la TSE) | Aperçu en ligne + captures |
+| P1 | Glisser pour fermer les feuilles (ressorts, vitesse) | Phase 3 (bibliothèque de ressorts) |
+| P0 | Tests sur vrais téléphones (iPhone, Android) : survol, appui, encoche, clavier | Romain |
 | P0 | Paiement des offres avec engagement | Manon : moyen (prélèvement SEPA, carte, au cabinet), moment dans le parcours, CGV ; puis choix Stripe ou GoCardless |
 | P0 | Prix des offres Nutrition et All in, durée d'engagement | Manon (brief : « prix à définir ») |
 | P0 | Calendrier : construction en novembre, test en décembre, mise en ligne en janvier 2027 | Confirmer les années du rétroplanning du brief |

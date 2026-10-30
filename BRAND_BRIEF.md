@@ -55,6 +55,13 @@ Thème sombre fixe (fond vert foncé `#0F3A2A`), indépendant du réglage de l'a
 
 Sur ordinateur (≥ 1 024 px) : barre latérale `#0B2E21` de 248 px (logo clair, rubriques en ligne, élément actif sur `#164A36`, profil en bas), contenu jusqu'à 1 180 px, accueil en deux colonnes.
 
+### Interactions (audit du 2026-10-30, `references/audit-design-2026-10-30.md`)
+- Survol seulement à la souris (`@media (hover:hover) and (pointer:fine)`) ; appui : `scale: .97` (grandes cartes `.985`), immédiat.
+- Navigation fréquente : animations de 240 ms au plus ; entrée dans un espace : 0,6 à 0,7 s ; jamais de départ à `scale(0)`.
+- Feuilles et fenêtres : 220 ms, courbe `cubic-bezier(.23,1,.32,1)` ; sur téléphone, feuille depuis le bas (`cubic-bezier(.32,.72,0,1)`).
+- Barres d'onglets translucides (flou 20 px), pleines si `prefers-reduced-transparency`.
+- Champs en 16 px minimum ; chiffres en `tabular-nums`.
+
 ### Back-office
 Fond clair (blanc et brume), surfaces fortes en nuit, mêmes polices et formes que le site. Sur téléphone : barre d'onglets blanche en bas (onglet actif vert du logo sur brume, pastille verte du nombre à traiter), panneau « Plus » en tuiles de deux colonnes, tableaux en cartes.
 

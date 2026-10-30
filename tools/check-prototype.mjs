@@ -128,6 +128,8 @@ const m = await browser.newPage({ viewport: { width: 390, height: 844 } });
 watch(m, "mobile");
 await m.goto(url); await m.waitForTimeout(1000);
 await m.screenshot({ path: join(out, "5-mobile-site.png") });
+// Sur téléphone, le bandeau du prototype est replié : on l'ouvre une fois, il reste ouvert
+await m.click(".pbtoggle"); await m.waitForTimeout(300);
 await m.click("[data-act=view][data-v=patient]"); await m.waitForSelector("[data-act=mtab]", { state: "attached" }); await m.waitForTimeout(1500);
 await m.screenshot({ path: join(out, "6-mobile-patiente.png") });
 // Mois offert après le bilan, page « Mes offres », lexique
@@ -170,6 +172,7 @@ for (const [vw, vh, dev, tag] of [[1280, 900, "mobile", "7-pc-apercu-tel"], [390
   const d = await browser.newPage({ viewport: { width: vw, height: vh } });
   watch(d, tag);
   await d.goto(url); await d.waitForTimeout(800);
+  if (await d.isVisible(".pbtoggle")) { await d.click(".pbtoggle"); await d.waitForTimeout(300); }
   await d.click(`[data-act=device][data-d=${dev}]`); await d.waitForTimeout(600);
   if (!(await d.$("#devframe"))) { errors.push(`${tag} : cadre d'aperçu absent`); await d.close(); continue; }
   const dv = d.frameLocator("#devframe");
