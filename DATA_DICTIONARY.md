@@ -189,8 +189,10 @@ Une modification de `meal_logs` supprime la ligne `meal_reviews` liée (trigger)
 | patient_id | uuid → profiles | oui | | P | idem |
 | date | date | oui | 2026-10-20 | P | idem |
 | weight_kg | numeric(5,1) | non | 68,4 | Santé | idem |
-| waist_cm, hips_cm | numeric(5,1) | non | 80 | Santé | idem |
-| energy, sleep, digestion | smallint 1-5 | non | 4 | Santé | idem |
+| energy, sleep | smallint 0-10 | non | 7 | Santé | idem |
+| digestive_symptoms | text[] (ballonnements, douleurs au ventre, gaz, reflux, transit lent, transit rapide, nausées) | non | {Ballonnements} | Santé | idem |
+
+Tours de taille et de hanches retirés le 2026-10-28 (retour de Manon).
 
 ### `patient_settings`
 | Champ | Type | Oblig. | Exemple | RGPD |
@@ -198,6 +200,26 @@ Une modification de `meal_logs` supprime la ligne `meal_reviews` liée (trigger)
 | patient_id | uuid → profiles (PK) | oui | | P |
 | show_weight | bool (réglé par Manon) | oui | true | Santé (le fait de masquer le poids est révélateur) |
 | hide_weight_self | bool (réglé par la patiente) | oui | false | P |
+
+## Planner, programmes, playlists, préférences (v7)
+
+| Table | Champs | RGPD | Conservation |
+| --- | --- | --- | --- |
+| `planner_items` | patient_id, day date, kind (`recipe`, `video`, `playlist`), item_id, created_at | P (faible) | 12 mois glissants |
+| `playlists` / `playlist_videos` | id, patient_id, name ; playlist_id, video_id, position | P (faible) | durée du compte |
+| `program_progress` | patient_id, sport_template_id, week, session_index, done_at | P (faible) | 12 mois glissants |
+| `sport_preferences` | patient_id, place, goals text[], level, frequency, duration, equipment text[] | P | durée du compte |
+
+## Facturation (v7)
+
+| Table | Champs | RGPD | Conservation |
+| --- | --- | --- | --- |
+| `invoices` | no text unique (AAAAMM + compteur continu), patient_id, date, kind (`facture`, `avoir`), ref (n° annulé par l'avoir), payment (`carte`, `especes`, `cheque`, `virement`), vat_mention, sent_to_patient bool | P | **10 ans** (Code de commerce) |
+| `invoice_lines` | invoice_no, key, label, qty, unit_price, nature (`consult`, `nutri`, `mixte`, `sport`) | P | 10 ans |
+| `billing_settings` | brand, owner, title, address, rpps, siren, email, phone, city, vat_regime, next_number | P (Manon) | durée de l'activité |
+| `patient_addresses` | patient_id, address | P | 10 ans si facturée |
+
+Une facture émise n'est jamais modifiée ni supprimée (RLS : insertion seulement) ; la patiente lit ses factures envoyées.
 
 ## Paramètres et traçabilité
 

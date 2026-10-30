@@ -76,9 +76,9 @@ await click("[data-act=join][data-id=s1]");
 // Évolution : nouvelle mesure
 await click("[data-act=mtab][data-p=evolution]");
 await click("[data-act=progress]");
-await pg.fill("#pg-taille", "80");
+await pg.fill("#pg-poids", "69.8");
 await click("form[data-form=progress] .m-foot .btn-olive");
-await click("[data-act=metric][data-k=taille]");
+await click("[data-act=metric][data-k=energie]");
 await pg.screenshot({ path: join(out, "2d-evolution.png"), fullPage: true });
 // Formule F1 : vidéos verrouillées
 await pg.selectOption("#pb-plan", "f1"); await settle(pg);

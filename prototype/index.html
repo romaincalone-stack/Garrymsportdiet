@@ -892,6 +892,18 @@ body.v-patient .grain{opacity:.03}
 .feel .mcard{padding:14px 12px;margin:0}
 .feel small{display:block;font-size:12px;color:#B4C7BA;margin-top:6px}
 .dots5{display:flex;gap:4px;margin-top:8px}.dots5 i{flex:1;height:8px;border-radius:4px;background:#26624A}.dots5 i.on{background:#B2E388}
+/* Ressentis 0 à 10 et symptômes digestifs (retour de Manon, 2026-10-28) */
+.feel{grid-template-columns:repeat(2,1fr)}
+.feel .dig{grid-column:1/-1}
+.feel .fv{display:block;font-family:var(--f-display);font-weight:600;font-size:1.6rem;line-height:1;margin-top:6px}.feel .fv small{display:inline;font-size:.9rem;color:#B4C7BA;margin:0 0 0 2px}
+.dots10{display:flex;gap:3px;margin-top:8px}.dots10 i{flex:1;height:8px;border-radius:4px;background:#26624A}.dots10 i.on{background:#B2E388}
+.symps{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.symps span{padding:6px 12px;border-radius:999px;background:#26624A;color:#F6F9F3;font-size:13px}
+.mseg legend small{display:block;font-weight:400;color:var(--muted);margin-top:2px}
+.mseg.ten{grid-template-columns:repeat(11,1fr);gap:4px;margin-top:14px}
+.mseg.ten span{min-height:44px;padding:0;border-radius:12px;font-size:14px}
+.mseg.symp{margin-top:14px}
+.mseg.symp span{min-height:44px;font-size:13px}
+@media (max-width:480px){.mseg.ten{grid-template-columns:repeat(6,1fr)}}
 .pcover{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:10px 0 20px}
 .pcover b{font-family:var(--f-display);font-weight:600;font-size:1.3rem}
 .pcover small{color:#B4C7BA}
@@ -1034,6 +1046,134 @@ body.framed{background:#E8F5DC}
 .mlx summary::after{content:"+";font-size:20px;color:#B2E388;transition:transform .3s}
 .mlx[open] summary::after{transform:rotate(45deg)}
 .mlx p{margin:0 0 14px}
+
+/* ===== v7 : reprises de l'espace web TSE (planner semaine/mois, programme en cours, playlists, sélection, filtres) ===== */
+.ptop{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:2px 4px 10px}
+.ptop .fk{color:#DDE7E0;font-size:13.5px;font-weight:600}
+.pview{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:#0F3A2A;flex:none}
+.pview button{border:0;background:none;color:#B4C7BA;padding:7px 14px;border-radius:999px;font-family:var(--f-body);font-weight:600;font-size:13px;cursor:pointer;min-height:36px}
+.pview button.on{background:#F6F9F3;color:#0F3A2A}
+.pview.wide{display:flex;margin:4px 0 16px;background:#164A36}
+.pview.wide button{flex:1;min-height:46px;font-size:14.5px}
+.pday .pdot,.mday .pdot{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#B2E388}
+.pmhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pmhead b{font-weight:600;text-transform:capitalize}
+.mround.sm{width:40px;height:40px;background:#0F3A2A}
+.mround.sm svg{width:18px;height:18px}
+.mgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.mgrid small{font-size:11.5px;color:#B4C7BA;padding:4px 0}
+.mday{position:relative;border:0;background:none;color:#F6F9F3;border-radius:12px;min-height:42px;font-family:var(--f-body);font-size:14px;cursor:pointer}
+.mday:hover{background:rgba(246,249,243,.06)}
+.mday.today{color:#B2E388;font-weight:700}
+.mday.on{background:#26624A;color:#FFFFFF}
+.ptypes{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:16px;background:#0F3A2A;margin-top:10px}
+.ptypes button{border:0;background:none;color:#B4C7BA;border-radius:12px;min-height:44px;font-family:var(--f-body);font-weight:600;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.ptypes button i{font-style:normal;min-width:22px;height:22px;border-radius:11px;background:rgba(246,249,243,.12);font-size:12px;display:grid;place-items:center;padding:0 6px}
+.ptypes button.on{background:#26624A;color:#F6F9F3}
+.ptypes button.on i{background:#B2E388;color:#0F3A2A}
+.pempty{display:flex;flex-direction:column;align-items:center;gap:4px;padding:22px 10px;text-align:center}
+.pempty svg{width:34px;height:34px;color:#B4C7BA;margin-bottom:4px}
+.pempty small{color:#B4C7BA;font-size:13px}
+.padd{display:flex;justify-content:flex-end;margin-top:6px}
+.padd .mbtn{min-height:44px;padding:10px 18px}
+.plk{border:0;background:none;color:inherit;text-align:left;padding:0;cursor:pointer;font-family:inherit;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.prm{width:38px;height:38px;border-radius:50%;border:0;background:rgba(246,249,243,.08);color:#DDE7E0;display:grid;place-items:center;cursor:pointer;flex:none}
+.prm:hover{background:rgba(246,249,243,.16)}
+.prm svg{width:16px;height:16px}
+.mall svg:first-child:not(:last-child){width:16px;height:16px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px}
+.dchip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;font-family:var(--f-body)}
+.dchip b{font-size:1.3rem;font-weight:600;line-height:1.1}
+.dchip small{font-size:12px;color:var(--ink-2)}
+.dchip:hover{border-color:var(--olive)}
+/* Programme en cours */
+.pbar{height:8px;border-radius:4px;background:rgba(246,249,243,.18);overflow:hidden;margin:10px 0}
+.pbar i{display:block;height:100%;background:#B2E388;border-radius:4px;transition:width .5s cubic-bezier(.16,1,.3,1)}
+.promo.prog p{margin-bottom:0}
+.promo.prog .pbar{margin:10px 0 14px}
+.phero{position:relative;border-radius:26px;overflow:hidden;min-height:240px;display:flex;align-items:flex-end;margin-bottom:12px;isolation:isolate}
+.phero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.phero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,26,19,.1),rgba(12,26,19,.92))}
+.phero > div{padding:20px;width:100%}
+.phero .pk{font-size:12.5px;font-weight:600;color:#B2E388}
+.phero h2{font-family:var(--f-display);font-weight:700;font-size:1.7rem;margin:4px 0 0;line-height:1.1;letter-spacing:-.02em}
+.phero p{margin:0;font-size:13.5px;color:#E3ECE6}
+.pfacts{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:12px}
+.pfacts li{display:flex;gap:12px;align-items:center;font-size:14.5px}
+.pfacts svg{width:20px;height:20px;color:#B2E388;flex:none}
+.pweeksl{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.pweeksl li{display:grid;gap:2px;padding-left:14px;border-left:3px solid #26624A}
+.pweeksl span{font-size:14px;color:#DDE7E0}
+.mchip > svg:last-child:not(:first-child){width:15px;height:15px}
+.psess{display:flex;flex-direction:column;gap:12px}
+.psess.cur{box-shadow:inset 0 0 0 2px #B2E388}
+.psess .mbtn{align-self:flex-start}
+.psess .vitem{background:#0F3A2A}
+/* Playlists */
+.pltiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pltile{position:relative;aspect-ratio:1;border:0;border-radius:22px;overflow:hidden;padding:0;cursor:pointer;background:#164A36;color:#FFFFFF;text-align:left;font-family:var(--f-body)}
+.pltile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.pltile:hover img{transform:scale(1.04)}
+.pltile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(12,26,19,.92))}
+.pltile span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1}
+.pltile b{display:block;font-weight:600;font-size:15px;line-height:1.2}
+.pltile small{display:block;font-size:12.5px;opacity:.85;margin-top:2px}
+.pltile.new{background:none;border:1.5px dashed #4F6B5C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#F6F9F3}
+.pltile.new::after{content:none}
+.pltile.new > svg{width:34px;height:34px}
+.pltile.new span{position:static;text-align:center}
+.plrow{display:flex;align-items:center;gap:8px}
+.plrow .vitem{flex:1;min-width:0}
+/* Sélection personnalisée : questionnaire */
+.qopts{display:grid;gap:10px}
+.qopts.multi{grid-template-columns:1fr 1fr}
+.qopt{min-height:56px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:10px 14px;font-family:var(--f-body);font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+.qopt svg{width:18px;height:18px;flex:none}
+.qopt:hover{border-color:var(--olive)}
+.qopt.on{background:var(--olive);border-color:var(--olive);color:var(--olive-btn)}
+.modal .btn:disabled{opacity:.45;cursor:not-allowed}
+/* Filtres de recettes */
+.fsec{display:flex;flex-direction:column;gap:8px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}
+.fchips .mchip{min-height:42px;padding:8px 15px}
+.mfilter{position:relative}
+.mfilter .dot{position:absolute;top:-3px;right:-3px;min-width:20px;height:20px;border-radius:10px;background:#18694B;color:#FFFFFF;font-size:11px;font-style:normal;font-weight:600;display:grid;place-items:center;padding:0 5px}
+.mchips.quick{margin-top:-8px;margin-bottom:6px}
+@media (min-width:1024px){
+  .pltiles{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .qopts.multi{grid-template-columns:repeat(3,1fr)}
+  .phero{min-height:320px}
+  .phero > div{padding:32px;max-width:70%}
+  .phero h2{font-size:2.2rem}
+  .mchips.quick{flex-wrap:wrap;margin:0 0 6px;padding:0}
+}
+
+/* ===== Espace patiente v8 : navigation de l'espace web TSE, couleurs v6 inchangées (retour de Romain, 2026-10-27) =====
+   Ordinateur : barre pleine largeur en haut (logo à gauche, rubriques au centre soulignées, profil à droite), comme app.trainsweateat.com.
+   Partout : sous-onglets soulignés sous la barre (Accueil · Mes programmes en cours · Mes playlists…). Téléphone : onglets en bas conservés. */
+.msubtabs{display:flex;gap:4px;overflow-x:auto;margin:-6px -18px 18px;padding:0 18px;border-bottom:1px solid rgba(246,249,243,.1);scrollbar-width:none}
+.msubtabs::-webkit-scrollbar{display:none}
+.msubtabs button{flex:none;position:relative;border:0;background:none;color:#B4C7BA;font-family:var(--f-body);font-size:14px;font-weight:500;padding:12px 12px 14px;min-height:46px;cursor:pointer;white-space:nowrap;transition:color .2s}
+.msubtabs button:hover{color:#F6F9F3}
+.msubtabs button.on{color:#F6F9F3;font-weight:600}
+.msubtabs button.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:#B2E388}
+@media (min-width:1024px){
+  body.v-patient .mtab{left:0;right:0;top:var(--pbh,0px);bottom:auto;width:auto;height:68px;transform:none;flex-direction:row;align-items:center;justify-content:center;gap:6px;
+    padding:0 28px;border-right:0;border-top:0;border-bottom:1px solid rgba(246,249,243,.1)}
+  body.v-patient .mtab .mlogo-d{position:absolute;left:28px;top:50%;transform:translateY(-50%);height:42px;margin:0}
+  body.v-patient .mtab button{position:relative;flex-direction:row;gap:9px;height:68px;min-height:0;padding:0 16px;border-radius:0;font-size:15px;background:none}
+  body.v-patient .mtab button svg{width:20px;height:20px}
+  body.v-patient .mtab button.on{background:none;color:#FFFFFF}
+  body.v-patient .mtab button.on::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:#B2E388}
+  body.v-patient .mtab .mprof-d{position:absolute;right:20px;top:50%;transform:translateY(-50%);height:auto;margin:0;padding:6px 8px;border-radius:999px}
+  body.v-patient .mtab .mprof-d.on::after{content:none}
+  body.v-patient .mtab .mprof-d.on{background:#164A36}
+  body.v-patient .mob{margin:0 auto;padding:calc(68px + 14px) clamp(28px,4vw,56px) 80px}
+  .msubtabs{justify-content:center;margin:0 0 30px;padding:0}
+  .mhead .mav{display:none}
+  .mcol.side{top:calc(var(--pbh,0px) + 92px)}
+}
+@media (min-width:1024px) and (max-width:1180px){body.v-patient .mtab .mprof-d span:last-child{display:none}}
 </style>
 </head>
 <body>
@@ -1120,7 +1260,7 @@ const RECIPES = [
   { id: "r4", title: "Pancakes banane et fromage blanc", meal: "Petit-déjeuner", themes: ["Sportif", "Végétarien"], prep: 5, cook: 10, diff: "Facile", portions: 2,
     ingr: [[2, "", "bananes bien mûres"], [2, "", "œufs"], [60, "g", "flocons d'avoine"], [100, "g", "fromage blanc"], [1, "pincée", "levure"]],
     steps: ["Mixer tous les ingrédients jusqu'à obtenir une pâte lisse.", "Cuire de petites louches 2 minutes de chaque côté dans une poêle légèrement huilée."],
-    macro: { kcal: 330, p: 17, g: 45, l: 8, f: 5 }, allergens: ["Œufs", "Lait", "Gluten"], diets: ["Végétarien"],
+    macro: { kcal: 330, p: 17, g: 45, l: 8, f: 5 }, allergens: ["Œufs", "Lait", "Gluten"], diets: ["Végétarien"], gear: ["mixeur"],
     tip: "Idéal 1 h 30 avant une séance de sport.", status: "publiée", date: "2026-09-16" },
   { id: "r5", title: "Salade pois chiches, feta et herbes", meal: "Déjeuner", themes: ["Ménopause", "Végétarien", "Petit budget"], prep: 15, cook: 0, diff: "Facile", portions: 2,
     ingr: [[265, "g", "pois chiches cuits"], [80, "g", "feta"], [1, "", "concombre"], [200, "g", "tomates cerises"], [0.5, "", "oignon rouge"], [null, "", "persil et menthe"], [2, "c. à soupe", "huile d'olive"], [1, "", "citron"]],
@@ -1130,7 +1270,7 @@ const RECIPES = [
   { id: "r6", title: "Energy balls dattes et cacao", meal: "Collation", themes: ["Sportif", "Végétarien"], prep: 15, cook: 0, diff: "Facile", portions: 6,
     ingr: [[150, "g", "dattes dénoyautées"], [80, "g", "amandes"], [2, "c. à soupe", "cacao non sucré"], [30, "g", "flocons d'avoine"], [1, "c. à soupe", "beurre de cacahuète"]],
     steps: ["Mixer les amandes, puis ajouter le reste des ingrédients.", "Former 12 boules et réserver au frais 30 minutes."],
-    macro: { kcal: 190, p: 5, g: 24, l: 9, f: 4 }, allergens: ["Fruits à coque", "Arachides", "Gluten"], diets: ["Végétarien", "Vegan"],
+    macro: { kcal: 190, p: 5, g: 24, l: 9, f: 4 }, allergens: ["Fruits à coque", "Arachides", "Gluten"], diets: ["Végétarien", "Vegan"], gear: ["mixeur"],
     tip: "Une portion = 2 boules. Se garde 1 semaine au réfrigérateur.", status: "publiée", date: "2026-09-30" },
   { id: "r7", title: "Poulet au citron, brocolis et riz complet", meal: "Déjeuner", themes: ["Sportif", "SMOP"], prep: 10, cook: 25, diff: "Facile", portions: 2,
     ingr: [[260, "g", "filets de poulet"], [120, "g", "riz complet"], [300, "g", "brocolis"], [1, "", "citron"], [1, "", "gousse d'ail"], [1, "c. à soupe", "huile d'olive"], [null, "", "thym"]],
@@ -1198,9 +1338,13 @@ const NUTRI_TEMPLATES = {
     days: [["r4", "r7", "r6", "r2"], ["r9", "r11", "Banane", "r3"], ["r4", "r2", "r6", "r7"], ["r1", "r11", "r6", "r10"], ["r4", "r7", "Banane + amandes", "r3"], ["r9", "r2", "r6", "Repas plaisir"], ["Brunch : œufs, pain complet, fruits", "r5", "r12", "r8"]] }
 };
 const SPORT_TEMPLATES = {
-  remise: { name: "Remise en forme", level: "Débutant", desc: "3 séances par semaine pour reprendre en douceur.",
+  remise: { name: "Remise en forme", level: "Débutant", desc: "3 séances par semaine pour reprendre en douceur.", weeks: 4, zone: "Full body", photo: "etirement",
+    about: "Un programme doux pour reprendre une activité régulière sans vous blesser : cardio sans impact, gainage et bas du corps, trois fois par semaine. Chaque séance dure moins de 30 minutes et se fait chez vous, sur un tapis.",
+    weekNotes: ["Découverte : on apprend les mouvements, sans chercher la vitesse.", "Régularité : les trois séances, même courtes, comptent plus que l'intensité.", "Progression : un tour de plus sur les circuits si l'énergie est là.", "Bilan : refaites la séance 1 et comparez vos sensations avec la semaine 1."],
     sessions: [{ day: "Lundi", title: "Cardio doux", videos: ["v3", "v9"] }, { day: "Mercredi", title: "Abdos et gainage", videos: ["v1", "v7"] }, { day: "Vendredi", title: "Bas du corps", videos: ["v6", "v5"] }] },
-  renfo: { name: "Renfo intermédiaire", level: "Intermédiaire", desc: "4 séances pour gagner en force et en endurance.",
+  renfo: { name: "Renfo intermédiaire", level: "Intermédiaire", desc: "4 séances pour gagner en force et en endurance.", weeks: 4, zone: "Full body", photo: "course",
+    about: "Quatre séances par semaine pour gagner en force et en endurance : haut du corps, cardio, bas du corps et une séance complète au kettlebell. Prévoyez des haltères légers, un élastique et un kettlebell.",
+    weekNotes: ["Installation : charges légères, technique propre.", "Volume : mêmes charges, quelques répétitions de plus.", "Intensité : charges un peu plus lourdes, repos plus courts.", "Semaine allégée puis test : comparez avec la semaine 1."],
     sessions: [{ day: "Lundi", title: "Haut du corps", videos: ["v2", "v9"] }, { day: "Mardi", title: "Cardio", videos: ["v10"] }, { day: "Jeudi", title: "Bas du corps", videos: ["v6", "v7"] }, { day: "Samedi", title: "Full body", videos: ["v8", "v5"] }] }
 };
 
@@ -1244,7 +1388,8 @@ const SESSIONS = [
    ========================================================= */
 const S = {
   view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false, device: innerWidth < 760 ? "mobile" : "desktop",
-  rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false },
+  rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false, tags: [] },
+  pdate: "2026-10-22", pview: "semaine", pmonth: "2026-10", ptype: null, progTab: "seances", progWeek: null, plId: null, quiz: null,
   vf: { max: "", disc: "", zone: "", level: "" },
   ptSub: null, pday: (TODAY.getDay() + 6) % 7, libTab: "v", vq: "", metric: "poids", hideW: false, vdone: new Set(["v3", "v9"]), suiviTab: "semaine",
   sportTab: "programme", heroMode: "nutrition", wday: (TODAY.getDay() + 6) % 7, ptab: "mois",
@@ -1530,7 +1675,7 @@ function pricing() {
     f2: ["Tout le contenu de la formule 1", "30 recettes classées par thème", "2 à 3 nouvelles recettes par mois", "Liste de courses automatique"],
     f3: ["Tout le contenu de la formule 2", "Vidéos de sport filtrables", "Programme sportif", "2 séances collectives par mois en visio"]
   };
-  const title = { f1: "Nutrition", f2: 'Nutrition <span class="serif">+ recettes</span>', f3: 'Nutrition, recettes <span class="serif">+ sport</span>' };
+  const title = { f1: "Nutrition", f2: 'Nutrition <span class="serif">+ recettes</span>', f3: 'Nutrition, recettes <b>+ sport</b>' };
   const card = (feat, top, h, amount, unit, list, cta) => `<article class="pcard ${feat ? "feat" : ""}"><span class="pk">${top}</span><h3>${h}</h3><div class="amount num">${amount}<small>${unit}</small></div><ul>${list.map(f => `<li>${f}</li>`).join("")}</ul>${doctolib(cta, feat ? "btn-white" : "btn-olive")}</article>`;
   const cards = mois
     ? ["f1", "f2", "f3"].map(k => card(k === "f2", k === "f2" ? "La plus complète" : "Formule " + k.slice(1), title[k], PLANS[k].price + " €", " / mois", feats[k], "Commencer par le bilan")).join("")
@@ -1632,7 +1777,7 @@ function ticket(s) {
 }
 function recipeModal(id, portions) {
   const r = recipe(id), k = portions / r.portions;
-  return `<div class="m-head"><div><span class="kicker">${esc(r.meal)} · ${totalTime(r)} min · ${esc(r.diff)}</span><h2 class="display h-m" style="font-size:1.7rem;margin-top:4px">${esc(r.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+  return `<div class="m-head"><div><span class="kicker">${esc(r.meal)} · ${r.prep} min de préparation${r.cook ? ` · ${r.cook} min de cuisson` : ""} · ${esc(r.diff)}</span><h2 class="display h-m" style="font-size:1.7rem;margin-top:4px">${esc(r.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
     <div class="m-body">
       ${artBox(seedOf(r.id), r.meal, "aspect-ratio:16/6;border-radius:22px")}
       <div class="row">${r.themes.map(t => `<span class="tag">${esc(t)}</span>`).join("")}${r.diets.filter(d => !r.themes.includes(d)).map(d => `<span class="tag ok">${esc(d)}</span>`).join("")}</div>
@@ -1647,7 +1792,7 @@ function recipeModal(id, portions) {
           <div class="card ci"><span class="kicker" style="color:inherit">Le conseil de Manon</span><p style="margin-top:6px;font-family:var(--f-serif);font-style:italic;font-size:1.15rem;line-height:1.35">${esc(r.tip)}</p></div></div>
       </div>
     </div>
-    <div class="m-foot"><button class="btn btn-soft" data-act="favr" data-id="${r.id}">${S.favR.has(r.id) ? I.heartF + "Dans mes favoris" : I.heart + "Favori"}</button>
+    <div class="m-foot"><button class="btn btn-soft" data-act="favr" data-id="${r.id}">${S.favR.has(r.id) ? I.heartF + "Dans mes favoris" : I.heart + "Favori"}</button>${S.view === "patient" ? `<button class="btn btn-soft" data-act="planfor" data-k="r" data-id="${r.id}">${I.cal}Planifier</button>` : ""}
       ${can("recettes") ? `<button class="btn btn-olive" data-act="addshop" data-id="${r.id}">${I.cart}${S.shopping.has(id) ? "Mettre à jour la liste" : "Ajouter à ma liste"}</button>` : ""}</div>`;
 }
 function shoppingModal() {
@@ -1672,7 +1817,7 @@ function filteredRecipes() {
   const f = S.rf, q = f.q.trim().toLowerCase();
   return publishedRecipes().filter(r => (!q || r.title.toLowerCase().includes(q) || r.ingr.some(i => i[2].toLowerCase().includes(q))) &&
     (!f.theme || r.themes.includes(f.theme)) && (!f.meal || r.meal === f.meal) && (!f.time || totalTime(r) <= +f.time) &&
-    (!f.diet || r.diets.includes(f.diet)) && (!f.allergen || !r.allergens.includes(f.allergen)) && (!f.fav || S.favR.has(r.id)));
+    (!f.diet || r.diets.includes(f.diet)) && (!f.allergen || !r.allergens.includes(f.allergen)) && (!f.fav || S.favR.has(r.id)) && f.tags.every(k => RTAGS[k][1](r)));
 }
 const inPreview = r => publishedRecipes().slice(0, RECIPE_PREVIEW).includes(r);
 
@@ -1726,22 +1871,103 @@ const PROPOSALS = {
     slots: Object.fromEntries([["Flocons d'avoine, banane", "Pâtes complètes, poulet, courgettes", "Yaourt et noix", "Salade de lentilles"], ["Pain complet, œuf", "Restes de pâtes", "Pomme", "Soupe et fromage"], ["Flocons d'avoine, banane", "Sushis", "Barre de céréales", "Pizza"], ["Pain complet, œuf", "Riz, saumon, brocolis", "Fruit", "Omelette"], ["Smoothie", "Salade composée", "Yaourt", "Repas plaisir"], ["Brunch", "", "", "Raclette entre amis"], ["Pancakes", "Rôti, légumes", "Fruit", "Soupe"]].flatMap((d, i) => d.map((v, j) => [i + "|" + j, v]))) }
 };
 const PROP_STATUS = { brouillon: ["Brouillon", "todo"], envoye: ["En attente de Manon", "wait"], revu: ["Revu par Manon", "rev"] };
-/* Évolution : mesures et ressentis saisis par la patiente (option B) */
+/* Évolution : poids et ressentis saisis par la patiente (option B).
+   Retour de Manon (2026-10-28) : plus de mensurations, énergie et sommeil de 0 à 10, digestion = symptômes du jour. */
 const PROGRESS = {
   p1: [
-    { date: "2026-09-01", poids: 72.4, taille: 84, hanches: 104, energie: 2, sommeil: 2, digestion: 2 },
-    { date: "2026-09-15", poids: 71.8, taille: 83, hanches: 103.5, energie: 3, sommeil: 2, digestion: 3 },
-    { date: "2026-09-29", poids: 71.1, taille: 82, hanches: 103, energie: 3, sommeil: 3, digestion: 3 },
-    { date: "2026-10-13", poids: 70.6, taille: 81, hanches: 102, energie: 4, sommeil: 3, digestion: 4 },
-    { date: "2026-10-20", poids: 70.4, taille: 80.5, hanches: 102, energie: 4, sommeil: 4, digestion: 4 }
+    { date: "2026-09-01", poids: 72.4, energie: 4, sommeil: 4, symptomes: ["Ballonnements", "Transit lent"] },
+    { date: "2026-09-15", poids: 71.8, energie: 5, sommeil: 4, symptomes: ["Ballonnements"] },
+    { date: "2026-09-29", poids: 71.1, energie: 6, sommeil: 6, symptomes: ["Ballonnements"] },
+    { date: "2026-10-13", poids: 70.6, energie: 7, sommeil: 6, symptomes: [] },
+    { date: "2026-10-20", poids: 70.4, energie: 8, sommeil: 7, symptomes: [] }
   ],
-  p3: [{ date: "2026-08-01", poids: 61.2, taille: 70, hanches: 94, energie: 3, sommeil: 4, digestion: 3 }, { date: "2026-09-15", poids: 61.5, taille: 69.5, hanches: 93.5, energie: 4, sommeil: 4, digestion: 4 }]
+  p3: [{ date: "2026-08-01", poids: 61.2, energie: 6, sommeil: 8, symptomes: ["Reflux, brûlures"] }, { date: "2026-09-15", poids: 61.5, energie: 7, sommeil: 8, symptomes: [] }]
 };
 const SHOW_WEIGHT = {}; // réglage de Manon par patiente ; absent = poids affiché
-const METRICS = [["poids", "Poids", "kg"], ["taille", "Tour de taille", "cm"], ["hanches", "Tour de hanches", "cm"], ["energie", "Énergie", "/5"], ["sommeil", "Sommeil", "/5"], ["digestion", "Digestion", "/5"]];
-const FEEL = ["Très difficile", "Difficile", "Moyen", "Bien", "Très bien"];
+const METRICS = [["poids", "Poids", "kg"], ["energie", "Énergie", "/10"], ["sommeil", "Sommeil", "/10"]];
+const SYMPTOMS = ["Ballonnements", "Douleurs au ventre", "Gaz", "Reflux, brûlures", "Transit lent", "Transit rapide", "Nausées"];
+const feel = v => v <= 2 ? "Très bas" : v <= 4 ? "Bas" : v <= 6 ? "Moyen" : v <= 8 ? "Bien" : "Très bien";
+const digLabel = e => !e.symptomes ? "—" : e.symptomes.length ? e.symptomes.join(", ") : "Aucun symptôme";
 const weightAllowed = pid => SHOW_WEIGHT[pid] !== false;
 const fr = n => String(n).replace(".", ",");
+
+/* Facturation : reprend le modèle de facture de Manon (2026-10-29), aux couleurs du site.
+   Coordonnées fictives dans le prototype : Manon saisit les vraies dans Paramètres › Facturation. */
+const BILLING = { brand: "Garry M Sport et Diet", owner: "Manon Garrione", title: "Diététicienne Nutritionniste", addr: "12 avenue de l'Exemple\n83210 La Farlède", rpps: "10000000000", siren: "000 000 000", email: "contact@exemple.fr", phone: "06 00 00 00 00", city: "La Garde", vat: "293B", next: 839 };
+const VAT_MENTIONS = { "293B": "TVA non applicable, article 293 B du code général des impôts", "261": "TVA non applicable, article 261-4-1° du code général des impôts" };
+const PAYMENTS = ["Carte bancaire", "Espèces", "Chèque", "Virement"];
+// [clé, libellé, prix, nature] ; nature : consult (diététique), nutri (contenus nutrition), mixte, sport
+const PRESTA = () => [["bilan", "Bilan initial", 70, "consult"], ["suivi", "Consultation de suivi", 50, "consult"],
+  ["f1", `${PLANS.f1.name} (1 mois)`, PLANS.f1.price, "nutri"], ["f2", `${PLANS.f2.name} (1 mois)`, PLANS.f2.price, "mixte"], ["f3", `${PLANS.f3.name} (1 mois)`, PLANS.f3.price, "sport"],
+  ["seance-v", "Séance individuelle de sport en visio", 20, "sport"], ["seance-p", "Séance individuelle de sport au cabinet ou à domicile", 35, "sport"]];
+const PATIENT_ADDR = { p1: "8 rue des Lauriers\n83130 La Garde", p2: "21 avenue Gambetta\n83000 Toulon", p3: "5 impasse des Pins\n83160 La Valette-du-Var", p6: "14 boulevard de Strasbourg\n83000 Toulon", p7: "3 chemin des Oliviers\n83210 La Farlède", p8: "40 rue Paul Lendrin\n83130 La Garde" };
+const INVOICES = [
+  { no: "202609835", pid: "p1", date: "2026-09-01", kind: "facture", pay: "Carte bancaire", sent: true, lines: [{ k: "bilan", label: "Bilan initial", qty: 1, price: 70, cat: "consult" }] },
+  { no: "202609836", pid: "p1", date: "2026-09-01", kind: "facture", pay: "Carte bancaire", sent: true, lines: [{ k: "f2", label: "Offre All in (septembre 2026)", qty: 1, price: 90, cat: "mixte" }] },
+  { no: "202610837", pid: "p1", date: "2026-10-01", kind: "facture", pay: "Carte bancaire", sent: true, lines: [{ k: "f2", label: "Offre All in (octobre 2026)", qty: 1, price: 90, cat: "mixte" }] },
+  { no: "202610838", pid: "p6", date: "2026-10-01", kind: "facture", pay: "Chèque", sent: true, lines: [{ k: "bilan", label: "Bilan initial", qty: 1, price: 70, cat: "consult" }] }
+];
+const eur = n => n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+const invTotal = inv => inv.lines.reduce((n, l) => n + l.qty * l.price, 0);
+const invByNo = no => INVOICES.find(i => i.no === no);
+const invAvoir = no => INVOICES.find(i => i.ref === no);
+const lastInvDate = () => INVOICES.reduce((d, i) => i.date > d ? i.date : d, "");
+// Numéro continu, sans trou : AAAAMM + compteur qui ne repart jamais à zéro (comme 202610839 sur la facture de Manon)
+const nextInvNo = date => date.slice(0, 4) + date.slice(5, 7) + String(BILLING.next++).padStart(3, "0");
+const invSubject = inv => { const c = inv.lines.map(l => l.cat); return c.every(x => x === "consult") ? "Consultation diététique et nutritionnelle" : c.every(x => x === "sport") ? "Coaching sportif" : c.every(x => x === "consult" || x === "nutri") ? "Accompagnement nutritionnel" : "Accompagnement nutrition et sport"; };
+
+/* v7 : reprises de l'espace web TSE (app.trainsweateat.com/mySpace, relevé du 2026-10-27).
+   Planner semaine/mois avec « Ajouter » et « Planifier », programme suivi semaine par semaine, playlists,
+   sélection personnalisée par questionnaire, filtres de recettes. Ici le programme est attribué par Manon (pas d'inscription libre). */
+const PLANNED = { p1: [{ iso: "2026-10-23", kind: "v", id: "v14" }, { iso: "2026-10-24", kind: "v", id: "v13" }, { iso: "2026-10-25", kind: "r", id: "r9" }] };
+const myPlanned = () => PLANNED[me().id] || (PLANNED[me().id] = []);
+const PLAYLISTS = { p1: [{ id: "pl1", name: "Routine du matin", videos: ["v13", "v5"] }] };
+const myPlaylists = () => PLAYLISTS[me().id] || (PLAYLISTS[me().id] = []);
+const SPORT_START = { p1: "2026-10-12", p3: "2026-10-05", p7: "2026-10-19", p8: "2026-10-05", p10: "2026-10-19" }; // lundi de la semaine 1
+const PROG_DONE = { p1: new Set(["1|0", "1|1", "1|2", "2|0"]), p3: new Set(["1|0", "1|1", "1|2", "1|3", "2|0", "2|1", "2|2", "3|0"]) }; // "semaine|séance"
+const progDone = p => PROG_DONE[p.id] || (PROG_DONE[p.id] = new Set());
+const sessDur = s => s.videos.reduce((n, id) => n + video(id).dur, 0);
+const progEquip = sp => [...new Set(sp.sessions.flatMap(s => s.videos.flatMap(id => video(id).equip)))].filter(e => e !== "Aucun");
+function progState(p) {
+  const sp = SPORT_TEMPLATES[p.sport], start = SPORT_START[p.id] || WEEK_START, done = progDone(p), total = sp.weeks * sp.sessions.length;
+  const week = Math.min(sp.weeks, Math.max(1, Math.floor((TODAY - parseD(start)) / (7 * 864e5)) + 1));
+  let next = null;
+  for (let w = 1; w <= sp.weeks && !next; w++) sp.sessions.forEach((s, i) => { if (!next && !done.has(w + "|" + i)) next = { w, i, s }; });
+  return { sp, start, done, week, total, next, pct: Math.round(done.size / total * 100) };
+}
+/* Questionnaire « Notre sélection pour vous » (calqué sur le formulaire de recommandation TSE, vocabulaire de Manon) */
+const QUIZ = [
+  { k: "lieu", q: "Où aimeriez-vous faire vos séances ?", opts: ["À la maison", "À l'extérieur", "Les deux"] },
+  { k: "obj", q: "Quels sont vos objectifs ?", multi: true, opts: ["Remise en forme", "Tonification", "Cardio", "Souplesse", "Bien-être", "Périnée"] },
+  { k: "niveau", q: "Quel est votre niveau en activité physique ?", opts: LEVELS },
+  { k: "freq", q: "Combien de fois par semaine souhaitez-vous bouger ?", opts: ["1 à 2 fois", "3 fois", "4 fois et +"] },
+  { k: "duree", q: "Quelle est la durée idéale de vos séances ?", opts: ["Moins de 15 min", "15 à 20 min", "20 à 30 min", "Plus de 30 min"] },
+  { k: "mat", q: "Quel matériel avez-vous ?", multi: true, opts: ["Haltères", "Élastique", "Kettlebell", "Sans matériel"] }
+];
+const PREFS = { p3: { lieu: "À la maison", obj: ["Tonification", "Cardio"], niveau: "Intermédiaire", freq: "4 fois et +", duree: "20 à 30 min", mat: ["Haltères", "Élastique", "Kettlebell"] } };
+const OBJ_DISC = { "Remise en forme": ["Cardio", "Renforcement"], Tonification: ["Renforcement", "Pilates"], Cardio: ["Cardio"], Souplesse: ["Mobilité", "Yoga"], "Bien-être": ["Yoga", "Mobilité"], Périnée: ["Périnée", "Pilates"] };
+const DUR_MAX = { "Moins de 15 min": 15, "15 à 20 min": 20, "20 à 30 min": 30, "Plus de 30 min": 60 };
+function recoVideos(pr) {
+  const lv = LEVELS.indexOf(pr.niveau), mx = DUR_MAX[pr.duree] || 30, gear = new Set(["Aucun", "Tapis", ...(pr.mat || [])]); // un tapis (ou une serviette) est supposé
+  return VIDEOS.filter(v => v.equip.every(e => gear.has(e))).map(v => {
+    const vl = LEVELS.indexOf(v.level);
+    let s = vl === lv ? 2 : vl < lv ? 1 : -3;
+    s += v.dur <= mx ? (v.dur > mx - 10 ? 2 : 1) : -2;
+    if ((pr.obj || []).some(o => (OBJ_DISC[o] || []).includes(DISC_OF(v)))) s += 3;
+    return [s, v];
+  }).filter(([s]) => s > 0).sort((a, b) => b[0] - a[0]).slice(0, 6).map(x => x[1]);
+}
+/* Filtres de recettes (panneau « Recherche et filtres » de TSE) */
+const RTAGS = {
+  proteinee: ["Protéinée", r => r.macro.p >= 25], legere: ["Légère", r => r.macro.kcal <= 350], vegetarien: ["Végétarienne", r => r.diets.includes("Végétarien")],
+  vegan: ["Vegan", r => r.diets.includes("Vegan")], sansgluten: ["Sans gluten", r => r.diets.includes("Sans gluten")], sanslactose: ["Sans lactose", r => r.diets.includes("Sans lactose")],
+  rapide: ["Rapide (15 min max)", r => totalTime(r) <= 15], facile: ["Facile", r => r.diff === "Facile"], budget: ["Petit budget", r => r.themes.includes("Petit budget")],
+  sanscuisson: ["Sans cuisson", r => !r.cook], sansmixeur: ["Sans mixeur", r => !(r.gear || []).includes("mixeur")]
+};
+const RTAG_GROUPS = [["Préférences", ["proteinee", "legere", "vegetarien", "vegan", "sansgluten", "sanslactose"]], ["Options", ["rapide", "facile", "budget"]], ["Matériel", ["sanscuisson", "sansmixeur"]]];
+const rfCount = () => S.rf.tags.length + (S.rf.meal ? 1 : 0) + (S.rf.theme ? 1 : 0);
+const dayIdx = iso => (parseD(iso).getDay() + 6) % 7;
+const inThisWeek = iso => iso >= WEEK_START && iso < NEXT_WEEK;
 
 /* Petits composants */
 const chevron = svg('<path d="M9 6l6 6-6 6"/>');
@@ -1755,7 +1981,7 @@ const intensity = v => { const n = Math.min(4, ({ "Débutant": 1, "Intermédiair
 const vItem = v => `<button class="vitem" data-act="video" data-id="${v.id}"><span class="vth">${photo(vPhoto(v))}${S.vdone.has(v.id) ? `<i class="vdone" aria-label="Faite">${I.check}</i>` : ""}</span><span class="vtx"><b>${esc(v.title)}</b><span class="vmeta">${I.clock}${v.dur} min<i class="sep"></i>${intensity(v)}</span><span class="vmeta2">${esc(ZONE_OF[v.id] || v.theme)} · ${esc(v.equip.join(", "))}</span></span></button>`;
 const rVisual = r => { const i = RECIPES.indexOf(r); return i % 4 < 2 ? photo(PHOTO_R[i % 3]) : artBox(seedOf(r.id), r.meal, "position:absolute;inset:0"); };
 const rTile = (r, locked = false) => `<button class="rtile${locked ? " locked" : ""}" ${locked ? `data-act="toast" data-msg="Recette incluse dans : ${esc(planName(minPlan("recettes")))}. Parlez-en à Manon."` : `data-act="recipe" data-id="${r.id}"`} aria-label="${esc(r.title)}${locked ? " (non incluse)" : ""}"><span class="rimg">${rVisual(r)}</span>${locked ? `<i class="lk">${I.lock}</i>` : S.favR.has(r.id) ? `<i class="lk">${I.heartF}</i>` : ""}<span class="rtx"><b>${esc(r.title)}</b><span>${totalTime(r)} min · ${r.macro.kcal} kcal</span></span></button>`;
-const searchPill = (id, ph, input, value, filterAttrs) => `<div class="msearch">${I.search}<label class="sr" for="${id}">${ph}</label><input id="${id}" type="search" placeholder="${ph}" value="${esc(value)}" data-input="${input}">${filterAttrs ? `<button class="mfilter" ${filterAttrs} aria-label="Filtres">${I.sliders}</button>` : ""}</div>`;
+const searchPill = (id, ph, input, value, filterAttrs, badge = 0) => `<div class="msearch">${I.search}<label class="sr" for="${id}">${ph}</label><input id="${id}" type="search" placeholder="${ph}" value="${esc(value)}" data-input="${input}">${filterAttrs ? `<button class="mfilter" ${filterAttrs} aria-label="Filtres${badge ? ` (${badge} actifs)` : ""}">${I.sliders}${badge ? `<i class="dot">${badge}</i>` : ""}</button>` : ""}</div>`;
 const mLocked = (feat, title, preview) => `<div class="locked mlocked"><div class="blur">${preview}</div>${upsell(feat, title)}</div>`;
 const slotState = (pid, iso, j) => { const l = logOf(pid, iso, j); if (!l) return ["vide", "À noter"]; if (l.review) return ["rev", l.review.kind === "valide" ? "Validé par Manon" : "Conseil de Manon"]; return l.status === "ok" ? ["ok", "Fait"] : ["note", "Noté"]; };
 const stateIcon = k => ({ ok: I.check, rev: I.chat, note: I.edit, vide: I.plus }[k]);
@@ -1763,14 +1989,27 @@ const planValue = (p, d, j) => { const t = NUTRI_TEMPLATES[p.nutri]; return t ? 
 const valueLabel = v => { const r = recipe(v); return r ? r.title : v; };
 const planLabel = (p, d, j) => valueLabel(planValue(p, d, j)) || "À compléter";
 
-const MTABS = [["home", "Aujourd'hui", "home"], ["training", "Training", "dumbbell"], ["nutrition", "Nutrition", "bowl"], ["evolution", "Évolution", "chart"]];
+const MTABS = [["home", "Mon espace", "home"], ["training", "Training", "dumbbell"], ["nutrition", "Nutrition", "bowl"], ["evolution", "Évolution", "chart"]];
+/* Sous-onglets sous la barre principale (réf. espace web TSE : « Accueil · Mes programmes en cours · Mes playlists · Mes recettes favorites »).
+   [libellé, sous-page (null = accueil de la rubrique), action spéciale]. Les couleurs restent celles de l'application v6. */
+const SUBTABS = {
+  home: [["Accueil", null], ["Mes programmes en cours", "programme"], ["Mes playlists", "playlists"], ["Mes recettes favorites", "recettes", "fav"]],
+  training: [["Accueil", null], ["Mon programme", "programme"], ["Toutes les vidéos", "videos"], ["Séances en direct", "seances"], ["Mes playlists", "playlists"]],
+  nutrition: [["Accueil", null], ["Toutes les recettes", "recettes"], ["Ma semaine", "semainier"], ["Proposer mon semainier", "proposer"], ["Mes recettes favorites", "recettes", "fav"]],
+  evolution: [["Mon suivi", null], ["Mon profil", "profil"]]
+};
+function subTabs() {
+  const list = SUBTABS[S.ptPage] || [];
+  const isOn = ([, s, x]) => s === (S.ptSub || null) && (s !== "recettes" || !!S.rf.fav === (x === "fav"));
+  return `<nav class="msubtabs" aria-label="Sous-rubriques">${list.map(t => `<button class="${isOn(t) ? "on" : ""}" data-act="subtab" data-s="${t[1] || ""}" data-x="${t[2] || ""}" ${isOn(t) ? 'aria-current="page"' : ""}>${t[0]}</button>`).join("")}</nav>`;
+}
 function patient() {
   const p = me();
   if (p.status !== "active") return `<div class="mob"><div class="mcard stack"><h2 class="mh2">Compte ${esc(p.status)}</h2><p class="muted">Ce compte n'a plus accès à l'espace. Manon peut le réactiver depuis son back-office.</p></div></div>`;
   if (!MTABS.some(t => t[0] === S.ptPage)) S.ptPage = "home";
-  const subs = { recettes: mRecettes, videos: mVideos, semainier: mSemainier, proposer: mProposer, seances: mSeances, profil: mProfil, offres: mOffres, lexique: mLexique };
+  const subs = { recettes: mRecettes, videos: mVideos, semainier: mSemainier, proposer: mProposer, seances: mSeances, profil: mProfil, programme: mProgramme, playlists: mPlaylists, offres: mOffres, lexique: mLexique };
   const page = (S.ptSub && subs[S.ptSub] ? subs[S.ptSub] : { home: mHome, training: mTraining, nutrition: mNutrition, evolution: mEvolution }[S.ptPage])();
-  return `<div class="mob" id="main">${page}</div>
+  return `<div class="mob" id="main">${subTabs()}${page}</div>
     <nav class="mtab" aria-label="Rubriques"><img class="mlogo-d" src="${ASSET("logoclair.png")}" alt="GM Sport et Nutrition">${MTABS.map(([k, l, ic]) => `<button class="${S.ptPage === k ? "on" : ""}" data-act="mtab" data-p="${k}" ${S.ptPage === k ? 'aria-current="page"' : ""}>${I[ic]}<span>${l}</span></button>`).join("")}<button class="mprof-d ${S.ptSub === "profil" ? "on" : ""}" data-act="msub" data-s="profil"><span class="mav">${initials(p)}</span><span><b>${esc(fullName(p))}</b><small>Mon profil</small></span></button></nav>`;
 }
 
@@ -1785,11 +2024,12 @@ function mHome() {
     `<button class="fcard c-tilleul" data-act="msub" data-s="profil"><span class="fk">Prochaine consultation</span>${p.next ? `<b class="fbig">${fmtD(p.next.date, { day: "numeric", month: "short" })}</b><span>${fmtT(p.next.time)} · ${esc(p.next.mode)}</span>` : `<b class="fbig">À prévoir</b><span>Sur Doctolib</span>`}</button>`,
     can("journal") ? `<button class="fcard c-vert" data-act="mtab" data-p="nutrition"><span class="fk">Mes repas du jour</span>${ring(mealsDone, 4, "notés")}</button>` : "",
     can("videos") ? `<button class="fcard c-gris" data-act="mtab" data-p="training"><span class="fk">Mes séances</span>${ring(Math.min(S.vdone.size, 3), 3, "cette semaine")}</button>` : "",
-    can("evolution") ? `<button class="fcard c-creme" data-act="mtab" data-p="evolution"><span class="fk">Mon évolution</span>${last ? `${spark(prog.map(e => e.energie), 5)}<span>Énergie ${last.energie}/5</span>` : `<b class="fbig">+</b><span>Première mesure</span>`}</button>` : "",
+    can("evolution") ? `<button class="fcard c-creme" data-act="mtab" data-p="evolution"><span class="fk">Mon évolution</span>${last ? `${spark(prog.map(e => e.energie), 10)}<span>Énergie ${last.energie}/10</span>` : `<b class="fbig">+</b><span>Première mesure</span>`}</button>` : "",
     can("collectives") && next ? `<button class="fcard c-brume" data-act="msub" data-s="seances"><span class="fk">Séance en direct</span><b class="fbig">${fmtD(next.date, { day: "numeric", month: "short" })}</b><span>${esc(next.title)}</span></button>` : ""
   ].filter(Boolean).join("");
   const suggestion = VIDEOS.filter(v => v.dur <= 20 && v.level === "Débutant")[DAY_IDX % 3] || VIDEOS[0];
   const left = p.plan === "decouverte" && p.end ? Math.min(30, Math.max(0, daysUntil(p.end))) : null;
+  const hasProg = can("sport") && SPORT_TEMPLATES[p.sport];
   return `${mHead(`Bonjour ${esc(p.first)}`, "Heureuse de vous revoir")}
     ${left !== null ? `<button class="mnotice gift" data-act="msub" data-s="offres">${I.gift}<span><b>Mois offert après votre bilan</b> : encore ${left} jour${left > 1 ? "s" : ""}. Découvrir les offres</span>${chevron}</button>` : ""}
     <div class="mcols">
@@ -1798,6 +2038,7 @@ function mHome() {
       </div>
      <div class="mcol">
       <div class="mblk" style="order:3">
+    ${hasProg ? progCard(p) : ""}
     ${can("videos") ? `<section class="promo">${photo(vPhoto(suggestion))}<div><span class="pk">Votre séance du jour</span><h2>${esc(suggestion.title)}</h2><p>${suggestion.dur} minutes, sans matériel compliqué.</p><button class="mbtn" data-act="video" data-id="${suggestion.id}">C'est parti</button></div></section>`
       : `<section class="promo">${photo("assiette")}<div><span class="pk">Le saviez-vous ?</span><h2>Des recettes et un semainier entre les rendez-vous</h2><p>Les formules incluent un suivi de vos repas avec Manon.</p><button class="mbtn" data-act="site-offres">Voir les formules</button></div></section>`}
       </div>
@@ -1807,8 +2048,8 @@ function mHome() {
       </div>
       <div class="mblk" style="order:6">
     ${secT("heart", "Ma bibliothèque")}
-    <div class="mchips">${[["v", "Mes vidéos favorites"], ["r", "Mes recettes favorites"]].map(([k, l]) => `<button class="mchip ${S.libTab === k ? "on" : ""}" data-act="libtab" data-t="${k}">${l}</button>`).join("")}</div>
-    <div class="mrow">${S.libTab === "r" ? [...S.favR].map(recipe).filter(Boolean).map(r => rTile(r)).join("") || `<p class="muted small">Touchez le cœur d'une recette pour la retrouver ici.</p>` : [...S.favV].map(video).filter(Boolean).map(v => `<button class="mini" data-act="video" data-id="${v.id}">${photo(vPhoto(v))}<span><b>${esc(v.title)}</b><small>${v.dur} min</small></span></button>`).join("") || `<p class="muted small">Touchez le cœur d'une vidéo pour la retrouver ici.</p>`}</div>
+    <div class="mchips">${[["v", "Mes vidéos favorites"], ["r", "Mes recettes favorites"], can("videos") ? ["p", "Mes playlists"] : null].filter(Boolean).map(([k, l]) => `<button class="mchip ${S.libTab === k ? "on" : ""}" data-act="libtab" data-t="${k}">${l}</button>`).join("")}</div>
+    <div class="mrow">${S.libTab === "p" && can("videos") ? myPlaylists().map(pl => { const v = video(pl.videos[0]); return `<button class="mini" data-act="plopen" data-id="${pl.id}">${v ? photo(vPhoto(v)) : photo("yoga")}<span><b>${esc(pl.name)}</b><small>${pl.videos.length} vidéo${pl.videos.length > 1 ? "s" : ""}</small></span></button>`; }).join("") + `<button class="mini" data-act="plnew">${photo("terrain")}<span><b>Créer une playlist</b><small>Vos séances, dans l'ordre voulu</small></span></button>` : S.libTab === "r" ? [...S.favR].map(recipe).filter(Boolean).map(r => rTile(r)).join("") || `<p class="muted small">Touchez le cœur d'une recette pour la retrouver ici.</p>` : [...S.favV].map(video).filter(Boolean).map(v => `<button class="mini" data-act="video" data-id="${v.id}">${photo(vPhoto(v))}<span><b>${esc(v.title)}</b><small>${v.dur} min</small></span></button>`).join("") || `<p class="muted small">Touchez le cœur d'une vidéo pour la retrouver ici.</p>`}</div>
       </div>
      </div>
      <div class="mcol side">
@@ -1816,7 +2057,7 @@ function mHome() {
     ${replies && can("journal") ? `<button class="mnotice" data-act="msub" data-s="semainier">${I.chat}<span><b>Manon vous a répondu</b> sur ${replies} repas de la semaine</span>${chevron}</button>` : ""}
       </div>
       <div class="mblk" style="order:4">
-    ${secT("cal", "Ma semaine", seeAll('data-act="msub" data-s="semainier"'))}
+    ${secT("cal", "Mon planner", can("journal") ? seeAll('data-act="msub" data-s="semainier"') : "")}
     ${planner()}
       </div>
       <div class="mblk" style="order:7">
@@ -1826,13 +2067,68 @@ function mHome() {
     </div>
     ${note("Option B : repas et mesures saisis par la patiente = données de santé. Hébergement certifié HDS obligatoire avant la mise en ligne (INTEGRATIONS.md).")}`;
 }
+/* Planner (réf. « Planner » de l'espace web TSE) : semaine ou mois, onglets Training / Nutrition avec compteur, bouton « Ajouter ».
+   Les repas de Manon se notent sur la semaine en cours ; ailleurs, ils s'affichent en lecture. */
+function dayPlan(p, iso) {
+  const d = dayIdx(iso), tmpl = NUTRI_TEMPLATES[p.nutri], jr = can("journal"), sp = can("sport") ? SPORT_TEMPLATES[p.sport] : null, live = inThisWeek(iso);
+  const mine = myPlanned().map((x, i) => ({ ...x, i })).filter(x => x.iso === iso);
+  const rm = x => `<button class="prm" data-act="planrm" data-i="${x.i}" aria-label="Retirer du planner">${I.x}</button>`;
+  const nut = [], tr = [];
+  if (jr && (tmpl || live)) SLOTS.forEach((s, j) => { // sans modèle de Manon : semaine en cours à compléter par la patiente
+    const v = planValue(p, d, j);
+    if (live) { const [k, l] = slotState(p.id, iso, j), lg = logOf(p.id, iso, j); nut.push(`<button class="prow" data-act="meal" data-d="${d}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${SLOT_SHORT[j]}</small><b>${esc(lg && lg.status === "autre" ? lg.text : planLabel(p, d, j))}</b></span><em class="sl sl-${k}">${l}</em></button>`); }
+    else { const r = recipe(v); nut.push(`${r ? `<button class="prow" data-act="recipe" data-id="${r.id}">` : `<div class="prow static">`}<i class="st st-vide">${I.bowl}</i><span class="grow"><small>${SLOT_SHORT[j]} · proposé par Manon</small><b>${esc(valueLabel(v))}</b></span>${r ? "</button>" : "</div>"}`); }
+  });
+  mine.filter(x => x.kind === "r" && recipe(x.id)).forEach(x => { const r = recipe(x.id); nut.push(`<div class="prow"><i class="st st-sport">${I.bowl}</i><button class="grow plk" data-act="recipe" data-id="${r.id}"><small>Ajoutée par vous · ${totalTime(r)} min</small><b>${esc(r.title)}</b></button>${rm(x)}</div>`); });
+  const si = sp && inProg(p, iso) ? sp.sessions.findIndex(s => s.day === DAYS[d]) : -1;
+  if (si >= 0) tr.push(`<button class="prow" data-act="progopen" data-w=""><i class="st st-sport">${I.dumbbell}</i><span class="grow"><small>Programme · séance ${si + 1} · ${sessDur(sp.sessions[si])} min</small><b>${esc(sp.sessions[si].title)}</b></span>${chevron}</button>`);
+  const coll = can("collectives") && SESSIONS.find(s => s.date === iso);
+  if (coll) tr.push(`<button class="prow" data-act="msub" data-s="seances"><i class="st st-sport">${I.users}</i><span class="grow"><small>En direct · ${fmtT(coll.time)}</small><b>${esc(coll.title)}</b></span>${chevron}</button>`);
+  mine.filter(x => x.kind === "v" && video(x.id)).forEach(x => { const v = video(x.id); tr.push(`<div class="prow"><i class="st st-sport">${I.play}</i><button class="grow plk" data-act="video" data-id="${v.id}"><small>Ajoutée par vous · ${v.dur} min</small><b>${esc(v.title)}</b></button>${rm(x)}</div>`); });
+  mine.filter(x => x.kind === "pl").forEach(x => { const pl = myPlaylists().find(o => o.id === x.id); if (pl) tr.push(`<div class="prow"><i class="st st-sport">${I.video}</i><button class="grow plk" data-act="plopen" data-id="${pl.id}"><small>Playlist · ${pl.videos.length} vidéo${pl.videos.length > 1 ? "s" : ""}</small><b>${esc(pl.name)}</b></button>${rm(x)}</div>`); });
+  return { nut, tr };
+}
+/* Les séances du programme ne s'affichent que pendant ses semaines (à partir du lundi de la semaine 1) */
+const inProg = (p, iso) => { const sp = SPORT_TEMPLATES[p.sport], start = SPORT_START[p.id] || WEEK_START; return !!sp && iso >= start && iso < isoDay(start, sp.weeks * 7); };
+const hasItems = iso => myPlanned().some(x => x.iso === iso) || (can("sport") && inProg(me(), iso) && SPORT_TEMPLATES[me().sport].sessions.some(s => s.day === DAYS[dayIdx(iso)])) || (can("collectives") && SESSIONS.some(s => s.date === iso));
+function monthCal() {
+  const [y, m] = S.pmonth.split("-").map(Number), first = new Date(y, m - 1, 1), off = (first.getDay() + 6) % 7, n = new Date(y, m, 0).getDate();
+  const cells = Array.from({ length: off }, () => `<span></span>`).concat(Array.from({ length: n }, (_, k) => {
+    const di = `${y}-${String(m).padStart(2, "0")}-${String(k + 1).padStart(2, "0")}`;
+    return `<button class="mday ${di === S.pdate ? "on" : ""} ${di === TODAY_ISO ? "today" : ""}" data-act="pdate" data-iso="${di}" aria-label="${fmtDay(di)}" aria-pressed="${di === S.pdate}">${k + 1}${hasItems(di) ? `<i class="pdot"></i>` : ""}</button>`;
+  }));
+  return `<div class="pmonth"><div class="pmhead"><button class="mround sm" data-act="pmonth" data-d="-1" aria-label="Mois précédent">${backIcon}</button><b>${first.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}</b><button class="mround sm" data-act="pmonth" data-d="1" aria-label="Mois suivant">${chevron}</button></div>
+    <div class="mgrid">${["L", "M", "M", "J", "V", "S", "D"].map(x => `<small aria-hidden="true">${x}</small>`).join("")}${cells.join("")}</div></div>`;
+}
 function planner() {
-  const p = me(), d = S.pday, iso = isoDay(WEEK_START, d), sp = can("sport") ? SPORT_TEMPLATES[p.sport] : null;
-  const sess = sp && sp.sessions.find(s => s.day === DAYS[d]), coll = can("collectives") && SESSIONS.find(s => s.date === iso);
-  return `<div class="planner"><div class="pdays" role="tablist" aria-label="Jours de la semaine">${DAYS.map((n, i) => { const di = isoDay(WEEK_START, i); return `<button class="pday ${i === d ? "on" : ""} ${i === DAY_IDX ? "today" : ""}" data-act="pday" data-d="${i}" role="tab" aria-selected="${i === d}"><span>${n.slice(0, 3)}</span><b>${+di.slice(8)}</b></button>`; }).join("")}</div>
-    <div class="pbody">${can("journal") ? SLOTS.map((s, j) => { const [k, l] = slotState(p.id, iso, j); return `<button class="prow" data-act="meal" data-d="${d}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${SLOT_SHORT[j]}</small><b>${esc(logOf(p.id, iso, j)?.status === "autre" ? logOf(p.id, iso, j).text : planLabel(p, d, j))}</b></span><em class="sl sl-${k}">${l}</em></button>`; }).join("") : `<p class="muted small">Le semainier partagé est inclus dans les offres Nutrition et All in.</p>`}
-      ${sess ? `<div class="prow static"><i class="st st-sport">${I.dumbbell}</i><span class="grow"><small>Séance</small><b>${esc(sess.title)}</b></span></div>` : ""}
-      ${coll ? `<div class="prow static"><i class="st st-sport">${I.users}</i><span class="grow"><small>En direct · ${fmtT(coll.time)}</small><b>${esc(coll.title)}</b></span></div>` : ""}</div></div>`;
+  const p = me(), iso = S.pdate, { nut, tr } = dayPlan(p, iso), type = S.ptype || (nut.length ? "nutrition" : "training"), list = type === "nutrition" ? nut : tr;
+  const cal = S.pview === "mois" ? monthCal() : `<div class="pdays" role="group" aria-label="Jours de la semaine">${DAYS.map((n, i) => { const di = isoDay(WEEK_START, i); return `<button class="pday ${di === iso ? "on" : ""} ${di === TODAY_ISO ? "today" : ""}" data-act="pdate" data-iso="${di}" aria-pressed="${di === iso}" aria-label="${fmtDay(di)}"><span>${n.slice(0, 3)}</span><b>${+di.slice(8)}</b>${hasItems(di) ? `<i class="pdot"></i>` : ""}</button>`; }).join("")}</div>`;
+  return `<div class="planner">
+    <div class="ptop"><span class="fk">${fmtDay(iso)}</span><div class="pview" role="group" aria-label="Affichage du planner">${[["semaine", "Semaine"], ["mois", "Mois"]].map(([k, l]) => `<button class="${S.pview === k ? "on" : ""}" data-act="pview" data-v="${k}" aria-pressed="${S.pview === k}">${l}</button>`).join("")}</div></div>
+    ${cal}
+    <div class="ptypes" role="tablist" aria-label="Type de contenu">${[["training", "Training", tr.length], ["nutrition", "Nutrition", nut.length]].map(([k, l, n]) => `<button role="tab" aria-selected="${type === k}" class="${type === k ? "on" : ""}" data-act="ptype" data-t="${k}">${l}<i>${n}</i></button>`).join("")}</div>
+    <div class="pbody">${list.join("") || `<div class="pempty">${I.cal}<b>Rien de prévu</b><small>Ajoutez une ${type === "nutrition" ? "recette" : "séance"} à cette journée.</small></div>`}</div>
+    <div class="padd"><button class="mbtn" data-act="planadd">Ajouter${I.plus}</button></div></div>`;
+}
+const pickRow = (k, id, t, sub, ic) => `<button class="prow" data-act="planpick" data-k="${k}" data-id="${id}"><i class="st st-sport">${I[ic]}</i><span class="grow"><b>${esc(t)}</b><small>${esc(sub)}</small></span>${I.plus}</button>`;
+function planAddModal() {
+  const src = S.modal.src, rOK = can("recettes"), vOK = can("videos");
+  const SRC = [["favr", "Mes recettes favorites", "heart", true], ["recettes", "Recettes", "bowl", true], ["favv", "Mes vidéos favorites", "heart", vOK], ["playlists", "Mes playlists", "video", vOK], ["videos", "Vidéos", "play", vOK]].filter(x => x[3]);
+  const cur = SRC.find(s => s[0] === src);
+  const head = `<div class="m-head"><div><span class="kicker">${fmtDay(S.pdate)}</span><h2 class="mh2" style="margin-top:4px">${cur ? cur[1] : "Ajouter au planner"}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>`;
+  if (!cur) return head + `<div class="m-body"><div class="mcard" style="margin:0">${SRC.map(([k, l, ic]) => `<button class="prow" data-act="plansrc" data-s="${k}">${I[ic]}<span class="grow"><b>${l}</b></span>${chevron}</button>`).join("")}</div>${vOK ? "" : `<p class="small muted">Les vidéos et playlists sont incluses à partir de la formule ${PLANS[minPlan("videos")].code}.</p>`}</div>`;
+  const recs = src === "favr" ? [...S.favR].map(recipe).filter(Boolean) : src === "recettes" ? publishedRecipes().filter(r => rOK || inPreview(r)) : [];
+  const vids = src === "favv" ? [...S.favV].map(video).filter(Boolean) : src === "videos" ? VIDEOS : [];
+  const items = src === "playlists" ? myPlaylists().map(pl => pickRow("pl", pl.id, pl.name, `${pl.videos.length} vidéo${pl.videos.length > 1 ? "s" : ""}`, "video"))
+    : recs.map(r => pickRow("r", r.id, r.title, `${r.meal} · ${totalTime(r)} min`, "bowl")).concat(vids.map(v => pickRow("v", v.id, v.title, `${v.dur} min · ${DISC_OF(v)}`, "play")));
+  return head + `<div class="m-body"><button class="mall" data-act="plansrc" data-s="">${backIcon}Retour</button><div class="mcard" style="margin:0">${items.join("") || `<p class="small muted">Rien ici pour l'instant.</p>`}</div></div>`;
+}
+function planDateModal() {
+  const { k, id } = S.modal, t = k === "r" ? recipe(id).title : k === "pl" ? myPlaylists().find(x => x.id === id).name : video(id).title;
+  const days = Array.from({ length: 14 }, (_, i) => isoDay(WEEK_START, i)).filter(d => d >= TODAY_ISO);
+  return `<div class="m-head"><div><span class="kicker">Planifier</span><h2 class="mh2" style="margin-top:4px">${esc(t)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><p class="small muted">Choisissez le jour : ${{ r: "la recette", pl: "la playlist", v: "la séance" }[k]} apparaîtra dans votre planner.</p>
+      <div class="dgrid">${days.map(d => { const dt = parseD(d); return `<button class="dchip" data-act="plandate" data-iso="${d}" aria-label="${fmtDay(d)}"><small>${dt.toLocaleDateString("fr-FR", { weekday: "short" })}</small><b>${dt.getDate()}</b><small>${dt.toLocaleDateString("fr-FR", { month: "short" })}</small></button>`; }).join("")}</div></div>`;
 }
 function spark(vals, max) {
   if (vals.length < 2) return "";
@@ -1847,8 +2143,13 @@ function mTraining() {
   if (!can("videos")) return head + mLocked("videos", "Des séances courtes à faire chez vous", `<div class="mlist">${VIDEOS.slice(0, 4).map(vItem).join("")}</div>`);
   const sp = can("sport") ? SPORT_TEMPLATES[p.sport] : null, next = SESSIONS.filter(s => daysUntil(s.date) >= 0)[0];
   const news = [...VIDEOS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
+  const pr = PREFS[p.id], picks = pr ? recoVideos(pr) : [];
+  const reco = pr ? `${secT("heart", "Sélection pour vous", `<button class="mall" data-act="quiz">Mes préférences ${chevron}</button>`)}<div class="mlist">${picks.map(vItem).join("") || `<div class="mcard"><b>Aucune vidéo ne correspond encore</b><p class="small muted">Élargissez la durée ou le matériel dans vos préférences.</p></div>`}</div>`
+    : `<section class="promo">${photo("course")}<div><span class="pk">Notre sélection pour vous</span><h2>Des séances choisies selon vos envies</h2><p>Six questions : objectifs, niveau, temps et matériel.</p><button class="mbtn" data-act="quiz">C'est parti</button></div></section>`;
   return `${head}
     ${searchPill("m-vq", "Trouvez votre séance", "mvq", S.vq, 'data-act="msub" data-s="videos"')}
+    ${sp ? `${secT("cal", "Mon programme en cours", seeAll('data-act="progopen" data-w=""'))}${progCard(p)}` : ""}
+    ${reco}
     ${secT("clock", "J'ai… minutes")}
     <div class="mchips big">${[10, 15, 20, 30].map(m => `<button class="mchip" data-act="vpick" data-k="max" data-v="${m}">${m} min</button>`).join("")}</div>
     ${secT("search", "Explorer par discipline")}
@@ -1858,8 +2159,8 @@ function mTraining() {
     <div class="zones">${ZONES.map(([z, ph]) => `<button class="zone" data-act="vpick" data-k="zone" data-v="${z}">${photo(ph)}<span>${z}</span></button>`).join("")}</div>
     ${secT("video", "Nouveautés", seeAll('data-act="msub" data-s="videos"'))}
     <div class="mlist">${news.map(vItem).join("")}</div>
-    ${sp ? `${secT("cal", "Mon programme")}<div class="mcard stack" style="gap:10px"><div class="row between"><b>${esc(sp.name)}</b><span class="tag">${esc(sp.level)}</span></div><p class="small muted">${esc(sp.desc)}</p>
-      ${sp.sessions.map(s => `<div class="prow static"><i class="st st-sport">${I.dumbbell}</i><span class="grow"><small>${s.day}</small><b>${esc(s.title)}</b></span>${s.videos.map(id => `<button class="iconbtn" data-act="video" data-id="${id}" aria-label="Lire ${esc(video(id).title)}">${I.play}</button>`).join("")}</div>`).join("")}</div>` : ""}
+    ${secT("video", "Mes playlists", seeAll('data-act="msub" data-s="playlists"'))}
+    <div class="mrow">${myPlaylists().map(pl => { const v = video(pl.videos[0]); return `<button class="mini" data-act="plopen" data-id="${pl.id}">${v ? photo(vPhoto(v)) : photo("yoga")}<span><b>${esc(pl.name)}</b><small>${pl.videos.length} vidéo${pl.videos.length > 1 ? "s" : ""}</small></span></button>`; }).join("")}<button class="mini" data-act="plnew">${photo("terrain")}<span><b>Créer une playlist</b><small>Enchaînez vos vidéos préférées</small></span></button></div>
     ${can("collectives") && next ? `${secT("users", "En direct avec Manon", seeAll('data-act="msub" data-s="seances"'))}${ticket(next)}` : ""}`;
 }
 function filteredVids() {
@@ -1883,7 +2184,88 @@ function videoModal(id) {
   return `<div class="m-head"><div><span class="kicker">${esc(DISC_OF(v))} · ${v.dur} min</span><h2 class="mh2" style="margin-top:4px">${esc(v.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
     <div class="m-body"><div class="player mplayer">${photo(vPhoto(v))}<span class="play">${I.play}</span><span class="tiny">Vidéo hébergée sur Bunny Stream ou Vimeo en version finale</span></div>
       <div class="row">${intensity(v)}<span class="tag">${esc(v.level)}</span><span class="tag">${esc(ZONE_OF[v.id] || v.theme)}</span><span class="tag">${esc(v.equip.join(", "))}</span></div><p>${esc(v.desc)}</p></div>
-    <div class="m-foot"><button class="btn btn-soft" data-act="favv" data-id="${v.id}">${fav ? I.heartF + "Dans mes favoris" : I.heart + "Favori"}</button><button class="btn btn-olive" data-act="vdone" data-id="${v.id}">${done ? I.check + "Faite cette semaine" : "J'ai fait cette séance"}</button></div>`;
+    <div class="m-foot"><button class="btn btn-soft" data-act="favv" data-id="${v.id}">${fav ? I.heartF + "Dans mes favoris" : I.heart + "Favori"}</button><button class="btn btn-soft" data-act="planfor" data-k="v" data-id="${v.id}">${I.cal}Planifier</button><button class="btn btn-soft" data-act="pladd" data-id="${v.id}">${I.plus}Playlist</button><button class="btn btn-olive" data-act="vdone" data-id="${v.id}">${done ? I.check + "Faite cette semaine" : "J'ai fait cette séance"}</button></div>`;
+}
+
+/* ---------- Programme en cours (réf. pages programme TSE : « À propos » / « Les séances », semaines, progression) ---------- */
+function progCard(p) {
+  const { sp, week, total, done, next, pct } = progState(p);
+  return `<section class="promo prog">${photo(sp.photo)}<div><span class="pk">Mon programme en cours</span><h2>${esc(sp.name)}</h2><p>Semaine ${week} sur ${sp.weeks} · ${done.size}/${total} séances</p>
+    <div class="pbar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement du programme"><i style="width:${pct}%"></i></div>
+    <div class="row" style="gap:8px">${next ? `<button class="mbtn" data-act="progopen" data-w="${next.w}">Continuer : séance ${next.i + 1}</button>` : `<span class="sl sl-ok">Programme terminé</span>`}<button class="mbtn ghost" data-act="progopen" data-w="" data-t="about">Le programme</button></div></div></section>`;
+}
+function mProgramme() {
+  const p = me();
+  if (!can("sport")) return subHead("Mon programme") + mLocked("sport", "Un programme sportif sur plusieurs semaines", `<div class="mcard">${SPORT_TEMPLATES.remise.sessions.map((s, i) => `<div class="prow static"><i class="st st-sport">${I.dumbbell}</i><span class="grow"><small>Séance ${i + 1}</small><b>${esc(s.title)}</b></span></div>`).join("")}</div>`);
+  const sp = SPORT_TEMPLATES[p.sport];
+  if (!sp) return subHead("Mon programme") + `<div class="mcard"><b>Pas encore de programme</b><p class="small muted">Manon vous en attribue un après votre bilan sport. En attendant, la bibliothèque de vidéos est ouverte.</p><button class="mbtn ghost" data-act="msub" data-s="videos">Voir les vidéos</button></div>`;
+  const st = progState(p), wk = Math.min(sp.weeks, S.progWeek || st.week), tab = S.progTab, durs = sp.sessions.map(sessDur);
+  const facts = [["chart", sp.level], ["circle", sp.zone], ["cal", `${sp.weeks} semaines`], ["clock", `${sp.sessions.length} séances par semaine`], ["play", `${Math.min(...durs)} à ${Math.max(...durs)} min`], ["dumbbell", progEquip(sp).join(", ") || "Sans matériel"]];
+  const hero = `<section class="phero">${photo(sp.photo)}<div><span class="pk">Proposé par Manon · depuis le ${fmtD(st.start, { day: "numeric", month: "long" })}</span><h2>${esc(sp.name)}</h2>
+    <div class="pbar" role="progressbar" aria-valuenow="${st.pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Avancement du programme"><i style="width:${st.pct}%"></i></div><p>Semaine ${st.week} sur ${sp.weeks} · ${st.done.size}/${st.total} séances faites</p></div></section>`;
+  const tabs = `<div class="pview wide" role="tablist" aria-label="Programme">${[["about", "À propos"], ["seances", "Les séances"]].map(([k, l]) => `<button role="tab" aria-selected="${tab === k}" class="${tab === k ? "on" : ""}" data-act="progtab" data-t="${k}">${l}</button>`).join("")}</div>`;
+  const body = tab === "about"
+    ? `<div class="mcard"><span class="fk">Bienvenue</span><p style="margin-top:6px">${esc(sp.about)}</p></div>
+      <div class="mcard"><span class="fk">En bref</span><ul class="pfacts">${facts.map(([ic, t]) => `<li>${I[ic]}<span>${esc(t)}</span></li>`).join("")}</ul></div>
+      <div class="mcard"><span class="fk">Semaine par semaine</span><ol class="pweeksl">${sp.weekNotes.map((n, i) => `<li><b>Semaine ${i + 1}${i + 1 === st.week ? " · en cours" : ""}</b><span>${esc(n)}</span></li>`).join("")}</ol></div>
+      <button class="mbtn wide" data-act="progtab" data-t="seances">Voir les séances</button>`
+    : `<div class="mchips" role="tablist" aria-label="Semaines">${Array.from({ length: sp.weeks }, (_, k) => { const w = k + 1, n = sp.sessions.filter((_, i) => st.done.has(w + "|" + i)).length; return `<button class="mchip ${w === wk ? "on" : ""}" data-act="progweek" data-w="${w}" role="tab" aria-selected="${w === wk}">Semaine ${w}${n === sp.sessions.length ? I.check : ` · ${n}/${sp.sessions.length}`}</button>`; }).join("")}</div>
+      <p class="small muted" style="margin:0 0 12px">${esc(sp.weekNotes[wk - 1])}</p>
+      ${sp.sessions.map((s, i) => { const k = wk + "|" + i, ok = st.done.has(k), cur = st.next && st.next.w === wk && st.next.i === i;
+        return `<article class="mcard psess ${ok ? "done" : ""} ${cur ? "cur" : ""}"><div class="row between" style="flex-wrap:nowrap;align-items:flex-start"><div><span class="fk">Séance ${i + 1} · conseillée le ${s.day.toLowerCase()}</span><h3 class="mh3">${esc(s.title)}</h3><span class="vmeta">${I.clock}${sessDur(s)} min</span></div>${ok ? `<em class="sl sl-ok">Faite</em>` : cur ? `<em class="sl sl-wait">À faire</em>` : ""}</div>
+          <div class="mlist">${s.videos.map(id => vItem(video(id))).join("")}</div>
+          <button class="mbtn ${ok ? "ghost" : ""}" data-act="progdone" data-k="${k}">${ok ? `${I.check}Faite · annuler` : "J'ai fait cette séance"}</button></article>`; }).join("")}`;
+  return `${subHead("Mon programme")}${hero}${tabs}${body}
+    ${note("Repris des programmes TSE (semaines, séances numérotées, progression). Différence : c'est Manon qui attribue le programme depuis la fiche patiente, pas d'inscription libre.")}`;
+}
+
+/* ---------- Playlists (réf. « Mes playlists » TSE) ---------- */
+function mPlaylists() {
+  if (!can("videos")) return subHead("Mes playlists") + mLocked("videos", "Vos playlists de séances", `<div class="pltiles">${["yoga", "course"].map(n => `<div class="pltile">${photo(n)}</div>`).join("")}</div>`);
+  const pls = myPlaylists();
+  if (S.plId) {
+    const fav = S.plId === "fav", pl = fav ? { name: "Mes vidéos favorites", videos: [...S.favV] } : pls.find(x => x.id === S.plId);
+    if (!pl) { S.plId = null; return mPlaylists(); }
+    const vs = pl.videos.map(video).filter(Boolean), tot = vs.reduce((n, v) => n + v.dur, 0);
+    return `<header class="mhead sub"><button class="mback" data-act="plback" aria-label="Retour aux playlists">${backIcon}</button><div class="grow"><h1>${esc(pl.name)}</h1><p>${vs.length} vidéo${vs.length > 1 ? "s" : ""} · ${tot} min</p></div></header>
+      ${vs.length ? `<div class="row" style="gap:8px;margin-bottom:12px"><button class="mbtn" data-act="video" data-id="${vs[0].id}">${I.play}Lancer la playlist</button>${fav ? "" : `<button class="mbtn ghost" data-act="planfor" data-k="pl" data-id="${S.plId}">${I.cal}Planifier</button>`}</div>` : ""}
+      <div class="mlist">${vs.map(v => `<div class="plrow">${vItem(v)}<button class="prm" data-act="${fav ? "favv" : "plrmv"}" data-id="${v.id}" aria-label="Retirer « ${esc(v.title)} »">${I.x}</button></div>`).join("") || `<div class="mcard"><b>Playlist vide</b><p class="small muted">Ouvrez une vidéo et touchez « ${fav ? "Favori" : "Playlist"} » pour l'ajouter ici.</p><button class="mbtn ghost" data-act="msub" data-s="videos">Parcourir les vidéos</button></div>`}</div>
+      ${fav ? "" : `<button class="mbtn ghost" style="margin-top:16px" data-act="pldel">Supprimer la playlist</button>`}`;
+  }
+  return `${subHead("Mes playlists", `${pls.length + 1} playlist${pls.length ? "s" : ""}`)}
+    <div class="pltiles"><button class="pltile" data-act="plopen" data-id="fav">${photo("yoga")}<span><b>Mes vidéos favorites</b><small>${S.favV.size} vidéo${S.favV.size > 1 ? "s" : ""}</small></span></button>
+      ${pls.map(pl => { const v = video(pl.videos[0]); return `<button class="pltile" data-act="plopen" data-id="${pl.id}">${v ? photo(vPhoto(v)) : ""}<span><b>${esc(pl.name)}</b><small>${pl.videos.length} vidéo${pl.videos.length > 1 ? "s" : ""}</small></span></button>`; }).join("")}
+      <button class="pltile new" data-act="plnew">${I.plus}<span><b>Créer une playlist</b></span></button></div>`;
+}
+function plAddModal(vid) {
+  const v = video(vid);
+  return `<div class="m-head"><div><span class="kicker">Ajouter à une playlist</span><h2 class="mh2" style="margin-top:4px">${esc(v.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="mcard" style="margin:0">${myPlaylists().map(pl => { const on = pl.videos.includes(vid); return `<button class="prow" data-act="pltoggle" data-pl="${pl.id}" data-id="${vid}" aria-pressed="${on}"><i class="st ${on ? "st-ok" : "st-vide"}">${on ? I.check : I.plus}</i><span class="grow"><b>${esc(pl.name)}</b><small>${pl.videos.length} vidéo${pl.videos.length > 1 ? "s" : ""}</small></span></button>`; }).join("")}
+      <button class="prow" data-act="plnew" data-v="${vid}"><i class="st st-sport">${I.plus}</i><span class="grow"><b>Créer une playlist</b></span></button></div></div>
+    <div class="m-foot"><button class="btn btn-olive" data-act="video" data-id="${vid}">Terminé</button></div>`;
+}
+const plNewModal = vid => `<form data-form="plnew" data-v="${vid || ""}"><div class="m-head"><h2 class="mh2">Nouvelle playlist</h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+  <div class="m-body"><div class="field"><label for="pl-name">Nom de la playlist</label><input id="pl-name" name="name" required maxlength="40" placeholder="Ex. : Mes 15 minutes du soir"></div></div>
+  <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Créer</button></div></form>`;
+
+/* ---------- Sélection pour vous : questionnaire (réf. formulaire de recommandation TSE) ---------- */
+function quizModal() {
+  const q = S.quiz, it = QUIZ[q.step], val = q.a[it.k], last = q.step === QUIZ.length - 1, ok = it.multi ? (val || []).length > 0 : !!val;
+  return `<div class="m-head"><div><span class="kicker">Question ${q.step + 1} sur ${QUIZ.length}</span><h2 class="mh2" style="margin-top:4px">${esc(it.q)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="pbar" aria-hidden="true"><i style="width:${(q.step + 1) / QUIZ.length * 100}%"></i></div>${it.multi ? `<p class="small muted">Plusieurs choix possibles.</p>` : ""}
+      <div class="qopts ${it.multi ? "multi" : ""}">${it.opts.map(o => { const on = it.multi ? (val || []).includes(o) : val === o; return `<button class="qopt ${on ? "on" : ""}" data-act="qpick" data-v="${esc(o)}" aria-pressed="${on}">${on ? I.check : ""}${esc(o)}</button>`; }).join("")}</div></div>
+    <div class="m-foot">${q.step ? `<button class="btn btn-soft" data-act="qstep" data-d="-1">Retour</button>` : ""}<button class="btn btn-olive" data-act="qstep" data-d="1" ${ok ? "" : "disabled"}>${last ? "Terminer" : "Suivant"}</button></div>`;
+}
+
+/* ---------- Filtres de recettes (réf. panneau « Recherche et filtres » TSE) ---------- */
+function recipeFilterModal() {
+  const f = S.rf, n = filteredRecipes().length;
+  const single = (k, title, opts) => `<div class="fsec"><span class="fk">${title}</span><div class="fchips">${opts.map(v => `<button class="mchip ${f[k] === v ? "on" : ""}" data-act="rfset" data-k="${k}" data-v="${esc(v)}" aria-pressed="${f[k] === v}">${esc(v)}</button>`).join("")}</div></div>`;
+  return `<div class="m-head"><div><span class="kicker">Recettes</span><h2 class="mh2" style="margin-top:4px">Filtres</h2></div><div class="row" style="gap:6px;flex-wrap:nowrap"><button class="btn btn-text btn-sm" data-act="rfclear">Tout effacer</button><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div></div>
+    <div class="m-body">${single("meal", "Repas", MEALS)}
+      ${RTAG_GROUPS.map(([t, ks]) => `<div class="fsec"><span class="fk">${t}</span><div class="fchips">${ks.map(k => `<button class="mchip ${f.tags.includes(k) ? "on" : ""}" data-act="rftag" data-k="${k}" aria-pressed="${f.tags.includes(k)}">${RTAGS[k][0]}</button>`).join("")}</div></div>`).join("")}
+      ${single("theme", "Thèmes", THEMES)}</div>
+    <div class="m-foot"><button class="btn btn-olive" data-act="rfapply" ${n ? "" : "disabled"}>${n ? `Voir les ${n} recette${n > 1 ? "s" : ""}` : "Aucune recette ne correspond"}</button></div>`;
 }
 
 /* ---------- Nutrition ---------- */
@@ -1898,7 +2280,7 @@ function mNutrition() {
       ${SLOTS.map((s, j) => { const [k, l] = slotState(p.id, iso, j), lg = logOf(p.id, iso, j); return `<button class="prow" data-act="meal" data-d="${DAY_IDX}" data-s="${j}"><i class="st st-${k}">${stateIcon(k)}</i><span class="grow"><small>${s}</small><b>${esc(lg && lg.status === "autre" ? lg.text : planLabel(p, DAY_IDX, j))}</b></span><em class="sl sl-${k}">${l}</em></button>`; }).join("")}
       <div class="row" style="gap:8px;margin-top:6px"><button class="mbtn" data-act="msub" data-s="semainier">Voir ma semaine</button><button class="mbtn ghost" data-act="msub" data-s="proposer">Proposer mon semainier${prop ? ` · ${PROP_STATUS[prop.status][0]}` : ""}</button></div></div>`;
   return `${head}
-    ${searchPill("m-rq", "Trouvez votre recette", "mrq", S.rf.q, 'data-act="msub" data-s="recettes"')}
+    ${searchPill("m-rq", "Trouvez votre recette", "mrq", S.rf.q, 'data-act="rfilters"', rfCount())}
     ${secT("bowl", "Mon semainier")}${suivi}
     ${secT("search", "Explorer par")}
     <div class="mcircles">${[["Petit-déjeuner", "Petit-déj"], ["Déjeuner", "Déjeuner"], ["Collation", "Collation"], ["Dîner", "Dîner"], ["Dessert", "Dessert"]].map(([m, l], i) => `<button class="circ" data-act="rpick" data-k="meal" data-v="${m}"><span>${[I.sun, I.bowl, I.leaf, I.moon, I.heart][i]}</span>${l}</button>`).join("")}</div>
@@ -1917,11 +2299,11 @@ function mRecettes() {
   const grid = can("recettes") ? `<div class="rgrid" id="r-results">${l.map(r => rTile(r)).join("") || `<div class="mcard"><b>Aucune recette ne correspond</b><p class="small muted">Retirez un filtre.</p></div>`}</div>`
     : `<div class="rgrid">${all.slice(0, RECIPE_PREVIEW).map(r => rTile(r)).join("")}</div>${mLocked("recettes", `${all.length - RECIPE_PREVIEW} autres recettes vous attendent`, `<div class="rgrid">${all.slice(RECIPE_PREVIEW, RECIPE_PREVIEW + 4).map(r => rTile(r, true)).join("")}</div>`)}`;
   return `${subHead("Recettes", `${all.length} recettes`, `<button class="mround" data-act="shopping" aria-label="Liste de courses">${I.cart}</button>`)}
-    ${searchPill("m-rq", "Une recette, un ingrédient", "mrq", f.q)}
+    ${searchPill("m-rq", "Une recette, un ingrédient", "mrq", f.q, 'data-act="rfilters"', rfCount())}
     ${row("meal", [["", "Tous les repas"], ...MEALS.map(m => [m, m])])}
     ${row("theme", [["", "Tous les thèmes"], ...THEMES.map(t => [t, t])])}
     ${row("time", [["", "Tous les temps"], ["15", "15 min max"], ["30", "30 min max"]])}
-    <div class="mchips"><button class="mchip ${f.fav ? "on" : ""}" data-act="rfav">${I.heart} Favoris</button></div>
+    <div class="mchips"><button class="mchip ${f.fav ? "on" : ""}" data-act="rfav">${I.heart} Favoris</button>${f.tags.map(k => `<button class="mchip on" data-act="rftag" data-k="${k}" data-stay="1" aria-label="Retirer le filtre ${esc(RTAGS[k][0])}">${esc(RTAGS[k][0])}${I.x}</button>`).join("")}<button class="mchip" data-act="rfilters">${I.sliders}Plus de filtres</button></div>
     ${grid}`;
 }
 function mSemainier() {
@@ -1972,8 +2354,8 @@ function mProposer() {
 function chartSVG(entries, key, unit, dark = true) {
   const pts = entries.filter(e => e[key] != null);
   if (pts.length < 2) return `<p class="small muted">Ajoutez au moins deux mesures pour voir la courbe.</p>`;
-  const vals = pts.map(e => e[key]), scale = unit === "/5";
-  const lo = scale ? 0 : Math.floor(Math.min(...vals) - 1), hi = scale ? 5 : Math.ceil(Math.max(...vals) + 1);
+  const vals = pts.map(e => e[key]), scale = unit === "/10";
+  const lo = scale ? 0 : Math.floor(Math.min(...vals) - 1), hi = scale ? 10 : Math.ceil(Math.max(...vals) + 1);
   const W = 320, H = 170, L = 34, B = 26, T = 12, x = i => L + i / (pts.length - 1) * (W - L - 12), y = v => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
   const line = pts.map((e, i) => `${x(i).toFixed(1)},${y(e[key]).toFixed(1)}`).join(" ");
   const c = dark ? { l: "#B2E388", t: "#B4C7BA", g: "rgba(246,249,243,.1)" } : { l: "#18694B", t: "#5C6B63", g: "rgba(15,58,42,.1)" };
@@ -1985,36 +2367,37 @@ function chartSVG(entries, key, unit, dark = true) {
 }
 function mEvolution() {
   const p = me(), head = mHead("Évolution", "Suivez vos progrès");
-  if (!can("evolution")) return head + mLocked("evolution", "Suivez votre évolution", `<div class="mcard">${chartSVG(PROGRESS.p1, "energie", "/5")}</div>`);
+  if (!can("evolution")) return head + mLocked("evolution", "Suivez votre évolution", `<div class="mcard">${chartSVG(PROGRESS.p1, "energie", "/10")}</div>`);
   const prog = PROGRESS[p.id] || [], last = prog[prog.length - 1], first = prog[0];
   const metrics = METRICS.filter(([k]) => k !== "poids" || (weightAllowed(p.id) && !S.hideW));
   if (!metrics.some(m => m[0] === S.metric)) S.metric = metrics[0][0];
   const [mk, ml, mu] = METRICS.find(m => m[0] === S.metric);
   const meals = Object.keys(MEALLOG).filter(k => k.startsWith(p.id + "|")).length;
-  const delta = first && last && first[mk] != null && last[mk] != null && prog.length > 1 ? +(last[mk] - first[mk]).toFixed(1) : null;
+  const firstM = prog.find(e => e[mk] != null), lastM = [...prog].reverse().find(e => e[mk] != null);
+  const delta = firstM && lastM && firstM !== lastM ? +(lastM[mk] - firstM[mk]).toFixed(1) : null;
   return `${head}
     <div class="kpi3"><div><b>${S.vdone.size}</b><span>Séances<br>cette semaine</span></div><div><b>${meals}</b><span>Repas<br>notés</span></div><div><b>${prog.length}</b><span>Mesures<br>enregistrées</span></div></div>
     <button class="mbtn wide" data-act="progress">${I.plus}Ajouter une mesure</button>
     ${secT("chart", "Ma courbe")}
     <div class="mchips" role="group">${metrics.map(([k, l]) => `<button class="mchip ${S.metric === k ? "on" : ""}" data-act="metric" data-k="${k}">${l}</button>`).join("")}</div>
-    <div class="mcard">${last ? `<div class="row between" style="flex-wrap:nowrap;margin-bottom:6px"><div><span class="fk">${ml}</span><h3 class="mh3">${last[mk] != null ? String(last[mk]).replace(".", ",") + " " + mu : "—"}</h3></div>${delta != null ? `<span class="tag">${delta > 0 ? "+" : ""}${String(delta).replace(".", ",")} ${mu} depuis le ${fmtD(first.date, { day: "numeric", month: "long" })}</span>` : ""}</div>` : ""}${chartSVG(prog, mk, mu)}</div>
-    ${last ? `${secT("heart", "Mes ressentis")}<div class="feel">${[["energie", "Énergie"], ["sommeil", "Sommeil"], ["digestion", "Digestion"]].map(([k, l]) => `<div class="mcard"><span class="fk">${l}</span><div class="dots5" aria-label="${l} : ${last[k]} sur 5">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= last[k] ? "on" : ""}"></i>`).join("")}</div><small>${FEEL[last[k] - 1]}</small></div>`).join("")}</div>` : ""}
+    <div class="mcard">${last ? `<div class="row between" style="flex-wrap:nowrap;margin-bottom:6px"><div><span class="fk">${ml}</span><h3 class="mh3">${lastM ? fr(lastM[mk]) + " " + mu : "—"}</h3></div>${delta != null ? `<span class="tag">${delta > 0 ? "+" : ""}${fr(delta)} ${mu} depuis le ${fmtD(firstM.date, { day: "numeric", month: "long" })}</span>` : ""}</div>` : ""}${chartSVG(prog, mk, mu)}</div>
+    ${last ? `${secT("heart", "Mes ressentis")}<div class="feel">${[["energie", "Énergie"], ["sommeil", "Sommeil"]].map(([k, l]) => `<div class="mcard"><span class="fk">${l}</span><b class="fv">${last[k]}<small>/10</small></b><div class="dots10" aria-label="${l} : ${last[k]} sur 10">${Array.from({ length: 10 }, (_, i) => `<i class="${i < last[k] ? "on" : ""}"></i>`).join("")}</div><small>${feel(last[k])}</small></div>`).join("")}
+      <div class="mcard dig"><span class="fk">Digestion · ${fmtD(last.date, { day: "numeric", month: "long" })}</span>${last.symptomes && last.symptomes.length ? `<div class="symps">${last.symptomes.map(s => `<span>${esc(s)}</span>`).join("")}</div>` : `<p class="small" style="margin:8px 0 0">${last.symptomes ? "Aucun symptôme" : "Non renseignée"}</p>`}</div></div>` : ""}
     ${secT("clock", "Historique")}
-    <div class="mcard">${[...prog].reverse().map(e => `<div class="prow static"><i class="st st-ok">${I.chart}</i><span class="grow"><b>${fmtD(e.date)}</b><small>${[weightAllowed(p.id) && !S.hideW && e.poids != null ? fr(e.poids) + " kg" : "", e.taille ? "taille " + fr(e.taille) + " cm" : "", "énergie " + e.energie + "/5"].filter(Boolean).join(" · ")}</small></span></div>`).join("") || `<p class="small muted">Aucune mesure pour l'instant.</p>`}</div>
+    <div class="mcard">${[...prog].reverse().map(e => `<div class="prow static"><i class="st st-ok">${I.chart}</i><span class="grow"><b>${fmtD(e.date)}</b><small>${[weightAllowed(p.id) && !S.hideW && e.poids != null ? fr(e.poids) + " kg" : "", "énergie " + e.energie + "/10", "sommeil " + e.sommeil + "/10", "digestion : " + digLabel(e).toLowerCase()].filter(Boolean).join(" · ")}</small></span></div>`).join("") || `<p class="small muted">Aucune mesure pour l'instant.</p>`}</div>
     ${weightAllowed(p.id) ? `<label class="mcard" style="display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer"><span><b>Masquer le poids</b><small class="muted" style="display:block">Pour vous concentrer sur vos sensations</small></span><span class="toggle"><input type="checkbox" id="hide-w" data-change="hidew" ${S.hideW ? "checked" : ""}><span></span></span></label>` : ""}
     <p class="small muted" style="margin-top:10px">Vos mesures ne sont visibles que par vous et Manon.</p>
     ${note("Mesures et ressentis = données de santé (option B). Manon peut masquer le poids pour une patiente (réglage dans son suivi).")}`;
 }
 function progressModal() {
   const p = me(), w = weightAllowed(p.id) && !S.hideW;
-  const scale = (k, l) => `<fieldset class="mseg five"><legend>${l}</legend>${[1, 2, 3, 4, 5].map(i => `<label><input type="radio" name="${k}" value="${i}" ${i === 3 ? "checked" : ""}><span title="${FEEL[i - 1]}">${i}</span></label>`).join("")}</fieldset>`;
+  const scale = (k, l) => `<fieldset class="mseg ten"><legend>${l} <small>0 = au plus bas · 10 = au top</small></legend>${Array.from({ length: 11 }, (_, i) => `<label><input type="radio" name="${k}" value="${i}" ${i === 5 ? "checked" : ""}><span title="${feel(i)}">${i}</span></label>`).join("")}</fieldset>`;
   return `<form data-form="progress"><div class="m-head"><div><span class="kicker">Évolution</span><h2 class="mh2" style="margin-top:4px">Nouvelle mesure</h2></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
-    <div class="m-body"><p class="small muted">Remplissez seulement ce que vous voulez. Les ressentis vont de 1 (très difficile) à 5 (très bien).</p>
+    <div class="m-body"><p class="small muted">Remplissez seulement ce que vous voulez.</p>
       <div class="form-grid"><div class="field"><label for="pg-date">Date</label><input id="pg-date" name="date" type="date" value="${TODAY_ISO}" required></div>
-        ${w ? `<div class="field"><label for="pg-poids">Poids (kg)</label><input id="pg-poids" name="poids" type="number" step="0.1" min="30" max="250" inputmode="decimal"></div>` : ""}
-        <div class="field"><label for="pg-taille">Tour de taille (cm)</label><input id="pg-taille" name="taille" type="number" step="0.5" min="40" max="200" inputmode="decimal"></div>
-        <div class="field"><label for="pg-hanches">Tour de hanches (cm)</label><input id="pg-hanches" name="hanches" type="number" step="0.5" min="40" max="220" inputmode="decimal"></div></div>
-      ${scale("energie", "Énergie")}${scale("sommeil", "Sommeil")}${scale("digestion", "Digestion")}</div>
+        ${w ? `<div class="field"><label for="pg-poids">Poids (kg)</label><input id="pg-poids" name="poids" type="number" step="0.1" min="30" max="250" inputmode="decimal"></div>` : ""}</div>
+      ${scale("energie", "Énergie")}${scale("sommeil", "Sommeil")}
+      <fieldset class="mseg symp"><legend>Digestion : vos symptômes du jour <small>Ne cochez rien si tout va bien</small></legend>${SYMPTOMS.map(s => `<label><input type="checkbox" name="symptomes" value="${esc(s)}"><span>${esc(s)}</span></label>`).join("")}</fieldset></div>
     <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Enregistrer</button></div></form>`;
 }
 
@@ -2068,7 +2451,10 @@ function mProfil() {
   return `${subHead("Mon profil")}
     <div class="pcover"><span class="mav big">${initials(p)}</span><b>${esc(fullName(p))}</b>${planTag(p.plan)}<small>Suivie depuis le ${fmtD(p.start)}${p.end ? ` · jusqu'au ${fmtD(p.end)}` : ""}</small></div>
     <div class="mcard"><span class="fk">Prochaine consultation</span>${p.next ? `<h3 class="mh3">${fmtD(p.next.date, { weekday: "long", day: "numeric", month: "long" })}</h3><p class="small muted">${fmtT(p.next.time)} · ${esc(p.next.mode)}</p>` : `<h3 class="mh3">À prévoir</h3>`}${doctolib("Reprendre rendez-vous", "btn-olive btn-sm")}</div>
-    <div class="mcard">${[["offres", "Mes offres", "gift"], ["seances", "Séances en direct", "users"], ["semainier", "Ma semaine", "cal"], ["proposer", "Proposer mon semainier", "edit"], ["lexique", "Lexique", "book"]].map(([s, l, ic]) => `<button class="prow" data-act="msub" data-s="${s}">${I[ic]}<span class="grow"><b>${l}</b></span>${chevron}</button>`).join("")}
+    <div class="mcard"><span class="fk">Mes factures</span>${INVOICES.filter(i => i.pid === p.id && i.sent).sort((a, b) => b.no.localeCompare(a.no)).map(i => `<button class="prow" data-act="invopen" data-no="${i.no}">${I.file}<span class="grow"><b>${i.kind === "avoir" ? "Avoir" : "Facture"} n° ${i.no}</b><small>${fmtD(i.date)} · ${eur(invTotal(i))}${invAvoir(i.no) ? " · annulée" : ""}</small></span>${chevron}</button>`).join("") || `<p class="small muted" style="margin:8px 0 0">Vos factures s'afficheront ici après chaque paiement.</p>`}
+      <p class="tiny muted" style="margin:8px 0 0">À transmettre à votre mutuelle : certaines remboursent les consultations de diététique.</p></div>
+    <div class="mcard">${[["offres", "Mes offres", "gift"], ["programme", "Mon programme", "dumbbell"], ["playlists", "Mes playlists", "video"], ["seances", "Séances en direct", "users"], ["semainier", "Ma semaine", "cal"], ["proposer", "Proposer mon semainier", "edit"], ["lexique", "Lexique", "book"]].map(([s, l, ic]) => `<button class="prow" data-act="msub" data-s="${s}">${I[ic]}<span class="grow"><b>${l}</b></span>${chevron}</button>`).join("")}
+      ${can("videos") ? `<button class="prow" data-act="quiz">${I.sliders}<span class="grow"><b>Mes préférences sport</b><small>${PREFS[p.id] ? "Modifier le questionnaire" : "Six questions pour une sélection sur mesure"}</small></span>${chevron}</button>` : ""}
       ${can("contact") ? `<button class="prow" data-act="wa">${I.chat}<span class="grow"><b>Écrire à Manon sur WhatsApp</b><small>Réponse sous 48 h ouvrées</small></span>${chevron}</button>` : ""}</div>
     <div class="mcard"><span class="fk">Notifications</span>${[["rappels", "Rappels de séances et de consultations"], ["nouveautes", "Nouvelles recettes et vidéos"], ["resume", "Réponses de Manon et résumé de la semaine"]].map(([k, l]) => `<label class="row between" style="flex-wrap:nowrap;min-height:48px"><span class="small">${l}</span><span class="toggle"><input type="checkbox" id="n-${k}" data-change="notif" data-k="${k}" ${S.notif[k] ? "checked" : ""}><span></span></span></label>`).join("")}</div>
     <div class="mcard" style="display:flex;flex-wrap:wrap;gap:8px"><button class="mbtn ghost" data-act="toast" data-msg="En version finale : email de changement de mot de passe.">Changer mon mot de passe</button><button class="mbtn ghost" data-act="view" data-v="site">Se déconnecter</button></div>
@@ -2078,9 +2464,9 @@ function mProfil() {
 /* =========================================================
    BACK-OFFICE
    ========================================================= */
-const AD_NAV = [["dashboard", "Tableau de bord", "grid"], ["patientes", "Patientes", "users"], ["suivi", "Suivi des repas", "chart"], ["programmes", "Programmes", "bowl"], ["recettes", "Recettes", "leaf"], ["videos", "Vidéos", "video"], ["articles", "Articles", "book"], ["seances", "Séances", "dumbbell"], ["rdv", "Rendez-vous", "cal"], ["parametres", "Paramètres", "gear"]];
+const AD_NAV = [["dashboard", "Tableau de bord", "grid"], ["patientes", "Patientes", "users"], ["suivi", "Suivi des repas", "chart"], ["programmes", "Programmes", "bowl"], ["recettes", "Recettes", "leaf"], ["videos", "Vidéos", "video"], ["articles", "Articles", "book"], ["seances", "Séances", "dumbbell"], ["rdv", "Rendez-vous", "cal"], ["factures", "Factures", "file"], ["parametres", "Paramètres", "gear"]];
 function admin() {
-  const page = { dashboard: adDashboard, patientes: adPatients, suivi: adSuivi, programmes: adProgrammes, recettes: adRecettes, videos: adVideos, articles: adArticles, seances: adSeances, rdv: adRdv, parametres: adParams }[S.adPage]();
+  const page = { dashboard: adDashboard, patientes: adPatients, suivi: adSuivi, programmes: adProgrammes, recettes: adRecettes, videos: adVideos, articles: adArticles, seances: adSeances, rdv: adRdv, factures: adFactures, parametres: adParams }[S.adPage]();
   return `<div class="wrap app admin"><nav class="rail" aria-label="Back-office"><div class="me"><div class="av">MG</div><div><b>Manon Garrione</b><div class="tiny muted">Administratrice</div></div></div>
     ${AD_NAV.map(([k, l, ic]) => `<button class="nv ${S.adPage === k ? "on" : ""}" data-act="ad" data-p="${k}">${I[ic]}<span>${l}</span></button>`).join("")}</nav>
     <main class="main" id="main">${page}</main>${adTabbar()}</div>`;
@@ -2172,7 +2558,7 @@ function patientModal(id) {
         <div class="field"><label for="ep-plan">Formule</label><select id="ep-plan" name="plan">${PLAN_ORDER.map(k => `<option value="${k}" ${p.plan === k ? "selected" : ""}>${esc(planName(k))}</option>`).join("")}</select></div>
         <div class="field"><label for="ep-end">Fin d'abonnement</label><input id="ep-end" name="end" type="date" value="${p.end}"></div>
         <div class="field"><label for="ep-nutri">Programme nutritionnel</label><select id="ep-nutri" name="nutri"><option value="">Aucun</option>${Object.entries(NUTRI_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.nutri === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
-        <div class="field"><label for="ep-sport">Programme sportif (F2, F3)</label><select id="ep-sport" name="sport"><option value="">Aucun</option>${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.sport === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
+        <div class="field"><label for="ep-sport">Programme sportif (All in, Recettes + sport)</label><select id="ep-sport" name="sport"><option value="">Aucun</option>${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<option value="${k}" ${p.sport === k ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></div>
       </div>
       <div class="card ti stack" style="gap:10px"><h4 class="h-s" style="font-size:1rem">Prochaine consultation (recopiée depuis Doctolib)</h4><div class="form-grid">
         <div class="field"><label for="ep-ndate">Date</label><input id="ep-ndate" name="ndate" type="date" value="${p.next ? p.next.date : ""}"></div>
@@ -2180,6 +2566,9 @@ function patientModal(id) {
         <div class="field"><label for="ep-nmode">Lieu</label><select id="ep-nmode" name="nmode">${["Visio", "Cabinet La Garde", "Domicile"].map(m => `<option ${p.next && p.next.mode === m ? "selected" : ""}>${m}</option>`).join("")}</select></div></div></div>
       <div class="grid g2"><div class="card stack" style="gap:6px"><h4 class="h-s" style="font-size:1rem">Séances collectives</h4>${regs.length ? regs.map(s => `<span class="small">${esc(s.title)} · ${fmtD(s.date)}</span>`).join("") : `<span class="small muted">Aucune inscription</span>`}</div>
         <div class="card stack" style="gap:6px"><h4 class="h-s" style="font-size:1rem">Documents partagés</h4>${DOCUMENTS.map(d => `<span class="small">${esc(d.title)}</span>`).join("")}</div></div>
+      ${(() => { const pr = PREFS[p.id], spT = SPORT_TEMPLATES[p.sport], ps = spT ? progState(p) : null; return spT || pr ? `<div class="card ti stack" style="gap:6px"><h4 class="h-s" style="font-size:1rem">Sport</h4>
+        ${ps ? `<span class="small">Programme « ${esc(spT.name)} » · semaine ${ps.week}/${spT.weeks} · ${ps.done.size}/${ps.total} séances faites</span>` : ""}
+        ${pr ? `<span class="small">Préférences : ${esc([(pr.obj || []).join(", "), pr.niveau, pr.freq, pr.duree, (pr.mat || []).join(", ")].filter(Boolean).join(" · "))}</span>` : `<span class="small muted">Questionnaire de préférences pas encore rempli.</span>`}</div>` : ""; })()}
       ${note("Option B : repas notés et mesures de la patiente visibles dans son suivi (données de santé, hébergement HDS).")}</div>
     <div class="m-foot"><button type="button" class="btn btn-text" data-act="toast" data-msg="Invitation renvoyée à ${esc(p.email)} (simulation).">Renvoyer l'invitation</button>
       <button type="button" class="btn btn-soft" data-act="pstatus" data-id="${p.id}" data-s="${p.status === "active" ? "suspendue" : "active"}">${p.status === "active" ? "Suspendre" : "Réactiver"}</button>
@@ -2190,7 +2579,7 @@ function adProgrammes() {
     <section class="stack"><h2 class="h-s">Nutrition</h2><div class="grid g3">${Object.entries(NUTRI_TEMPLATES).map(([k, t], i) => `<div class="rcard">${artBox(i * 3 + 1, "Déjeuner", "aspect-ratio:16/7")}<div class="b"><h4 class="h-s">${esc(t.name)}</h4><p class="small muted">${esc(t.desc)}</p>
       <span class="mono tiny">${PATIENTS.filter(p => p.nutri === k && p.status === "active").length} patientes</span><button class="btn btn-line btn-sm" style="align-self:flex-start" data-act="edittmpl" data-id="${k}">Modifier le semainier</button></div></div>`).join("")}
       <button class="panel stack" style="gap:8px;border-style:dashed;cursor:pointer;align-items:flex-start;text-align:left" data-act="newtmpl">${I.plus}<b>Nouveau modèle</b><span class="small muted">Dupliqué depuis « Énergie »</span></button></div></section>
-    <section class="stack"><h2 class="h-s">Sport</h2><div class="grid g3">${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<div class="card stack" style="gap:8px"><h4 class="h-s">${esc(t.name)}</h4><p class="small muted">${esc(t.desc)}</p><div class="small">${t.sessions.map(s => `<b>${s.day}</b> · ${esc(s.title)}`).join("<br>")}</div><span class="mono tiny">${PATIENTS.filter(p => p.sport === k && p.status === "active").length} patientes</span></div>`).join("")}</div></section>
+    <section class="stack"><h2 class="h-s">Sport</h2><div class="grid g3">${Object.entries(SPORT_TEMPLATES).map(([k, t]) => `<div class="card stack" style="gap:8px"><h4 class="h-s">${esc(t.name)}</h4><span class="tag" style="align-self:flex-start">${t.weeks} semaines · ${t.sessions.length} séances/semaine</span><p class="small muted">${esc(t.desc)}</p><div class="small">${t.sessions.map(s => `<b>${s.day}</b> · ${esc(s.title)}`).join("<br>")}</div><span class="mono tiny">${PATIENTS.filter(p => p.sport === k && p.status === "active").length} patientes</span></div>`).join("")}</div></section>
     ${note("Nommer les modèles par objectif, jamais par pathologie (option A).")}`;
 }
 function tmplModal(id) {
@@ -2263,11 +2652,11 @@ function articleFormModal() {
     <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Publier</button></div></form>`;
 }
 function adSeances() {
-  return `<div class="ph-head"><div><span class="kicker">Formules 02 et 03</span><h1 class="display" style="margin-top:8px">Séances</h1></div><button class="btn btn-olive" data-act="newsession">${I.plus}Nouveau créneau</button></div>
+  return `<div class="ph-head"><div><span class="kicker">All in · Recettes + sport</span><h1 class="display" style="margin-top:8px">Séances</h1></div><button class="btn btn-olive" data-act="newsession">${I.plus}Nouveau créneau</button></div>
     <div class="stack" style="gap:12px">${SESSIONS.map(s => { const d = parseD(s.date); return `<div class="ticket"><div class="stub"><b class="num">${d.getDate()}</b><span>${d.toLocaleDateString("fr-FR", { month: "short" }).replace(".", "")}</span></div>
       <div class="info"><h4 class="h-s" style="font-size:1.08rem">${esc(s.title)}</h4><span class="tiny muted">${fmtDay(s.date)} · ${fmtT(s.time)} · ${esc(s.link.replace("https://", ""))}</span><div class="seats">${Array.from({ length: s.places }, (_, i) => `<i class="${i < s.inscrits.length ? "f" : ""}"></i>`).join("")}</div><span class="tiny">${s.inscrits.length}/${s.places} inscrites${s.wait.length ? ` · ${s.wait.length} en attente` : ""}</span></div>
       <div class="act" style="gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="inscrits" data-id="${s.id}">Inscrites</button><button class="btn btn-text btn-sm" data-act="toast" data-msg="Email envoyé aux ${s.inscrits.length} inscrites (simulation).">Écrire</button></div></div>`; }).join("")}</div>
-    ${note("Capacité : 2 séances × 10 places = 20 places/mois. Au-delà de 10 abonnées F2 et F3, ouvrir un créneau (règle 14).")}`;
+    ${note("Capacité : 2 séances × 10 places = 20 places/mois. Au-delà de 10 abonnées All in et Recettes + sport, ouvrir un créneau (règle 14).")}`;
 }
 function sessionFormModal() {
   return `<form data-form="session"><div class="m-head"><h2 class="display h-m" style="font-size:1.6rem">Nouveau <span class="serif">créneau</span></h2><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
@@ -2298,8 +2687,103 @@ function adParams() {
     <div class="card stack"><h3 class="h-s">Liens</h3><div class="form-grid">
       <div class="field full"><label for="st-doc">Page Doctolib</label><input id="st-doc" value="${esc(SETTINGS.doctolib)}" data-change="setting" data-k="doctolib"></div>
       <div class="field"><label for="st-wa">Numéro WhatsApp</label><input id="st-wa" value="${esc(SETTINGS.whatsapp)}" data-change="setting" data-k="whatsapp"></div>
-      <div class="field"><label for="st-ig">Instagram</label><input id="st-ig" value="${esc(SETTINGS.instagram)}" data-change="setting" data-k="instagram"></div></div></div>`;
+      <div class="field"><label for="st-ig">Instagram</label><input id="st-ig" value="${esc(SETTINGS.instagram)}" data-change="setting" data-k="instagram"></div></div></div>
+    <div class="card stack" id="facturation"><h3 class="h-s">Facturation</h3>${note("Ces informations s'impriment sur chaque facture. Valeurs fictives dans le prototype : à remplacer par les vraies coordonnées de Manon.")}<div class="form-grid">
+      ${[["brand", "Nom commercial"], ["owner", "Nom et prénom (suivis de « EI »)"], ["title", "Profession"], ["rpps", "N° RPPS"], ["siren", "N° SIREN"], ["email", "E-mail"], ["phone", "Téléphone"], ["city", "Ville de signature (« Fait à »)"]].map(([k, l]) => `<div class="field"><label for="bl-${k}">${l}</label><input id="bl-${k}" value="${esc(BILLING[k])}" data-change="billing" data-k="${k}"></div>`).join("")}
+      <div class="field full"><label for="bl-addr">Adresse de facturation</label><textarea id="bl-addr" rows="2" data-change="billing" data-k="addr">${esc(BILLING.addr)}</textarea></div>
+      <div class="field full"><label for="bl-vat">Mention de TVA</label><select id="bl-vat" data-change="billing" data-k="vat">${Object.entries(VAT_MENTIONS).map(([k, l]) => `<option value="${k}" ${BILLING.vat === k ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></div></div>
+      <p class="small muted">Prochain numéro : <b class="mono">${TODAY_ISO.slice(0, 4)}${TODAY_ISO.slice(5, 7)}${String(BILLING.next).padStart(3, "0")}</b>. Signature : image importée par Manon en version finale.</p>
+      ${note("À valider avec le comptable : la mention de TVA (article 293 B pour la franchise, ou 261-4-1° pour les consultations, exonérées en tant que soins) et la répartition du prix des formules qui mélangent consultation et sport.")}</div>`;
 }
+
+/* ---------- Factures (Manon) ---------- */
+function adFactures() {
+  const month = TODAY_ISO.slice(0, 7), inMonth = INVOICES.filter(i => i.date.startsWith(month)), list = [...INVOICES].sort((a, b) => b.no.localeCompare(a.no));
+  return `<div class="ph-head"><div><span class="kicker">${inMonth.length} document${inMonth.length > 1 ? "s" : ""} en ${fmtD(TODAY_ISO, { month: "long" })} · ${eur(inMonth.reduce((n, i) => n + invTotal(i), 0))}</span><h1 class="display" style="margin-top:8px">Factures</h1></div><button class="btn btn-olive btn-sm" data-act="invnew">${I.plus}Nouvelle facture</button></div>
+    ${note("Numéro continu sans trou (année, mois, compteur). Une facture émise ne se modifie plus : en cas d'erreur, Manon l'annule par un avoir. Conservation 10 ans.")}
+    <div class="table-wrap"><table><thead><tr><th>N°</th><th>Date</th><th>Patiente</th><th>Objet</th><th>Montant</th><th>Statut</th><th></th></tr></thead><tbody>
+    ${list.map(i => { const p = patientById(i.pid); return `<tr><td class="mono">${i.no}</td><td class="small">${fmtD(i.date)}</td><td>${esc(fullName(p))}</td><td class="small">${esc(i.lines.map(l => l.label).join(", "))}</td><td class="num">${eur(invTotal(i))}</td>
+      <td>${i.kind === "avoir" ? `<span class="tag warn">Avoir de la n° ${i.ref}</span>` : invAvoir(i.no) ? `<span class="tag crit">Annulée</span>` : i.sent ? `<span class="tag ok">Dans son espace</span>` : `<span class="tag">Émise</span>`}</td>
+      <td><button class="btn btn-soft btn-sm" data-act="invopen" data-no="${i.no}">Voir</button></td></tr>`; }).join("")}</tbody></table></div>`;
+}
+function invoiceModal(pid) {
+  const P = PRESTA(), p = patientById(pid) || actives()[0], min = lastInvDate();
+  const line = (i, req) => `<div class="field"><label for="iv-k${i}">Prestation${req ? "" : " supplémentaire (facultatif)"}</label><select id="iv-k${i}" name="k${i}">${req ? "" : `<option value="">Aucune</option>`}${P.map(([k, l, pr]) => `<option value="${k}" ${req && k === "suivi" ? "selected" : ""}>${esc(l)} · ${pr} €</option>`).join("")}</select></div>
+    <div class="field"><label for="iv-q${i}">Quantité</label><input id="iv-q${i}" name="q${i}" type="number" min="1" max="20" value="1" inputmode="numeric"></div>`;
+  return `<form data-form="invoice"><div class="m-head"><div><span class="kicker">Facturation</span><h2 class="h-s" style="margin-top:4px">Nouvelle facture</h2></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><div class="form-grid">
+      <div class="field"><label for="iv-pid">Patiente</label><select id="iv-pid" name="pid" data-change="invpat">${PATIENTS.map(x => `<option value="${x.id}" ${x.id === p.id ? "selected" : ""}>${esc(x.last)} ${esc(x.first)}</option>`).join("")}</select></div>
+      <div class="field"><label for="iv-date">Date de la prestation</label><input id="iv-date" name="date" type="date" value="${TODAY_ISO}" min="${min}" max="${TODAY_ISO}" required></div>
+      <div class="field full"><label for="iv-addr">Adresse de la patiente</label><textarea id="iv-addr" name="addr" rows="2" placeholder="Rue, code postal et ville">${esc(PATIENT_ADDR[p.id] || "")}</textarea></div>
+      ${line(0, true)}${line(1, false)}
+      <div class="field"><label for="iv-pay">Moyen de paiement</label><select id="iv-pay" name="pay">${PAYMENTS.map(m => `<option>${m}</option>`).join("")}</select></div>
+      <label class="field row" style="gap:10px;flex-wrap:nowrap;align-self:end;cursor:pointer"><input type="checkbox" name="sent" checked style="width:20px;height:20px"><span class="small">Déposer la facture dans l'espace de la patiente</span></label></div>
+      <p class="small muted">Le numéro, la date, les mentions obligatoires et la mention de TVA sont ajoutés automatiquement. La date ne peut pas être antérieure à la dernière facture (${fmtD(min)}), pour garder la numérotation dans l'ordre.</p></div>
+    <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Générer la facture</button></div></form>`;
+}
+function invoiceView(no) {
+  const inv = invByNo(no), p = patientById(inv.pid), adm = S.view === "admin", av = inv.kind === "avoir", canc = invAvoir(no);
+  return `<div class="m-head"><div><span class="kicker">${esc(fullName(p))} · ${fmtD(inv.date)}</span><h2 class="h-s" style="margin-top:4px">${av ? "Avoir" : "Facture"} n° ${inv.no}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body">${canc ? `<p class="small" style="margin:0"><span class="tag crit">Annulée</span> par l'avoir n° ${canc.no} du ${fmtD(canc.date)}.</p>` : ""}${invSheet(inv)}<p class="inv-hint">Aperçu réduit : téléchargez le PDF pour lire la facture en grand.</p></div>
+    <div class="m-foot">${adm && !av && !canc ? `<button class="btn btn-soft" data-act="invavoir" data-no="${inv.no}">Annuler par un avoir</button>` : ""}<button class="btn btn-olive" data-act="invpdf" data-no="${inv.no}">${I.file}Télécharger en PDF</button></div>`;
+}
+function invSheet(inv) {
+  const p = patientById(inv.pid), B = BILLING, av = inv.kind === "avoir", d = fmtD(inv.date, { day: "2-digit", month: "2-digit", year: "numeric" }), br = s => esc(s).replace(/\n/g, "<br>");
+  const rows = inv.lines.map(l => `<tr><td>${esc(l.label)}</td><td class="c">${d}</td><td class="c">${esc(inv.pay)}</td><td class="c">${l.qty}</td><td class="r">${eur(l.price)}</td><td class="r">${eur(l.qty * l.price)}</td></tr>`).join("")
+    + Array.from({ length: Math.max(0, 7 - inv.lines.length) }, () => `<tr class="bl"><td colspan="6"></td></tr>`).join("");
+  return `<div class="invwrap"><article class="inv" aria-label="${av ? "Avoir" : "Facture"} n° ${inv.no}">
+    <header class="inv-top"><div><b>${esc(B.brand)}</b><br>${esc(B.owner)} EI<br>${br(B.addr)} - France<br>${esc(B.title)}<br>N° RPPS : ${esc(B.rpps)}</div><img class="inv-logo" src="${ASSET("logo.png")}" alt="GM Sport et Nutrition"></header>
+    <div class="inv-mid"><div class="inv-to"><b>Patient</b><dl><dt>Nom Prénom</dt><dd>${esc(p.last)} ${esc(p.first)}</dd><dt>Adresse</dt><dd>${br(inv.addr || PATIENT_ADDR[p.id] || "")}</dd></dl></div>
+      <div class="inv-id"><h2>${av ? "Avoir" : "Facture"}</h2><p>N° : ${inv.no}<br>${d}${av ? `<br>Annule la facture n° ${inv.ref}` : ""}</p><div class="inv-band">${esc(invSubject(inv))}</div></div></div>
+    <table class="inv-t"><thead><tr><th>Description</th><th class="c">Date</th><th class="c">Moyen de paiement</th><th class="c">Qté</th><th class="r">Prix unitaire</th><th class="r">Montant</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="inv-tot"><span>Total</span><b>${eur(invTotal(inv))}</b></div>
+    <div class="inv-end"><div class="inv-ment"><i>Conditions de paiement et mentions particulières :</i><br>${esc(VAT_MENTIONS[B.vat])}<br>${av ? `Montant remboursé par ${esc(inv.pay.toLowerCase())}.` : `Facture acquittée le ${d} par ${esc(inv.pay.toLowerCase())}.`}</div>
+      <div class="inv-sign"><span class="sig">${esc(B.owner)}</span><span class="fait">Fait à ${esc(B.city)}, le ${d}</span></div></div>
+    <footer class="inv-foot"><span>${esc(B.addr.replace(/\n/g, " "))}</span><span>E-mail : ${esc(B.email)}<br>N° SIREN : ${esc(B.siren)}<br>Tél : ${esc(B.phone)}</span></footer></article></div>`;
+}
+/* PDF : la facture est imprimée seule dans un cadre caché, au format A4 (« Enregistrer en PDF » dans la fenêtre d'impression).
+   En version finale, le serveur produit le PDF et l'archive (conservation 10 ans). */
+function printInvoice(no) {
+  const inv = invByNo(no), pf = document.createElement("iframe");
+  pf.setAttribute("aria-hidden", "true"); pf.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0";
+  document.body.appendChild(pf);
+  const doc = pf.contentDocument;
+  doc.open(); doc.write(`<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>${inv.kind === "avoir" ? "Avoir" : "Facture"} ${inv.no}</title><style>${INV_CSS}@page{size:A4;margin:0}html,body{margin:0;background:#fff}.invwrap{width:210mm}.inv{box-shadow:none;border-radius:0}</style></head><body>${invSheet(inv)}</body></html>`); doc.close();
+  const run = () => { try { pf.contentWindow.focus(); pf.contentWindow.print(); } catch (e) { toast("Impression bloquée par le navigateur. En version finale, le PDF se télécharge directement."); } setTimeout(() => pf.remove(), 60000); };
+  const img = doc.querySelector("img"); if (img && !img.complete) img.addEventListener("load", run, { once: true }); else setTimeout(run, 50);
+}
+const INV_CSS = `.invwrap{container-type:inline-size;width:100%}
+.inv{position:relative;box-sizing:border-box;background:#fff;color:#1d1d1b;aspect-ratio:210/297;padding:8cqw 6.5cqw 5cqw;font:400 1.5cqw/1.45 "Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(0,0,0,.08),0 12px 40px rgba(0,0,0,.14);border-radius:4px;text-align:left;margin-top:12px}
+.inv b{font-weight:700}
+.inv-top{display:flex;justify-content:space-between;align-items:flex-start;gap:4cqw}
+.inv-logo{width:22cqw;height:auto;margin-right:6cqw}
+.inv-mid{display:grid;grid-template-columns:1fr 1.15fr;gap:4cqw;margin-top:4cqw}
+.inv-to dl{display:grid;grid-template-columns:auto 1fr;gap:.5cqw 2.4cqw;margin:1.2cqw 0 0}
+.inv-to dd{margin:0}
+.inv-id h2{margin:0;background:#1E5C43;color:#fff;font:700 2.5cqw/1.3 "Helvetica Neue",Arial,sans-serif;padding:.5cqw 1cqw;letter-spacing:0;text-transform:none}
+.inv-id p{margin:.8cqw 0 0}
+.inv-band{margin-top:3cqw;background:#1E5C43;color:#fff;font-weight:700;padding:.3cqw 1cqw;border-left:1.2cqw solid #B2E388}
+.inv-t{width:100%;border-collapse:collapse;margin-top:6cqw;font-size:1.4cqw}
+.inv-t th{background:#1E5C43;color:#fff;font:700 1.4cqw/1.45 "Helvetica Neue",Arial,sans-serif;text-transform:none;letter-spacing:0;text-align:left;padding:.4cqw .8cqw;border:0}
+.inv-t td{padding:.4cqw .8cqw;border:0;border-bottom:1px solid #1d1d1b;height:2.4cqw;font-size:1.4cqw;color:#1d1d1b;background:none}
+.inv-t .c{text-align:center}.inv-t .r{text-align:right;white-space:nowrap}
+.inv-tot{margin:5cqw 0 0 45%;border-top:1px solid #1d1d1b;padding-top:2.4cqw;display:flex;justify-content:space-between;font-size:2cqw;font-weight:700}
+.inv-end{display:grid;grid-template-columns:1fr 1fr;gap:4cqw;margin-top:4cqw}
+.inv-ment{font-size:1.35cqw}
+.inv-sign{display:flex;flex-direction:column;align-items:center;gap:1.4cqw}
+.inv-sign .sig{font:400 3.6cqw/1 "Segoe Script","Brush Script MT","Snell Roundhand",cursive;transform:rotate(-6deg)}
+.inv-sign .fait{border:1px solid #bbb;padding:1cqw 1.6cqw;align-self:stretch}
+.inv-foot{margin-top:auto;border-top:1px solid #1d1d1b;padding-top:1cqw;display:flex;justify-content:space-between;gap:4cqw;color:#8a8a8a;font-size:1.25cqw;font-weight:700}
+.inv-foot span:last-child{text-align:right}
+/* Le tableau de la facture garde sa forme sur téléphone (les autres tableaux y deviennent des cartes) */
+.inv table{display:table!important}.inv thead{display:table-header-group!important}.inv tbody{display:table-row-group!important}
+.inv tr{display:table-row!important;background:none!important;border:0!important;padding:0!important;margin:0!important;border-radius:0!important}
+.inv th,.inv td{display:table-cell!important;width:auto!important;min-height:0!important;margin:0!important;font-weight:400!important;text-align:left!important;padding:.4cqw .8cqw!important;border:0!important;border-bottom:1px solid #1d1d1b!important}
+.inv th{font-weight:700!important;border-bottom:0!important}.inv td::before{content:none!important}
+.inv-t .c{text-align:center!important}.inv-t .r{text-align:right!important}
+.inv-hint{display:none;margin:10px 0 0;font-size:13px;opacity:.75}
+@media (max-width:640px){.inv-hint{display:block}}`;
+document.head.insertAdjacentHTML("beforeend", `<style>${INV_CSS}</style>`);
 
 /* =========================================================
    RENDU, MODALES, EFFETS
@@ -2336,8 +2820,8 @@ function suiviModal(id) {
   } else {
     body = `<div class="row between"><p class="small muted">${prog.length} mesure${prog.length > 1 ? "s" : ""} saisie${prog.length > 1 ? "s" : ""} par ${esc(p.first)}.</p>
         <label class="row" style="gap:8px;flex-wrap:nowrap;cursor:pointer"><span class="small">Afficher le poids à la patiente</span><span class="toggle"><input type="checkbox" id="sw-${p.id}" data-change="showw" data-id="${p.id}" ${weightAllowed(p.id) ? "checked" : ""}><span></span></span></label></div>
-      <div class="grid g2">${[["poids", "Poids", "kg"], ["taille", "Tour de taille", "cm"], ["energie", "Énergie", "/5"], ["sommeil", "Sommeil", "/5"]].map(([k, l, u]) => `<div class="card"><h4 class="h-s" style="font-size:1rem">${l}</h4>${chartSVG(prog, k, u, false)}</div>`).join("")}</div>
-      <div class="table-wrap"><table><thead><tr><th>Date</th><th>Poids</th><th>Taille</th><th>Hanches</th><th>Énergie</th><th>Sommeil</th><th>Digestion</th></tr></thead><tbody>${[...prog].reverse().map(e => `<tr><td>${fmtD(e.date)}</td><td class="num">${e.poids != null ? fr(e.poids) : "—"}</td><td class="num">${e.taille != null ? fr(e.taille) : "—"}</td><td class="num">${e.hanches != null ? fr(e.hanches) : "—"}</td><td>${e.energie}/5</td><td>${e.sommeil}/5</td><td>${e.digestion}/5</td></tr>`).join("") || `<tr><td colspan="7" class="muted">Aucune mesure.</td></tr>`}</tbody></table></div>`;
+      <div class="grid g3">${METRICS.map(([k, l, u]) => `<div class="card"><h4 class="h-s" style="font-size:1rem">${l}</h4>${chartSVG(prog, k, u, false)}</div>`).join("")}</div>
+      <div class="table-wrap"><table><thead><tr><th>Date</th><th>Poids</th><th>Énergie</th><th>Sommeil</th><th>Digestion (symptômes)</th></tr></thead><tbody>${[...prog].reverse().map(e => `<tr><td>${fmtD(e.date)}</td><td class="num">${e.poids != null ? fr(e.poids) : "—"}</td><td>${e.energie}/10</td><td>${e.sommeil}/10</td><td>${esc(digLabel(e))}</td></tr>`).join("") || `<tr><td colspan="5" class="muted">Aucune mesure.</td></tr>`}</tbody></table></div>`;
   }
   return `<div class="m-head"><div class="row" style="flex-wrap:nowrap"><span class="av">${initials(p)}</span><div><span class="kicker">Suivi</span><h2 class="h-s">${esc(fullName(p))}</h2></div></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
     <div class="m-body">${tabs}${body}</div>`;
@@ -2524,6 +3008,14 @@ function burst(el) {
    ========================================================= */
 const A = {
   view: t => go(() => { S.view = t.dataset.v; S.menu = false; }),
+  invnew: t => openModal(invoiceModal(t.dataset.id), true),
+  invopen: t => openModal(invoiceView(t.dataset.no), true),
+  invpdf: t => printInvoice(t.dataset.no),
+  invavoir: t => {
+    if (!t.dataset.ok) { t.dataset.ok = "1"; t.textContent = "Confirmer : émettre un avoir"; return; }
+    const o = invByNo(t.dataset.no), av = { no: nextInvNo(TODAY_ISO), pid: o.pid, date: TODAY_ISO, kind: "avoir", ref: o.no, pay: o.pay, addr: o.addr, sent: o.sent, lines: o.lines.map(l => ({ ...l, price: -l.price })) };
+    INVOICES.push(av); render(); openModal(invoiceView(av.no), true); toast(`Avoir n° ${av.no} émis. La facture n° ${o.no} reste archivée telle quelle.`);
+  },
   device: t => go(() => { S.device = t.dataset.d; }),
   site: t => go(() => { S.sitePage = t.dataset.p; S.menu = false; }),
   menu: () => { S.menu = !S.menu; render(); },
@@ -2534,12 +3026,52 @@ const A = {
   "site-offres": () => go(() => { S.view = "site"; S.sitePage = "offres"; }),
   pt: t => go(() => { S.ptPage = t.dataset.p; S.ptSub = null; }),
   mtab: t => go(() => { S.ptPage = t.dataset.p; S.ptSub = null; }),
-  msub: t => { closeModal(); go(() => { S.ptSub = t.dataset.s; }); },
+  msub: t => { closeModal(); if (t.dataset.s === "playlists") S.plId = null; go(() => { S.ptSub = t.dataset.s; }); },
   mback: () => go(() => { S.ptSub = null; }),
-  pday: t => { S.pday = +t.dataset.d; render(); },
+  pday: t => { S.pday = +t.dataset.d; S.pdate = isoDay(WEEK_START, S.pday); render(); },
+  subtab: t => { closeModal(); const s = t.dataset.s || null; if (s === "recettes") Object.assign(S.rf, { q: "", theme: "", meal: "", time: "", fav: t.dataset.x === "fav", tags: [] }); if (s === "playlists") S.plId = null; go(() => { S.ptSub = s; }); },
+  /* Planner, programme, playlists, sélection, filtres (v7, réf. TSE) */
+  pdate: t => { S.pdate = t.dataset.iso; if (inThisWeek(S.pdate)) S.pday = dayIdx(S.pdate); render(); },
+  pview: t => { S.pview = t.dataset.v; S.pmonth = S.pdate.slice(0, 7); render(); },
+  pmonth: t => { const [y, m] = S.pmonth.split("-").map(Number), d = new Date(y, m - 1 + +t.dataset.d, 1); S.pmonth = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); render(); },
+  ptype: t => { S.ptype = t.dataset.t; render(); },
+  planadd: () => { S.modal = { type: "planadd", src: null }; openModal(planAddModal()); },
+  plansrc: t => { S.modal.src = t.dataset.s || null; openModal(planAddModal()); },
+  planpick: t => { const k = t.dataset.k; myPlanned().push({ iso: S.pdate, kind: k, id: t.dataset.id }); S.ptype = k === "r" ? "nutrition" : "training"; closeModal(); render(); toast(`Ajouté au planner : ${fmtDay(S.pdate)}.`); },
+  planfor: t => { S.modal = { type: "plandate", k: t.dataset.k, id: t.dataset.id }; openModal(planDateModal()); },
+  plandate: t => { const { k, id } = S.modal, iso = t.dataset.iso; myPlanned().push({ iso, kind: k, id }); S.pdate = iso; S.pmonth = iso.slice(0, 7); if (inThisWeek(iso)) S.pday = dayIdx(iso); S.ptype = k === "r" ? "nutrition" : "training"; burst(t); closeModal(); render(); toast(`Planifié le ${fmtDay(iso)}. Retrouvez-le dans votre planner.`); },
+  planrm: t => { myPlanned().splice(+t.dataset.i, 1); render(); toast("Retiré du planner."); },
+  progopen: t => { closeModal(); S.progTab = t.dataset.t || "seances"; S.progWeek = +t.dataset.w || null; go(() => { S.ptSub = "programme"; }); },
+  progtab: t => { S.progTab = t.dataset.t; render(); },
+  progweek: t => { S.progWeek = +t.dataset.w; render(); },
+  progdone: t => {
+    const p = me(), done = progDone(p), k = t.dataset.k, on = !done.has(k);
+    on ? done.add(k) : done.delete(k);
+    if (on) { SPORT_TEMPLATES[p.sport].sessions[+k.split("|")[1]].videos.forEach(id => S.vdone.add(id)); burst(t); const st = progState(p); toast(st.next ? `Séance validée, bravo ! Prochaine : ${st.next.s.title}.` : "Programme terminé, bravo ! Manon le voit dans votre suivi."); }
+    render();
+  },
+  plopen: t => { closeModal(); S.plId = t.dataset.id; go(() => { S.ptSub = "playlists"; }); },
+  plback: () => { S.plId = null; render(); },
+  plnew: t => { S.modal = { type: "plnew" }; openModal(plNewModal(t.dataset.v)); },
+  pladd: t => { S.modal = { type: "pladd" }; openModal(plAddModal(t.dataset.id)); },
+  pltoggle: t => { const pl = myPlaylists().find(x => x.id === t.dataset.pl), id = t.dataset.id, i = pl.videos.indexOf(id); i < 0 ? pl.videos.push(id) : pl.videos.splice(i, 1); toast(i < 0 ? `Ajoutée à « ${pl.name} ».` : `Retirée de « ${pl.name} ».`); openModal(plAddModal(id)); render(); },
+  plrmv: t => { const pl = myPlaylists().find(x => x.id === S.plId); pl.videos = pl.videos.filter(x => x !== t.dataset.id); render(); toast("Vidéo retirée de la playlist."); },
+  pldel: () => { const list = myPlaylists(), i = list.findIndex(x => x.id === S.plId), name = list[i].name; list.splice(i, 1); PLANNED[me().id] = myPlanned().filter(x => !(x.kind === "pl" && x.id === S.plId)); S.plId = null; render(); toast(`Playlist « ${name} » supprimée.`); },
+  quiz: () => { S.quiz = { step: 0, a: JSON.parse(JSON.stringify(PREFS[me().id] || {})) }; S.modal = { type: "quiz" }; openModal(quizModal()); },
+  qpick: t => { const it = QUIZ[S.quiz.step], v = t.dataset.v, a = S.quiz.a;
+    if (!it.multi) a[it.k] = v;
+    else { let l = a[it.k] || []; l = l.includes(v) ? l.filter(x => x !== v) : v === "Sans matériel" ? [v] : l.filter(x => x !== "Sans matériel").concat(v); a[it.k] = l; }
+    openModal(quizModal()); },
+  qstep: t => { const d = +t.dataset.d; if (d > 0 && S.quiz.step === QUIZ.length - 1) { PREFS[me().id] = S.quiz.a; S.quiz = null; closeModal(); go(() => { S.ptPage = "training"; S.ptSub = null; }); toast("Préférences enregistrées : votre sélection est prête."); return; } S.quiz.step = Math.max(0, S.quiz.step + d); openModal(quizModal()); },
+  rfilters: () => { S.modal = { type: "rfilters" }; openModal(recipeFilterModal()); },
+  rfset: t => { const k = t.dataset.k, v = t.dataset.v; S.rf[k] = S.rf[k] === v ? "" : v; openModal(recipeFilterModal()); },
+  rftag: t => { const k = t.dataset.k; S.rf.tags = S.rf.tags.includes(k) ? S.rf.tags.filter(x => x !== k) : S.rf.tags.concat(k); if (t.dataset.stay) render(); else openModal(recipeFilterModal()); },
+  rfclear: () => { Object.assign(S.rf, { theme: "", meal: "", time: "", diet: "", allergen: "", fav: false, tags: [] }); openModal(recipeFilterModal()); },
+  rfapply: () => { closeModal(); go(() => { S.ptSub = "recettes"; }); },
+  rfavs: () => { Object.assign(S.rf, { q: "", theme: "", meal: "", time: "", fav: true, tags: [] }); go(() => { S.ptSub = "recettes"; }); },
   libtab: t => { S.libTab = t.dataset.t; render(); },
   vpick: t => { const k = t.dataset.k, v = t.dataset.v; if (t.dataset.stay) { S.vf[k] = String(S.vf[k]) === v ? "" : v; render(); } else { S.vf = { max: "", disc: "", zone: "", level: "" }; S.vf[k] = v; go(() => { S.ptSub = "videos"; }); } },
-  rpick: t => { const k = t.dataset.k, v = t.dataset.v; if (t.dataset.stay) { S.rf[k] = S.rf[k] === v ? "" : v; render(); } else { Object.assign(S.rf, { theme: "", meal: "", time: "", fav: false }); S.rf[k] = v; go(() => { S.ptSub = "recettes"; }); } },
+  rpick: t => { const k = t.dataset.k, v = t.dataset.v; if (t.dataset.stay) { S.rf[k] = S.rf[k] === v ? "" : v; render(); } else { Object.assign(S.rf, { theme: "", meal: "", time: "", fav: false, tags: [] }); S.rf[k] = v; go(() => { S.ptSub = "recettes"; }); } },
   meal: t => { S.modal = { type: "meal" }; openModal(mealModal(+t.dataset.d, +t.dataset.s)); },
   vdone: t => { const id = t.dataset.id, on = !S.vdone.has(id); on ? S.vdone.add(id) : S.vdone.delete(id); if (on) { burst(t); toast("Bravo ! Séance comptée dans votre semaine."); } openModal(videoModal(id), true); render(); },
   progress: () => openModal(progressModal()),
@@ -2595,6 +3127,8 @@ const A = {
 };
 const CHANGE = {
   hidew: t => { S.hideW = t.checked; render(); },
+  billing: t => { BILLING[t.dataset.k] = t.value; toast("Informations de facturation mises à jour."); },
+  invpat: t => { const a = $("#iv-addr"); if (a) a.value = PATIENT_ADDR[t.value] || ""; },
   showw: t => { SHOW_WEIGHT[t.dataset.id] = t.checked; toast(t.checked ? "Le poids est visible dans l'espace de la patiente." : "Le poids est masqué pour cette patiente."); },
   plan: t => { me().plan = t.value; render(); toast(`Vue patiente : ${planName(t.value)}.`); },
   notes: t => { S.notes = t.checked; render(); },
@@ -2618,6 +3152,14 @@ function parseIngr(line) {
   return m ? [parseFloat(m[1].replace(",", ".")), m[2] || "", m[3]] : [null, "", line.trim()];
 }
 const FORMS = {
+  invoice: f => {
+    const d = new FormData(f), P = PRESTA(), pid = d.get("pid"), date = d.get("date") || TODAY_ISO, addr = String(d.get("addr") || "").trim();
+    const lines = [0, 1].map(i => { const x = P.find(o => o[0] === d.get("k" + i)); return x ? { k: x[0], label: x[1], qty: Math.max(1, +d.get("q" + i) || 1), price: x[2], cat: x[3] } : null; }).filter(Boolean);
+    if (addr) PATIENT_ADDR[pid] = addr;
+    const inv = { no: nextInvNo(date), pid, date, kind: "facture", pay: d.get("pay"), addr, sent: d.get("sent") === "on", lines };
+    INVOICES.push(inv); render(); openModal(invoiceView(inv.no), true);
+    toast(inv.sent ? `Facture n° ${inv.no} générée et déposée dans l'espace de ${patientById(pid).first}.` : `Facture n° ${inv.no} générée.`);
+  },
   meal: f => {
     const d = new FormData(f), status = d.get("status"), text = (d.get("text") || "").trim(), key = logKey(me().id, isoDay(WEEK_START, +f.dataset.d), +f.dataset.s);
     if (status === "autre" && !text) { toast("Indiquez ce que vous avez mangé, ou choisissez « J'ai suivi la proposition »."); return; }
@@ -2632,7 +3174,7 @@ const FORMS = {
   },
   progress: f => {
     const d = new FormData(f), num = k => d.get(k) ? +String(d.get(k)).replace(",", ".") : null, pid = me().id;
-    const e = { date: d.get("date") || TODAY_ISO, poids: num("poids"), taille: num("taille"), hanches: num("hanches"), energie: +d.get("energie"), sommeil: +d.get("sommeil"), digestion: +d.get("digestion") };
+    const e = { date: d.get("date") || TODAY_ISO, poids: num("poids"), energie: +d.get("energie"), sommeil: +d.get("sommeil"), symptomes: d.getAll("symptomes") };
     (PROGRESS[pid] = PROGRESS[pid] || []).push(e); PROGRESS[pid].sort((a, b) => a.date.localeCompare(b.date));
     closeModal(); render(); toast("Mesure enregistrée. Visible par vous et Manon.");
   },
@@ -2642,6 +3184,12 @@ const FORMS = {
     prop.reviews = Object.fromEntries(Object.keys(prop.slots).map(k => { const txt = String(d.get(k) || "").trim(); return [k, txt ? { kind: "conseil", text: txt } : { kind: "valide", text: "" }]; }));
     prop.comment = String(d.get("comment") || "").trim(); prop.status = "revu";
     openModal(suiviModal(f.dataset.id), true); render(); toast("Retours envoyés sur le semainier proposé.");
+  },
+  plnew: f => {
+    const name = String(new FormData(f).get("name") || "").trim(); if (!name) return;
+    const vid = f.dataset.v, pl = { id: "pl" + Date.now(), name, videos: vid ? [vid] : [] }; myPlaylists().push(pl);
+    if (vid) { S.modal = { type: "pladd" }; openModal(plAddModal(vid)); render(); toast(`Playlist « ${name} » créée avec cette vidéo.`); }
+    else { closeModal(); S.plId = pl.id; go(() => { S.ptSub = "playlists"; }); toast(`Playlist « ${name} » créée. Ajoutez-y des vidéos depuis leur fiche.`); }
   },
   contact: f => { f.reset(); toast("Prototype : le message n'est pas envoyé. En version finale, il arrivera par email à Manon."); },
   login: () => { go(() => { S.view = "patient"; S.sitePage = "home"; S.patientId = "p1"; S.ptPage = "home"; S.ptSub = null; }); toast("Connectée en tant que Camille (démo)."); },
@@ -2661,7 +3209,7 @@ const FORMS = {
     const r = { id: "r" + Date.now(), title: g("title").trim(), meal: g("meal"), themes: d.getAll("themes"), prep: +g("prep") || 0, cook: +g("cook") || 0, diff: g("diff"), portions: Math.max(1, +g("portions") || 1),
       ingr: g("ingr").split("\n").filter(l => l.trim()).map(parseIngr), steps: g("steps").split("\n").filter(l => l.trim()),
       macro: { kcal: +g("kcal") || 0, p: +g("p") || 0, g: +g("g") || 0, l: +g("l") || 0, f: +g("f") || 0 }, allergens: d.getAll("allergens"), diets: d.getAll("diets"), tip: g("tip") || "—", status: date > TODAY_ISO ? "programmée" : "publiée", date };
-    RECIPES.push(r); closeModal(); render(); toast(r.status === "publiée" ? `« ${r.title} » publiée : visible par les abonnées F1, F2 et F3.` : `« ${r.title} » programmée pour le ${fmtD(date)}.`);
+    RECIPES.push(r); closeModal(); render(); toast(r.status === "publiée" ? `« ${r.title} » publiée : visible par les patientes qui ont accès aux recettes.` : `« ${r.title} » programmée pour le ${fmtD(date)}.`);
   },
   video: f => { const d = new FormData(f); VIDEOS.unshift({ id: "v" + Date.now(), title: d.get("title").trim(), theme: d.get("theme"), dur: +d.get("dur") || 1, level: d.get("level"), equip: d.getAll("equip").length ? d.getAll("equip") : ["Aucun"], desc: d.get("desc") || "", date: TODAY_ISO }); closeModal(); render(); toast("Vidéo ajoutée à la bibliothèque F3."); },
   article: f => { const d = new FormData(f); ARTICLES.unshift({ id: "a" + Date.now(), title: d.get("title").trim(), vis: d.get("vis"), date: TODAY_ISO, read: Math.max(1, Math.round(d.get("body").split(/\s+/).length / 200)), body: d.get("body").split("\n").filter(Boolean) }); closeModal(); render(); toast("Article publié."); },
