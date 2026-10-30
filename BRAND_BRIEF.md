@@ -62,13 +62,9 @@ Sur ordinateur (≥ 1 024 px) : barre latérale `#0B2E21` de 248 px (logo clair,
 - Barres d'onglets translucides (flou 20 px), pleines si `prefers-reduced-transparency`.
 - Champs en 16 px minimum ; chiffres en `tabular-nums`.
 
-### Fonds ambiants (espace patiente et back-office, 2026-10-30)
-Une couche fixe `.amb` derrière le contenu remplace le fond uni. Aucune nouvelle couleur : seulement `--vert` #18694B, `--ink` #0F3A2A, tilleul (178,227,136) et brume #E3F1D6, en dégradés transparents.
-- **Halo** (par défaut, recommandé) : trois lumières radiales très floues qui dérivent en 38, 46 et 52 s (aller-retour). Sur l'espace patiente : vert du logo en haut à gauche, tilleul à droite et en bas ; sur le back-office : tilleul et brume sur blanc. Immobiles si `prefers-reduced-motion`.
-- **Topographie** : les lignes topographiques du site (`paintTopo()` : `--topo` clair sur l'espace patiente, `--topo-ink` vert à 8 % sur le back-office), parallaxe de 8 % au défilement, désactivée si mouvement réduit.
-- **Photo** : photo de la rubrique floutée à 36-40 px sous un voile (`--ink` à 55-100 % côté patiente, blanc à 50-93 % côté back-office). Teinte variable selon la photo : à réserver aux photos dans les verts.
-- **Uni** : fond plat d'origine.
-Le texte reste toujours sur une carte ou sur le voile : le contraste AA ne dépend pas du fond.
+### Fond « Topographie » (espace patiente et back-office, choisi le 2026-10-30)
+Une couche fixe `.amb` derrière le contenu remplace le fond uni : les lignes topographiques du site en pleine page (`paintTopo()` : `--topo` clair sur l'espace patiente, `--topo-ink` vert à 8 % sur le back-office), sous une lueur tilleul en haut à droite (12 % côté patiente, 35 % côté back-office). Parallaxe de 8 % au défilement, coupée si `prefers-reduced-motion`. Aucune nouvelle couleur. Le texte reste toujours sur une carte ou sur le fond uni de la page : le contraste AA ne dépend pas des lignes.
+Propositions écartées par Romain le 2026-10-30 : Halo (lumières qui dérivent), Photo (photo de la rubrique floutée), Uni.
 
 ### Back-office
 Fond clair (blanc et brume), surfaces fortes en nuit, mêmes polices et formes que le site. Sur téléphone : barre d'onglets blanche en bas (onglet actif vert du logo sur brume, pastille verte du nombre à traiter), panneau « Plus » en tuiles de deux colonnes, tableaux en cartes.

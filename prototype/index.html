@@ -1226,41 +1226,16 @@ input,select,textarea,.field input,.field select,.field textarea,.protobar selec
   .modal{animation:fade .2s ease}
   button:not(:disabled):active,a.btn:active,a.mbtn:active,summary:active,.fcard:active,.promo:active,.phero:active{scale:none}
 }
-/* ===== Fonds ambiants (espace patiente et back-office) ===== */
+/* ===== Fond « Topographie » (espace patiente et back-office) ===== */
 .amb{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;display:none}
-body[data-bg="halo"] .amb,body[data-bg="topo"] .amb,body[data-bg="photo"] .amb{display:block}
-.amb i,.amb img{position:absolute;display:none}
-/* Halo : trois lumières aux couleurs du logo, très lentes (38 à 52 s), arrêtées si mouvement réduit */
-body[data-bg="halo"] .amb i{display:block;border-radius:50%;will-change:transform}
-.amb .a1{width:95vmax;height:95vmax;left:-38vmax;top:-42vmax}
-.amb .a2{width:80vmax;height:80vmax;right:-42vmax;top:18vh}
-.amb .a3{width:75vmax;height:75vmax;left:8vw;bottom:-48vmax}
-body.v-patient[data-bg="halo"] .amb .a1{background:radial-gradient(closest-side,rgba(24,105,75,1),rgba(24,105,75,0))}
-body.v-patient[data-bg="halo"] .amb .a2{background:radial-gradient(closest-side,rgba(178,227,136,.36),rgba(178,227,136,0))}
-body.v-patient[data-bg="halo"] .amb .a3{background:radial-gradient(closest-side,rgba(178,227,136,.2),rgba(178,227,136,0))}
-body.v-admin[data-bg="halo"] .amb .a1{background:radial-gradient(closest-side,rgba(178,227,136,.75),rgba(178,227,136,0))}
-body.v-admin[data-bg="halo"] .amb .a2{background:radial-gradient(closest-side,rgba(24,105,75,.22),rgba(24,105,75,0))}
-body.v-admin[data-bg="halo"] .amb .a3{background:radial-gradient(closest-side,rgba(227,241,214,.95),rgba(227,241,214,0))}
-@media (prefers-reduced-motion:no-preference){
-  body[data-bg="halo"] .amb .a1{animation:amb1 38s ease-in-out infinite alternate}
-  body[data-bg="halo"] .amb .a2{animation:amb2 46s ease-in-out infinite alternate}
-  body[data-bg="halo"] .amb .a3{animation:amb3 52s ease-in-out infinite alternate}
-}
-@keyframes amb1{to{transform:translate(16vw,12vh) scale(1.1)}}
-@keyframes amb2{to{transform:translate(-14vw,-10vh) scale(.92)}}
-@keyframes amb3{to{transform:translate(12vw,-14vh) scale(1.08)}}
-/* Topographie : les lignes du site en pleine page, légère parallaxe au défilement, lueur en haut à droite */
-body[data-bg="topo"] .amb .a1{display:block;left:-10%;right:-10%;top:-10%;bottom:-220%;background:var(--topo) center top/1200px auto repeat}
-body.v-admin[data-bg="topo"] .amb .a1{background-image:var(--topo-ink)}
-body[data-bg="topo"] .amb .a2{display:block;border-radius:50%}
-body.v-patient[data-bg="topo"] .amb .a2{background:radial-gradient(closest-side,rgba(178,227,136,.12),rgba(178,227,136,0))}
-body.v-admin[data-bg="topo"] .amb .a2{background:radial-gradient(closest-side,rgba(178,227,136,.35),rgba(178,227,136,0))}
-/* Photo : la photo de la rubrique, très floutée, sous un voile qui garde le texte lisible */
-body[data-bg="photo"] .amb img{display:block;left:-8%;top:-8%;width:116%;height:116%;object-fit:cover;filter:blur(36px) saturate(1.25);opacity:.6}
-body[data-bg="photo"] .amb .a1{display:block;inset:0;width:auto;height:auto;border-radius:0}
-body.v-patient[data-bg="photo"] .amb .a1{background:linear-gradient(180deg,rgba(15,58,42,.55),rgba(15,58,42,.9) 55%,#0F3A2A)}
-body.v-admin[data-bg="photo"] .amb img{opacity:.3;filter:blur(40px) saturate(.7)}
-body.v-admin[data-bg="photo"] .amb .a1{background:linear-gradient(180deg,rgba(246,249,243,.5),rgba(246,249,243,.93) 55%,#F6F9F3)}
+body.has-amb .amb{display:block}
+.amb i{position:absolute;display:block}
+/* Lignes du site en pleine page (parallaxe de 8 % au défilement, coupée si mouvement réduit), lueur tilleul en haut à droite */
+.amb .a1{left:-10%;right:-10%;top:-10%;bottom:-220%;background:var(--topo) center top/1200px auto repeat}
+body.v-admin .amb .a1{background-image:var(--topo-ink)}
+.amb .a2{width:80vmax;height:80vmax;right:-42vmax;top:18vh;border-radius:50%}
+body.v-patient .amb .a2{background:radial-gradient(closest-side,rgba(178,227,136,.12),rgba(178,227,136,0))}
+body.v-admin .amb .a2{background:radial-gradient(closest-side,rgba(178,227,136,.35),rgba(178,227,136,0))}
 </style>
 </head>
 <body>
@@ -1474,7 +1449,7 @@ const SESSIONS = [
    ÉTAT
    ========================================================= */
 const S = {
-  view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false, bg: "halo", device: innerWidth < 760 ? "mobile" : "desktop",
+  view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false, device: innerWidth < 760 ? "mobile" : "desktop",
   rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false, tags: [] },
   pdate: "2026-10-22", pview: "semaine", pmonth: "2026-10", ptype: null, progTab: "seances", progWeek: null, plId: null, quiz: null,
   vf: { max: "", disc: "", zone: "", level: "" },
@@ -1632,8 +1607,6 @@ function protobar() {
       <div class="seg" role="tablist" aria-label="Choisir l'appareil">${[["mobile", "Téléphone", "phone"], ["desktop", "Ordinateur", "monitor"]].map(([k, l, ic]) => `<button class="${S.device === k ? "on" : ""}" data-act="device" data-d="${k}" role="tab" aria-selected="${S.device === k}">${I[ic]}${l}</button>`).join("")}</div>
       <span class="small">${S.device === "mobile" ? "390 px de large" : "1 280 px de large"}${framed() === "d" ? " · tournez le téléphone pour agrandir" : ""}</span>
     </div>
-    ${S.view !== "site" ? `<div class="pdev"><span class="lbl">Fond</span>
-      <div class="seg" role="group" aria-label="Choisir le fond">${[["halo", "Halo"], ["topo", "Topographie"], ["photo", "Photo"], ["uni", "Uni"]].map(([k, l]) => `<button class="${S.bg === k ? "on" : ""}" data-act="bg" data-b="${k}" aria-pressed="${S.bg === k}">${l}</button>`).join("")}</div></div>` : ""}
   </div></div>`;
 }
 
@@ -3012,7 +2985,7 @@ if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
     } x.stroke(); }
   return `url(${c.toDataURL("image/png")})`; };
   document.documentElement.style.setProperty("--topo", draw("rgba(227,241,214,.16)", 1.2));
-  document.documentElement.style.setProperty("--topo-ink", draw("rgba(15,58,42,.08)", 1.1)); // fond ambiant « Topographie » du back-office
+  document.documentElement.style.setProperty("--topo-ink", draw("rgba(15,58,42,.08)", 1.1)); // fond « Topographie » du back-office
 })();
 /* Le site public est le fichier site/index.html, affiché dans un cadre. Seule la connexion reste dessinée ici. */
 const SITE_URL = /\/prototype\/(index\.html)?$/.test(new URL(document.baseURI).pathname) ? "../site/index.html" : "site/index.html";
@@ -3046,26 +3019,22 @@ function fitDev() {
 function loadDev() {
   const f = $("#devframe"); if (!f) return;
   const st = [...document.querySelectorAll("style")].find(x => x.textContent.includes(".protobar"));
-  const emb = { view: S.view, sitePage: S.sitePage, ptPage: S.ptPage, ptSub: S.ptSub, adPage: S.adPage, patientId: S.patientId, notes: S.notes, bg: S.bg, plan: me().plan };
+  const emb = { view: S.view, sitePage: S.sitePage, ptPage: S.ptPage, ptSub: S.ptSub, adPage: S.adPage, patientId: S.patientId, notes: S.notes, plan: me().plan };
   f.srcdoc = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">`
     + `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bellefair&display=swap">${st ? st.outerHTML : ""}`
     + `<script>window.EMBED = ${JSON.stringify(emb)}; try { window.SITE_HTML = parent.SITE_HTML; window.ASSETS = parent.ASSETS; } catch (e) {}<\/script></head>`
     + `<body><div class="grain" aria-hidden="true"></div><div id="app"></div><div id="modal-root"></div><div id="toast" class="toast" role="status" hidden></div>`
     + `<script>${SELF_SRC.replace(/<\/script/gi, "<\\/script")}<\/script></body></html>`;
 }
-/* Fonds ambiants de l'espace patiente et du back-office (propositions « effet wow », 2026-10-30) :
-   halo = lumières douces aux couleurs du logo qui dérivent lentement ; topo = lignes topographiques du site, en léger parallaxe ;
-   photo = photo de la rubrique, floutée sous un voile ; uni = fond plat. Une seule couche fixe derrière le contenu. */
-const BG_PHOTO = { home: "yoga", training: "course", nutrition: "assiette", evolution: "etirement" };
+/* Fond « Topographie » de l'espace patiente et du back-office (choisi le 2026-10-30) : les lignes topographiques du site
+   en pleine page, sous une lueur tilleul, avec une légère parallaxe au défilement. Une seule couche fixe derrière le contenu. */
 function ambient() {
   let el = document.getElementById("amb");
-  if (!el) { el = document.createElement("div"); el.id = "amb"; el.className = "amb"; el.setAttribute("aria-hidden", "true"); el.innerHTML = '<i class="a1"></i><i class="a2"></i><i class="a3"></i><img alt="">'; document.body.prepend(el); }
-  const on = (S.view === "patient" || S.view === "admin") && !framed() && S.bg !== "uni";
-  document.body.dataset.bg = on ? S.bg : "";
-  if (on && S.bg === "photo") { const img = el.querySelector("img"), src = ASSET((S.view === "admin" ? "table" : BG_PHOTO[S.ptPage] || "yoga") + ".jpg"); if (img.getAttribute("src") !== src) img.src = src; }
+  if (!el) { el = document.createElement("div"); el.id = "amb"; el.className = "amb"; el.setAttribute("aria-hidden", "true"); el.innerHTML = '<i class="a1"></i><i class="a2"></i>'; document.body.prepend(el); }
+  document.body.classList.toggle("has-amb", (S.view === "patient" || S.view === "admin") && !framed());
   ambScroll();
 }
-function ambScroll() { const a = document.querySelector(".amb .a1"); if (a) a.style.transform = document.body.dataset.bg === "topo" && !REDUCE ? `translateY(${(-scrollY * .08).toFixed(1)}px)` : ""; }
+function ambScroll() { const a = document.querySelector(".amb .a1"); if (a) a.style.transform = document.body.classList.contains("has-amb") && !REDUCE ? `translateY(${(-scrollY * .08).toFixed(1)}px)` : ""; }
 addEventListener("scroll", () => requestAnimationFrame(ambScroll), { passive: true });
 let lastFramed;
 addEventListener("resize", () => { if (framed() !== lastFramed) render(); else fitDev(); });
@@ -3127,7 +3096,6 @@ const A = {
     INVOICES.push(av); render(); openModal(invoiceView(av.no), true); toast(`Avoir n° ${av.no} émis. La facture n° ${o.no} reste archivée telle quelle.`);
   },
   device: t => go(() => { S.device = t.dataset.d; }),
-  bg: t => { S.bg = t.dataset.b; render(); },
   pbtoggle: () => { S.pbOpen = !S.pbOpen; const pb = $(".protobar"); if (pb) pb.outerHTML = protobar(); },
   site: t => go(() => { S.sitePage = t.dataset.p; S.menu = false; }),
   menu: () => { S.menu = !S.menu; render(); },
