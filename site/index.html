@@ -405,6 +405,8 @@ button,a,summary{touch-action:manipulation}
 button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
 .qo:active,.lx summary:active,.univers .go:active,.place a:active,.pill:active,.qx:active{scale:.97}
 .plan .price{font-variant-numeric:tabular-nums}
+/* Cinq formules (2026-11-04) : l'unité passe sous le prix, sans couper « / mois » */
+.plan .price small{display:block;margin:10px 0 0;white-space:nowrap}
 /* Test : la fenêtre apparaît comme une matière (fondu + léger zoom, 220 ms), sans jamais partir de zéro */
 .quiz:not([hidden]){animation:qfade .22s cubic-bezier(.23,1,.32,1)}
 .quiz:not([hidden]) .qbox{animation:qin .26s cubic-bezier(.23,1,.32,1)}
