@@ -1226,6 +1226,40 @@ input,select,textarea,.field input,.field select,.field textarea,.protobar selec
   .modal{animation:fade .2s ease}
   button:not(:disabled):active,a.btn:active,a.mbtn:active,summary:active,.fcard:active,.promo:active,.phero:active{scale:none}
 }
+/* ===== Suivi du cycle (2026-11-04) : règles = pastille tilleul (vert du logo sur le back-office), ovulation = anneau, symptômes = point ===== */
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cgrid small{font-size:11.5px;color:#B4C7BA;padding:4px 0}
+.cday{position:relative;display:grid;place-items:center;min-height:44px;border:0;border-radius:14px;background:none;color:#F6F9F3;font-family:var(--f-body);font-size:14px;font-variant-numeric:tabular-nums}
+button.cday{cursor:pointer}
+@media (hover:hover) and (pointer:fine){button.cday:not(.r):hover{background:rgba(246,249,243,.06)}}
+button.cday:active{scale:.97}
+.cday.r{background:#B2E388;color:#0F3A2A;font-weight:600}
+.cday.o{box-shadow:inset 0 0 0 2px #B2E388}
+.cday.today:not(.r){color:#B2E388;font-weight:700}
+.cdot{position:absolute;bottom:5px;left:50%;translate:-50% 0;width:5px;height:5px;border-radius:50%;background:#F6F9F3}
+.cday.r .cdot{background:#0F3A2A}
+.clegend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-size:12.5px;color:#B4C7BA}
+.clegend span{display:inline-flex;align-items:center;gap:6px}
+.clegend .cday{display:inline-block;width:14px;height:14px;min-height:0;border-radius:50%}
+.clegend .cdot{position:static;translate:none}
+.kpi3.cyc b{font-size:1.35rem}
+.cyc-off{border:0;background:none;padding:12px 0;min-height:44px;color:#B2E388;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.v-admin .cday{color:#0F3A2A}
+.v-admin .cday.r{background:#18694B;color:#FFFFFF}
+.v-admin .cday.o{box-shadow:inset 0 0 0 2px #18694B}
+.v-admin .cday.today:not(.r){color:#18694B}
+.v-admin .cdot{background:#18694B}
+.v-admin .cday.r .cdot{background:#FFFFFF}
+.v-admin .cgrid small,.v-admin .clegend{color:#5C6B63}
+.cyc-k b.h-s{display:block;margin-top:4px}
+@media (min-width:861px){.cyc-a{grid-template-columns:minmax(260px,1fr) 1.4fr;align-items:start}}
+
+.mex{margin-top:14px}
+.mex ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px;counter-reset:ex}
+.mex li{counter-increment:ex;display:grid;grid-template-columns:28px 1fr;column-gap:10px;padding:10px 0;border-bottom:1px solid rgba(246,249,243,.1)}
+.mex li::before{content:counter(ex);grid-row:span 2;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#26624A;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.mex li span{font-size:14px;color:#B4C7BA;font-variant-numeric:tabular-nums}
+
 /* ===== Fond « Topographie » (espace patiente et back-office) ===== */
 .amb{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;display:none}
 body.has-amb .amb{display:block}
@@ -1259,7 +1293,7 @@ const SETTINGS = {
 };
 const PLAN_ORDER = ["suivi", "decouverte", "f1", "f2", "f3"];
 const PLANS = { // brief de réunion du 2026-10-30 : 3 à 4 tarifs sur le site, offres supplémentaires dans l'espace patiente
-  suivi: { code: "À l'unité", name: "Consultation à l'unité", price: 50, unit: "€ la consultation" },
+  suivi: { code: "À l'unité", name: "Consultation à l'unité, sans l'application", price: 50, unit: "€ la consultation" },
   decouverte: { code: "Mois offert", name: "Mois offert après le bilan", price: 0, unit: "€ · 30 jours" },
   f1: { code: "Nutrition", name: "Offre Nutrition", price: 60, unit: "€ / mois", commit: "Engagement 2 ou 3 mois" },
   f2: { code: "All in", name: "Offre All in", price: 90, unit: "€ / mois", commit: "Engagement 2 ou 3 mois" },
@@ -1278,7 +1312,8 @@ const FEATURES = [
   { key: "collectives", label: "Séances collectives en visio" },
   { key: "individuelle", label: "Séance individuelle (en supplément)" },
   { key: "journal", label: "Semainier partagé : repas notés et retours de Manon" },
-  { key: "evolution", label: "Suivi de l'évolution (mesures et ressentis)" }
+  { key: "evolution", label: "Suivi de l'évolution (mesures et ressentis)" },
+  { key: "cycle", label: "Suivi du cycle (règles, ovulation, symptômes prémenstruels)" }
 ];
 const ACCESS = {
   docs:        { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true },
@@ -1293,7 +1328,8 @@ const ACCESS = {
   collectives: { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
   individuelle:{ suivi: false, decouverte: false, f1: false, f2: true,  f3: false },
   journal:     { suivi: false, decouverte: true,  f1: true,  f2: true,  f3: false },
-  evolution:   { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true }
+  evolution:   { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true },
+  cycle:       { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true }
 };
 const RECIPE_PREVIEW = 3;
 
@@ -1370,8 +1406,10 @@ const VIDEO_THEMES = ["Abdos-fessiers", "Renforcement", "Cardio", "Mobilité", "
 const LEVELS = ["Débutant", "Intermédiaire", "Avancé"];
 const EQUIPMENT = ["Aucun", "Tapis", "Haltères", "Élastique", "Kettlebell"];
 const VIDEOS = [
-  { id: "v1", title: "Abdos-fessiers express", theme: "Abdos-fessiers", dur: 15, level: "Débutant", equip: ["Tapis"], desc: "Un circuit de 5 exercices au sol, 40 secondes d'effort et 20 de repos.", date: "2026-07-01" },
-  { id: "v2", title: "Renfo haut du corps", theme: "Renforcement", dur: 25, level: "Intermédiaire", equip: ["Haltères", "Tapis"], desc: "Épaules, dos et bras avec deux haltères légers.", date: "2026-07-01" },
+  { id: "v1", title: "Abdos-fessiers express", theme: "Abdos-fessiers", dur: 15, level: "Débutant", equip: ["Tapis"], desc: "Un circuit de 5 exercices au sol, 40 secondes d'effort et 20 de repos.", date: "2026-07-01",
+    ex: [["Pont fessier", "3", "15", "6", "20 s"], ["Crunch", "3", "40 s", "7", "20 s"], ["Fentes arrière", "3", "10 par jambe", "7", "20 s"], ["Gainage", "3", "30 s", "8", "30 s"], ["Superman", "2", "12", "5", "20 s"]] },
+  { id: "v2", title: "Renfo haut du corps", theme: "Renforcement", dur: 25, level: "Intermédiaire", equip: ["Haltères", "Tapis"], desc: "Épaules, dos et bras avec deux haltères légers.", date: "2026-07-01",
+    ex: [["Rowing haltères", "4", "12", "7", "60 s"], ["Développé épaules", "3", "10", "7", "60 s"], ["Pompes sur les genoux", "3", "8 à 12", "8", "60 s"], ["Curl biceps", "3", "12", "6", "45 s"]] },
   { id: "v3", title: "Cardio sans saut", theme: "Cardio", dur: 20, level: "Débutant", equip: ["Aucun"], desc: "Faire monter le cardio sans impact, idéal en appartement.", date: "2026-07-01" },
   { id: "v4", title: "HIIT 30-30", theme: "Cardio", dur: 25, level: "Avancé", equip: ["Aucun"], desc: "Alternance de 30 secondes intenses et 30 secondes de récupération.", date: "2026-07-01" },
   { id: "v5", title: "Mobilité hanches et dos", theme: "Mobilité", dur: 15, level: "Débutant", equip: ["Tapis"], desc: "Pour délier le bas du dos et gagner en amplitude.", date: "2026-07-01" },
@@ -1451,7 +1489,7 @@ const SESSIONS = [
 const S = {
   view: "site", sitePage: "home", ptPage: "home", adPage: "dashboard", patientId: "p1", notes: true, menu: false, device: innerWidth < 760 ? "mobile" : "desktop",
   rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false, tags: [] },
-  pdate: "2026-10-22", pview: "semaine", pmonth: "2026-10", ptype: null, progTab: "seances", progWeek: null, plId: null, quiz: null,
+  pdate: "2026-10-22", pview: "semaine", pmonth: "2026-10", cmonth: "2026-10", ptype: null, progTab: "seances", progWeek: null, plId: null, quiz: null,
   vf: { max: "", disc: "", zone: "", level: "" },
   ptSub: null, pday: (TODAY.getDay() + 6) % 7, libTab: "v", vq: "", metric: "poids", hideW: false, vdone: new Set(["v3", "v9"]), suiviTab: "semaine",
   sportTab: "programme", heroMode: "nutrition", wday: (TODAY.getDay() + 6) % 7, ptab: "mois",
@@ -1949,6 +1987,22 @@ const PROGRESS = {
 };
 const SHOW_WEIGHT = {}; // réglage de Manon par patiente ; absent = poids affiché
 const METRICS = [["poids", "Poids", "kg"], ["energie", "Énergie", "/10"], ["sommeil", "Sommeil", "/10"]];
+/* Suivi du cycle (demande de Manon, 2026-11-04) : facultatif, activé par la patiente, visible par Manon.
+   Un jour = { r: flux des règles, o: signes d'ovulation, spm: symptômes prémenstruels }. Données de santé : prototype seulement. */
+const FLUX = [["", "Pas de règles"], ["leger", "Légères"], ["moyen", "Moyennes"], ["abondant", "Abondantes"]];
+const SPM = ["Seins sensibles", "Ballonnements", "Fringales", "Irritabilité", "Humeur basse", "Fatigue", "Maux de tête", "Crampes", "Sommeil perturbé"];
+const CYCLE_ON = { p1: true, p2: true };
+const CYCLE = (() => {
+  const c = {}, put = (pid, iso, v) => { (c[pid] = c[pid] || {})[iso] = { ...(c[pid][iso] || {}), ...v }; };
+  const add = (iso, n) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+  [["p1", ["2026-08-19", "2026-09-16", "2026-10-13"], [["Seins sensibles", "Fringales"], ["Fringales", "Irritabilité", "Fatigue"], ["Ballonnements", "Fringales", "Fatigue"]]],
+   ["p2", ["2026-08-30", "2026-10-02"], [["Maux de tête"], ["Crampes", "Humeur basse"]]]].forEach(([pid, starts, spm]) => starts.forEach((st, k) => {
+    ["abondant", "moyen", "moyen", "leger", "leger"].forEach((r, i) => put(pid, add(st, i), { r }));
+    if (st < "2026-10-09") put(pid, add(st, 13), { o: true });
+    [-4, -3, -2].forEach(n => put(pid, add(st, n), { spm: spm[k] }));
+  }));
+  return c;
+})();
 const SYMPTOMS = ["Ballonnements", "Douleurs au ventre", "Gaz", "Reflux, brûlures", "Transit lent", "Transit rapide", "Nausées"];
 const feel = v => v <= 2 ? "Très bas" : v <= 4 ? "Bas" : v <= 6 ? "Moyen" : v <= 8 ? "Bien" : "Très bien";
 const digLabel = e => !e.symptomes ? "—" : e.symptomes.length ? e.symptomes.join(", ") : "Aucun symptôme";
@@ -2243,11 +2297,13 @@ function mVideos() {
     ${row("level", [["", "Tous niveaux"], ...LEVELS.map(x => [x, x])])}
     <div class="mlist" id="v-results">${l.map(vItem).join("") || `<div class="mcard"><b>Aucune séance ne correspond</b><p class="small muted">Retirez un filtre.</p></div>`}</div>`;
 }
+/* Consignes sous la vidéo (question de Manon, 2026-11-04) : exercice, séries, répétitions ou durée, RPE, repos */
+const exTable = v => v.ex && v.ex.length ? `<div class="mex"><span class="fk">Les consignes</span><ol>${v.ex.map(([n, se, r, rpe, rep]) => `<li><b>${esc(n)}</b><span>${[se && r ? `${esc(se)} × ${esc(r)}` : esc(se || r), rpe ? `RPE ${esc(rpe)}` : "", rep ? `repos ${esc(rep)}` : ""].filter(Boolean).join(" · ")}</span></li>`).join("")}</ol><p class="small muted">RPE : l'effort ressenti, de 1 (très facile) à 10 (impossible d'en faire plus).</p></div>` : "";
 function videoModal(id) {
   const v = video(id), done = S.vdone.has(id), fav = S.favV.has(id);
   return `<div class="m-head"><div><span class="kicker">${esc(DISC_OF(v))} · ${v.dur} min</span><h2 class="mh2" style="margin-top:4px">${esc(v.title)}</h2></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
     <div class="m-body"><div class="player mplayer">${photo(vPhoto(v))}<span class="play">${I.play}</span><span class="tiny">Vidéo hébergée sur Bunny Stream ou Vimeo en version finale</span></div>
-      <div class="row">${intensity(v)}<span class="tag">${esc(v.level)}</span><span class="tag">${esc(ZONE_OF[v.id] || v.theme)}</span><span class="tag">${esc(v.equip.join(", "))}</span></div><p>${esc(v.desc)}</p></div>
+      <div class="row">${intensity(v)}<span class="tag">${esc(v.level)}</span><span class="tag">${esc(ZONE_OF[v.id] || v.theme)}</span><span class="tag">${esc(v.equip.join(", "))}</span></div><p>${esc(v.desc)}</p>${exTable(v)}</div>
     <div class="m-foot"><button class="btn btn-soft" data-act="favv" data-id="${v.id}">${fav ? I.heartF + "Dans mes favoris" : I.heart + "Favori"}</button><button class="btn btn-soft" data-act="planfor" data-k="v" data-id="${v.id}">${I.cal}Planifier</button><button class="btn btn-soft" data-act="pladd" data-id="${v.id}">${I.plus}Playlist</button><button class="btn btn-olive" data-act="vdone" data-id="${v.id}">${done ? I.check + "Faite cette semaine" : "J'ai fait cette séance"}</button></div>`;
 }
 
@@ -2447,11 +2503,12 @@ function mEvolution() {
     <div class="mcard">${last ? `<div class="row between" style="flex-wrap:nowrap;margin-bottom:6px"><div><span class="fk">${ml}</span><h3 class="mh3">${lastM ? fr(lastM[mk]) + " " + mu : "—"}</h3></div>${delta != null ? `<span class="tag">${delta > 0 ? "+" : ""}${fr(delta)} ${mu} depuis le ${fmtD(firstM.date, { day: "numeric", month: "long" })}</span>` : ""}</div>` : ""}${chartSVG(prog, mk, mu)}</div>
     ${last ? `${secT("heart", "Mes ressentis")}<div class="feel">${[["energie", "Énergie"], ["sommeil", "Sommeil"]].map(([k, l]) => `<div class="mcard"><span class="fk">${l}</span><b class="fv">${last[k]}<small>/10</small></b><div class="dots10" aria-label="${l} : ${last[k]} sur 10">${Array.from({ length: 10 }, (_, i) => `<i class="${i < last[k] ? "on" : ""}"></i>`).join("")}</div><small>${feel(last[k])}</small></div>`).join("")}
       <div class="mcard dig"><span class="fk">Digestion · ${fmtD(last.date, { day: "numeric", month: "long" })}</span>${last.symptomes && last.symptomes.length ? `<div class="symps">${last.symptomes.map(s => `<span>${esc(s)}</span>`).join("")}</div>` : `<p class="small" style="margin:8px 0 0">${last.symptomes ? "Aucun symptôme" : "Non renseignée"}</p>`}</div></div>` : ""}
+    ${can("cycle") ? mCycle() : ""}
     ${secT("clock", "Historique")}
     <div class="mcard">${[...prog].reverse().map(e => `<div class="prow static"><i class="st st-ok">${I.chart}</i><span class="grow"><b>${fmtD(e.date)}</b><small>${[weightAllowed(p.id) && !S.hideW && e.poids != null ? fr(e.poids) + " kg" : "", "énergie " + e.energie + "/10", "sommeil " + e.sommeil + "/10", "digestion : " + digLabel(e).toLowerCase()].filter(Boolean).join(" · ")}</small></span></div>`).join("") || `<p class="small muted">Aucune mesure pour l'instant.</p>`}</div>
     ${weightAllowed(p.id) ? `<label class="mcard" style="display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer"><span><b>Masquer le poids</b><small class="muted" style="display:block">Pour vous concentrer sur vos sensations</small></span><span class="toggle"><input type="checkbox" id="hide-w" data-change="hidew" ${S.hideW ? "checked" : ""}><span></span></span></label>` : ""}
     <p class="small muted" style="margin-top:10px">Vos mesures ne sont visibles que par vous et Manon.</p>
-    ${note("Mesures et ressentis = données de santé (option B). Manon peut masquer le poids pour une patiente (réglage dans son suivi).")}`;
+    ${note("Mesures, ressentis et cycle = données de santé (option B), prototype seulement. Manon peut masquer le poids pour une patiente (réglage dans son suivi). Le suivi du cycle est facultatif, activé par la patiente ; Manon le voit dans l'onglet « Cycle » de son suivi.")}`;
 }
 function progressModal() {
   const p = me(), w = weightAllowed(p.id) && !S.hideW;
@@ -2462,6 +2519,51 @@ function progressModal() {
         ${w ? `<div class="field"><label for="pg-poids">Poids (kg)</label><input id="pg-poids" name="poids" type="number" step="0.1" min="30" max="250" inputmode="decimal"></div>` : ""}</div>
       ${scale("energie", "Énergie")}${scale("sommeil", "Sommeil")}
       <fieldset class="mseg symp"><legend>Digestion : vos symptômes du jour <small>Ne cochez rien si tout va bien</small></legend>${SYMPTOMS.map(s => `<label><input type="checkbox" name="symptomes" value="${esc(s)}"><span>${esc(s)}</span></label>`).join("")}</fieldset></div>
+    <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Enregistrer</button></div></form>`;
+}
+
+/* ---------- Suivi du cycle ---------- */
+const daysBetween = (a, b) => Math.round((new Date(b + "T12:00:00") - new Date(a + "T12:00:00")) / 864e5);
+function cycleStats(pid) {
+  const days = CYCLE[pid] || {}, rd = Object.keys(days).filter(k => days[k].r).sort();
+  const starts = rd.filter(k => !rd.includes(new Date(new Date(k + "T12:00:00") - 864e5).toISOString().slice(0, 10)));
+  const cycles = starts.map((st, i) => {
+    const end = starts[i + 1], len = end ? daysBetween(st, end) : null;
+    const spm = [...new Set(Object.keys(days).filter(k => end && k < end && daysBetween(k, end) <= 7 && days[k].spm).flatMap(k => days[k].spm))];
+    return { st, len, regles: rd.filter(k => k >= st && (!end || k < end)).length, ovu: Object.keys(days).find(k => k > st && (!end || k < end) && days[k].o) || null, spm };
+  });
+  const lens = cycles.map(c => c.len).filter(Boolean), last = starts[starts.length - 1];
+  return { cycles, last, day: last && last <= TODAY_ISO ? daysBetween(last, TODAY_ISO) + 1 : null, avg: lens.length ? Math.round(lens.reduce((a, b) => a + b, 0) / lens.length) : null, n: lens.length };
+}
+function cycleCal(pid, admin) {
+  const [y, m] = S.cmonth.split("-").map(Number), first = new Date(y, m - 1, 1), off = (first.getDay() + 6) % 7, n = new Date(y, m, 0).getDate(), days = CYCLE[pid] || {};
+  const cells = Array.from({ length: off }, () => `<span></span>`).concat(Array.from({ length: n }, (_, k) => {
+    const di = `${y}-${String(m).padStart(2, "0")}-${String(k + 1).padStart(2, "0")}`, e = days[di] || {};
+    const lab = [fmtDay(di), e.r ? "règles " + FLUX.find(f => f[0] === e.r)[1].toLowerCase() : "", e.o ? "signes d'ovulation" : "", e.spm && e.spm.length ? "symptômes : " + e.spm.join(", ").toLowerCase() : ""].filter(Boolean).join(", ");
+    const cls = `cday${e.r ? " r r-" + e.r : ""}${e.o ? " o" : ""}${di === TODAY_ISO ? " today" : ""}`, dot = e.spm && e.spm.length ? `<i class="cdot"></i>` : "";
+    return admin || di > TODAY_ISO ? `<span class="${cls}" title="${esc(lab)}">${k + 1}${dot}</span>` : `<button class="${cls}" data-act="cycday" data-iso="${di}" aria-label="${esc(lab)}">${k + 1}${dot}</button>`;
+  }));
+  const nav = d => `data-act="cmonth" data-d="${d}"${admin ? ` data-id="${pid}"` : ""}`;
+  return `<div class="ccal"><div class="pmhead"><button type="button" class="mround sm" ${nav(-1)} aria-label="Mois précédent">${backIcon}</button><b>${first.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}</b><button type="button" class="mround sm" ${nav(1)} aria-label="Mois suivant">${chevron}</button></div>
+    <div class="cgrid">${["L", "M", "M", "J", "V", "S", "D"].map(x => `<small aria-hidden="true">${x}</small>`).join("")}${cells.join("")}</div>
+    <div class="clegend" aria-hidden="true"><span><i class="cday r"></i>Règles</span><span><i class="cday o"></i>Ovulation</span><span><i class="cdot"></i>Symptômes</span></div></div>`;
+}
+function mCycle() {
+  const p = me();
+  if (!CYCLE_ON[p.id]) return `${secT("cal", "Mon cycle")}<div class="mcard cyc-intro"><h3 class="mh3">Suivre mon cycle</h3><p class="small muted">Notez vos règles, vos signes d'ovulation et vos symptômes prémenstruels. Manon les voit et adapte ses conseils (assiette, sport) à chaque moment de votre cycle.</p>
+    <button class="mbtn" data-act="cycleon">Activer le suivi</button><p class="small muted" style="margin:10px 0 0">Facultatif, à arrêter quand vous voulez. Plus de cycles ? Ignorez simplement cette rubrique.</p></div>`;
+  const st = cycleStats(p.id);
+  return `${secT("cal", "Mon cycle", `<button class="mall" data-act="cycday" data-iso="${TODAY_ISO}">Noter aujourd'hui ${chevron}</button>`)}
+    <div class="kpi3 cyc"><div><b>${st.day ?? "—"}</b><span>Jour<br>du cycle</span></div><div><b>${st.last ? fmtD(st.last, { day: "numeric", month: "short" }) : "—"}</b><span>Dernières<br>règles</span></div><div><b>${st.avg ? st.avg + " j" : "—"}</b><span>Cycle moyen<br>(${st.n} noté${st.n > 1 ? "s" : ""})</span></div></div>
+    <div class="mcard">${cycleCal(p.id)}</div>
+    <p class="small muted" style="margin-top:8px">Touchez un jour pour le noter. Ce suivi ne sert pas de méthode de contraception. <button class="cyc-off" data-act="cycleoff">Arrêter le suivi</button></p>`;
+}
+function cycleModal(iso) {
+  const e = (CYCLE[me().id] || {})[iso] || {};
+  return `<form data-form="cycle" data-iso="${iso}"><div class="m-head"><div><span class="kicker">Mon cycle</span><h2 class="mh2" style="margin-top:4px">${fmtDay(iso)}</h2></div><button type="button" class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body"><fieldset class="mseg"><legend>Règles</legend>${FLUX.map(([k, l]) => `<label><input type="radio" name="r" value="${k}" ${(e.r || "") === k ? "checked" : ""}><span>${l}</span></label>`).join("")}</fieldset>
+      <fieldset class="mseg symp"><legend>Ovulation <small>Glaire filante, douleur sur un côté, test positif…</small></legend><label><input type="checkbox" name="o" value="1" ${e.o ? "checked" : ""}><span>Signes d'ovulation</span></label></fieldset>
+      <fieldset class="mseg symp"><legend>Symptômes prémenstruels <small>Ne cochez rien si tout va bien</small></legend>${SPM.map(x => `<label><input type="checkbox" name="spm" value="${esc(x)}" ${(e.spm || []).includes(x) ? "checked" : ""}><span>${esc(x)}</span></label>`).join("")}</fieldset></div>
     <div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">${I.check}Enregistrer</button></div></form>`;
 }
 
@@ -2499,6 +2601,7 @@ function mOffres() {
 const LEX = [
   ["Bilan nutritionnel", "La première consultation, d'environ une heure. Manon fait le point sur vos habitudes, vos objectifs et votre mode de vie, puis vous propose un premier plan alimentaire."],
   ["Suivi nutritionnel", "Une consultation plus courte, après le bilan, pour voir ce qui marche, ajuster le plan et fixer les prochaines étapes."],
+  ["RPE", "L'effort ressenti pendant un exercice, noté de 1 (très facile) à 10 (impossible d'en faire plus). Il indique sous chaque vidéo à quelle intensité travailler."],
   ["Plan alimentaire", "Des repères concrets pour composer vos repas : quoi, en quelle quantité, à quel moment. Ce n'est pas un régime."],
   ["Semainier", "Le tableau de votre semaine : 7 jours et 4 repas par jour. Manon le prépare, vous notez ce que vous avez réellement mangé."],
   ["Suivi hebdomadaire", "Chaque semaine, Manon regarde votre semainier et vous répond : une validation ou un conseil."],
@@ -2700,6 +2803,7 @@ function videoFormModal() {
       <div class="field"><label for="nv-level">Niveau</label><select id="nv-level" name="level">${LEVELS.map(l => `<option>${l}</option>`).join("")}</select></div>
       <div class="field full"><span class="lbl">Matériel</span><div class="checks">${EQUIPMENT.map((e, i) => `<label><input type="checkbox" name="equip" value="${e}" id="nv-eq-${i}" ${e === "Tapis" ? "checked" : ""}> ${e}</label>`).join("")}</div></div>
       <div class="field full"><label for="nv-desc">Description et consignes de sécurité</label><textarea id="nv-desc" name="desc"></textarea></div>
+      <div class="field full"><label for="nv-ex">Consignes sous la vidéo <small class="muted">Un exercice par ligne : exercice ; séries ; répétitions ou durée ; RPE ; repos</small></label><textarea id="nv-ex" name="ex" rows="4" placeholder="Squat ; 3 ; 12 ; 7 ; 45 s"></textarea></div>
     </div></div><div class="m-foot"><button type="button" class="btn btn-soft" data-act="close">Annuler</button><button class="btn btn-olive">Enregistrer</button></div></form>`;
 }
 function adArticles() {
@@ -2868,7 +2972,7 @@ function adSuivi() {
 }
 function suiviModal(id) {
   const p = patientById(id), tab = S.suiviTab, t = NUTRI_TEMPLATES[p.nutri], prop = PROPOSALS[p.id], prog = PROGRESS[p.id] || [];
-  const tabs = `<div class="chips">${[["semaine", `Semaine en cours${toReview(p.id).length ? ` (${toReview(p.id).length})` : ""}`], ["propose", "Semainier proposé"], ["evolution", "Évolution"]].map(([k, l]) => `<button type="button" class="chip ${tab === k ? "on" : ""}" data-act="suivitab" data-t="${k}" data-id="${p.id}">${l}</button>`).join("")}</div>`;
+  const tabs = `<div class="chips">${[["semaine", `Semaine en cours${toReview(p.id).length ? ` (${toReview(p.id).length})` : ""}`], ["propose", "Semainier proposé"], ["evolution", "Évolution"], ["cycle", "Cycle"]].map(([k, l]) => `<button type="button" class="chip ${tab === k ? "on" : ""}" data-act="suivitab" data-t="${k}" data-id="${p.id}">${l}</button>`).join("")}</div>`;
   let body;
   if (tab === "semaine") {
     body = `<p class="small muted">${t ? `Programme « ${esc(t.name)} »` : "Sans programme : semaine remplie par la patiente"} · semaine du ${fmtD(WEEK_START, { day: "numeric", month: "long" })}. Cliquez sur un repas noté pour le valider ou donner un conseil.</p>
@@ -2881,6 +2985,12 @@ function suiviModal(id) {
       ${DAYS.map((n, i) => `<b class="small">${n}</b>${SLOTS.map((s, j) => { const key = i + "|" + j, rv = prop.reviews[key]; return `<div class="scell sc-prop" data-slot="${s}"><b>${esc(prop.slots[key] || "Libre")}</b><label class="sr" for="pr-${i}-${j}">Conseil ${n} ${s}</label><input id="pr-${i}-${j}" name="${key}" placeholder="✓ Validé" value="${esc(rv && rv.kind === "conseil" ? rv.text : "")}"></div>`; }).join("")}`).join("")}</div></div>
       <div class="field" style="margin-top:12px"><label for="pr-comment">Mot général pour ${esc(p.first)}</label><textarea id="pr-comment" name="comment" rows="2">${esc(prop.comment || "")}</textarea></div>
       <div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn btn-olive">${I.check}Envoyer mes retours</button></div></form>`;
+  } else if (tab === "cycle") {
+    const st = cycleStats(p.id);
+    body = !CYCLE_ON[p.id] ? `<p class="muted">${esc(p.first)} n'a pas activé le suivi de son cycle. C'est facultatif : elle peut l'activer dans « Évolution ».</p>` : `<div class="grid g3 cyc-k"><div class="card"><span class="kicker">Jour du cycle</span><b class="h-s">${st.day ?? "—"}</b></div><div class="card"><span class="kicker">Dernières règles</span><b class="h-s">${st.last ? fmtD(st.last, { day: "numeric", month: "long" }) : "—"}</b></div><div class="card"><span class="kicker">Cycle moyen</span><b class="h-s">${st.avg ? st.avg + " jours" : "—"}</b><small class="muted">${st.n} cycle${st.n > 1 ? "s" : ""} complet${st.n > 1 ? "s" : ""}</small></div></div>
+      <div class="grid g2 cyc-a"><div class="card">${cycleCal(p.id, true)}</div>
+      <div class="table-wrap"><table><thead><tr><th>Début</th><th>Durée</th><th>Règles</th><th>Ovulation notée</th><th>Avant les règles</th></tr></thead><tbody>${[...st.cycles].reverse().map(c => `<tr><td>${fmtD(c.st)}</td><td class="num">${c.len ? c.len + " j" : "En cours"}</td><td class="num">${c.regles} j</td><td>${c.ovu ? "Jour " + (daysBetween(c.st, c.ovu) + 1) : "—"}</td><td>${c.len ? esc(c.spm.join(", ") || "Rien de noté") : "—"}</td></tr>`).join("")}</tbody></table></div></div>
+      <p class="small muted">Saisi par ${esc(p.first)}. Repères pour adapter vos conseils, sans valeur de diagnostic.</p>`;
   } else {
     body = `<div class="row between"><p class="small muted">${prog.length} mesure${prog.length > 1 ? "s" : ""} saisie${prog.length > 1 ? "s" : ""} par ${esc(p.first)}.</p>
         <label class="row" style="gap:8px;flex-wrap:nowrap;cursor:pointer"><span class="small">Afficher le poids à la patiente</span><span class="toggle"><input type="checkbox" id="sw-${p.id}" data-change="showw" data-id="${p.id}" ${weightAllowed(p.id) ? "checked" : ""}><span></span></span></label></div>
@@ -3156,6 +3266,10 @@ const A = {
   vdone: t => { const id = t.dataset.id, on = !S.vdone.has(id); on ? S.vdone.add(id) : S.vdone.delete(id); if (on) { burst(t); toast("Bravo ! Séance comptée dans votre semaine."); } openModal(videoModal(id), true); render(); },
   progress: () => openModal(progressModal()),
   metric: t => { S.metric = t.dataset.k; render(); },
+  cycday: t => openModal(cycleModal(t.dataset.iso)),
+  cycleon: () => { CYCLE_ON[me().id] = true; render(); toast("Suivi du cycle activé. Manon pourra le voir."); },
+  cycleoff: () => { if (!confirm("Arrêter le suivi du cycle ? Manon ne verra plus ces informations.")) return; delete CYCLE_ON[me().id]; render(); toast("Suivi du cycle arrêté."); },
+  cmonth: t => { const [y, m] = S.cmonth.split("-").map(Number), d = new Date(y, m - 1 + +t.dataset.d, 1); S.cmonth = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); if (t.dataset.id) openModal(suiviModal(t.dataset.id), true); else render(); },
   propedit: () => { PROPOSALS[me().id].status = "brouillon"; render(); toast("Vous pouvez modifier votre proposition, puis la renvoyer."); },
   suivi: t => { if (!$("#modal-root").innerHTML) S.suiviTab = "semaine"; S.modal = { type: "suivi" }; openModal(suiviModal(t.dataset.id), true); },
   suivitab: t => { S.suiviTab = t.dataset.t; openModal(suiviModal(t.dataset.id), true); },
@@ -3258,6 +3372,11 @@ const FORMS = {
     (PROGRESS[pid] = PROGRESS[pid] || []).push(e); PROGRESS[pid].sort((a, b) => a.date.localeCompare(b.date));
     closeModal(); render(); toast("Mesure enregistrée. Visible par vous et Manon.");
   },
+  cycle: f => {
+    const d = new FormData(f), pid = me().id, e = { r: d.get("r") || "", o: !!d.get("o"), spm: d.getAll("spm") }, all = CYCLE[pid] = CYCLE[pid] || {};
+    if (!e.r && !e.o && !e.spm.length) delete all[f.dataset.iso]; else all[f.dataset.iso] = e;
+    closeModal(); render(); toast("Journée enregistrée. Visible par vous et Manon.");
+  },
   review: f => { const d = new FormData(f); MEALLOG[f.dataset.k].review = { kind: d.get("kind"), text: (d.get("text") || "").trim() }; openModal(suiviModal(f.dataset.id), true); render(); toast("Retour envoyé. La patiente le voit dans son semainier."); },
   propreview: f => {
     const prop = PROPOSALS[f.dataset.id], d = new FormData(f);
@@ -3291,7 +3410,7 @@ const FORMS = {
       macro: { kcal: +g("kcal") || 0, p: +g("p") || 0, g: +g("g") || 0, l: +g("l") || 0, f: +g("f") || 0 }, allergens: d.getAll("allergens"), diets: d.getAll("diets"), tip: g("tip") || "—", status: date > TODAY_ISO ? "programmée" : "publiée", date };
     RECIPES.push(r); closeModal(); render(); toast(r.status === "publiée" ? `« ${r.title} » publiée : visible par les patientes qui ont accès aux recettes.` : `« ${r.title} » programmée pour le ${fmtD(date)}.`);
   },
-  video: f => { const d = new FormData(f); VIDEOS.unshift({ id: "v" + Date.now(), title: d.get("title").trim(), theme: d.get("theme"), dur: +d.get("dur") || 1, level: d.get("level"), equip: d.getAll("equip").length ? d.getAll("equip") : ["Aucun"], desc: d.get("desc") || "", date: TODAY_ISO }); closeModal(); render(); toast("Vidéo ajoutée à la bibliothèque."); },
+  video: f => { const d = new FormData(f); VIDEOS.unshift({ id: "v" + Date.now(), title: d.get("title").trim(), theme: d.get("theme"), dur: +d.get("dur") || 1, level: d.get("level"), equip: d.getAll("equip").length ? d.getAll("equip") : ["Aucun"], desc: d.get("desc") || "", date: TODAY_ISO, ex: String(d.get("ex") || "").split("\n").map(l => l.split(";").map(x => x.trim())).filter(r => r[0]).map(r => [0, 1, 2, 3, 4].map(i => r[i] || "")) }); closeModal(); render(); toast("Vidéo ajoutée à la bibliothèque."); },
   article: f => { const d = new FormData(f); ARTICLES.unshift({ id: "a" + Date.now(), title: d.get("title").trim(), vis: d.get("vis"), date: TODAY_ISO, read: Math.max(1, Math.round(d.get("body").split(/\s+/).length / 200)), body: d.get("body").split("\n").filter(Boolean) }); closeModal(); render(); toast("Article publié."); },
   session: f => { const d = new FormData(f); SESSIONS.push({ id: "s" + Date.now(), date: d.get("date"), time: d.get("time"), title: d.get("title"), places: Math.max(1, +d.get("places") || 10), link: d.get("link") || "https://visio.exemple.fr", gear: d.get("gear") || "", inscrits: [], wait: [] }); SESSIONS.sort((a, b) => a.date.localeCompare(b.date)); closeModal(); render(); toast("Créneau créé. Les abonnées concernées reçoivent un email (simulation)."); }
 };

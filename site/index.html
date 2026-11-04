@@ -318,7 +318,7 @@ body::before{background:var(--blanc)}
 .card p{color:var(--gris)}
 /* Chapitre « Le bilan » : photo sous voile vert */
 .bilan .bg{background:var(--ink)}
-.bilan .bg img{filter:grayscale(.3) saturate(.85) brightness(.75)}
+.bilan .bg img{filter:grayscale(.15) saturate(.9) brightness(.8)}
 .bilan::after{background:linear-gradient(rgba(15,58,42,.35),rgba(15,58,42,.35)),radial-gradient(70% 60% at 50% 50%,rgba(15,58,42,.1) 30%,rgba(15,58,42,.75) 100%)}
 .bilan .in{color:#fff}
 .bilan h2{color:#fff}
@@ -418,6 +418,17 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
 @media (prefers-reduced-transparency:reduce){
   .nav{background:#FFFFFF;-webkit-backdrop-filter:none;backdrop-filter:none}
 }
+/* « Votre besoin » sur ordinateur (retour de Manon, 2026-11-04) : la section figée tient dans la hauteur de l'écran ;
+   les photos des cartes, recadrées, prennent la hauteur restante (--ch, calculée par fitProg()) ; sans défilement horizontal
+   (mouvement réduit), les cartes se parcourent par un défilement latéral. */
+@media (min-width:821px){
+  .track-wrap{overflow-x:auto}
+  .programmes.pinned .track-wrap{overflow:visible}
+  .programmes.pinned .head{padding-top:clamp(76px,11vh,140px);padding-bottom:clamp(18px,4vh,50px)}
+  .programmes.pinned h2{font-size:min(clamp(2.2rem,4.6vw,4.4rem),8vh)}
+  .programmes.pinned .track{padding-bottom:24px}
+  .programmes.pinned .card .im{aspect-ratio:auto;height:var(--ch,525px)}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.manifest .w{opacity:1}}
 </style>
 </head>
@@ -496,7 +507,7 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
   </section>
 
   <section class="sec bilan" id="bilan">
-    <div class="bg" id="bilanBg"><img data-img="portrait" alt=""></div>
+    <div class="bg" id="bilanBg"><img data-img="bilan" alt=""></div>
     <div class="in">
       <span class="mono">Chapitre premier</span>
       <span class="le">Tout commence par</span>
@@ -576,7 +587,7 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 /* Photos provisoires (Wikimedia Commons, voir img/CREDITS.md). Une image absente laisse un fond uni. */
-const IMG = { course: "img/course.jpg", citrons: "img/citrons.jpg", assiette: "img/assiette.jpg", terrain: "img/terrain.jpg", yoga: "img/yoga.jpg", table: "img/table.jpg", etirement: "img/etirement.jpg", portrait: "img/portrait.jpg" };
+const IMG = { course: "img/course.jpg", citrons: "img/citrons.jpg", assiette: "img/assiette.jpg", terrain: "img/terrain.jpg", yoga: "img/yoga.jpg", table: "img/table.jpg", etirement: "img/etirement.jpg", bilan: "img/bilan.jpg" };
 const DOCTOLIB = "https://www.doctolib.fr/dieteticien/toulon/manon-garrione";
 document.querySelectorAll("img[data-img]").forEach(i => { i.src = IMG[i.dataset.img]; i.loading = "lazy"; i.decoding = "async"; i.onerror = () => { i.style.visibility = "hidden"; }; });
 document.querySelectorAll(".doctolib").forEach(a => a.href = DOCTOLIB);
@@ -863,10 +874,19 @@ if (!REDUCE) {
 const mmH = gsap.matchMedia();
 mmH.add("(min-width: 821px)", () => {
   if (REDUCE) return;
-  const track = $("#track");
+  const sec = $("#programmes"), track = $("#track");
+  // Les cartes prennent la hauteur laissée par le titre, pour être vues en entier pendant que la section est figée
+  const fitProg = () => {
+    const head = sec.querySelector(".head").offsetHeight, tx = Math.max(...[...track.querySelectorAll(".card .tx")].map(t => t.offsetHeight));
+    sec.style.setProperty("--ch", Math.round(Math.max(150, Math.min(525, innerHeight - head - tx - 24 - 24))) + "px");
+  };
+  sec.classList.add("pinned"); fitProg();
+  ScrollTrigger.addEventListener("refreshInit", fitProg);
   const dist = () => track.scrollWidth - innerWidth;
-  const tw = gsap.to(track, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: "#programmes", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 1, invalidateOnRefresh: true } });
-  return () => tw.kill();
+  // Un temps d'arrêt au début : la première carte reste en place avant que la rangée ne glisse
+  const tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: () => "+=" + dist() * 1.3, pin: true, scrub: 1, invalidateOnRefresh: true } });
+  tl.to({}, { duration: .3 }).to(track, { x: () => -dist(), ease: "none", duration: 1 });
+  return () => { tl.kill(); ScrollTrigger.removeEventListener("refreshInit", fitProg); sec.classList.remove("pinned"); sec.style.removeProperty("--ch"); };
 });
 if (!REDUCE) {
   gsap.fromTo("#bilanBg", { scale: 1.18 }, { scale: 1, ease: "none", scrollTrigger: { trigger: "#bilan", start: "top bottom", end: "bottom top", scrub: 1 } });
@@ -910,8 +930,8 @@ $$(".univers .side").forEach(s => {
 /* ---------- Formules ---------- */
 const PLANS = [
   { top: ["Pour commencer", "Doctolib"], h: 'Bilan <span class="serif">nutritionnel</span>', price: "70 €", unit: "la séance", cta: "Réserver le bilan", list: ["Une heure, au cabinet ou en visio", "Un premier plan alimentaire adapté à vos objectifs", "1 mois d'accès offert à l'application"] },
-  { top: ["Sans engagement", "Doctolib"], h: 'Consultation <span class="serif">de suivi</span>', price: "50 €", unit: "la séance", cta: "Réserver sur Doctolib", list: ["Après le bilan, quand vous le souhaitez", "Adaptation de votre plan alimentaire", "Au cabinet ou en visio"] },
-  { top: ["Offre", "Engagement 2 ou 3 mois"], h: 'Nutrition', price: "60 €", unit: "/ mois", list: ["Le bilan, puis 1 suivi par mois", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Suivi de votre évolution"] },
+  { top: ["Sans engagement", "Doctolib"], h: 'Consultation <span class="serif">de suivi</span>', price: "50 €", unit: "la séance", cta: "Réserver sur Doctolib", list: ["Sans l'application", "Après le bilan, quand vous le souhaitez", "Adaptation de votre plan alimentaire", "Au cabinet ou en visio"] },
+  { top: ["Offre", "Engagement 2 ou 3 mois"], h: 'Nutrition', price: "60 €", unit: "/ mois", list: ["Le bilan, puis 1 suivi par mois, avec l'application", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Suivi de votre évolution"] },
   { top: ["Offre", "La plus complète"], h: 'All <span class="serif">in</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio"] }
 ];
 function renderPlans() {

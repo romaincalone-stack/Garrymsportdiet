@@ -70,7 +70,7 @@ Thème sombre fixe, pensé d'abord pour le téléphone (`BRAND_BRIEF.md`, v6). B
 | **Aujourd'hui** | Salutation, cartes en éventail (séance, menu, évolution), avis « Manon vous a répondu », séance du jour, planificateur de la semaine (jour par jour, état de chaque repas), contenus en cours, bibliothèque (vidéos / recettes), bouton WhatsApp |
 | **Training** (F3) | Pilule de recherche, durée (10, 20, 30 min), disciplines en ronds (Cardio doux, Renfo, Pilates, Mobilité, Yoga, Périnée), zones (Abdos-fessiers, Bas du corps, Haut du corps, Dos et posture, Full body), liste de vidéos (durée, intensité, « fait »), séances collectives, programme en second plan |
 | **Nutrition** (F1+) | Semainier de la semaine proposé par Manon, repas à noter, réponses de Manon, « Proposer ma semaine », recettes (F2) avec portions et liste de courses |
-| **Évolution** (toutes formules) | Trois chiffres clés, « Ajouter une mesure », choix de l'indicateur, courbe, ressentis (énergie, sommeil, digestion), historique, « Masquer le poids » |
+| **Évolution** (toutes formules) | Trois chiffres clés, « Ajouter une mesure », choix de l'indicateur, courbe, ressentis (énergie, sommeil, digestion), **mon cycle** (facultatif), historique, « Masquer le poids » |
 
 **v7-v8 (session du 2026-10-27 au 29, d'après l'espace web TSE ; fusionnée dans le dépôt le 2026-10-30)** : onglet « Mon espace » ; sous-onglets soulignés sous la barre (`SUBTABS` : Accueil, Mes programmes en cours, Mes playlists, Mes recettes favorites…) ; sur ordinateur, barre pleine largeur en haut (logo, rubriques, profil) ; **planner** semaine ou mois, jour par jour, avec Training et Nutrition, et « Ajouter » (recette, vidéo ou playlist à un jour) ; **programme en cours** (« À propos », « Les séances », semaines, progression, séances faites) ; **playlists** de vidéos ; **« Notre sélection pour vous »** : questionnaire de préférences sport (lieu, objectifs, niveau, fréquence, durée, matériel) ; **filtres de recettes** par étiquettes ; **factures** de la patiente dans son profil (à transmettre à sa mutuelle). Évolution : poids facultatif, énergie et sommeil notés de 0 à 10, symptômes digestifs à cocher (tours de taille et de hanches retirés, retour de Manon du 2026-10-28).
 
@@ -103,7 +103,8 @@ Sous-pages : recettes, vidéos, semainier, proposer ma semaine, séances, progra
 | R13 | Une patiente F1+ peut proposer le semainier de la semaine suivante : brouillon, puis « En attente de Manon » à l'envoi, puis « Revu par Manon ». Une case laissée vide par Manon vaut validation. |
 | R14 | Évolution : accessible à toutes les formules. Le poids est facultatif ; Manon peut le masquer pour une patiente (le champ et la courbe disparaissent, l'historique est conservé). La patiente peut aussi le masquer pour elle-même. Énergie et sommeil se notent de 0 à 10 ; les symptômes digestifs se cochent (aucun = tout va bien). |
 | R19 | Factures : numérotation continue sans trou ; une facture émise est figée, toute correction passe par un avoir ; conservation 10 ans. |
-| R15 | Vidéos : filtres par durée maximale, discipline, zone et niveau ; « fait » enregistré par semaine. |
+| R15 | Vidéos : filtres par durée maximale, discipline, zone et niveau ; « fait » enregistré par semaine. Sous chaque vidéo, Manon peut ajouter des consignes : un exercice par ligne, avec séries, répétitions ou durée, RPE (effort ressenti de 1 à 10) et repos. |
+| R20 | Suivi du cycle (demande de Manon, 2026-11-04) : facultatif, activé par la patiente dans « Évolution » et arrêté quand elle veut. Par jour : règles (légères, moyennes, abondantes), signes d'ovulation, symptômes prémenstruels (seins sensibles, ballonnements, fringales, irritabilité, humeur basse, fatigue, maux de tête, crampes, sommeil perturbé). L'application affiche le jour du cycle, les dernières règles et la durée moyenne des cycles complets ; elle ne prédit ni les règles ni la période fertile et rappelle que ce suivi n'est pas une méthode de contraception. Manon voit le calendrier et un tableau par cycle (durée, jours de règles, jour d'ovulation noté, symptômes de la semaine précédant les règles) dans l'onglet « Cycle » du suivi. Données de santé : même régime que R11. |
 
 ### Hypothèses à valider avec Manon
 | # | Question | Hypothèse du prototype |
@@ -132,6 +133,9 @@ Sous-pages : recettes, vidéos, semainier, proposer ma semaine, séances, progra
 | H20 | Délai de réponse de Manon aux repas notés | 48 h ouvrées, comme WhatsApp |
 | H21 | Poids affiché par défaut | Oui, masquable par Manon ou la patiente |
 | H22 | Nom de marque | « GM Sport et Nutrition » (logo) et « méthode Garry M » (brief) : à harmoniser |
+| H23 | Suivi du cycle : formules concernées | Toutes, comme « Évolution » ; Manon voit le cycle de toute patiente qui l'a activé |
+| H24 | Suivi du cycle : prévoir les prochaines règles | Non : l'application décrit, elle ne prédit pas (risque d'usage comme contraception) |
+| H25 | Offre « sport » après le suivi (retour du 2026-11-04) | Prix et contenu à trancher par Manon : 15 €/mois proposé, ou 90 € pour 6 mois et 20 €/mois sans engagement ; recettes incluses ou non. Le prototype garde 40 €/mois en attendant |
 
 Réponses déjà obtenues : diplôme de coach sportive confirmé ; option B demandée le 2026-10-26 (semainier partagé et évolution), qui remplace l'option A retenue au départ.
 

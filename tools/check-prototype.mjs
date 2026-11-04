@@ -79,6 +79,11 @@ await click("[data-act=progress]");
 await pg.fill("#pg-poids", "69.8");
 await click("form[data-form=progress] .m-foot .btn-olive");
 await click("[data-act=metric][data-k=energie]");
+// Évolution : suivi du cycle (noter un jour, puis vérifier le calendrier)
+await click("button.cday[data-iso='2026-10-20']");
+await click("form[data-form=cycle] input[name=spm][value='Fatigue']");
+await click("form[data-form=cycle] .m-foot .btn-olive");
+if (!(await pg.$("button.cday[data-iso='2026-10-20'] .cdot"))) errors.push("Cycle : le symptôme noté le 20 octobre n'apparaît pas");
 await pg.screenshot({ path: join(out, "2d-evolution.png"), fullPage: true });
 // Formule F1 : vidéos verrouillées
 await pg.selectOption("#pb-plan", "f1"); await settle(pg);
@@ -101,6 +106,12 @@ await pg.fill("#pr-2-3", "Plutôt une pizza maison avec des légumes");
 await click("form[data-form=propreview] .btn-olive");
 await click("[data-act=suivitab][data-t=evolution]"); await pg.waitForTimeout(900);
 await pg.screenshot({ path: join(out, "4b-suivi.png") });
+await click("[data-act=close]");
+await click("[data-act=suivi][data-id=p1]");
+await click("[data-act=suivitab][data-t=cycle]");
+await click(".modal [data-act=cmonth][data-d='-1']");
+if (!(await pg.$(".modal .cday.o"))) errors.push("Cycle (Manon) : l'ovulation de septembre n'apparaît pas");
+await pg.screenshot({ path: join(out, "4c-cycle.png") });
 await click("[data-act=close]");
 await click("[data-act=ad][data-p=patientes]");
 await click("[data-act=newpatient]");

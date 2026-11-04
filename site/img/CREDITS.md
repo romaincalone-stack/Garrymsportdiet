@@ -13,4 +13,6 @@ Fichiers redimensionnés à 1 280 px et recompressés, sans autre modification. 
 | `yoga.jpg` | Top view of a woman lying on the yoga mat.jpg | Shixart1985 | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Top_view_of_a_woman_lying_on_the_yoga_mat.jpg) |
 | `table.jpg` | Lemon - whole and split.jpg | Ivar Leidus | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Lemon_-_whole_and_split.jpg) |
 | `etirement.jpg` | Outdoor yoga.jpg | Tz drunk poet | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Outdoor_yoga.jpg) |
-| `portrait.jpg` | Östringen - Tiefenbach - Kreuzbergkapelle - Situationsansicht von Osten bei Sonnenuntergang.jpg | Roman Eisele | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:%C3%96stringen_-_Tiefenbach_-_Kreuzbergkapelle_-_Situationsansicht_von_Osten_bei_Sonnenuntergang.jpg) |
+| `bilan.jpg` | Lancaster, United States (Unsplash).jpg (bol de yaourt et fruits rouges, 1 920 px) | Peter Hershey | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Lancaster,_United_States_(Unsplash).jpg) |
+
+Le 2026-11-04, `portrait.jpg` (une chapelle surmontée d'une croix, fond du chapitre « Le bilan ») a été retiré à la demande de Manon : image jugée morbide.

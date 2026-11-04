@@ -98,7 +98,7 @@ Aucun motif ni commentaire : le motif d'une consultation de diététique est une
 Tables liées : `recipe_ingredients` (recipe_id, position, quantity numeric nullable, unit text, name text) ; `recipe_steps` (recipe_id, position, text) ; `themes` (id, label) + `recipe_themes` ; `recipe_allergens` (recipe_id, allergen enum des 14 allergènes réglementaires) ; `recipe_diets` (recipe_id, diet enum `vegetarien`, `vegan`, `sans_gluten`, `sans_lactose`). Aucune donnée personnelle.
 
 ### `videos`
-id · title · theme (enum `abdos_fessiers`, `renforcement`, `cardio`, `mobilite`, `etirements`) · duration_min int · level (enum `debutant`, `intermediaire`, `avance`) · equipment text[] · description · provider (`bunny`, `vimeo`) · provider_video_id · thumbnail_path · published_at. Aucune donnée personnelle.
+id · title · theme (enum `abdos_fessiers`, `renforcement`, `cardio`, `mobilite`, `etirements`) · duration_min int · level (enum `debutant`, `intermediaire`, `avance`) · equipment text[] · description · provider (`bunny`, `vimeo`) · provider_video_id · thumbnail_path · published_at · exercises jsonb (liste ordonnée `{name, sets, reps, rpe, rest}`, consignes affichées sous la vidéo ; prototype : `ex`). Aucune donnée personnelle.
 
 ### `articles`
 id · slug · title · body_md · cover_path · visibility (enum `public`, `members`) · published_at. Aucune donnée personnelle.
@@ -137,7 +137,7 @@ Tables ajoutées le 2026-10-26 à la demande de Manon. Elles ne peuvent exister 
 | Champ | Type | Oblig. | Exemple | RGPD | Conservation |
 | --- | --- | --- | --- | --- | --- |
 | patient_id | uuid → profiles | oui | | P | durée du compte + 5 ans (preuve) |
-| scope | enum `journal`, `evolution` | oui | `journal` | P | idem |
+| scope | enum `journal`, `evolution`, `cycle` | oui | `journal` | P | idem |
 | granted_at, withdrawn_at | timestamptz | oui / non | 2026-10-26 | P | idem |
 | text_version | text | oui | `v1` | — | idem |
 
@@ -193,6 +193,18 @@ Une modification de `meal_logs` supprime la ligne `meal_reviews` liée (trigger)
 | digestive_symptoms | text[] (ballonnements, douleurs au ventre, gaz, reflux, transit lent, transit rapide, nausées) | non | {Ballonnements} | Santé | idem |
 
 Tours de taille et de hanches retirés le 2026-10-28 (retour de Manon).
+
+### `cycle_days` (suivi du cycle, ajouté le 2026-11-04)
+Facultatif : n'existe que si la patiente a activé le suivi (consentement `cycle`). Prototype : `CYCLE`, `CYCLE_ON`.
+| Champ | Type | Oblig. | Exemple | RGPD | Conservation |
+| --- | --- | --- | --- | --- | --- |
+| patient_id | uuid → profiles | oui | | P | relation + 3 ans (hypothèse) ; supprimé sous 30 jours si le suivi est arrêté |
+| date | date | oui | 2026-10-13 | Santé | idem |
+| flow | enum `leger`, `moyen`, `abondant` | non | `abondant` | Santé | idem |
+| ovulation_signs | bool | oui | false | Santé | idem |
+| pms_symptoms | text[] (seins sensibles, ballonnements, fringales, irritabilité, humeur basse, fatigue, maux de tête, crampes, sommeil perturbé) | non | {Fringales} | Santé | idem |
+
+Clé primaire (patient_id, date). Les débuts de cycle, durées et moyennes sont calculés, jamais stockés.
 
 ### `patient_settings`
 | Champ | Type | Oblig. | Exemple | RGPD |
@@ -264,6 +276,7 @@ Fonctions SQL `security definer` :
 | meal_reviews | celles de ses repas ; admin : tout | admin |
 | weekly_proposals, proposal_slots | ses lignes ; admin : celles au statut `envoye` ou `revu` (pas les brouillons) | patiente : tant que `brouillon` ; admin : champs de revue et passage à `revu` |
 | progress_entries | ses lignes si consentement `evolution` actif ; `weight_kg` masqué par une vue si `show_weight = false` ; admin : tout | ses lignes |
+| cycle_days | ses lignes si consentement `cycle` actif ; admin : tout (lecture tracée) | ses lignes |
 | patient_settings | soi-même ; admin : tout | admin : `show_weight` ; patiente : `hide_weight_self` |
 | health_consents | soi-même ; admin : tout | patiente (accord, retrait) |
 | audit_log | admin | trigger seulement ; toute lecture par l'admin d'une table « Santé » y est tracée |
