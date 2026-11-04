@@ -30,6 +30,17 @@ async function run(name, viewport, mobile) {
   const sw = await page.evaluate(() => document.documentElement.scrollWidth);
   console.log(`${name} scrollWidth ${sw}`);
   if (mobile && sw > viewport.width) errors.push(`${name} débordement horizontal ${sw}px`);
+  // Test « Tester mon alimentation » : 10 questions (Q4 à choix multiples), résultat et bouton de fin selon Q10
+  await page.evaluate(() => document.querySelector("[data-quiz]").click()); await wait(400);
+  const answers = [0, 1, 1, [0, 1], 2, 1, 1, 3, 2, 1];
+  for (const a of answers) {
+    if (Array.isArray(a)) { for (const k of a) { await page.click(`#qbody .qo[data-k="${k}"]`); await wait(150); } await page.click("#qbody .qnext"); }
+    else await page.click(`#qbody .qo[data-k="${a}"]`);
+    await wait(250);
+  }
+  const res = await page.evaluate(() => ({ h: document.querySelector("#qbody h3")?.textContent, tips: document.querySelectorAll("#qbody .qtips li").length, first: document.querySelector("#qbody .qend .btn")?.textContent.trim() }));
+  if (res.h !== "Votre équilibre hormonal" || res.tips !== 4 || !/appel découverte/i.test(res.first || "")) errors.push(`${name} test : résultat inattendu ${JSON.stringify(res)}`);
+  await page.screenshot({ path: `${out}/site-${name}-quiz-result.png` });
   await page.close();
 }
 await run("desktop", { width: 1440, height: 900 });

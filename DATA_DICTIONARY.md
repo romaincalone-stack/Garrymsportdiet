@@ -25,10 +25,12 @@ Conservation par défaut des données personnelles : durée de la relation + 3 a
 | --- | --- | --- | --- | --- |
 | code | text PK | oui | `suivi`, `decouverte`, `f1` (Nutrition), `f2` (All in), `f3` (Recettes + sport) | — |
 | name | text | oui | Offre All in | — |
-| price_cents | int | oui | 9000 (All in) ; Nutrition 6000, Recettes + sport 4000, mois offert 0, unité 5000 | — |
+| price_cents | int | oui | 9000 (All in) ; Nutrition 6000, Recettes + sport 2000, mois offert 0, unité 5000 | — |
 | billing_unit | enum `consultation`, `mois`, `offert` | oui | `mois` | — |
-| commitment_months | smallint | non | 2 (Nutrition, All in : 2 ou 3) ; 3 (Recettes + sport) | — |
-| public | bool (affichée sur le site) | oui | true ; false pour `f3` et `decouverte` | — |
+| commitment_months | smallint | non | 3 (Nutrition, All in) ; vide pour Recettes + sport sans engagement | — |
+| upfront_price_cents | int | non | prix de l'engagement payé en une fois : 18000 (Nutrition, 3 mois), 27000 (All in, 3 mois), 9000 (Recettes + sport, 6 mois) | — |
+| upfront_months | smallint | non | 3 ; 6 pour Recettes + sport | — |
+| public | bool (affichée sur le site) | oui | true ; false pour `decouverte` (`f3` affichée depuis le 2026-11-04) | — |
 | sort_order | int | oui | 4 | — |
 
 ### `features` et `plan_features` (matrice d'accès)
@@ -50,7 +52,7 @@ Clés : `docs`, `rdv`, `articles`, `nutri`, `contact`, `visio`, `recettes`, `vid
 | plan_code | text → plans | oui | `f3` | P | idem |
 | start_date | date | oui | 2026-09-01 | P | idem |
 | end_date | date | non (vide = Suivi) ; mois offert : start_date + 30 jours | 2026-11-30 | P | idem |
-| commitment_end | date | non | fin de l'engagement (2 ou 3 mois) | P | idem |
+| commitment_end | date | non | fin de l'engagement (3 mois, ou 6 mois pour Recettes + sport payée d'avance) | P | idem |
 | status | enum `active`, `terminee`, `suspendue` | oui | `active` | P | idem |
 | created_by | uuid → profiles | oui | | P | idem |
 

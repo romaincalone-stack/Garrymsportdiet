@@ -107,6 +107,12 @@ await click("form[data-form=propreview] .btn-olive");
 await click("[data-act=suivitab][data-t=evolution]"); await pg.waitForTimeout(900);
 await pg.screenshot({ path: join(out, "4b-suivi.png") });
 await click("[data-act=close]");
+// Évolutions : liste de toutes les patientes, puis le détail d'une patiente (courbes, cycle)
+await click("[data-act=ad][data-p=evolutions]");
+if ((await pg.$$("#main tbody tr")).length < 5) errors.push("Évolutions : la liste des patientes est incomplète");
+await click("[data-act=evo][data-id=p1]");
+if ((await pg.$$("#main svg")).length < 3) errors.push("Évolutions : les courbes de Camille n'apparaissent pas");
+await pg.screenshot({ path: join(out, "4d-evolutions.png"), fullPage: true });
 await click("[data-act=suivi][data-id=p1]");
 await click("[data-act=suivitab][data-t=cycle]");
 await click(".modal [data-act=cmonth][data-d='-1']");

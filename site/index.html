@@ -389,7 +389,11 @@ body::before{background:var(--blanc)}
 .qt{margin:0 0 18px;color:var(--gris);font-size:16px}
 .qtips{margin:0 0 18px;padding-left:20px;display:flex;flex-direction:column;gap:8px}
 .qnote{font-size:13.5px;color:var(--gris);background:var(--brume);border-radius:14px;padding:12px 14px;margin:0 0 18px}
-.qend{display:flex;gap:8px;flex-wrap:wrap}
+.qend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.qnext{margin-top:14px}.qnext:disabled{opacity:.5;cursor:default}
+.qoffer{display:flex;flex-direction:column;gap:4px;margin:0 0 18px;padding:14px 16px;border-radius:18px;border:1.5px solid var(--vert)}
+.qoffer .mono{color:var(--gris)}.qoffer b{font-size:1.2rem;color:var(--vert)}.qoffer small{color:var(--gris);font-size:14px}
+.qthanks{margin:0 0 14px;font-size:16px}
 @media (max-width:820px){
   .hero .side{max-width:none}
   .presta .pr{grid-template-columns:minmax(0,1fr);gap:6px}
@@ -522,7 +526,7 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
 </div>
     <div class="plans" id="plans"></div>
     <p class="mutuelle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Pensez à votre mutuelle :</b> les consultations diététiques peuvent être remboursées, selon votre contrat. Une note d’honoraires vous est remise après chaque consultation.</span></p>
-    <p class="fine mono">Tarifs indicatifs, en cours de validation · Offres mensuelles avec engagement de 2 ou 3 mois · D'autres offres (recettes et sport sans consultation, coaching individuel) sont proposées ensuite dans votre espace</p>
+    <p class="fine mono">Tarifs indicatifs, en cours de validation · Offres Nutrition et All in : engagement de 3 mois, payable en 1 fois ou chaque mois · Le coaching individuel est proposé ensuite dans votre espace</p>
   </section>
 
   <section class="sec light lexique wrap" id="lexique">
@@ -931,8 +935,9 @@ $$(".univers .side").forEach(s => {
 const PLANS = [
   { top: ["Pour commencer", "Doctolib"], h: 'Bilan <span class="serif">nutritionnel</span>', price: "70 €", unit: "la séance", cta: "Réserver le bilan", list: ["Une heure, au cabinet ou en visio", "Un premier plan alimentaire adapté à vos objectifs", "1 mois d'accès offert à l'application"] },
   { top: ["Sans engagement", "Doctolib"], h: 'Consultation <span class="serif">de suivi</span>', price: "50 €", unit: "la séance", cta: "Réserver sur Doctolib", list: ["Sans l'application", "Après le bilan, quand vous le souhaitez", "Adaptation de votre plan alimentaire", "Au cabinet ou en visio"] },
-  { top: ["Offre", "Engagement 2 ou 3 mois"], h: 'Nutrition', price: "60 €", unit: "/ mois", list: ["Le bilan, puis 1 suivi par mois, avec l'application", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Suivi de votre évolution"] },
-  { top: ["Offre", "La plus complète"], h: 'All <span class="serif">in</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio"] }
+  { top: ["Offre", "Engagement 3 mois"], h: 'Nutrition', price: "60 €", unit: "/ mois", list: ["Le bilan, puis 1 suivi par mois, avec l'application", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Suivi de votre évolution", "180 € pour 3 mois, en 1 fois ou chaque mois"] },
+  { top: ["Offre", "La plus complète"], h: 'All <span class="serif">in</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio", "270 € pour 3 mois, en 1 fois ou chaque mois"] },
+  { top: ["Après le suivi", "Sans consultation"], h: 'Sport <span class="serif">+ recettes</span>', price: "20 €", unit: "/ mois", after: true, list: ["Pour garder le rythme une fois votre suivi terminé", "Vidéos de 10 à 30 min et toutes les recettes", "Sans engagement, ou 90 € pour 6 mois (15 € / mois), en 1 fois ou chaque mois"] }
 ];
 function renderPlans() {
   $("#plans").innerHTML = PLANS.map(p => `<article class="plan ${p.feat ? "feat" : ""}"><div class="top mono"><span>${p.top[0]}</span><span>${p.top[1]}</span></div><h3>${p.h}</h3><div class="price">${p.price}<small>${p.unit}</small></div><ul>${p.list.map(x => `<li>${x}</li>`).join("")}</ul>${p.after ? `<p class="after mono">Proposée à la fin de votre suivi</p>` : `<a class="btn ${p.feat ? "btn-ink" : "btn-acc"} mono" href="${DOCTOLIB}" target="_blank" rel="noopener" data-cursor="DOCTOLIB">${p.cta || "Commencer par le bilan"} <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>`}</article>`).join("");
@@ -953,36 +958,55 @@ function bindCursor() {
 $$(".journal .rw").forEach(r => { r.addEventListener("pointerenter", () => { if (TOUCH) return; peekImg.src = IMG[r.dataset.peek]; peek.classList.add("on"); }); r.addEventListener("pointerleave", () => peek.classList.remove("on")); });
 renderPlans();
 
-/* ---------- Test « Tester mon alimentation » : 8 questions, résultat indicatif, rien n'est envoyé ---------- */
+/* ---------- Test « Tester mon alimentation » : les 10 questions de Manon (2026-11-04), résultat indicatif, rien n'est envoyé.
+   Le résultat se construit avec Q1 (priorité), Q2 (vécu), Q3, Q4 et Q5 (premiers points à travailler), Q8 (formule) et Q10 (bouton de fin).
+   Q6, Q7 et Q9 aident la personne à réfléchir et ne changent pas le résultat. ---------- */
 const QUIZ = [
-  ["Vos repas sont-ils réguliers d'un jour à l'autre ?", ["Oui, à heures assez fixes", "Plutôt, sauf les jours chargés", "Non, ça dépend beaucoup"], "Garder des repas à heures régulières, même simples, les jours chargés."],
-  ["Des légumes à vos repas…", ["Midi et soir", "Une fois par jour", "Moins souvent"], "Ajouter une portion de légumes à un repas de plus par jour."],
-  ["Une source de protéines (œufs, poisson, viande, légumineuses, tofu…)", ["À chaque repas principal", "Une fois par jour", "Rarement"], "Prévoir une source de protéines au déjeuner et au dîner."],
-  ["Vous buvez de l'eau…", ["1,5 litre ou plus par jour", "Environ 1 litre", "Peu, surtout d'autres boissons"], "Garder une bouteille d'eau à portée de main dans la journée."],
-  ["Entre les repas, il vous arrive de grignoter…", ["Rarement", "Quelques fois par semaine", "Presque tous les jours"], "Prévoir une vraie collation si la faim revient l'après-midi."],
-  ["Dans l'après-midi, votre énergie…", ["Reste stable", "Baisse un peu", "Chute nettement"], "Composer un déjeuner plus complet pour tenir l'après-midi."],
-  ["Vous bougez (marche, sport, activité physique)…", ["30 minutes ou plus, la plupart des jours", "Quelques fois par semaine", "Rarement"], "Commencer par 10 à 15 minutes de marche ou de renfo doux, trois fois par semaine."],
-  ["Votre relation à l'assiette…", ["Sereine, je mange avec plaisir", "Parfois compliquée (culpabilité, régimes)", "Souvent source de stress"], "Manger sans interdit, en écoutant sa faim : c'est un point à aborder au bilan."]
+  ["Quelle est votre priorité santé du moment ?", ["Apaiser des douleurs ou des dérèglements hormonaux (endométriose, SMOP, syndrome prémenstruel…)", "Traverser sereinement la périménopause ou la ménopause (sommeil, métabolisme, variations d'humeur)", "Optimiser mes performances sportives et ma récupération", "Retrouver un poids d'équilibre et de la vitalité, sans régime restrictif"]],
+  ["Face à vos problèmes de santé ou à vos objectifs physiques, comment décririez-vous vos expériences passées ?", ["J'ai l'impression d'avoir tout essayé (régimes, compléments, conseils internet), sans résultats durables", "Je me sens souvent démunie ou peu écoutée par le corps médical classique", "Je débute, mais je suis perdue face à la masse d'informations contradictoires", "Je commence à baisser les bras face à la fatigue ou aux symptômes chroniques"]],
+  ["Quand vous pensez à vos repas au quotidien, quel est votre ressenti principal ?", ["Du stress et de la culpabilité (peur de mal faire ou d'aggraver mes symptômes)", "Une grande charge mentale : planifier, cuisiner, trouver quoi manger me prend trop d'énergie", "De la frustration : je mange « sainement » selon les standards, mais mon corps ne répond pas", "De la confusion : je ne sais pas comment adapter mon assiette à mes cycles ou à mes entraînements"]],
+  ["Quels signaux votre corps vous envoie-t-il le plus souvent ?", ["Fatigue persistante ou gros coup de pompe après les repas", "Inconforts digestifs fréquents (ballonnements, transit perturbé, ventre gonflé)", "Douleurs inflammatoires (pelviennes, musculaires, articulaires)", "Fringales incontrôlables"], true],
+  ["Comment vivez-vous le sport ou le mouvement en ce moment ?", ["Je n'ose pas bouger, par peur de déclencher des douleurs ou par manque d'énergie", "Je m'entraîne dur, mais je stagne (ou je me blesse souvent) sans comprendre pourquoi", "Mon énergie varie tellement au fil du mois que je n'arrive pas à être régulière", "Je cherche un accompagnement sportif respectueux de ma physiologie et de mes hormones"]],
+  ["Saviez-vous que des ajustements ciblés de votre assiette (micronutrition) peuvent vous aider à mieux vivre certains symptômes, en complément de votre suivi médical ?", ["Pas du tout, on m'a toujours dit qu'il fallait « faire avec »", "J'en ai entendu parler, mais je ne sais pas du tout comment l'appliquer à mon assiette", "J'ai tenté quelques changements seule, mais sans méthode structurée"]],
+  ["À quel point votre situation actuelle pèse-t-elle sur votre quotidien (confiance en vous, vie sociale, vie professionnelle) ?", ["Modérément, mais je sens que ça commence à me peser", "Fortement : j'ai l'impression que mon corps décide pour moi et limite mes projets", "Énormément : je ne me reconnais plus, physiquement ou émotionnellement"]],
+  ["Si une personne pouvait vous apporter la solution idéale, que contiendrait-elle en priorité ?", ["Un plan nutritionnel 100 % sur mesure, facile à tenir, sans privation ni frustration", "Un programme de renforcement et de mouvement adapté à mon énergie", "Une experte bienveillante, disponible pour répondre à mes doutes et ajuster le tir", "Tout cela à la fois : une prise en charge globale"]],
+  ["Pourquoi préférez-vous être guidée plutôt que de continuer à chercher seule ?", ["Pour gagner du temps et arrêter d'expérimenter au hasard sur ma santé", "Pour m'appuyer sur des repères scientifiques à jour (recommandations du PNNS, de l'ANSES et de l'OMS)", "Pour avoir un cadre, du soutien moral et quelqu'un qui croit en mes capacités", "Pour enfin comprendre le fonctionnement de mon propre corps"]],
+  ["Si nous mettons en place ensemble un plan d'action réaliste, progressif et adapté à votre rythme de vie, à quel point êtes-vous prête à vous accorder ce temps ?", ["Je suis prête dès maintenant : j'ai besoin de retrouver de la sérénité et de l'énergie", "J'ai encore de légères hésitations, mais j'aimerais échanger pour voir si la méthode me correspond", "J'aimerais d'abord voir le résultat de mes réponses"]]
 ];
-const QRES = [
-  [13, "De bonnes bases", "Vos habitudes sont déjà solides. Un bilan peut vous aider à aller plus loin selon vos objectifs : énergie, sport, cycle, ménopause."],
-  [8, "Quelques ajustements feraient la différence", "Vous avez de bons repères, et quelques changements simples pourraient vous aider à vous sentir mieux au quotidien."],
-  [0, "Un accompagnement vous aiderait à y voir clair", "Plusieurs points méritent qu'on s'y arrête, sans jugement. C'est exactement le rôle du bilan : partir de votre vie réelle pour construire des repères simples."]
+const QPRIO = [
+  ["Votre équilibre hormonal", "Endométriose, SMOP, syndrome prémenstruel : on adapte votre assiette et le mouvement à votre cycle, en complément de votre suivi médical."],
+  ["Une (péri)ménopause plus sereine", "Sommeil, énergie, variations d'humeur : on ajuste vos repas et vos séances à cette période, en complément de votre suivi médical."],
+  ["Performance et récupération", "On construit une alimentation qui soutient vos entraînements et votre récupération, à votre niveau."],
+  ["Un poids d'équilibre, sans régime", "Des repères simples et durables, sans restriction, pour retrouver de l'énergie au quotidien."]
 ];
+const QPAST = ["Vous avez déjà beaucoup essayé : pas de régime de plus, une méthode construite à partir de votre vie réelle.", "Vous serez écoutée : le bilan dure une heure et part de votre vécu.", "Fini les informations contradictoires : des repères simples et fiables.", "On avance à votre rythme, par petites étapes."];
+const QFIRST = [
+  ["Manger sans culpabilité : des repères clairs plutôt que des interdits.", "Alléger la charge mentale : un semainier et une liste de courses prêts à l'emploi.", "Comprendre pourquoi votre corps ne répond pas, au-delà du « manger sain ».", "Adapter votre assiette à votre cycle et à vos entraînements."],
+  ["Votre énergie après les repas : leur composition et leur rythme.", "Votre confort digestif au quotidien.", "Votre alimentation face aux douleurs, en complément de votre suivi médical.", "Les fringales : des repas réguliers et de vraies collations."],
+  ["Reprendre le mouvement en douceur, au niveau de votre énergie.", "Mieux récupérer pour sortir de la stagnation.", "Une pratique qui suit les variations de votre énergie au fil du mois.", "Un sport adapté à votre physiologie et à vos hormones."]
+];
+const QOFFER = [["Offre Nutrition", "60 € / mois"], ["Offre All in", "90 € / mois"], ["Offre Nutrition", "60 € / mois"], ["Offre All in", "90 € / mois"]];
+const DOCTOLIB_APPEL = DOCTOLIB; // à remplacer par le lien du motif « Appel découverte offert (15 min, téléphone) » quand Manon l'aura créé sur Doctolib
+const QARROW = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 const quiz = $("#quiz"), qbody = $("#qbody"), qbar = $("#qbar");
 let qi = 0, qa = [], qFrom = null;
 function qRender() {
   qbar.style.width = (qi / QUIZ.length * 100) + "%";
   if (qi < QUIZ.length) {
-    const [q, opts] = QUIZ[qi];
-    qbody.innerHTML = `<p class="mono qn">Question ${qi + 1} sur ${QUIZ.length}</p><h3>${q}</h3><div class="qopts" role="group" aria-label="${q}">${opts.map((o, k) => `<button type="button" class="qo${qa[qi] === k ? " on" : ""}" data-k="${k}">${o}</button>`).join("")}</div>${qi ? `<button type="button" class="qback mono">← Question précédente</button>` : ""}`;
+    const [q, opts, multi] = QUIZ[qi], sel = k => multi ? (qa[qi] || []).includes(k) : qa[qi] === k;
+    qbody.innerHTML = `<p class="mono qn">Question ${qi + 1} sur ${QUIZ.length}${multi ? " · plusieurs réponses possibles" : ""}</p><h3>${q}</h3><div class="qopts" role="group" aria-label="${q}">${opts.map((o, k) => `<button type="button" class="qo${sel(k) ? " on" : ""}" data-k="${k}"${multi ? ` aria-pressed="${sel(k)}"` : ""}>${o}</button>`).join("")}</div>
+      ${multi ? `<button type="button" class="btn btn-acc mono qnext" ${(qa[qi] || []).length ? "" : "disabled"}>Continuer ${QARROW}</button>` : ""}${qi ? `<button type="button" class="qback mono">← Question précédente</button>` : ""}`;
   } else {
-    const score = qa.reduce((t, k) => t + (2 - k), 0), [, title, text] = QRES.find(r => score >= r[0]);
-    const tips = QUIZ.map((x, k) => [qa[k], x[2]]).filter(([k]) => k > 0).sort((a, b) => b[0] - a[0]).slice(0, 3).map(t => t[1]);
-    qbody.innerHTML = `<p class="mono qn">Votre résultat · ${score} / ${QUIZ.length * 2}</p><h3>${title}</h3><p class="qt">${text}</p>
-      ${tips.length ? `<p class="mono qn">Des pistes pour commencer</p><ul class="qtips">${tips.map(t => `<li>${t}</li>`).join("")}</ul>` : ""}
-      <p class="qnote">Ce test est indicatif et ne remplace pas un bilan. Vos réponses restent sur votre appareil : rien n'est envoyé.</p>
-      <div class="qend"><a class="btn btn-acc mono" href="${DOCTOLIB}" target="_blank" rel="noopener">Réserver le bilan ${'<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'}</a><button type="button" class="btn btn-ghost mono qagain">Recommencer</button></div>`;
+    const [title, text] = QPRIO[qa[0]], [offer, price] = QOFFER[qa[7]], ready = qa[9];
+    const first = [QFIRST[0][qa[2]], ...(qa[3] || []).slice(0, 2).map(k => QFIRST[1][k]), QFIRST[2][qa[4]]];
+    const bilan = cls => `<a class="btn ${cls} mono" href="${DOCTOLIB}" target="_blank" rel="noopener">Réserver mon bilan · 70 € ${QARROW}</a>`;
+    const appel = cls => `<a class="btn ${cls} mono" href="${DOCTOLIB_APPEL}" target="_blank" rel="noopener">Réserver mon appel découverte offert ${QARROW}</a>`;
+    qbody.innerHTML = `<p class="mono qn">Votre résultat · votre priorité</p><h3>${title}</h3><p class="qt">${text} ${QPAST[qa[1]]}</p>
+      <p class="mono qn">Ce que nous regarderions en premier</p><ul class="qtips">${first.map(t => `<li>${t}</li>`).join("")}</ul>
+      <p class="qoffer"><span class="mono">La formule qui vous correspondrait</span><b>${offer}</b><small>${price}, engagement 3 mois · à confirmer ensemble au bilan</small></p>
+      <p class="qthanks">Merci pour votre confiance.${ready === 1 ? " Faisons le point ensemble pendant 15 minutes au téléphone, sans engagement." : ready === 2 ? " Prenez le temps de relire votre résultat. Quand vous serez prête :" : ""}</p>
+      <div class="qend">${ready === 1 ? appel("btn-acc") + bilan("btn-ghost") : ready === 2 ? bilan("btn-acc") + appel("btn-ghost") : bilan("btn-acc")}<button type="button" class="btn btn-ghost mono qagain">Recommencer</button></div>
+      <p class="qnote">Ce test est indicatif et ne remplace pas un bilan. Vos réponses restent sur votre appareil : rien n'est envoyé.</p>`;
   }
   const f = qbody.querySelector(".qo.on, .qo, .btn"); if (f) f.focus({ preventScroll: true });
 }
@@ -992,7 +1016,10 @@ $$("[data-quiz]").forEach(b => b.addEventListener("click", qOpen));
 $("#quizClose").addEventListener("click", qClose);
 quiz.addEventListener("click", e => {
   if (e.target === quiz) return qClose();
-  const o = e.target.closest(".qo"); if (o) { qa[qi] = +o.dataset.k; qi++; return qRender(); }
+  const o = e.target.closest(".qo");
+  if (o && QUIZ[qi][2]) { const k = +o.dataset.k, cur = qa[qi] || []; qa[qi] = cur.includes(k) ? cur.filter(x => x !== k) : [...cur, k].sort(); return qRender(); }
+  if (o) { qa[qi] = +o.dataset.k; qi++; return qRender(); }
+  if (e.target.closest(".qnext")) { qi++; return qRender(); }
   if (e.target.closest(".qback")) { qi--; return qRender(); }
   if (e.target.closest(".qagain")) { qi = 0; qa = []; qRender(); }
 });

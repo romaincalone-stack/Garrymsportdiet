@@ -1008,8 +1008,8 @@ body.framed{background:#E8F5DC}
 .adtab{display:none}
 @media (max-width:860px){
   .app.admin .rail{display:none}
-  .adtab{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;z-index:55;left:0;right:0;bottom:0;background:#FFFFFF;border-top:1px solid var(--line);padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 30px -18px rgba(15,58,42,.35)}
-  .adtab button{position:relative;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:58px;padding:6px 2px;border-radius:16px;font-family:var(--f-body);font-size:12px;font-weight:600;color:var(--ink-2);cursor:pointer}
+  .adtab{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:55;left:0;right:0;bottom:0;background:#FFFFFF;border-top:1px solid var(--line);padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 30px -18px rgba(15,58,42,.35)}
+  .adtab button{position:relative;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:58px;padding:6px 2px;border-radius:16px;font-family:var(--f-body);font-size:11.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
   .adtab button span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .adtab button svg{width:24px;height:24px}
   .adtab button.on{color:var(--olive);background:var(--brume)}
@@ -1295,9 +1295,9 @@ const PLAN_ORDER = ["suivi", "decouverte", "f1", "f2", "f3"];
 const PLANS = { // brief de réunion du 2026-10-30 : 3 à 4 tarifs sur le site, offres supplémentaires dans l'espace patiente
   suivi: { code: "À l'unité", name: "Consultation à l'unité, sans l'application", price: 50, unit: "€ la consultation" },
   decouverte: { code: "Mois offert", name: "Mois offert après le bilan", price: 0, unit: "€ · 30 jours" },
-  f1: { code: "Nutrition", name: "Offre Nutrition", price: 60, unit: "€ / mois", commit: "Engagement 2 ou 3 mois" },
-  f2: { code: "All in", name: "Offre All in", price: 90, unit: "€ / mois", commit: "Engagement 2 ou 3 mois" },
-  f3: { code: "Recettes + sport", name: "Recettes + sport, après le suivi", price: 40, unit: "€ / mois", commit: "Engagement 3 mois" }
+  f1: { code: "Nutrition", name: "Offre Nutrition", price: 60, unit: "€ / mois", commit: "Engagement 3 mois · 180 € en 1 fois ou chaque mois" },
+  f2: { code: "All in", name: "Offre All in", price: 90, unit: "€ / mois", commit: "Engagement 3 mois · 270 € en 1 fois ou chaque mois" },
+  f3: { code: "Recettes + sport", name: "Recettes + sport, après le suivi", price: 20, unit: "€ / mois", commit: "Sans engagement, ou 90 € pour 6 mois" } // retours du 2026-11-04 : 20 €/mois, ou 6 mois pour 90 € payables en 1 fois ou chaque mois
 };
 const FEATURES = [
   { key: "docs", label: "Profil et fiches conseils" },
@@ -1325,7 +1325,7 @@ const ACCESS = {
   recettes:    { suivi: false, decouverte: true,  f1: true,  f2: true,  f3: true },
   videos:      { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
   sport:       { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
-  collectives: { suivi: false, decouverte: false, f1: false, f2: true,  f3: true },
+  collectives: { suivi: false, decouverte: false, f1: false, f2: true,  f3: false },
   individuelle:{ suivi: false, decouverte: false, f1: false, f2: true,  f3: false },
   journal:     { suivi: false, decouverte: true,  f1: true,  f2: true,  f3: false },
   evolution:   { suivi: true,  decouverte: true,  f1: true,  f2: true,  f3: true },
@@ -1491,7 +1491,7 @@ const S = {
   rf: { q: "", theme: "", meal: "", time: "", diet: "", allergen: "", fav: false, tags: [] },
   pdate: "2026-10-22", pview: "semaine", pmonth: "2026-10", cmonth: "2026-10", ptype: null, progTab: "seances", progWeek: null, plId: null, quiz: null,
   vf: { max: "", disc: "", zone: "", level: "" },
-  ptSub: null, pday: (TODAY.getDay() + 6) % 7, libTab: "v", vq: "", metric: "poids", hideW: false, vdone: new Set(["v3", "v9"]), suiviTab: "semaine",
+  ptSub: null, pday: (TODAY.getDay() + 6) % 7, libTab: "v", vq: "", metric: "poids", hideW: false, vdone: new Set(["v3", "v9"]), suiviTab: "semaine", evoId: null,
   sportTab: "programme", heroMode: "nutrition", wday: (TODAY.getDay() + 6) % 7, ptab: "mois",
   favR: new Set(["r2", "r3"]), favV: new Set(["v6"]), shopping: new Map(), done: new Set(["Lundi|v3", "Lundi|v9"]),
   notif: { nouveautes: true, rappels: true, resume: true },
@@ -1983,7 +1983,10 @@ const PROGRESS = {
     { date: "2026-10-13", poids: 70.6, energie: 7, sommeil: 6, symptomes: [] },
     { date: "2026-10-20", poids: 70.4, energie: 8, sommeil: 7, symptomes: [] }
   ],
-  p3: [{ date: "2026-08-01", poids: 61.2, energie: 6, sommeil: 8, symptomes: ["Reflux, brûlures"] }, { date: "2026-09-15", poids: 61.5, energie: 7, sommeil: 8, symptomes: [] }]
+  p3: [{ date: "2026-08-01", poids: 61.2, energie: 6, sommeil: 8, symptomes: ["Reflux, brûlures"] }, { date: "2026-09-15", poids: 61.5, energie: 7, sommeil: 8, symptomes: [] }],
+  p2: [{ date: "2026-08-04", poids: 66.0, energie: 3, sommeil: 5, symptomes: ["Ballonnements", "Douleurs au ventre"] }, { date: "2026-09-01", poids: 65.6, energie: 5, sommeil: 5, symptomes: ["Ballonnements"] }, { date: "2026-10-06", poids: 65.1, energie: 6, sommeil: 6, symptomes: ["Ballonnements"] }],
+  p7: [{ date: "2026-10-02", poids: null, energie: 4, sommeil: 3, symptomes: ["Transit lent"] }, { date: "2026-10-16", poids: null, energie: 5, sommeil: 4, symptomes: [] }],
+  p8: [{ date: "2026-06-05", poids: 74.2, energie: 6, sommeil: 6, symptomes: [] }, { date: "2026-08-28", poids: 73.0, energie: 7, sommeil: 7, symptomes: [] }]
 };
 const SHOW_WEIGHT = {}; // réglage de Manon par patiente ; absent = poids affiché
 const METRICS = [["poids", "Poids", "kg"], ["energie", "Énergie", "/10"], ["sommeil", "Sommeil", "/10"]];
@@ -2017,6 +2020,7 @@ const PAYMENTS = ["Carte bancaire", "Espèces", "Chèque", "Virement"];
 // [clé, libellé, prix, nature] ; nature : consult (diététique), nutri (contenus nutrition), mixte, sport
 const PRESTA = () => [["bilan", "Bilan initial", 70, "consult"], ["suivi", "Consultation de suivi", 50, "consult"],
   ["f1", `${PLANS.f1.name} (1 mois)`, PLANS.f1.price, "nutri"], ["f2", `${PLANS.f2.name} (1 mois)`, PLANS.f2.price, "mixte"], ["f3", `${PLANS.f3.name} (1 mois)`, PLANS.f3.price, "sport"],
+  ["f1-3", `${PLANS.f1.name} (3 mois, en 1 fois)`, 180, "nutri"], ["f2-3", `${PLANS.f2.name} (3 mois, en 1 fois)`, 270, "mixte"], ["f3-6", `${PLANS.f3.name} (6 mois)`, 90, "sport"],
   ["seance-v", "Séance individuelle de sport en visio", 20, "sport"], ["seance-p", "Séance individuelle de sport au cabinet ou à domicile", 35, "sport"]];
 const PATIENT_ADDR = { p1: "8 rue des Lauriers\n83130 La Garde", p2: "21 avenue Gambetta\n83000 Toulon", p3: "5 impasse des Pins\n83160 La Valette-du-Var", p6: "14 boulevard de Strasbourg\n83000 Toulon", p7: "3 chemin des Oliviers\n83210 La Farlède", p8: "40 rue Paul Lendrin\n83130 La Garde" };
 const INVOICES = [
@@ -2579,7 +2583,7 @@ const OFFER_REQ = [{ pid: "p8", offer: "coaching", date: "2026-10-21" }]; // dem
 const OFFERS = [
   ["f1", ["Le bilan, puis 1 suivi par mois (cabinet ou visio)", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Contact WhatsApp avec Manon"]],
   ["f2", ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio"]],
-  ["f3", ["Pour garder le rythme une fois votre suivi terminé", "Toutes les recettes et la liste de courses", "Vidéos et 2 séances collectives par mois", "Sans consultation"]],
+  ["f3", ["Pour garder le rythme une fois votre suivi terminé", "Toutes les recettes et la liste de courses", "Les vidéos de 10 à 30 min (sans les séances en direct)", "Sans consultation", "Ou 90 € pour 6 mois (15 € / mois), en 1 fois ou chaque mois"]],
   ["coaching", ["Une séance d'une heure avec Manon : échauffement, renfo, cardio", "20 € en visio, 35 € au cabinet ou chez vous", "À la séance"]]
 ];
 const offerName = k => PLANS[k] ? planName(k) : "Coaching individuel";
@@ -2631,15 +2635,15 @@ function mProfil() {
 /* =========================================================
    BACK-OFFICE
    ========================================================= */
-const AD_NAV = [["dashboard", "Tableau de bord", "grid"], ["patientes", "Patientes", "users"], ["suivi", "Suivi des repas", "chart"], ["programmes", "Programmes", "bowl"], ["recettes", "Recettes", "leaf"], ["videos", "Vidéos", "video"], ["articles", "Articles", "book"], ["seances", "Séances", "dumbbell"], ["rdv", "Rendez-vous", "cal"], ["factures", "Factures", "file"], ["parametres", "Paramètres", "gear"]];
+const AD_NAV = [["dashboard", "Tableau de bord", "grid"], ["patientes", "Patientes", "users"], ["suivi", "Suivi des repas", "chart"], ["evolutions", "Évolutions", "heart"], ["programmes", "Programmes", "bowl"], ["recettes", "Recettes", "leaf"], ["videos", "Vidéos", "video"], ["articles", "Articles", "book"], ["seances", "Séances", "dumbbell"], ["rdv", "Rendez-vous", "cal"], ["factures", "Factures", "file"], ["parametres", "Paramètres", "gear"]];
 function admin() {
-  const page = { dashboard: adDashboard, patientes: adPatients, suivi: adSuivi, programmes: adProgrammes, recettes: adRecettes, videos: adVideos, articles: adArticles, seances: adSeances, rdv: adRdv, factures: adFactures, parametres: adParams }[S.adPage]();
+  const page = { dashboard: adDashboard, patientes: adPatients, suivi: adSuivi, evolutions: adEvolutions, programmes: adProgrammes, recettes: adRecettes, videos: adVideos, articles: adArticles, seances: adSeances, rdv: adRdv, factures: adFactures, parametres: adParams }[S.adPage]();
   return `<div class="wrap app admin"><nav class="rail" aria-label="Back-office"><div class="me"><div class="av">MG</div><div><b>Manon Garrione</b><div class="tiny muted">Administratrice</div></div></div>
     ${AD_NAV.map(([k, l, ic]) => `<button class="nv ${S.adPage === k ? "on" : ""}" data-act="ad" data-p="${k}">${I[ic]}<span>${l}</span></button>`).join("")}</nav>
     <main class="main" id="main">${page}</main>${adTabbar()}</div>`;
 }
 /* Téléphone : barre d'onglets en bas (trois rubriques du quotidien + « Plus ») à la place de la barre latérale */
-const AD_TABS = [["dashboard", "Accueil", "grid"], ["patientes", "Patientes", "users"], ["suivi", "Suivi", "chart"]];
+const AD_TABS = [["dashboard", "Accueil", "grid"], ["patientes", "Patientes", "users"], ["suivi", "Suivi", "chart"], ["evolutions", "Évolutions", "heart"]];
 function adTabbar() {
   const n = actives().reduce((a, p) => a + toReview(p.id).length + (PROPOSALS[p.id] && PROPOSALS[p.id].status === "envoye" ? 1 : 0), 0);
   const more = !AD_TABS.some(t => t[0] === S.adPage);
@@ -2739,7 +2743,7 @@ function patientModal(id) {
       ${note("Option B : repas notés et mesures de la patiente visibles dans son suivi (données de santé, hébergement HDS).")}</div>
     <div class="m-foot"><button type="button" class="btn btn-text" data-act="toast" data-msg="Invitation renvoyée à ${esc(p.email)} (simulation).">Renvoyer l'invitation</button>
       <button type="button" class="btn btn-soft" data-act="pstatus" data-id="${p.id}" data-s="${p.status === "active" ? "suspendue" : "active"}">${p.status === "active" ? "Suspendre" : "Réactiver"}</button>
-      <button type="button" class="btn btn-soft" data-act="suivi" data-id="${p.id}">Suivi repas et évolution</button><button type="button" class="btn btn-soft" data-act="viewas" data-id="${p.id}">Voir son espace</button><button class="btn btn-olive">Enregistrer</button></div></form>`;
+      <button type="button" class="btn btn-soft" data-act="suivi" data-id="${p.id}">Suivi des repas</button><button type="button" class="btn btn-soft" data-act="evo" data-id="${p.id}">Évolution</button><button type="button" class="btn btn-soft" data-act="viewas" data-id="${p.id}">Voir son espace</button><button class="btn btn-olive">Enregistrer</button></div></form>`;
 }
 function adProgrammes() {
   return `<div class="ph-head"><div><span class="kicker">Modèles réutilisables</span><h1 class="display" style="margin-top:8px">Programmes</h1></div></div>
@@ -2970,6 +2974,40 @@ function adSuivi() {
         <td><button class="btn btn-soft btn-sm" data-act="suivi" data-id="${p.id}">Ouvrir le suivi</button></td></tr>`).join("") || `<tr><td colspan="7" class="muted">Aucune patiente concernée.</td></tr>`}</tbody></table></div>
     ${note("Option B : journal alimentaire et mesures = données de santé. Hébergeur certifié HDS, analyse d'impact (AIPD) et consentement explicite avant la mise en ligne.")}`;
 }
+/* ---------- Évolutions : les mesures, ressentis et cycle de chaque patiente (demande de Romain, 2026-11-04) ---------- */
+const lastOf = (prog, k) => [...prog].reverse().find(e => e[k] != null);
+function evoTrend(prog, k) { const f = prog.find(e => e[k] != null), l = lastOf(prog, k); return l ? { last: l[k], d: f !== l ? +(l[k] - f[k]).toFixed(1) : null, since: f.date } : null; }
+const evoDelta = (t, u, up) => t && t.d ? `<span class="tag ${up == null ? "" : (t.d > 0) === up ? "ok" : "warn"}">${t.d > 0 ? "+" : ""}${fr(t.d)}${u}</span>` : "";
+const evoCell = (prog, k, u, up) => { const t = evoTrend(prog, k); return t ? `<span class="nw"><b class="num">${fr(t.last)}</b> <span class="small muted">${u}</span></span> ${evoDelta(t, u === "kg" ? " kg" : "", up)}` : `<span class="muted small">—</span>`; };
+function adEvolutions() {
+  if (S.evoId && patientById(S.evoId)) return adEvoDetail(patientById(S.evoId));
+  const rows = actives().filter(p => ACCESS.evolution[p.plan]).map(p => { const prog = PROGRESS[p.id] || [], last = prog[prog.length - 1]; return { p, prog, last, age: last ? daysBetween(last.date, TODAY_ISO) : null }; })
+    .sort((a, b) => (a.last ? 0 : 1) - (b.last ? 0 : 1) || (b.last && a.last ? b.last.date.localeCompare(a.last.date) : 0));
+  const late = rows.filter(r => !r.last || r.age > 30).length;
+  return `<div class="ph-head"><div><span class="kicker">${rows.length} patientes · ${late} sans mesure récente</span><h1 class="display" style="margin-top:8px">Évolutions</h1></div></div>
+    <p class="small muted" style="margin:-6px 0 14px">Mesures, ressentis et cycle saisis par chaque patiente dans son espace. Écart calculé depuis sa première mesure.</p>
+    <div class="table-wrap"><table><thead><tr><th>Patiente</th><th>Formule</th><th>Dernière mesure</th><th>Poids</th><th>Énergie</th><th>Sommeil</th><th>Digestion</th><th>Cycle</th><th></th></tr></thead><tbody>
+      ${rows.map(({ p, prog, last, age }) => { const st = CYCLE_ON[p.id] ? cycleStats(p.id) : null; return `<tr><td><div class="row" style="flex-wrap:nowrap;gap:10px"><span class="av" style="width:36px;height:36px;font-size:12px">${initials(p)}</span><b>${esc(fullName(p))}</b></div></td><td>${planTag(p.plan)}</td>
+        <td>${last ? `<span class="nw">${fmtD(last.date, { day: "numeric", month: "short" })}</span>${age > 30 ? ` <span class="tag warn">À relancer</span>` : ""}` : `<span class="tag">Aucune mesure</span>`}</td>
+        <td>${evoCell(prog, "poids", "kg", null)}</td><td>${evoCell(prog, "energie", "/10", true)}</td><td>${evoCell(prog, "sommeil", "/10", true)}</td>
+        <td>${last ? (last.symptomes && last.symptomes.length ? `<span class="small">${last.symptomes.length} symptôme${last.symptomes.length > 1 ? "s" : ""}</span>` : `<span class="small muted">Aucun</span>`) : `<span class="muted small">—</span>`}</td>
+        <td>${st ? `<span class="small nw">${st.day ? "Jour " + st.day : "Activé"}</span>` : `<span class="muted small">—</span>`}</td>
+        <td><button class="btn btn-soft btn-sm" data-act="evo" data-id="${p.id}" aria-label="Ouvrir l'évolution de ${esc(fullName(p))}">Ouvrir</button></td></tr>`; }).join("") || `<tr><td colspan="9" class="muted">Aucune patiente concernée.</td></tr>`}</tbody></table></div>
+    ${note("Option B : mesures, ressentis et cycle = données de santé. Hébergeur certifié HDS, analyse d'impact (AIPD) et consentement explicite avant la mise en ligne. En production, chaque consultation de ces données par Manon est tracée.")}`;
+}
+function adEvoDetail(p) {
+  const prog = PROGRESS[p.id] || [], last = prog[prog.length - 1];
+  const counts = {}; prog.forEach(e => (e.symptomes || []).forEach(x => { counts[x] = (counts[x] || 0) + 1; }));
+  const kpi = (l, k, u, up) => { const t = evoTrend(prog, k); return `<div class="card kpi"><div class="v num">${t ? fr(t.last) + (u === "kg" ? " kg" : "<small>/10</small>") : "—"}</div><div class="l">${l}${t && t.d ? ` · ${evoDelta(t, u === "kg" ? " kg" : "", up)} depuis le ${fmtD(t.since, { day: "numeric", month: "short" })}` : ""}</div></div>`; };
+  return `<div style="margin-bottom:8px"><button class="btn btn-text btn-sm" data-act="evo">${backIcon}Toutes les évolutions</button></div>
+    <div class="ph-head"><div class="row" style="flex-wrap:nowrap;gap:14px"><span class="av">${initials(p)}</span><div><span class="kicker">Évolution · ${PLANS[p.plan].code} · suivie depuis le ${fmtD(p.start, { day: "numeric", month: "long" })}</span><h1 class="display" style="margin-top:6px">${esc(fullName(p))}</h1></div></div>
+      <div class="row" style="gap:8px"><button class="btn btn-soft btn-sm" data-act="suivi" data-id="${p.id}">Suivi des repas</button><button class="btn btn-soft btn-sm" data-act="openpatient" data-id="${p.id}">Fiche</button><button class="btn btn-soft btn-sm" data-act="viewas" data-id="${p.id}">Voir son espace</button></div></div>
+    <div class="kpis">${kpi("Poids", "poids", "kg", null)}${kpi("Énergie", "energie", "/10", true)}${kpi("Sommeil", "sommeil", "/10", true)}
+      <div class="card kpi"><div class="v num">${prog.length}</div><div class="l">Mesure${prog.length > 1 ? "s" : ""}${last ? ` · dernière le ${fmtD(last.date, { day: "numeric", month: "short" })}` : ""}</div></div></div>
+    ${prog.length ? `<div class="card" style="margin:14px 0"><h4 class="h-s" style="font-size:1rem">Digestion : symptômes notés</h4>${Object.keys(counts).length ? `<div class="row" style="gap:8px;margin-top:8px">${Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([x, n]) => `<span class="tag">${esc(x)} · ${n} fois sur ${prog.length}</span>`).join("")}</div>` : `<p class="small muted" style="margin:6px 0 0">Aucun symptôme noté.</p>`}</div>` : ""}
+    ${evoAdmin(p)}
+    <h2 class="h-s" style="margin:26px 0 12px">Cycle</h2>${cycleAdmin(p)}`;
+}
 function suiviModal(id) {
   const p = patientById(id), tab = S.suiviTab, t = NUTRI_TEMPLATES[p.nutri], prop = PROPOSALS[p.id], prog = PROGRESS[p.id] || [];
   const tabs = `<div class="chips">${[["semaine", `Semaine en cours${toReview(p.id).length ? ` (${toReview(p.id).length})` : ""}`], ["propose", "Semainier proposé"], ["evolution", "Évolution"], ["cycle", "Cycle"]].map(([k, l]) => `<button type="button" class="chip ${tab === k ? "on" : ""}" data-act="suivitab" data-t="${k}" data-id="${p.id}">${l}</button>`).join("")}</div>`;
@@ -2985,20 +3023,24 @@ function suiviModal(id) {
       ${DAYS.map((n, i) => `<b class="small">${n}</b>${SLOTS.map((s, j) => { const key = i + "|" + j, rv = prop.reviews[key]; return `<div class="scell sc-prop" data-slot="${s}"><b>${esc(prop.slots[key] || "Libre")}</b><label class="sr" for="pr-${i}-${j}">Conseil ${n} ${s}</label><input id="pr-${i}-${j}" name="${key}" placeholder="✓ Validé" value="${esc(rv && rv.kind === "conseil" ? rv.text : "")}"></div>`; }).join("")}`).join("")}</div></div>
       <div class="field" style="margin-top:12px"><label for="pr-comment">Mot général pour ${esc(p.first)}</label><textarea id="pr-comment" name="comment" rows="2">${esc(prop.comment || "")}</textarea></div>
       <div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn btn-olive">${I.check}Envoyer mes retours</button></div></form>`;
-  } else if (tab === "cycle") {
-    const st = cycleStats(p.id);
-    body = !CYCLE_ON[p.id] ? `<p class="muted">${esc(p.first)} n'a pas activé le suivi de son cycle. C'est facultatif : elle peut l'activer dans « Évolution ».</p>` : `<div class="grid g3 cyc-k"><div class="card"><span class="kicker">Jour du cycle</span><b class="h-s">${st.day ?? "—"}</b></div><div class="card"><span class="kicker">Dernières règles</span><b class="h-s">${st.last ? fmtD(st.last, { day: "numeric", month: "long" }) : "—"}</b></div><div class="card"><span class="kicker">Cycle moyen</span><b class="h-s">${st.avg ? st.avg + " jours" : "—"}</b><small class="muted">${st.n} cycle${st.n > 1 ? "s" : ""} complet${st.n > 1 ? "s" : ""}</small></div></div>
+  } else if (tab === "cycle") body = cycleAdmin(p);
+  else body = evoAdmin(p);
+  return `<div class="m-head"><div class="row" style="flex-wrap:nowrap"><span class="av">${initials(p)}</span><div><span class="kicker">Suivi</span><h2 class="h-s">${esc(fullName(p))}</h2></div></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
+    <div class="m-body">${tabs}${body}</div>`;
+}
+function cycleAdmin(p) {
+  const st = cycleStats(p.id);
+  return !CYCLE_ON[p.id] ? `<p class="muted">${esc(p.first)} n'a pas activé le suivi de son cycle. C'est facultatif : elle peut l'activer dans « Évolution ».</p>` : `<div class="grid g3 cyc-k"><div class="card"><span class="kicker">Jour du cycle</span><b class="h-s">${st.day ?? "—"}</b></div><div class="card"><span class="kicker">Dernières règles</span><b class="h-s">${st.last ? fmtD(st.last, { day: "numeric", month: "long" }) : "—"}</b></div><div class="card"><span class="kicker">Cycle moyen</span><b class="h-s">${st.avg ? st.avg + " jours" : "—"}</b><small class="muted">${st.n} cycle${st.n > 1 ? "s" : ""} complet${st.n > 1 ? "s" : ""}</small></div></div>
       <div class="grid g2 cyc-a"><div class="card">${cycleCal(p.id, true)}</div>
       <div class="table-wrap"><table><thead><tr><th>Début</th><th>Durée</th><th>Règles</th><th>Ovulation notée</th><th>Avant les règles</th></tr></thead><tbody>${[...st.cycles].reverse().map(c => `<tr><td>${fmtD(c.st)}</td><td class="num">${c.len ? c.len + " j" : "En cours"}</td><td class="num">${c.regles} j</td><td>${c.ovu ? "Jour " + (daysBetween(c.st, c.ovu) + 1) : "—"}</td><td>${c.len ? esc(c.spm.join(", ") || "Rien de noté") : "—"}</td></tr>`).join("")}</tbody></table></div></div>
       <p class="small muted">Saisi par ${esc(p.first)}. Repères pour adapter vos conseils, sans valeur de diagnostic.</p>`;
-  } else {
-    body = `<div class="row between"><p class="small muted">${prog.length} mesure${prog.length > 1 ? "s" : ""} saisie${prog.length > 1 ? "s" : ""} par ${esc(p.first)}.</p>
+}
+function evoAdmin(p) {
+  const prog = PROGRESS[p.id] || [];
+  return `<div class="row between"><p class="small muted">${prog.length} mesure${prog.length > 1 ? "s" : ""} saisie${prog.length > 1 ? "s" : ""} par ${esc(p.first)}.</p>
         <label class="row" style="gap:8px;flex-wrap:nowrap;cursor:pointer"><span class="small">Afficher le poids à la patiente</span><span class="toggle"><input type="checkbox" id="sw-${p.id}" data-change="showw" data-id="${p.id}" ${weightAllowed(p.id) ? "checked" : ""}><span></span></span></label></div>
       <div class="grid g3">${METRICS.map(([k, l, u]) => `<div class="card"><h4 class="h-s" style="font-size:1rem">${l}</h4>${chartSVG(prog, k, u, false)}</div>`).join("")}</div>
       <div class="table-wrap"><table><thead><tr><th>Date</th><th>Poids</th><th>Énergie</th><th>Sommeil</th><th>Digestion (symptômes)</th></tr></thead><tbody>${[...prog].reverse().map(e => `<tr><td>${fmtD(e.date)}</td><td class="num">${e.poids != null ? fr(e.poids) : "—"}</td><td>${e.energie}/10</td><td>${e.sommeil}/10</td><td>${esc(digLabel(e))}</td></tr>`).join("") || `<tr><td colspan="5" class="muted">Aucune mesure.</td></tr>`}</tbody></table></div>`;
-  }
-  return `<div class="m-head"><div class="row" style="flex-wrap:nowrap"><span class="av">${initials(p)}</span><div><span class="kicker">Suivi</span><h2 class="h-s">${esc(fullName(p))}</h2></div></div><button class="iconbtn" data-act="close" aria-label="Fermer">${I.x}</button></div>
-    <div class="m-body">${tabs}${body}</div>`;
 }
 function reviewModal(pid, key) {
   const p = patientById(pid), lg = MEALLOG[key], [, iso, j] = key.split("|"), d = DAYS.indexOf(DAYS.find((_, i) => isoDay(WEEK_START, i) === iso));
@@ -3269,12 +3311,13 @@ const A = {
   cycday: t => openModal(cycleModal(t.dataset.iso)),
   cycleon: () => { CYCLE_ON[me().id] = true; render(); toast("Suivi du cycle activé. Manon pourra le voir."); },
   cycleoff: () => { if (!confirm("Arrêter le suivi du cycle ? Manon ne verra plus ces informations.")) return; delete CYCLE_ON[me().id]; render(); toast("Suivi du cycle arrêté."); },
-  cmonth: t => { const [y, m] = S.cmonth.split("-").map(Number), d = new Date(y, m - 1 + +t.dataset.d, 1); S.cmonth = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); if (t.dataset.id) openModal(suiviModal(t.dataset.id), true); else render(); },
+  cmonth: t => { const [y, m] = S.cmonth.split("-").map(Number), d = new Date(y, m - 1 + +t.dataset.d, 1); S.cmonth = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); if (t.dataset.id && $("#modal-root").innerHTML) openModal(suiviModal(t.dataset.id), true); else render(); },
   propedit: () => { PROPOSALS[me().id].status = "brouillon"; render(); toast("Vous pouvez modifier votre proposition, puis la renvoyer."); },
   suivi: t => { if (!$("#modal-root").innerHTML) S.suiviTab = "semaine"; S.modal = { type: "suivi" }; openModal(suiviModal(t.dataset.id), true); },
   suivitab: t => { S.suiviTab = t.dataset.t; openModal(suiviModal(t.dataset.id), true); },
   review: t => openModal(reviewModal(t.dataset.id, t.dataset.k), true),
-  ad: t => { closeModal(); go(() => { S.adPage = t.dataset.p; }); },
+  ad: t => { closeModal(); go(() => { S.adPage = t.dataset.p; S.evoId = null; }); },
+  evo: t => { closeModal(); go(() => { S.adPage = "evolutions"; S.evoId = t.dataset.id || null; }); },
   admore: () => openModal(adMoreSheet()),
   offer: t => { OFFER_REQ.push({ pid: me().id, offer: t.dataset.o, date: TODAY_ISO }); render(); toast("C'est noté : Manon vous recontacte pour en parler."); },
   toast: t => toast(t.dataset.msg),
