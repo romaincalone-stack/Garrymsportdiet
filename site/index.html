@@ -435,6 +435,46 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
   .programmes.pinned .track{padding-bottom:24px}
   .programmes.pinned .card .im{aspect-ratio:auto;height:var(--ch,525px)}
 }
+/* ===== Formules en parcours (2026-11-04) : 01 bilan en tilleul, 02 deux suivis côte à côte, 03 lignes à la carte ===== */
+.offres{display:flex;flex-direction:column;gap:clamp(36px,5vw,56px)}
+.ostep{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+.onum{position:sticky;top:110px;display:flex;flex-direction:column;gap:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.3)}
+.onum b{font-family:var(--f-serif);font-weight:400;font-size:clamp(2.6rem,4vw,3.6rem);line-height:1;color:var(--tilleul)}
+.onum span{color:rgba(255,255,255,.78)}
+.oprice{font-weight:600;font-size:clamp(3rem,5vw,4.2rem);line-height:.9;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.oprice small{display:block;margin-top:10px;font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.obilan{--gx:50%;--gy:0%;position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 40px;align-items:center;padding:clamp(26px,3.4vw,40px);border-radius:28px;background:var(--tilleul);color:var(--ink)}
+.obilan::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(255,255,255,.45),transparent 55%);opacity:0;transition:opacity .4s}
+@media (hover:hover) and (pointer:fine){.obilan:hover::before{opacity:1}}
+.obilan h3,.orow h3,.oduo .plan h3{margin:0;font-weight:600;font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1.05}
+.obilan h3 .serif{font-weight:400;font-size:1.1em}
+.obilan ul,.oduo ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15.5px}
+.obilan li,.oduo li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.obilan li::before,.oduo li::before{content:"✓";font-weight:700;line-height:1.5}
+.oside{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.oduo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.oduo .plan{gap:14px;padding:30px 28px}
+.oduo .plan ul{padding-top:18px;margin-top:4px;border-top:1px solid rgba(127,127,127,.3)}
+.oduo .plan li::before{color:var(--tilleul)}
+.oduo .plan.feat li::before{color:var(--vert)}
+.opay{margin:-2px 0 0;font-size:14.5px;opacity:.8}
+.onote{margin:14px 0 0;color:rgba(255,255,255,.78);font-size:15px}
+.ocarte{border-top:1px solid rgba(255,255,255,.25)}
+.orow{display:grid;grid-template-columns:minmax(0,1fr) 170px auto;gap:16px 28px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+.orow h3{font-size:clamp(1.25rem,1.8vw,1.5rem)}
+.orow p{margin:6px 0 0;color:rgba(255,255,255,.78);font-size:15px}
+.op b{display:block;font-weight:600;font-size:1.9rem;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.op small{display:block;margin-top:6px;font-size:13px;line-height:1.4;color:rgba(255,255,255,.78)}
+.orow .btn,.oafter{justify-self:end}
+.oafter{white-space:nowrap;padding:12px 16px;border:1px dashed rgba(255,255,255,.45);border-radius:999px;color:rgba(255,255,255,.85);text-align:center}
+@media (max-width:900px){
+  .ostep{grid-template-columns:minmax(0,1fr);gap:16px}
+  .onum{position:static;flex-direction:row;align-items:baseline;gap:14px}
+  .obilan{grid-template-columns:minmax(0,1fr)}
+  .oduo{grid-template-columns:minmax(0,1fr)}
+  .orow{grid-template-columns:minmax(0,1fr) auto}
+  .orow .btn,.oafter{grid-column:1/-1;justify-self:start}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.manifest .w{opacity:1}}
 </style>
 </head>
@@ -526,9 +566,9 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
   <section class="sec deep formules wrap" id="formules">
     <div class="head"><div><div class="label mono" style="margin-bottom:24px"><b>(03)</b><span>Formules</span></div><h2>Choisissez<br><span class="serif acc">votre rythme</span></h2></div>
 </div>
-    <div class="plans" id="plans"></div>
+    <div class="offres" id="plans"></div>
     <p class="mutuelle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Pensez à votre mutuelle :</b> les consultations diététiques peuvent être remboursées, selon votre contrat. Une note d’honoraires vous est remise après chaque consultation.</span></p>
-    <p class="fine mono">Tarifs indicatifs, en cours de validation · Offres Nutrition et All in : engagement de 3 mois, payable en 1 fois ou chaque mois · Le coaching individuel est proposé ensuite dans votre espace</p>
+    <p class="fine mono">Tarifs indicatifs, en cours de validation · Le coaching individuel est proposé ensuite dans votre espace</p>
   </section>
 
   <section class="sec light lexique wrap" id="lexique">
@@ -898,7 +938,7 @@ if (!REDUCE) {
   gsap.fromTo("#bilanBg", { scale: 1.18 }, { scale: 1, ease: "none", scrollTrigger: { trigger: "#bilan", start: "top bottom", end: "bottom top", scrub: 1 } });
   gsap.from("#bilan .in > *", { opacity: 0, y: 40, duration: 1.4, stagger: .12, ease: "expo.out", scrollTrigger: { trigger: "#bilan", start: "top 45%" } });
   $$(".formules h2, .cabinets .places h2, .programmes h2, .foot .cta h2").forEach(h => gsap.from(h, { opacity: 0, y: 60, duration: 1.4, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 85%" } }));
-  $$(".plan").forEach((p, i) => gsap.from(p, { opacity: 0, y: 50, duration: 1.2, delay: i * .08, ease: "expo.out", scrollTrigger: { trigger: "#plans", start: "top 80%" } }));
+  $$(".ostep").forEach(p => gsap.from(p, { opacity: 0, y: 50, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: p, start: "top 85%" } }));
 }
 $$("[data-count]").forEach(el => { const end = +el.dataset.count, suf = el.dataset.suffix || "", o = { v: 0 };
   ScrollTrigger.create({ trigger: el, start: "top 88%", once: true, onEnter: () => gsap.to(o, { v: end, duration: REDUCE ? 0 : 1.6, ease: "expo.out", onUpdate: () => el.textContent = Math.round(o.v) + suf }) }); });
@@ -934,16 +974,34 @@ $$(".univers .side").forEach(s => {
 });
 
 /* ---------- Formules ---------- */
-const PLANS = [
-  { top: ["Pour commencer", "Doctolib"], h: 'Bilan <span class="serif">nutritionnel</span>', price: "70 €", unit: "la séance", cta: "Réserver le bilan", list: ["Une heure, au cabinet ou en visio", "Un premier plan alimentaire adapté à vos objectifs", "1 mois d'accès offert à l'application"] },
-  { top: ["Sans engagement", "Doctolib"], h: 'Consultation <span class="serif">de suivi</span>', price: "50 €", unit: "la séance", cta: "Réserver sur Doctolib", list: ["Sans l'application", "Après le bilan, quand vous le souhaitez", "Adaptation de votre plan alimentaire", "Au cabinet ou en visio"] },
-  { top: ["Offre", "Engagement 3 mois"], h: 'Nutrition', price: "60 €", unit: "/ mois", list: ["Le bilan, puis 1 suivi par mois, avec l'application", "Suivi hebdomadaire de votre semainier", "Banque de recettes et liste de courses", "Suivi de votre évolution", "180 € pour 3 mois, en 1 fois ou chaque mois"] },
-  { top: ["Offre", "La plus complète"], h: 'All <span class="serif">in</span>', price: "90 €", unit: "/ mois", feat: true, list: ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio", "270 € pour 3 mois, en 1 fois ou chaque mois"] },
-  { top: ["Après le suivi", "Sans consultation"], h: 'Sport <span class="serif">+ recettes</span>', price: "20 €", unit: "/ mois", after: true, list: ["Pour garder le rythme une fois votre suivi terminé", "Vidéos de 10 à 30 min et toutes les recettes", "Sans engagement, ou 90 € pour 6 mois (15 € / mois), en 1 fois ou chaque mois"] }
-];
+/* Formules (retour de Romain, 2026-11-04) : un parcours en trois étapes au lieu de cinq cartes égales.
+   01 le bilan (l'objectif du site), 02 l'accompagnement (Nutrition, All in), 03 à la carte (suivi à l'unité, après le suivi). */
+const PLANS = {
+  bilan: { price: 70, list: ["Une heure, au cabinet ou en visio", "Un premier plan alimentaire adapté à vos objectifs", "1 mois d'accès offert à l'application"] },
+  suivis: [
+    { k: "nutri", h: "Nutrition", tag: "L'essentiel", price: 60, total: 180, list: ["1 consultation de suivi par mois", "Votre semainier relu chaque semaine", "Recettes et liste de courses", "Suivi de votre évolution", "Contact WhatsApp avec Manon"] },
+    { k: "allin", h: 'All <span class="serif">in</span>', tag: "La plus complète", price: 90, total: 270, feat: true, list: ["Tout le contenu de l'offre Nutrition", "Vidéos de 10 à 30 min : cardio, renfo, étirements…", "2 séances collectives par mois en visio"] }
+  ],
+  carte: [
+    { h: "Consultation de suivi", sub: "Sans l'application · après le bilan, quand vous le souhaitez", price: "50 €", unit: "la séance", cta: true },
+    { h: "Sport + recettes", sub: "Après votre suivi · vidéos et recettes, sans consultation", price: "20 €", unit: "/ mois", more: "ou 90 € pour 6 mois", after: true }
+  ]
+};
+const ARROW = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 function renderPlans() {
-  $("#plans").innerHTML = PLANS.map(p => `<article class="plan ${p.feat ? "feat" : ""}"><div class="top mono"><span>${p.top[0]}</span><span>${p.top[1]}</span></div><h3>${p.h}</h3><div class="price">${p.price}<small>${p.unit}</small></div><ul>${p.list.map(x => `<li>${x}</li>`).join("")}</ul>${p.after ? `<p class="after mono">Proposée à la fin de votre suivi</p>` : `<a class="btn ${p.feat ? "btn-ink" : "btn-acc"} mono" href="${DOCTOLIB}" target="_blank" rel="noopener" data-cursor="DOCTOLIB">${p.cta || "Commencer par le bilan"} <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>`}</article>`).join("");
-  $$(".plan").forEach(p => p.addEventListener("pointermove", e => { const r = p.getBoundingClientRect(); p.style.setProperty("--gx", (e.clientX - r.left) + "px"); p.style.setProperty("--gy", (e.clientY - r.top) + "px"); }));
+  const step = (n, t, body) => `<div class="ostep"><div class="onum"><b>${n}</b><span class="mono">${t}</span></div><div class="obody">${body}</div></div>`;
+  const B = PLANS.bilan;
+  $("#plans").innerHTML =
+    step("01", "Pour commencer", `<article class="obilan"><div><h3>Le bilan <span class="serif">nutritionnel</span></h3><ul>${B.list.map(x => `<li>${x}</li>`).join("")}</ul></div>
+      <div class="oside"><div class="oprice">${B.price} €<small>la séance</small></div><a class="btn btn-ink mono doctolib" href="${DOCTOLIB}" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Réserver le bilan ${ARROW}</a></div></article>`) +
+    step("02", "Ensuite, votre suivi", `<div class="oduo">${PLANS.suivis.map(p => `<article class="plan${p.feat ? " feat" : ""}"><div class="top mono"><span>${p.tag}</span><span>Engagement 3 mois</span></div>
+      <h3>${p.h}</h3><div class="oprice">${p.price} €<small>/ mois</small></div><p class="opay">ou ${p.total} € en une fois pour les 3 mois</p>
+      <ul>${p.list.map(x => `<li>${x}</li>`).join("")}</ul></article>`).join("")}</div>
+      <p class="onote">Vous choisissez votre suivi avec Manon à la fin du bilan.</p>`) +
+    step("03", "À la carte", `<div class="ocarte">${PLANS.carte.map(c => `<div class="orow"><div class="ot"><h3>${c.h}</h3><p>${c.sub}</p></div>
+      <div class="op"><b>${c.price}</b><small>${c.unit}${c.more ? `<br>${c.more}` : ""}</small></div>
+      ${c.cta ? `<a class="btn btn-ghost mono doctolib" href="${DOCTOLIB}" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Doctolib ${ARROW}</a>` : `<span class="oafter mono">Proposée à la fin du suivi</span>`}</div>`).join("")}</div>`);
+  $$(".plan, .obilan").forEach(p => p.addEventListener("pointermove", e => { const r = p.getBoundingClientRect(); p.style.setProperty("--gx", (e.clientX - r.left) + "px"); p.style.setProperty("--gy", (e.clientY - r.top) + "px"); }));
   bindCursor();
 }
 
