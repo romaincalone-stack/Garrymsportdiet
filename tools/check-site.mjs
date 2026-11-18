@@ -17,8 +17,11 @@ async function run(name, viewport, mobile) {
   await page.goto(url, { waitUntil: "load", timeout: 90000 });
   await page.waitForFunction(() => document.body.classList.contains("ready"), null, { timeout: 60000 });
   await wait(2600);
-  const gl = await page.evaluate(() => !document.getElementById("gl").hidden);
-  console.log(`${name} webgl ${gl}`);
+  const photos = await page.evaluate(() => [...document.querySelectorAll(".arch img")].map(i => i.complete && i.naturalWidth > 0));
+  console.log(`${name} photos du héros ${photos.filter(Boolean).length}/${photos.length}`);
+  if (photos.length !== 2 || !photos.every(Boolean)) errors.push(`${name} : photos du héros absentes`);
+  const overlap = await page.evaluate(() => { const a = document.querySelector(".eyebrow").getBoundingClientRect(), b = document.querySelector("#title").getBoundingClientRect(); return a.bottom > b.top + 2; });
+  if (overlap) errors.push(`${name} : l'accroche chevauche le titre`);
   await page.screenshot({ path: `${out}/site-${name}-01-hero.png` });
   const ids = ["manifeste", "univers", "programmes", "bilan", "formules", "cabinets", "journal", "contact"];
   let n = 2;

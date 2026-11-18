@@ -156,7 +156,7 @@ En production : polices auto-hébergées (RGPD).
 | Section | Composition | Référence |
 | --- | --- | --- |
 | Chargement | Retiré le 2026-10-27 (jugé inutile par Romain) : le héros s'affiche directement | — |
-| Héros | Scène WebGL plein écran : corbeille de fruits en 3D réalistes (citron au centre, abricot, pomme, figue, olives, feuilles) : matières physiques (velours, pores, cire, laque), éclairage d'ambiance, ombres portées ; chute à l'arrivée, flottaison, poussée du pointeur, collisions douces, élan du défilement ; poussière en suspension ; mentions mono en haut, titre en trois lignes en bas à gauche, texte et boutons en bas à droite, « Défilez pour explorer » | Resn, KÖM, Terminal, Lando |
+| Héros | **Depuis le 2026-11-18** : deux vraies photos en arches à droite, « Sur le terrain » (arche haute) et « Dans l'assiette » (cercle cerclé de blanc), étiquettes blanches ; lignes topographiques vertes à 8 % en fond ; à gauche le logo en grand, l'accroche mono, le titre en trois lignes et les trois boutons en ligne. Entrée : photos dévoilées de bas en haut dans leur arche ; léger décalage des deux photos au défilement. Les fruits 3D (2026-10-23) ont été retirés : jugés « trop IA » | Retour de Romain |
 | (01) Manifeste | Fond écume, fin de phrase surlignée de citron, une phrase centrée qui s'éclaire mot à mot, trait manuscrit qui se dessine | Terminal |
 | L'assiette / Le terrain | Deux moitiés, titre géant ; la photo se révèle (assombrie) avec un trait citron sous le titre ; bouton rond calanque à flèche citron ; en cercle depuis le pointeur | Lando (On track / Off track) |
 | (02) Thématiques | Titre à gauche, défilement horizontal épinglé de cartes à coins coupés (balayage au doigt sur mobile) | KÖM, Lando |

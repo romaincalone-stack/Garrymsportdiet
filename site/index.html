@@ -84,25 +84,15 @@ body.ready .nav{opacity:1}
 .btn svg{width:14px;height:14px}
 @media (max-width:900px){.nav .links,.nav .hide-s{display:none}}
 
-/* Ouverture WebGL (Resn, KÖM, Terminal) */
+/* Héros (photos en arches depuis le 2026-11-18, voir « Héros v7 » en fin de feuille) */
 .hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;background:radial-gradient(120% 90% at 70% 40%,#1F3D2E 0%,var(--nuit) 62%)}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero .fallback{position:absolute;right:8%;top:16%;width:min(46vw,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F6F9F3,#B2E388 40%,#12231B 75%);filter:blur(2px);opacity:.85}
-.hero .meta{position:absolute;top:calc(env(safe-area-inset-top,0px) + 92px);left:0;right:0;display:flex;justify-content:space-between;gap:20px;color:rgba(246,249,243,.72)}
-.hero .meta .r{text-align:right}
-.hero .meta > div,.hero .side p{text-shadow:0 1px 14px rgba(18,35,27,.9),0 0 2px rgba(18,35,27,.8)}
-.hero .content{position:absolute;left:0;right:0;bottom:clamp(70px,9vh,110px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end}
 .hero h1{margin:0;font-weight:800;font-variation-settings:"wdth" 80;text-transform:uppercase;font-size:clamp(3rem,calc((100vw - 460px) / 6.6),10.5rem);line-height:.84;letter-spacing:-.025em}
 .hero h1 .l{display:block;overflow:hidden;padding:.16em 0 .04em;margin-top:-.16em}
 .hero h1 .l > span{display:inline-block}
 .hero h1 .serif{font-weight:400;text-transform:uppercase;letter-spacing:-.03em}
-.hero .side{max-width:330px;display:flex;flex-direction:column;gap:20px;padding-bottom:12px}
-.hero .side p{margin:0;color:rgba(246,249,243,.78);font-size:15px}
-.hero .side .row{display:flex;gap:8px;flex-wrap:wrap}
 .hero .scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(246,249,243,.6)}
 .hero .scroll i{display:block;width:1px;height:38px;background:linear-gradient(var(--tilleul),transparent);transform-origin:top;animation:scrollLine 2.2s var(--ease) infinite}
 @keyframes scrollLine{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@media (max-width:820px){.hero .content{grid-template-columns:minmax(0,1fr)}.hero .meta .r{display:none}.hero h1{font-size:clamp(3rem,13vw,6rem)}}
 
 /* Sections */
 .sec{position:relative}
@@ -295,12 +285,8 @@ body::before{background:var(--blanc)}
 @media (hover:hover) and (pointer:fine){.nav .links a:hover{background:var(--brume)}}
 /* Héros clair */
 .hero{background:radial-gradient(110% 90% at 72% 42%,#EEF8E4 0%,#FFFFFF 60%)}
-.hero .meta{color:var(--gris)}
-.hero .meta > div,.hero .side p{text-shadow:0 0 18px #fff,0 0 4px #fff}
-.hero .side p{color:var(--ink)}
 .hero .scroll{color:var(--gris)}
 .hero .scroll i{background:linear-gradient(var(--vert),transparent)}
-.hero .fallback{background:radial-gradient(circle at 35% 30%,#FFFFFF,#B2E388 45%,#18694B 80%)}
 .label{color:var(--gris)}
 .deep .label,.foot .label{color:rgba(255,255,255,.75)}
 /* Univers */
@@ -342,16 +328,12 @@ body::before{background:var(--blanc)}
 /* Logo en grand dans le héros ; celui de la capsule n'apparaît qu'après le héros (pas de doublon) */
 .nav .logo{max-width:0;margin-right:0;opacity:0;overflow:hidden;transition:max-width .5s var(--ease),margin .5s var(--ease),opacity .3s}
 .nav.past .logo{max-width:90px;margin-right:10px;opacity:1}
-.hero .meta .brand{height:clamp(70px,8vw,112px);width:auto;max-width:none;margin:0 0 14px -6px}
-@media (max-width:820px){.hero .meta .brand{display:none}.nav .logo{max-width:90px;margin-right:10px;opacity:1}}
+@media (max-width:820px){.nav .logo{max-width:108px;margin-right:10px;opacity:1}.nav .logo img{height:48px}}
 /* Mutuelle et « + sport » en gras (retour de Manon, 2026-10-28) */
 .plan h3 b{font-weight:inherit}
 .formules .mutuelle{display:flex;gap:14px;align-items:flex-start;margin:28px 0 0;padding:18px 22px;border-radius:20px;background:rgba(255,255,255,.1);color:#fff;max-width:760px;font-size:1rem;line-height:1.5}
 .formules .mutuelle svg{width:26px;height:26px;flex:none;color:#B2E388;margin-top:1px}
 /* ===== Brief de réunion du 2026-10-30 : trois boutons d'accueil, prestations, lexique, test ===== */
-.hero .side{max-width:300px}
-.hero .ctas{display:flex;flex-direction:column;gap:8px;width:100%}
-.hero .ctas .btn{justify-content:space-between;min-height:50px;width:100%;font-size:12px}
 .hero .btn-line{background:rgba(255,255,255,.7);border-color:var(--ligne);color:var(--ink)}
 @media (hover:hover) and (pointer:fine){.hero .btn-line:hover{background:var(--ink);color:#fff}}
 .presta{padding-block:clamp(70px,9vw,130px)}
@@ -395,7 +377,6 @@ body::before{background:var(--blanc)}
 .qoffer .mono{color:var(--gris)}.qoffer b{font-size:1.2rem;color:var(--vert)}.qoffer small{color:var(--gris);font-size:14px}
 .qthanks{margin:0 0 14px;font-size:16px}
 @media (max-width:820px){
-  .hero .side{max-width:none}
   .presta .pr{grid-template-columns:minmax(0,1fr);gap:6px}
   .lxs{grid-template-columns:minmax(0,1fr)}
 }
@@ -475,6 +456,52 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
   .orow{grid-template-columns:minmax(0,1fr) auto}
   .orow .btn,.oafter{grid-column:1/-1;justify-self:start}
 }
+/* ===== Héros v7 (retour de Romain, 2026-11-18) : les fruits 3D « trop IA » remplacés par deux vraies photos en arches,
+   « Sur le terrain » et « Dans l'assiette » (les deux moitiés du titre). Mise en page en grille, sans positions absolues :
+   le logo, l'accroche et le titre ne peuvent plus se chevaucher, quelle que soit la hauteur de l'écran. ===== */
+.hero{height:auto;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(100px,14vh,150px) 0 clamp(64px,9vh,100px)}
+.hero .hero-topo{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hwrap{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,88px);align-items:center;width:100%}
+.hl{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.hl .brand{height:clamp(104px,10.5vw,156px);width:auto;max-width:none;margin:0 0 clamp(14px,2.2vh,24px) -8px}
+.eyebrow{margin:0 0 clamp(14px,2.4vh,26px);color:var(--gris);line-height:1.8}
+.eyebrow span + span::before{content:" · "}
+.eyebrow span:last-child{display:block}
+.eyebrow span:last-child::before{content:none}
+.hero h1{font-size:min(clamp(2.6rem,5.2vw,5.8rem),10.5vh)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(22px,3.8vh,40px)}
+.hero .ctas .btn{min-height:50px;font-size:12px;gap:14px}
+.hr{position:relative;height:min(70vh,640px);min-height:400px}
+.arch{position:absolute;margin:0;overflow:hidden;background:var(--brume)}
+.arch img{display:block;width:100%;height:100%;object-fit:cover}
+.arch.a1{right:0;top:0;width:68%;height:100%;border-radius:999px 999px 32px 32px}
+.arch.a1 img{object-position:38% 50%}
+.arch.a2{left:0;bottom:4%;width:48%;aspect-ratio:1;border-radius:50%;border:8px solid var(--blanc)}
+.arch figcaption{position:absolute;left:50%;bottom:clamp(14px,2.4vh,24px);transform:translateX(-50%);padding:9px 16px;border-radius:999px;background:var(--blanc);color:var(--ink);white-space:nowrap}
+.arch.a2 figcaption{bottom:16%}
+@media (max-width:900px){
+  .hero{min-height:0;justify-content:flex-start;padding:100px 0 48px}
+  .hwrap{grid-template-columns:minmax(0,1fr);gap:30px}
+  .hl .brand{display:none}
+  .hero h1{font-size:clamp(2.4rem,11vw,4.2rem)}
+  .hero .ctas{flex-direction:column;width:100%}
+  .hero .ctas .btn{width:100%;justify-content:space-between}
+  .hr{height:auto;min-height:0;aspect-ratio:1/1.02}
+  .arch.a2{border-width:6px}
+  .hero .scroll{display:none}
+  .eyebrow span{display:block}
+  .eyebrow span + span::before{content:none}
+}
+/* Écrans peu hauts (portable 1 366 × 657) : tout le héros, boutons compris, reste visible sans défiler */
+@media (min-width:901px) and (max-height:780px){
+  .hero{padding:92px 0 36px}
+  .hl .brand{height:min(clamp(104px,10.5vw,156px),16vh);margin-bottom:10px}
+  .eyebrow{margin-bottom:12px}
+  .hero h1{font-size:min(clamp(2.6rem,5.2vw,5.8rem),9.4vh)}
+  .hero .ctas{margin-top:20px}
+  .hr{height:72vh;min-height:0}
+  .hero .scroll{display:none}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.manifest .w{opacity:1}}
 </style>
 </head>
@@ -502,17 +529,21 @@ button,.btn,.pill,summary{-webkit-user-select:none;user-select:none}
 
 <main id="top">
   <section class="hero" id="hero">
-    <div class="fallback" id="fallback" hidden></div>
-    <canvas id="gl" aria-hidden="true"></canvas>
-    <div class="meta wrap mono"><div><img class="brand" src="img/logo.png" alt="GM Sport et Nutrition" width="640" height="422">Diététicienne-nutritionniste<br>Coach sportive diplômée</div><div class="r">43°07′N · 6°01′E<br>La Garde — Visio</div></div>
-    <div class="content wrap">
-      <h1 id="title"><span class="l"><span>Manger</span> <span class="serif acc">mieux,</span></span><span class="l"><span class="serif acc">bouger</span> <span>plus,</span></span><span class="l"><span>à votre rythme.</span></span></h1>
-      <div class="side">
+    <canvas class="topo hero-topo" data-color="rgba(24,105,75,.08)" aria-hidden="true"></canvas>
+    <div class="hwrap wrap">
+      <div class="hl">
+        <img class="brand" src="img/logo.png" alt="GM Sport et Nutrition" width="640" height="422">
+        <p class="eyebrow mono"><span>Diététicienne-nutritionniste</span><span>Coach sportive diplômée</span><span>La Garde et visio</span></p>
+        <h1 id="title"><span class="l"><span>Manger</span> <span class="serif acc">mieux,</span></span><span class="l"><span class="serif acc">bouger</span> <span>plus,</span></span><span class="l"><span>à votre rythme.</span></span></h1>
         <div class="ctas">
           <a class="btn btn-acc mono doctolib" href="#" target="_blank" rel="noopener" data-cursor="DOCTOLIB">Réserver le bilan <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           <button class="btn btn-ghost mono" type="button" data-quiz>Tester mon alimentation <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
           <a class="btn btn-line mono" href="#manifeste">La méthode Garry M <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
         </div>
+      </div>
+      <div class="hr" aria-hidden="true">
+        <figure class="arch a1"><img src="img/etirement.jpg" alt="" fetchpriority="high"><figcaption class="mono">Sur le terrain</figcaption></figure>
+        <figure class="arch a2"><img src="img/assiette.jpg" alt=""><figcaption class="mono">Dans l'assiette</figcaption></figure>
       </div>
     </div>
     <div class="scroll mono">Défilez pour explorer<i></i></div>
@@ -641,7 +672,6 @@ window.REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 window.TOUCH = matchMedia("(hover: none), (pointer: coarse)").matches;
 </script>
 <script type="module">
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 const { gsap, ScrollTrigger, Lenis } = window;
 const REDUCE = window.REDUCE, TOUCH = window.TOUCH;
 gsap.registerPlugin(ScrollTrigger);
@@ -664,243 +694,27 @@ addEventListener("message", e => { if (!e.data || e.data.garrym !== "goto" || !$
   const t = setInterval(() => { if (!document.body.classList.contains("ready")) return; clearInterval(t); lenis ? lenis.scrollTo(e.data.hash, { immediate: true }) : $(e.data.hash).scrollIntoView(); }, 200); });
 $("#espace").addEventListener("click", e => { e.preventDefault(); if (window.parent !== window) window.parent.postMessage({ garrym: "login" }, "*"); else toast("L'espace patiente s'ouvre depuis le prototype (bandeau « Espace patiente »)."); });
 
-/* ---------- Scène WebGL d'ouverture : corbeille de fruits ---------- */
-let hero = null;
-/* Fruits modélisés ici (révolution, sphères déformées, feuilles), sans modèle externe.
-   Rendu physique : velours de l'abricot, pores du citron, cire de la pomme, olives laquées, textures peintes au canvas,
-   éclairage d'ambiance et ombres portées. Mouvement physique : ressorts amortis, inertie, chute à l'arrivée,
-   poussée du pointeur, collisions douces entre fruits, élan du défilement. */
-function initGL() {
-  const canvas = $("#gl");
-  let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); }
-  catch (e) { canvas.hidden = true; $("#fallback").hidden = false; return null; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, TOUCH ? 1.75 : 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
-  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(35, 1, .1, 100);
-  camera.position.set(0, 0, 9);
-  const uniforms = { uIntro: { value: 0 } };
-  const PI = Math.PI, TAU = PI * 2, E = Math.exp;
-  const rng = (seed => () => (seed = (seed * 16807) % 2147483647) / 2147483647)(11);
-
-  /* Ambiance : ciel lagon, sol calanque et trois boîtes à lumière, converties en carte d'environnement */
-  const pmrem = new THREE.PMREMGenerator(renderer), env = new THREE.Scene();
-  const sky = new THREE.SphereGeometry(10, 32, 16), skyCol = [], cTop = new THREE.Color("#EEF6E8"), cBot = new THREE.Color("#4F7A5E");
-  for (let i = 0; i < sky.attributes.position.count; i++) { const c = cBot.clone().lerp(cTop, THREE.MathUtils.smoothstep(sky.attributes.position.getY(i) / 10, -.4, .8)); skyCol.push(c.r, c.g, c.b); }
-  sky.setAttribute("color", new THREE.Float32BufferAttribute(skyCol, 3));
-  env.add(new THREE.Mesh(sky, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.BackSide })));
-  const softbox = (w, h, c, k, p) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(k), side: THREE.DoubleSide })); m.position.set(...p); m.lookAt(0, 0, 0); env.add(m); };
-  softbox(6, 4, "#FFF3DA", 6, [-5, 6, 5]); softbox(4, 6, "#D8EFC6", 2.5, [7, 1, -2]); softbox(8, 2, "#FFFFFF", 1.4, [0, -2, 8]);
-  scene.environment = pmrem.fromScene(env, .04).texture;
-
-  /* Lumières : soleil chaud qui porte les ombres, contre-jour lagon, ciel / sol */
-  const sun = new THREE.DirectionalLight("#FFF1D6", 2.4), sunOff = new THREE.Vector3(-4, 6, 6);
-  sun.castShadow = true; sun.shadow.mapSize.setScalar(TOUCH ? 1024 : 2048);
-  Object.assign(sun.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 1, far: 22 });
-  sun.shadow.bias = -.0004; sun.shadow.normalBias = .02;
-  scene.add(sun, sun.target);
-  const rim = new THREE.DirectionalLight("#C9EBB0", 1.6); rim.position.set(5, 2, -6); scene.add(rim);
-  scene.add(new THREE.HemisphereLight("#FFFFFF", "#7FA98C", .5));
-
-  /* Textures peintes : couleur, taches, stries, pores (le haut du canvas correspond au haut du fruit) */
-  const TS = TOUCH ? 512 : 1024;
-  function paint(w, h, fn, color = true) {
-    const c = document.createElement("canvas"); c.width = w; c.height = h; fn(c.getContext("2d"), w, h);
-    const t = new THREE.CanvasTexture(c); if (color) t.colorSpace = THREE.SRGBColorSpace; t.wrapS = THREE.RepeatWrapping; t.anisotropy = 4; return t;
-  }
-  const vgrad = (x, w, h, stops) => { const g = x.createLinearGradient(0, 0, 0, h); stops.forEach(([o, c]) => g.addColorStop(o, c)); x.fillStyle = g; x.fillRect(0, 0, w, h); };
-  const blob = (x, w, cx, cy, rx, ry, c0, c1) => { for (const dx of [-w, 0, w]) { x.save(); x.translate(cx + dx, cy); x.scale(1, ry / rx); const g = x.createRadialGradient(0, 0, 0, 0, 0, rx); g.addColorStop(0, c0); g.addColorStop(1, c1); x.fillStyle = g; x.beginPath(); x.arc(0, 0, rx, 0, TAU); x.fill(); x.restore(); } };
-  const dots = (x, w, h, n, r0, r1, col, y0 = 0, y1 = 1) => { for (let i = 0; i < n; i++) { const r = r0 + rng() * (r1 - r0); x.fillStyle = col(); x.beginPath(); x.ellipse(rng() * w, (y0 + rng() * (y1 - y0)) * h, r, r * (.6 + rng() * .6), rng() * PI, 0, TAU); x.fill(); } };
-  const K = TS / 1024;
-  const T = {
-    citron: paint(TS, TS / 2, (x, w, h) => { vgrad(x, w, h, [[0, "#C2B03A"], [.1, "#E8C83E"], [.5, "#F5D547"], [.9, "#EAC83C"], [1, "#BBAA38"]]);
-      blob(x, w, w * .3, h * .5, w * .25, h * .3, "rgba(255,228,120,.5)", "rgba(255,228,120,0)");
-      dots(x, w, h, 9000 * K, .5, 1.6, () => rng() > .5 ? "rgba(165,125,10,.18)" : "rgba(255,240,170,.22)"); }),
-    citronRelief: paint(TS, TS / 2, (x, w, h) => { x.fillStyle = "#808080"; x.fillRect(0, 0, w, h);
-      dots(x, w, h, 15000 * K, .6, 1.9, () => `rgba(40,40,40,${.25 + rng() * .35})`); dots(x, w, h, 4000 * K, .5, 1.2, () => "rgba(225,225,225,.35)"); }, false),
-    abricot: paint(TS, TS / 2, (x, w, h) => { vgrad(x, w, h, [[0, "#E68A2E"], [.5, "#F6A540"], [1, "#F2B858"]]);
-      blob(x, w, w * .22, h * .42, w * .28, h * .45, "rgba(212,70,30,.72)", "rgba(212,70,30,0)");
-      blob(x, w, w * .3, h * .35, w * .12, h * .2, "rgba(186,48,24,.4)", "rgba(186,48,24,0)");
-      blob(x, w, w * .75, h * .55, w * .22, h * .35, "rgba(255,205,110,.5)", "rgba(255,205,110,0)");
-      dots(x, w, h, 900 * K, .6, 1.6, () => `rgba(165,48,20,${.25 + rng() * .3})`, .15, .7); }),
-    pomme: paint(TS, TS / 2, (x, w, h) => { vgrad(x, w, h, [[0, "#6E8F33"], [.25, "#9CC24C"], [.7, "#B9D266"], [1, "#9DB84E"]]);
-      blob(x, w, w * .65, h * .45, w * .2, h * .4, "rgba(200,80,40,.5)", "rgba(200,80,40,0)");
-      for (let i = 0; i < 160; i++) { const px = w * (.5 + (rng() - .5) * .4); x.strokeStyle = `rgba(185,60,35,${.08 + rng() * .14})`; x.lineWidth = (1 + rng() * 3) * K * 2; x.beginPath(); x.moveTo(px, h * (.1 + rng() * .2)); x.bezierCurveTo(px + (rng() - .5) * 20, h * .4, px + (rng() - .5) * 30, h * .6, px + (rng() - .5) * 20, h * (.7 + rng() * .2)); x.stroke(); }
-      dots(x, w, h, 1400 * K, .6, 1.4, () => "rgba(240,245,200,.55)", .05, .95); }),
-    figue: paint(TS, TS / 2, (x, w, h) => { vgrad(x, w, h, [[0, "#5F6A35"], [.18, "#5B4A3A"], [.4, "#4A2240"], [1, "#2E1428"]]);
-      for (let i = 0; i < 70; i++) { const px = i / 70 * w + rng() * 6; x.strokeStyle = `rgba(150,110,140,${.06 + rng() * .08})`; x.lineWidth = (1 + rng() * 2) * K * 2; x.beginPath(); x.moveTo(px, h * .15); x.lineTo(px + (rng() - .5) * 8, h); x.stroke(); }
-      dots(x, w, h, 1500 * K, .5, 1.2, () => "rgba(210,190,200,.25)", .2, 1); }),
-    feuille: paint(256, 512, (x, w, h) => { const g = x.createLinearGradient(0, 0, w, 0); g.addColorStop(0, "#14573E"); g.addColorStop(.5, "#18694B"); g.addColorStop(1, "#14573E"); x.fillStyle = g; x.fillRect(0, 0, w, h);
-      vgrad(x, w, h, [[0, "rgba(127,191,143,.55)"], [1, "rgba(127,191,143,0)"]]);
-      x.strokeStyle = "rgba(190,220,205,.55)"; x.lineWidth = 3; x.beginPath(); x.moveTo(w / 2, h); x.lineTo(w / 2, 0); x.stroke();
-      x.lineWidth = 1; x.strokeStyle = "rgba(190,220,205,.2)"; for (let i = 1; i < 12; i++) { const y = h * i / 12; x.beginPath(); x.moveTo(w / 2, y); x.quadraticCurveTo(w * .3, y - 18, 0, y - 40); x.moveTo(w / 2, y); x.quadraticCurveTo(w * .7, y - 18, w, y - 40); x.stroke(); } })
-  };
-  const olive = (a, b) => paint(TS / 2, TS / 4, (x, w, h) => { vgrad(x, w, h, [[0, b], [.5, a], [1, b]]); blob(x, w, w * .4, h * .45, w * .25, h * .3, "rgba(255,255,255,.08)", "rgba(255,255,255,0)"); dots(x, w, h, 500 * K, .4, 1, () => "rgba(230,230,200,.25)"); });
-  const PM = o => new THREE.MeshPhysicalMaterial(Object.assign({ roughness: .5, envMapIntensity: .9 }, o));
-  const M = {
-    citron: PM({ map: T.citron, bumpMap: T.citronRelief, bumpScale: 1.2, roughness: .38, clearcoat: .35, clearcoatRoughness: .45 }),
-    abricot: PM({ map: T.abricot, roughness: .62, sheen: 1, sheenColor: new THREE.Color("#FFD2AE"), sheenRoughness: .35 }),
-    pomme: PM({ map: T.pomme, roughness: .32, clearcoat: .8, clearcoatRoughness: .25 }),
-    figue: PM({ map: T.figue, roughness: .55, sheen: .7, sheenColor: new THREE.Color("#B7A4C9"), sheenRoughness: .6 }),
-    oliveV: PM({ map: olive("#5E7432", "#3F5424"), roughness: .28, clearcoat: 1, clearcoatRoughness: .12 }),
-    oliveN: PM({ map: olive("#2A2B22", "#16170F"), roughness: .25, clearcoat: 1, clearcoatRoughness: .1 }),
-    oliveC: PM({ map: olive("#4E6E2E", "#33491D"), roughness: .3, clearcoat: 1, clearcoatRoughness: .14 }),
-    feuille: PM({ map: T.feuille, roughness: .5, side: THREE.DoubleSide, sheen: .4, sheenColor: new THREE.Color("#D8EFC6"), sheenRoughness: .5 }),
-    tige: PM({ color: "#5A3E26", roughness: .8 })
-  };
-
-  /* Géométries */
-  const SEG = TOUCH ? 48 : 96, RINGS = TOUCH ? 48 : 96;
-  function lathe(fn) { const pts = []; for (let i = 0; i <= RINGS; i++) { const [x, y] = fn(i / RINGS * PI); pts.push(new THREE.Vector2(Math.max(x, 0), y)); } const g = new THREE.LatheGeometry(pts, SEG); g.computeVertexNormals(); return g; }
-  const G = {
-    abricot: (() => { const g = new THREE.SphereGeometry(1, SEG, RINGS), p = g.attributes.position, q = new THREE.Vector3();
-      for (let i = 0; i < p.count; i++) { q.fromBufferAttribute(p, i); q.multiplyScalar(1 - .06 * E(-((q.x / .14) ** 2)) * (1 - Math.abs(q.y) * .3)); q.y *= .94; if (q.y > .78) q.y -= .12 * E(-((q.x ** 2 + q.z ** 2) / .03)); p.setXYZ(i, q.x, q.y, q.z); }
-      g.computeVertexNormals(); return g; })(),
-    citron: lathe(a => [Math.sin(a) * .74 * (1 + .03 * Math.sin(a * 3)), -Math.cos(a) - .22 * E(-((a / .2) ** 2)) + .22 * E(-(((PI - a) / .2) ** 2))]),
-    pomme: lathe(a => { const s = Math.sin(a), c = Math.cos(a); return [s * (1 + .1 * s) * (1 - .08 * Math.max(0, -c)), -c * .9 - .3 * E(-(((PI - a) / .34) ** 2)) + .12 * E(-((a / .3) ** 2))]; }),
-    figue: lathe(a => { const u = (1 - Math.cos(a)) / 2; return [Math.sin(a) * (1 - .64 * u * u), -Math.cos(a) * 1.05 + .3 * u * u * u]; }),
-    olive: new THREE.SphereGeometry(1, 48, 32),
-    feuille: (() => { const sh = new THREE.Shape(); sh.moveTo(0, 0); sh.bezierCurveTo(.34, .5, .26, 1.5, 0, 2.1); sh.bezierCurveTo(-.26, 1.5, -.34, .5, 0, 0);
-      const g = new THREE.ShapeGeometry(sh, 24), p = g.attributes.position, uv = g.attributes.uv;
-      for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i); uv.setXY(i, (x + .34) / .68, y / 2.1); p.setZ(i, .22 * Math.sin(y * 1.3) - .6 * x * x); }
-      g.computeVertexNormals(); return g; })(),
-    tige: new THREE.CylinderGeometry(.035, .05, .42, 10)
-  };
-
-  /* Composition : le citron au centre, l'abricot en second plan, les feuilles derrière */
-  const FRUITS = [
-    { g: "citron", m: "citron", p: [.1, -.05, .3], s: .98, r: [.35, .2, PI / 2 - .25], rad: .82 },
-    { g: "abricot", m: "abricot", p: [-1.3, 1.35, -.6], s: .78, r: [.3, .4, -.15], rad: .76 },
-    { g: "pomme", m: "pomme", p: [1.5, 1.35, -1.1], s: .78, r: [.25, 0, -.2], rad: .8, stem: true },
-    { g: "figue", m: "figue", p: [1.25, -1.3, .45], s: .78, r: [-.3, 0, .35], rad: .72 },
-    { g: "olive", m: "oliveV", p: [-.5, -1.6, .8], s: [.32, .46, .32], r: [.5, 0, .7], rad: .4 },
-    { g: "olive", m: "oliveN", p: [.3, -2, .2], s: [.3, .43, .3], r: [-.4, 0, -1.1], rad: .38 },
-    { g: "olive", m: "oliveC", p: [-1.6, -.9, .4], s: [.3, .44, .3], r: [.2, 0, 1.4], rad: .38 },
-    { g: "feuille", m: "feuille", p: [-.3, .8, -1.3], s: .6, r: [.4, .3, .6], leaf: true },
-    { g: "feuille", m: "feuille", p: [-.9, -1.25, -.9], s: .5, r: [-.6, .2, 2.3], leaf: true },
-    { g: "feuille", m: "feuille", p: [.55, 1.6, -1.6], s: .55, r: [.5, -.4, -.7], leaf: true },
-    { g: "feuille", m: "feuille", p: [2.05, -.3, -1.2], s: .48, r: [.3, .5, -2.2], leaf: true }
-  ];
-  const group = new THREE.Group(); scene.add(group);
-  const items = FRUITS.map((f, i) => {
-    const m = new THREE.Mesh(G[f.g], M[f.m]); m.castShadow = true; m.receiveShadow = !f.leaf;
-    m.scale.set(...(Array.isArray(f.s) ? f.s : [f.s, f.s, f.s]));
-    if (f.stem) { const st = new THREE.Mesh(G.tige, M.tige); st.position.y = .72; st.rotation.z = .25; st.castShadow = true; m.add(st); }
-    m.quaternion.setFromEuler(new THREE.Euler(...f.r));
-    const home = new THREE.Vector3(...f.p);
-    const it = { m, home, pos: home.clone(), vel: new THREE.Vector3(), w: new THREE.Vector3((rng() - .5) * 3, (rng() - .5) * 3, (rng() - .5) * 3),
-      spin: new THREE.Vector3((rng() - .5) * .04, (i % 2 ? 1 : -1) * (.05 + rng() * .07), 0), rad: f.rad || 0, mass: f.rad ? Math.max(.3, f.rad * f.rad) : .3,
-      leaf: !!f.leaf, seed: rng() * 100, depth: f.p[2], on: REDUCE };
-    if (!REDUCE) it.pos.y += 5.5 + i * .25;
-    m.position.copy(it.pos); group.add(m); return it;
-  });
-  const N = TOUCH ? 400 : 1100, pos = new Float32Array(N * 3);
-  for (let i = 0; i < N; i++) { const r = 3.2 + Math.random() * 5, a = Math.random() * TAU, c = Math.acos(2 * Math.random() - 1); pos.set([r * Math.sin(c) * Math.cos(a), r * Math.sin(c) * Math.sin(a), r * Math.cos(c) - 2], i * 3); }
-  const pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-  const dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0x18694B, size: .02, transparent: true, opacity: .22, depthWrite: false }));
-  scene.add(dust);
-
-  let gx = 2, gy = .15, gs = 1;
-  function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
-    const wide = w > 820; gx = wide ? 2.5 : 0; gy = wide ? .2 : 1.5; gs = wide ? .88 : .6;
-    group.position.set(gx, gy, 0); group.scale.setScalar(gs); sun.target.position.set(gx, gy, 0); sun.position.copy(sun.target.position).add(sunOff); }
-  addEventListener("resize", resize); resize();
-  let visible = true; new IntersectionObserver(([en]) => visible = en.isIntersecting).observe(canvas);
-
-  /* Physique */
-  const ptr = new THREE.Vector2(9, 9), ptrPrev = new THREE.Vector2(9, 9), ptrVel = new THREE.Vector2(), tilt = new THREE.Vector2();
-  let ptrTime = -1e9;
-  const onPtr = e => { ptr.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight * 2 - 1)); ptrTime = performance.now(); };
-  addEventListener("pointermove", onPtr, { passive: true }); addEventListener("pointerdown", onPtr, { passive: true });
-  const acc = new THREE.Vector3(), tmp = new THREE.Vector3(), n = new THREE.Vector3(), q = new THREE.Quaternion(), axis = new THREE.Vector3();
-  const VIEW = 9 * Math.tan(THREE.MathUtils.degToRad(17.5));
-  let lastScroll = scrollY, scrollVel = 0, scrollP = 0, introAt = -1;
-  function step(dt, t) {
-    ptrVel.subVectors(ptr, ptrPrev).divideScalar(dt); ptrPrev.copy(ptr);
-    const active = performance.now() - ptrTime < 1200;
-    const kt = 1 - E(-2.2 * dt); tilt.x += ((active ? ptr.x : 0) - tilt.x) * kt; tilt.y += ((active ? ptr.y : 0) - tilt.y) * kt;
-    group.rotation.y = tilt.x * .16; group.rotation.x = -tilt.y * .09;
-    const sv = (scrollY - lastScroll) / dt; lastScroll = scrollY; scrollVel += (sv - scrollVel) * (1 - E(-8 * dt));
-    group.updateMatrixWorld();
-    items.forEach((it, i) => {
-      if (!it.on) { if (introAt >= 0 && t - introAt > i * .09) it.on = true; else return; }
-      const s = it.seed;
-      // repos + flottaison lente + montée au défilement (les fruits restent en arrière de la page)
-      tmp.set(Math.sin(t * .23 + s) * .07 + Math.sin(t * .11 + s * 2) * .05, Math.sin(t * .31 + s * 1.3) * .09 + scrollP * (1.6 + it.depth * .6), Math.sin(t * .19 + s * .7) * .06).add(it.home);
-      tmp.x *= 1 + scrollP * .35;
-      const k = 16 / it.mass, c = 2 * .5 * Math.sqrt(k);
-      acc.subVectors(tmp, it.pos).multiplyScalar(k).addScaledVector(it.vel, -c);
-      if (active) {
-        tmp.copy(it.pos).applyMatrix4(group.matrixWorld).project(camera);
-        const dx = (tmp.x - ptr.x) * camera.aspect, dy = tmp.y - ptr.y, d = Math.hypot(dx, dy), R = (it.rad || .35) * gs / VIEW + .12;
-        if (d < R && d > 1e-4) {
-          const f = (1 - d / R) ** 2 * 26 / it.mass, near = 1 - d / R;
-          acc.x += dx / d * f + ptrVel.x * camera.aspect * VIEW / gs * near * 1.2;
-          acc.y += dy / d * f + ptrVel.y * VIEW / gs * near * 1.2;
-          it.w.x -= ptrVel.y * near * dt * 7; it.w.y += ptrVel.x * near * dt * 7;
-        }
-      }
-      acc.y += scrollVel * .0009 * (1 + it.depth * .3);
-      it.w.x += scrollVel * .0006 * dt * (i % 2 ? 1 : -1);
-      it.vel.addScaledVector(acc, dt); it.pos.addScaledVector(it.vel, dt);
-    });
-    for (let a = 0; a < items.length; a++) for (let b = a + 1; b < items.length; b++) {
-      const A = items[a], B = items[b]; if (!A.rad || !B.rad || !A.on || !B.on) continue;
-      n.subVectors(B.pos, A.pos); const d = n.length(), min = A.rad + B.rad;
-      if (d < min && d > 1e-4) {
-        n.multiplyScalar(1 / d); const over = min - d, tot = A.mass + B.mass;
-        A.pos.addScaledVector(n, -over * B.mass / tot); B.pos.addScaledVector(n, over * A.mass / tot);
-        const rv = tmp.subVectors(B.vel, A.vel).dot(n);
-        if (rv < 0) { const j = -1.3 * rv / (1 / A.mass + 1 / B.mass); A.vel.addScaledVector(n, -j / A.mass); B.vel.addScaledVector(n, j / B.mass); A.w.z += j * .4 / A.mass; B.w.z -= j * .4 / B.mass; }
-      }
-    }
-    items.forEach(it => { if (!it.on) return;
-      const damp = E(-1.4 * dt); it.w.multiplyScalar(damp).addScaledVector(it.spin, 1 - damp);
-      if (it.leaf) it.w.z += Math.sin(t * 2.1 + it.seed) * .8 * dt;
-      const ang = it.w.length(); if (ang > 1e-5) { axis.copy(it.w).multiplyScalar(1 / ang); q.setFromAxisAngle(axis, ang * dt); it.m.quaternion.premultiply(q); }
-      it.m.position.copy(it.pos); });
-  }
-  /* Temps réel découpé en sous-pas (stable même si l'appareil rame) ; qualité réduite si le rendu est lent */
-  const clock = new THREE.Clock(); let t = 0, slow = 0, frames = 0, tier = 0;
-  function degrade() {
-    tier++;
-    if (tier === 1) { renderer.setPixelRatio(1); resize(); }
-    if (tier === 2) { renderer.shadowMap.enabled = false; scene.traverse(o => { if (o.material) o.material.needsUpdate = true; }); }
-  }
-  function frame() {
-    requestAnimationFrame(frame);
-    const raw = clock.getDelta(), dt = Math.min(raw, .1);
-    if (!visible) return;
-    if (++frames > 20 && tier < 2) { slow = slow * .9 + (raw > .045 ? 1 : 0) * .1; if (slow > .6) { degrade(); slow = 0; } }
-    if (!REDUCE && dt > 1e-4) {
-      t += dt;
-      if (introAt < 0 && uniforms.uIntro.value > 0) introAt = t;
-      const n = Math.ceil(dt / (1 / 120)); for (let i = 0; i < n; i++) step(dt / n, t);
-      dust.rotation.y = -t * .02 + tilt.x * .08; dust.rotation.x = tilt.y * .05;
-    }
-    camera.position.z = 9 + scrollP * 3;
-    renderer.render(scene, camera);
-  }
-  frame();
-  return { uniforms, setScroll: v => scrollP = v, group };
-}
-hero = initGL();
-
 /* ---------- Entrée (sans écran de chargement, retiré à la demande de Romain le 2026-10-27) ---------- */
 document.body.classList.add("ready"); lenis && lenis.start();
 heroIntro();
 function heroIntro() {
   const tl = gsap.timeline();
-  if (hero) tl.to(hero.uniforms.uIntro, { value: 1, duration: 2.4, ease: "expo.out" }, 0);
-  tl.from("#title .l > span", { yPercent: 110, duration: 1.3, stagger: .08, ease: "expo.out" }, .1)
-    .from(".hero .meta > div, .hero .side > *, .hero .scroll", { opacity: 0, y: 18, duration: 1, stagger: .06, ease: "expo.out" }, .4);
+  if (REDUCE) return tl;
+  // Les photos se dévoilent de bas en haut dans leur arche, puis le titre monte ligne par ligne
+  tl.from(".arch", { clipPath: "inset(100% 0% 0% 0%)", duration: 1.4, stagger: .14, ease: "expo.out" }, 0)
+    .from(".arch img", { scale: 1.18, duration: 2, ease: "expo.out" }, 0)
+    .from("#title .l > span", { yPercent: 110, duration: 1.3, stagger: .08, ease: "expo.out" }, .1)
+    .from(".hl .brand, .eyebrow, .hero .ctas > *, .arch figcaption, .hero .scroll", { opacity: 0, y: 18, duration: 1, stagger: .06, ease: "expo.out" }, .4);
   return tl;
 }
 
 /* ---------- Défilement : héros, manifeste, horizontal, chapitre ---------- */
-if (hero) ScrollTrigger.create({ trigger: "#hero", start: "top top", end: "bottom top", scrub: true, onUpdate: s => hero.setScroll(s.progress) });
-gsap.to("#hero .content, #hero .meta", { yPercent: -30, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: .8 } });
+if (!REDUCE) {
+  const heroST = { trigger: "#hero", start: "top top", end: "bottom top", scrub: .8 };
+  gsap.to(".hl", { yPercent: -14, opacity: .15, ease: "none", scrollTrigger: heroST });
+  gsap.to(".arch.a1", { yPercent: -8, ease: "none", scrollTrigger: heroST });
+  gsap.to(".arch.a2", { yPercent: 16, ease: "none", scrollTrigger: heroST });
+}
 
 const man = $("#manifesto");
 function splitWords(el) {
