@@ -2,6 +2,7 @@
 // Usage : npm run check            (captures dans tools/shots/, ignoré par git)
 //         npm run check:standalone (même parcours sur le fichier unique dist/garrym-prototype.html)
 import { chromium } from "playwright";
+import { launchOptions } from "./browser.mjs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import { mkdirSync } from "node:fs";
@@ -12,7 +13,7 @@ const url = pathToFileURL(join(root, process.env.CHECK_FILE || join("prototype",
 const out = join(root, "tools", "shots");
 mkdirSync(out, { recursive: true });
 
-const launchOpts = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {};
+const launchOpts = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : launchOptions();
 if (process.env.HTTPS_PROXY) launchOpts.proxy = { server: process.env.HTTPS_PROXY }; // le site public charge ses bibliothèques par CDN
 launchOpts.args = ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"];
 const browser = await chromium.launch(launchOpts);

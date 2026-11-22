@@ -1,12 +1,13 @@
 // Vérifie le site public v4 (site/index.html) : erreurs JS, WebGL, débordement mobile, captures.
 // Usage : node tools/check-site.mjs   (captures dans tools/shots/site-*.png)
 import { chromium } from "playwright";
+import { launchOptions } from "./browser.mjs";
 import path from "node:path";
 import fs from "node:fs";
 const url = "file://" + path.resolve("site/index.html");
 const out = "tools/shots"; fs.mkdirSync(out, { recursive: true });
 const proxy = process.env.HTTPS_PROXY ? { server: process.env.HTTPS_PROXY } : undefined;
-const browser = await chromium.launch({ proxy, args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch(launchOptions({ proxy, args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] }));
 const errors = [];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 async function run(name, viewport, mobile) {

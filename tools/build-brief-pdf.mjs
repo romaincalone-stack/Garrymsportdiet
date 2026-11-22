@@ -1,11 +1,12 @@
 // Génère le brief fonctionnel en PDF depuis references/brief-fonctionnalites.html (polices Google Fonts : connexion requise).
 // Usage : node tools/build-brief-pdf.mjs  →  dist/Brief-fonctionnel-Garrym.pdf (ignoré par git)
 import { chromium } from "playwright";
+import { launchOptions } from "./browser.mjs";
 import path from "node:path";
 import { mkdirSync } from "node:fs";
 mkdirSync("dist", { recursive: true });
 const out = "dist/Brief-fonctionnel-Garrym.pdf";
-const browser = await chromium.launch(process.env.HTTPS_PROXY ? { proxy: { server: process.env.HTTPS_PROXY } } : {});
+const browser = await chromium.launch(launchOptions(process.env.HTTPS_PROXY ? { proxy: { server: process.env.HTTPS_PROXY } } : {}));
 const page = await browser.newPage();
 await page.goto("file://" + path.resolve("references/brief-fonctionnalites.html"), { waitUntil: "networkidle" });
 await page.evaluate(() => document.fonts.ready);

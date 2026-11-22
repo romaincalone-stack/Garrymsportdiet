@@ -240,6 +240,22 @@ Une facture émise n'est jamais modifiée ni supprimée (RLS : insertion seuleme
 - `settings` : key text PK, value jsonb (`doctolib_url`, `whatsapp_number`, `instagram_url`). Non personnel.
 - `audit_log` : id, actor_id (P), action, entity, entity_id, at. Conservation 1 an.
 
+## Mon assiette (2026-11-22, aucune donnée hébergée)
+
+Le journal des repas reste **dans le navigateur de la personne** (`localStorage`, clé `gm-assiette-v1`) : rien n'est enregistré côté serveur, donc pas de table ni d'hébergement de données de santé. La photo transite par `functions/api/analyse.js` vers l'API Claude, puis n'est pas conservée par le site.
+
+| Champ (objet `gm-assiette-v1`) | Type | Exemple | Remarque |
+| --- | --- | --- | --- |
+| kcal | bool | true | Afficher les calories |
+| jours | objet date ISO → liste d'aliments | `{"2026-11-22": [...]}` | |
+| aliment.repas | enum `petit`, `dejeuner`, `collation`, `diner` | `diner` | |
+| aliment.nom, aliment.src, aliment.ref | text, enum `ciqual` / `off` / `ia`, code | « Riz blanc, cuit, non salé », `ciqual`, 9104 | `ref` : code Ciqual ou code-barres |
+| aliment.v | {kcal, p, g, l, s, f, sel} pour 100 g | `{kcal:145, p:2.9, …}` | Copié de la source au moment de l'ajout |
+| aliment.g | number (grammes) | 200 | |
+| aliment.min, aliment.max, aliment.ok | number, number, bool | 130, 200, false | Fourchette de la photo ; `ok` = grammes confirmés ou corrigés |
+
+**Table Ciqual** : `site/data/ciqual-2020.js` (`window.CIQUAL`), produit par `tools/build-ciqual.py` à partir du fichier Excel officiel « Table Ciqual 2020 ». Colonnes pour 100 g : code, nom, sous-groupe, kcal, protéines, glucides, lipides, sucres, fibres, sel, énergie calculée (1 quand la table ne donne pas l'énergie : calcul du règlement UE 1169/2011, 4 kcal/g protéines et glucides, 9 lipides, 2 fibres ; 794 aliments). « traces » et « < x » comptent pour 0. Le site de l'Anses était en maintenance le 2026-11-22 : le fichier vient d'une copie publiée sur GitHub (`OlivierFitter/ciqual_2025_complete`, « Table Ciqual 2020_xls.xls », structure et valeurs contrôlées sur des aliments courants) ; **le régénérer depuis ciqual.anses.fr dès que possible** et passer à la table la plus récente.
+
 ## Relations
 
 ```

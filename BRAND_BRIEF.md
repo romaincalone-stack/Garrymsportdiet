@@ -66,6 +66,9 @@ Sur ordinateur (≥ 1 024 px) : barre latérale `#0B2E21` de 248 px (logo clair,
 Une couche fixe `.amb` derrière le contenu remplace le fond uni : les lignes topographiques du site en pleine page (`paintTopo()` : `--topo` clair sur l'espace patiente, `--topo-ink` vert à 8 % sur le back-office), sous une lueur tilleul en haut à droite (12 % côté patiente, 35 % côté back-office). Parallaxe de 8 % au défilement, coupée si `prefers-reduced-motion`. Aucune nouvelle couleur. Le texte reste toujours sur une carte ou sur le fond uni de la page : le contraste AA ne dépend pas des lignes.
 Propositions écartées par Romain le 2026-10-30 : Halo (lumières qui dérivent), Photo (photo de la rubrique floutée), Uni.
 
+### Mon assiette (2026-11-22)
+Page claire (blanc dominant), bilan du jour sur un bloc vert du logo, repas en cartes à filet, fenêtres depuis le bas sur téléphone. Répartition de l'énergie : protéines en tilleul, glucides en blanc, lipides en brume, sur le vert. Aucune nouvelle couleur ; pas de rouge, pas de vocabulaire de régime (« à éviter », « mauvais », « objectif »).
+
 ### Formules du site (2026-11-04)
 Parcours en trois étapes numérotées (chiffres Bellefair en tilleul, filet blanc à 30 %) : le bilan sur fond tilleul, texte vert foncé, seul bloc tilleul de la section ; All in sur fond blanc ; Nutrition en surface translucide ; à la carte en lignes séparées par des filets, sans carte. Une seule action forte par étape.
 
