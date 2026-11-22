@@ -1,0 +1,224 @@
+{
+ "modele": "Qwen/Qwen2.5-VL-3B-Instruct",
+ "plats": {
+  "dish_1560368506": [
+   [
+    "Riz blanc, cuit",
+    "riz blanc cuit",
+    150.0,
+    true
+   ],
+   [
+    "Filet de poulet cuit",
+    "filet de poulet cuit",
+    150.0,
+    true
+   ],
+   [
+    "Brocolis cuit",
+    "brocolis cuit",
+    100.0,
+    false
+   ]
+  ],
+  "dish_1563566909": [
+   [
+    "Riz blanc, cuit",
+    "riz blanc cuit",
+    150.0,
+    true
+   ],
+   [
+    "Tofu, cuit",
+    "tofu cuit",
+    100.0,
+    true
+   ],
+   [
+    "Légumes variés, cuits",
+    "légumes variés cuit",
+    300.0,
+    false
+   ]
+  ],
+  "dish_1563898107": [
+   [
+    "Riz blanc, cuit",
+    "riz blanc cuit",
+    150.0,
+    true
+   ],
+   [
+    "Brocolis, cuit",
+    "brocoli cuit",
+    100.0,
+    false
+   ],
+   [
+    "Fruits, variés",
+    "fruits, variés",
+    150.0,
+    false
+   ],
+   [
+    "Fromage, cuit",
+    "fromage, cuit",
+    100.0,
+    false
+   ]
+  ],
+  "dish_1566590007": [
+   [
+    "Riz blanc, cuit",
+    "riz blanc cuit",
+    150.0,
+    true
+   ],
+   [
+    "Salade de poulet, tomates et oignons",
+    "salade de poulet, tomates et oignons",
+    100.0,
+    true
+   ],
+   [
+    "Poulet grillé, garni de vinaigrette",
+    "poulet grillé, garni de vinaigrette",
+    150.0,
+    false
+   ]
+  ],
+  "dish_1558376938": [
+   [
+    "Tomates cerises, cuites",
+    "tomates cerises cuites",
+    100.0,
+    true
+   ]
+  ],
+  "dish_1565896662": [
+   [
+    "Légumes variés, cuits",
+    "légumes cuit",
+    150.0,
+    true
+   ]
+  ],
+  "dish_1564773942": [
+   [
+    "Brocoli, cuit",
+    "brocoli cuit",
+    100.0,
+    true
+   ],
+   [
+    "Tomate, cuit",
+    "tomate cuit",
+    50.0,
+    true
+   ],
+   [
+    "Filet de poulet, cuit",
+    "filet de poulet cuit",
+    100.0,
+    true
+   ],
+   [
+    "Pomme de terre, cuit",
+    "pomme de terre cuit",
+    50.0,
+    true
+   ]
+  ],
+  "dish_1565035802": [
+   [
+    "Tomates cerises, cuites",
+    "tomates cerises cuites",
+    100.0,
+    true
+   ],
+   [
+    "Brocoli, cuit",
+    "brocoli cuit",
+    150.0,
+    true
+   ],
+   [
+    "Poivron vert, cuit",
+    "poivron vert cuit",
+    100.0,
+    true
+   ],
+   [
+    "Oignon rouge, cuit",
+    "oignon rouge cuit",
+    100.0,
+    true
+   ]
+  ],
+  "dish_1564689078": [],
+  "dish_1563478751": [
+   [
+    "Pâtes aux épinards",
+    "pâtes aux épinards",
+    200.0,
+    true
+   ],
+   [
+    "Bœuf haché cuit",
+    "bœuf haché cuit",
+    100.0,
+    true
+   ]
+  ],
+  "dish_1565638550": [
+   [
+    "Filet de poulet cuit",
+    "filet de poulet cuit",
+    100.0,
+    true
+   ],
+   [
+    "Brocolis cuit",
+    "brocoli cuit",
+    150.0,
+    false
+   ]
+  ],
+  "dish_1558630207": [
+   [
+    "Noix de cajou, cuites",
+    "noix de cajou cuit",
+    100.0,
+    true
+   ]
+  ]
+ },
+ "brut": {
+  "dish_1560368506": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Riz blanc, cuit\",\n      \"recherche\": \"riz blanc cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 210\n    },\n    {\n      \"nom\": \"Filet de poulet cuit\",\n      \"recherche\": \"filet de poulet cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 210\n    },\n    {\n      \"nom\": \"Brocolis cuit\",\n      \"recherche\": \"brocolis cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": false,\n      \"confiance\": \"faible\",\n      \"kcal_estime\": 40\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1563566909": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Riz blanc, cuit\",\n      \"recherche\": \"riz blanc cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 210\n    },\n    {\n      \"nom\": \"Tofu, cuit\",\n      \"recherche\": \"tofu cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 150\n    },\n    {\n      \"nom\": \"Légumes variés, cuits\",\n      \"recherche\": \"légumes variés cuit\",\n      \"grammes\": 300,\n      \"grammes_min\": 250,\n      \"grammes_max\": 350,\n      \"visible\": false,\n      \"confiance\": \"faible\",\n      \"kcal_estime\": 400\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1563898107": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Riz blanc, cuit\",\n      \"recherche\": \"riz blanc cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 210\n    },\n    {\n      \"nom\": \"Brocolis, cuit\",\n      \"recherche\": \"brocoli cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": false,\n      \"confiance\": \"faible\",\n      \"kcal_estime\": 40\n    },\n    {\n      \"nom\": \"Fruits, variés\",\n      \"recherche\": \"fruits, variés\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 180,\n      \"visible\": false,\n      \"confiance\": \"faible\",\n      \"kcal_estime\": 150\n    },\n    {\n      \"nom\": \"Fromage, cuit\",\n      \"recherche\": \"fromage, cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": false,\n      \"confiance\": \"faible\",\n      \"kcal_estime\": 100\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1566590007": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Riz blanc, cuit\",\n      \"recherche\": \"riz blanc cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 210\n    },\n    {\n      \"nom\": \"Salade de poulet, tomates et oignons\",\n      \"recherche\": \"salade de poulet, tomates et oignons\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"basse\",\n      \"kcal_estime\": 300\n    },\n    {\n      \"nom\": \"Poulet grillé, garni de vinaigrette\",\n      \"recherche\": \"poulet grillé, garni de vinaigrette\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 180,\n      \"visible\": false,\n      \"confiance\": \"faible\",\n      \"kcal_estime\": 400\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1558376938": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Tomates cerises, cuites\",\n      \"recherche\": \"tomates cerises cuites\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 300\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1565896662": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Légumes variés, cuits\",\n      \"recherche\": \"légumes cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"moyenne\",\n      \"kcal_estime\": 210\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1564773942": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Brocoli, cuit\",\n      \"recherche\": \"brocoli cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 30\n    },\n    {\n      \"nom\": \"Tomate, cuit\",\n      \"recherche\": \"tomate cuit\",\n      \"grammes\": 50,\n      \"grammes_min\": 40,\n      \"grammes_max\": 60,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 10\n    },\n    {\n      \"nom\": \"Filet de poulet, cuit\",\n      \"recherche\": \"filet de poulet cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 200\n    },\n    {\n      \"nom\": \"Pomme de terre, cuit\",\n      \"recherche\": \"pomme de terre cuit\",\n      \"grammes\": 50,\n      \"grammes_min\": 40,\n      \"grammes_max\": 60,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 50\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1565035802": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Tomates cerises, cuites\",\n      \"recherche\": \"tomates cerises cuites\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 100\n    },\n    {\n      \"nom\": \"Brocoli, cuit\",\n      \"recherche\": \"brocoli cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 150\n    },\n    {\n      \"nom\": \"Poivron vert, cuit\",\n      \"recherche\": \"poivron vert cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 100\n    },\n    {\n      \"nom\": \"Oignon rouge, cuit\",\n      \"recherche\": \"oignon rouge cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 50\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1564689078": "{\"est_un_repas\": false, \"aliments\": [], \"remarque\": \"\"}",
+  "dish_1563478751": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Pâtes aux épinards\",\n      \"recherche\": \"pâtes aux épinards\",\n      \"grammes\": 200,\n      \"grammes_min\": 180,\n      \"grammes_max\": 220,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 300\n    },\n    {\n      \"nom\": \"Bœuf haché cuit\",\n      \"recherche\": \"bœuf haché cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 150\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1565638550": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Filet de poulet cuit\",\n      \"recherche\": \"filet de poulet cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 300\n    },\n    {\n      \"nom\": \"Brocolis cuit\",\n      \"recherche\": \"brocoli cuit\",\n      \"grammes\": 150,\n      \"grammes_min\": 120,\n      \"grammes_max\": 190,\n      \"visible\": false,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 150\n    }\n  ],\n  \"remarque\": \"\"\n}\n```",
+  "dish_1558630207": "```json\n{\n  \"est_un_repas\": true,\n  \"aliments\": [\n    {\n      \"nom\": \"Noix de cajou, cuites\",\n      \"recherche\": \"noix de cajou cuit\",\n      \"grammes\": 100,\n      \"grammes_min\": 80,\n      \"grammes_max\": 120,\n      \"visible\": true,\n      \"confiance\": \"bonne\",\n      \"kcal_estime\": 300\n    }\n  ],\n  \"remarque\": \"\"\n}\n```"
+ },
+ "secondes": {
+  "dish_1560368506": 58.7,
+  "dish_1563566909": 59.2,
+  "dish_1563898107": 72.9,
+  "dish_1566590007": 61.4,
+  "dish_1558376938": 26.1,
+  "dish_1565896662": 26.0,
+  "dish_1564773942": 71.7,
+  "dish_1565035802": 73.3,
+  "dish_1564689078": 8.5,
+  "dish_1563478751": 43.5,
+  "dish_1565638550": 42.2,
+  "dish_1558630207": 28.2
+ }
+}

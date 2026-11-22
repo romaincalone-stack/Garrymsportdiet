@@ -1,0 +1,957 @@
+{
+ "report": {
+  "moyenne_test": 253,
+  "modeles": {
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)": {
+    "photos_lues": "12/12",
+    "kcal_ecart_moyen": 126,
+    "kcal_ecart_median": 98,
+    "kcal_ecart_pct_median": 29,
+    "grammes_ecart_moyen": 58,
+    "dans_20pct": "3/12"
+   },
+   "Qwen/Qwen2.5-VL-3B-Instruct": {
+    "photos_lues": "12/12",
+    "kcal_ecart_moyen": 165,
+    "kcal_ecart_median": 72,
+    "kcal_ecart_pct_median": 54,
+    "grammes_ecart_moyen": 111,
+    "dans_20pct": "2/12"
+   },
+   "HuggingFaceTB/SmolVLM-500M-Instruct": {
+    "photos_lues": "0/12",
+    "kcal_ecart_moyen": null,
+    "kcal_ecart_median": null,
+    "kcal_ecart_pct_median": null,
+    "grammes_ecart_moyen": null,
+    "dans_20pct": "0/0"
+   },
+   "Sans IA (moyenne des plats)": {
+    "kcal_ecart_moyen": 258,
+    "kcal_ecart_median": 210,
+    "kcal_ecart_pct_median": 66,
+    "dans_20pct": "2/12"
+   }
+  }
+ },
+ "rows": [
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1560368506",
+   462.933777,
+   330,
+   378,
+   345,
+   "Poisson blanc, cuit au four 90 g → Poisson blanc, cuit (aliment moyen) ; Poulet, filet, rôti 110 g → Poulet, filet, sans peau, sauté/poêlé ; Melon miel, pulpe, cru 130 g → Melon miel ou melon honeydew, pulpe, cru ; Oignon, cuit 10 g → Oignon, cuit ; Huile d'olive 5 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1563566909",
+   222.530014,
+   278,
+   187,
+   265,
+   "Riz sauvage, cuit 90 g → Riz sauvage, cuit, non salé ; Tofu, nature 80 g → Tofu nature, préemballé ; Carotte, cuite 40 g → Carotte, cuite ; Haricot vert, cuit 25 g → Haricot vert, cuit ; Courge, cuite 25 g → Courge musquée, pulpe, cuite ; Huile d'olive 5 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1563898107",
+   440.69339,
+   343,
+   424,
+   359,
+   "Oeufs brouillés 110 g → Oeuf, brouillé, avec matière grasse ; Bacon, cuit 12 g → introuvable ; Ananas, pulpe, cru 110 g → Ananas, pulpe, cru ; Framboise, crue 35 g → Framboise, crue ; Myrtille, crue 30 g → Myrtille, crue ; Pudding de chia au lait 8 g → Chia, graine, séchée ; Lait demi-écrémé 50 g → Lait demi-écrémé, UHT ; Beurre 4 g → Beurre à 82% MG, doux"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1566590007",
+   740.762024,
+   469,
+   457,
+   300,
+   "Poulet, filet, rôti 60 g → Poulet, filet, sans peau, sauté/poêlé ; Pizza aux légumes 110 g → Pizza aux légumes ou Pizza 4 saisons, préemballée ; Quinoa, cuit 90 g → Quinoa, bouilli/cuit à l'eau, non salé ; Chou blanc, cru 40 g → Chou blanc, cru"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1558376938",
+   51.060001,
+   62,
+   74,
+   90,
+   "Raisin, cru 90 g → Raisin, cru"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1565896662",
+   19.380001,
+   36,
+   57,
+   63,
+   "Blette, cuite 60 g → Bette ou blette, cuite ; Huile d'olive 3 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1564773942",
+   491.939545,
+   394,
+   442,
+   394,
+   "Poulet, filet, rôti 100 g → Poulet, filet, sans peau, sauté/poêlé ; Ananas, pulpe, cru 100 g → Ananas, pulpe, cru ; Tomate cerise, crue 60 g → Tomate cerise, crue ; Brocoli, cuit 70 g → Brocoli, cuit ; Saumon, cuit au four 60 g → Saumon, élevage, rôti/cuit au four ; Huile d'olive 4 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1565035802",
+   69.200005,
+   72,
+   250,
+   240,
+   "Chou-fleur, cru 90 g → Chou-fleur, cru ; Tomate cerise, crue 70 g → Tomate cerise, crue ; Poivron vert, cru 45 g → Poivron vert, cru ; Oignon rouge, cru 35 g → Oignon rouge, cru"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1564689078",
+   72.360779,
+   29,
+   55,
+   43,
+   "Épinard, cuit 35 g → Épinard, cuit ; Myrtille, crue 6 g → Myrtille, crue ; Huile d'olive 2 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1563478751",
+   950.395081,
+   524,
+   545,
+   330,
+   "Pâtes, cuites 170 g → Pâtes sèches standard, cuites, non salées ; Boeuf, cuit 90 g → Boeuf, braisé ; Épinard, cuit 25 g → Épinard, cuit ; Sauce tomate à la crème 40 g → Sauce tomate aux olives, préemballée ; Huile d'olive 5 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1565638550",
+   277.656799,
+   317,
+   215,
+   215,
+   "Asperge, cuite 90 g → Asperge, bouillie/cuite à l'eau ; Poulet pané 50 g → Poulet, escalope panée ; Porc, rôti 50 g → Porc, rôti, cuit ; Courgette, cuite 20 g → Courgette, pulpe et peau, cuite ; Huile d'olive 5 g → Huile d'olive vierge extra"
+  ],
+  [
+   "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+   "dish_1558630207",
+   670.596008,
+   360,
+   116,
+   60,
+   "Amande, grillée 60 g → Amande (avec peau)"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1560368506",
+   462.933777,
+   452,
+   378,
+   400,
+   "Riz blanc, cuit 150 g → Riz blanc, cuit, non salé ; Filet de poulet cuit 150 g → Poulet, filet, sans peau, sauté/poêlé ; Brocolis cuit 100 g → Brocoli, cuit"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1563566909",
+   222.530014,
+   292,
+   187,
+   550,
+   "Riz blanc, cuit 150 g → Riz blanc, cuit, non salé ; Tofu, cuit 100 g → introuvable ; Légumes variés, cuits 300 g → Légumes pour couscous, cuits"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1563898107",
+   440.69339,
+   681,
+   424,
+   500,
+   "Riz blanc, cuit 150 g → Riz blanc, cuit, non salé ; Brocolis, cuit 100 g → Brocoli, cuit ; Fruits, variés 150 g → Jus de prune de cythère verte \"géante\" (variété locale), fruit mûr, pur jus filtré, prélevée à la Martinique ; Fromage, cuit 100 g → Fromage à pâte pressée cuite (aliment moyen)"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1566590007",
+   740.762024,
+   465,
+   457,
+   400,
+   "Riz blanc, cuit 150 g → Riz blanc, cuit, non salé ; Salade de poulet, tomates et oignons 100 g → Sandwich baguette, poulet, crudités (tomate, salade), mayonnaise ; Poulet grillé, garni de vinaigrette 150 g → introuvable"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1558376938",
+   51.060001,
+   25,
+   74,
+   100,
+   "Tomates cerises, cuites 100 g → Tomate, rôtie/cuite au four"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1565896662",
+   19.380001,
+   37,
+   57,
+   150,
+   "Légumes variés, cuits 150 g → Légumes pour couscous, cuits"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1564773942",
+   491.939545,
+   221,
+   442,
+   300,
+   "Brocoli, cuit 100 g → Brocoli, cuit ; Tomate, cuit 50 g → Tomate, rôtie/cuite au four ; Filet de poulet, cuit 100 g → Poulet, filet, sans peau, sauté/poêlé ; Pomme de terre, cuit 50 g → Pomme de terre, rôtie/cuite au four"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1565035802",
+   69.200005,
+   120,
+   250,
+   450,
+   "Tomates cerises, cuites 100 g → Tomate, rôtie/cuite au four ; Brocoli, cuit 150 g → Brocoli, cuit ; Poivron vert, cuit 100 g → Poivron vert, cuit ; Oignon rouge, cuit 100 g → Oignon rouge, sauté/poêlé sans matière grasse"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1564689078",
+   72.360779,
+   0,
+   55,
+   0,
+   ""
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1563478751",
+   950.395081,
+   155,
+   545,
+   300,
+   "Pâtes aux épinards 200 g → introuvable ; Bœuf haché cuit 100 g → Boeuf, steak haché 5% MG, cuit"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1565638550",
+   277.656799,
+   176,
+   215,
+   250,
+   "Filet de poulet cuit 100 g → Poulet, filet, sans peau, sauté/poêlé ; Brocolis cuit 150 g → Brocoli, cuit"
+  ],
+  [
+   "Qwen/Qwen2.5-VL-3B-Instruct",
+   "dish_1558630207",
+   670.596008,
+   621,
+   116,
+   100,
+   "Noix de cajou, cuites 100 g → Noix de cajou, grillée, salée"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1560368506",
+   462.933777,
+   null,
+   378,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1563566909",
+   222.530014,
+   null,
+   187,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1563898107",
+   440.69339,
+   null,
+   424,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1566590007",
+   740.762024,
+   null,
+   457,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1558376938",
+   51.060001,
+   null,
+   74,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1565896662",
+   19.380001,
+   null,
+   57,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1564773942",
+   491.939545,
+   null,
+   442,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1565035802",
+   69.200005,
+   null,
+   250,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1564689078",
+   72.360779,
+   null,
+   55,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1563478751",
+   950.395081,
+   null,
+   545,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1565638550",
+   277.656799,
+   null,
+   215,
+   null,
+   "illisible"
+  ],
+  [
+   "HuggingFaceTB/SmolVLM-500M-Instruct",
+   "dish_1558630207",
+   670.596008,
+   null,
+   116,
+   null,
+   "illisible"
+  ]
+ ],
+ "verite": {
+  "dish_1560368506": {
+   "kcal": 462.933777,
+   "g": 378,
+   "ingr": [
+    [
+     "brown rice",
+     14.208494,
+     15.77142834
+    ],
+    [
+     "fish",
+     80.626221,
+     72.5635989
+    ],
+    [
+     "shallots",
+     0.710425,
+     0.142085
+    ],
+    [
+     "honeydew melons",
+     137,
+     49.32
+    ],
+    [
+     "broccoli",
+     3.552124,
+     1.2432434
+    ],
+    [
+     "lemon juice",
+     0.710425,
+     0.12077225
+    ],
+    [
+     "parsley",
+     0.355212,
+     0.131783652
+    ],
+    [
+     "pork",
+     106.563705,
+     253.6216179
+    ],
+    [
+     "vinegar",
+     0.710425,
+     0
+    ],
+    [
+     "cherry tomatoes",
+     3.552124,
+     0.63938232
+    ],
+    [
+     "pepper",
+     1.420849,
+     0.5683396
+    ],
+    [
+     "garlic",
+     1.823981,
+     2.71773169
+    ],
+    [
+     "salt",
+     0.379172,
+     0
+    ],
+    [
+     "country rice",
+     16.125244,
+     24.5168209776
+    ],
+    [
+     "basil",
+     0.355212,
+     0.08525088
+    ],
+    [
+     "olive oil",
+     4.454224,
+     39.37534016
+    ],
+    [
+     "onions",
+     4.645898,
+     1.8583592
+    ],
+    [
+     "green onions",
+     0.806262,
+     0.25800384
+    ]
+   ]
+  },
+  "dish_1563566909": {
+   "kcal": 222.530014,
+   "g": 187,
+   "ingr": [
+    [
+     "wild rice",
+     187,
+     222.53
+    ]
+   ]
+  },
+  "dish_1563898107": {
+   "kcal": 440.69339,
+   "g": 424,
+   "ingr": [
+    [
+     "raspberries",
+     40,
+     21.2
+    ],
+    [
+     "greek yogurt",
+     42.64159,
+     25.1585381
+    ],
+    [
+     "blueberries",
+     28,
+     16.016
+    ],
+    [
+     "bacon",
+     10,
+     54.1
+    ],
+    [
+     "pineapple",
+     119,
+     59.5
+    ],
+    [
+     "milk",
+     45.660465,
+     23.28683715
+    ],
+    [
+     "chia seeds",
+     10.697945,
+     51.9920127
+    ],
+    [
+     "scrambled eggs",
+     128,
+     189.44
+    ]
+   ]
+  },
+  "dish_1566590007": {
+   "kcal": 740.762024,
+   "g": 457,
+   "ingr": [
+    [
+     "bell peppers",
+     14.247552,
+     5.6990208
+    ],
+    [
+     "garlic",
+     2.84951,
+     4.2457699
+    ],
+    [
+     "tomatoes",
+     14.247552,
+     4.84416768
+    ],
+    [
+     "salt",
+     2.84951,
+     0
+    ],
+    [
+     "onions",
+     5.69902,
+     2.279608
+    ],
+    [
+     "olive oil",
+     5.69902,
+     50.3793368
+    ],
+    [
+     "pizza",
+     135,
+     359.1
+    ],
+    [
+     "pepper",
+     0.534283,
+     0.2137132
+    ],
+    [
+     "tofu",
+     122,
+     89.06
+    ],
+    [
+     "jalapenos",
+     5.69902,
+     1.6527158
+    ],
+    [
+     "spinach (raw)",
+     5.69902,
+     1.3107746
+    ],
+    [
+     "chicken",
+     113.980415,
+     188.06768475
+    ],
+    [
+     "millet",
+     28.495104,
+     33.90917376
+    ]
+   ]
+  },
+  "dish_1558376938": {
+   "kcal": 51.060001,
+   "g": 74,
+   "ingr": [
+    [
+     "grapes",
+     74,
+     51.06
+    ]
+   ]
+  },
+  "dish_1565896662": {
+   "kcal": 19.380001,
+   "g": 57,
+   "ingr": [
+    [
+     "chard",
+     28.5,
+     5.415
+    ],
+    [
+     "kale",
+     28.5,
+     13.965
+    ]
+   ]
+  },
+  "dish_1564773942": {
+   "kcal": 491.939545,
+   "g": 442,
+   "ingr": [
+    [
+     "garlic",
+     0.646154,
+     0.96276946
+    ],
+    [
+     "salmon",
+     64.615387,
+     115.01538886
+    ],
+    [
+     "cherry tomatoes",
+     59.23077,
+     10.6615386
+    ],
+    [
+     "chicken breast",
+     106,
+     175.112
+    ],
+    [
+     "mayonnaise",
+     10.338462,
+     70.3015416
+    ],
+    [
+     "chive",
+     0.161538,
+     0.0484614
+    ],
+    [
+     "broccoli",
+     58,
+     20.3
+    ],
+    [
+     "shallots",
+     0.646154,
+     0.1292308
+    ],
+    [
+     "pineapple",
+     117,
+     58.5
+    ],
+    [
+     "pepper",
+     1.292308,
+     0.5169232
+    ],
+    [
+     "pickles",
+     0.646154,
+     0.07107694
+    ],
+    [
+     "arugula",
+     3.230769,
+     0.80769225
+    ],
+    [
+     "lentils",
+     12.923077,
+     14.73230778
+    ],
+    [
+     "olive oil",
+     2.584615,
+     22.8479966
+    ],
+    [
+     "kale",
+     3.230769,
+     1.58307681
+    ],
+    [
+     "parsley",
+     0.646154,
+     0.239723134
+    ],
+    [
+     "lemon juice",
+     0.646154,
+     0.10984618
+    ],
+    [
+     "salt",
+     0.161538,
+     0
+    ]
+   ]
+  },
+  "dish_1565035802": {
+   "kcal": 69.200005,
+   "g": 250,
+   "ingr": [
+    [
+     "onions",
+     39,
+     15.6
+    ],
+    [
+     "cherry tomatoes",
+     65,
+     11.7
+    ],
+    [
+     "cauliflower",
+     110,
+     27.5
+    ],
+    [
+     "bell peppers",
+     36,
+     14.4
+    ]
+   ]
+  },
+  "dish_1564689078": {
+   "kcal": 72.360779,
+   "g": 55,
+   "ingr": [
+    [
+     "almonds",
+     1.423948,
+     8.231843388
+    ],
+    [
+     "olive oil",
+     5.695793,
+     50.35081012
+    ],
+    [
+     "mustard",
+     0.355987,
+     0.218220031
+    ],
+    [
+     "parsley",
+     0.355987,
+     0.132071177
+    ],
+    [
+     "carrot",
+     2.847897,
+     1.16763777
+    ],
+    [
+     "salt",
+     0.177994,
+     0
+    ],
+    [
+     "blueberries",
+     7.119741,
+     4.072491852
+    ],
+    [
+     "spinach (raw)",
+     35.598705,
+     8.18770215
+    ],
+    [
+     "vinegar",
+     1.423948,
+     0
+    ]
+   ]
+  },
+  "dish_1563478751": {
+   "kcal": 950.395081,
+   "g": 545,
+   "ingr": [
+    [
+     "cream",
+     9.556165,
+     32.137382895
+    ],
+    [
+     "mushroom",
+     35.835617,
+     7.88383574
+    ],
+    [
+     "spinach (raw)",
+     23.890411,
+     5.49479453
+    ],
+    [
+     "olive oil",
+     1.791781,
+     15.83934404
+    ],
+    [
+     "pasta",
+     191.123291,
+     251.518250956
+    ],
+    [
+     "beef",
+     238.904114,
+     597.260285
+    ],
+    [
+     "wine",
+     4.778082,
+     4.0613697
+    ],
+    [
+     "garlic",
+     4.778082,
+     7.11934218
+    ],
+    [
+     "sour cream",
+     9.556165,
+     18.9212067
+    ],
+    [
+     "onions",
+     23.890411,
+     9.5561644
+    ],
+    [
+     "thyme",
+     0.59726,
+     0.6032326
+    ],
+    [
+     "salt",
+     0.29863,
+     0
+    ]
+   ]
+  },
+  "dish_1565638550": {
+   "kcal": 277.656799,
+   "g": 215,
+   "ingr": [
+    [
+     "salt",
+     0.145843,
+     0
+    ],
+    [
+     "pork",
+     56.704979,
+     134.95785002
+    ],
+    [
+     "wheat berry",
+     4.106776,
+     3.73716616
+    ],
+    [
+     "arugula",
+     1.890166,
+     0.4725415
+    ],
+    [
+     "parsley",
+     0.189017,
+     0.070125307
+    ],
+    [
+     "olive oil",
+     2.807037,
+     24.81420708
+    ],
+    [
+     "chicken breast",
+     41.06776,
+     67.84393952
+    ],
+    [
+     "white rice",
+     7.560664,
+     9.8288632
+    ],
+    [
+     "green beans",
+     88.724998,
+     27.50474938
+    ],
+    [
+     "onions",
+     2.646232,
+     1.0584928
+    ],
+    [
+     "spinach (raw)",
+     1.026694,
+     0.23613962
+    ],
+    [
+     "zucchini",
+     3.780332,
+     0.5670498
+    ],
+    [
+     "rosemary",
+     0.378033,
+     0.49522323
+    ],
+    [
+     "parmesan cheese",
+     1.026694,
+     4.421971058
+    ],
+    [
+     "garlic",
+     0.788711,
+     1.17517939
+    ],
+    [
+     "thyme",
+     0.102669,
+     0.10369569
+    ],
+    [
+     "cherry tomatoes",
+     2.053388,
+     0.36960984
+    ]
+   ]
+  },
+  "dish_1558630207": {
+   "kcal": 670.596008,
+   "g": 116,
+   "ingr": [
+    [
+     "almonds",
+     116,
+     670.596
+    ]
+   ]
+  }
+ }
+}

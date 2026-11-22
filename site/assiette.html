@@ -227,6 +227,10 @@ const toks = s => norm(s).split(" ").filter(w => w && !STOP.has(w));
 const RARE = ["sec", "seche", "poudre", "moulu", "soluble", "deshydrate", "deshydratee", "lyophilise", "fourre", "fourree", "fourrage", "sandwich", "preemballe", "preemballee", "preemballes", "preemballees", "appertise", "appertisee", "reconstitue", "reconstituee", "concentre"];
 const STATE = new Set(["cru", "crue", "cuit", "cuite", "cuits", "cuites", "grille", "roti", "frit", "vapeur", "sec", "seche", "poudre", "moulu", "fume"]);
 const FRESH = new Set(["cru", "crue", "nature", "pret", "boire", "infusee"]);
+// Modes de cuisson équivalents pour la recherche : « poulet rôti » doit trouver « poêlé » ou « cuit au four », jamais « cru »
+// (banc d'essai du 2026-11-22, tools/eval-assiette)
+const COOKED = new Set(["cuit", "cuite", "cuits", "cuites", "roti", "rotie", "rotis", "grille", "grillee", "grilles", "poele", "poelee", "saute", "sautee", "four", "braise", "braisee", "bouilli", "bouillie", "vapeur", "mijote", "frit", "frite", "frites"]);
+const RAW = new Set(["cru", "crue", "crus", "crues"]);
 let INDEX = null;
 function index() {
   if (INDEX || !window.CIQUAL) return INDEX;
@@ -237,14 +241,20 @@ function search(q, n = 8) {
   const idx = index(), qt = toks(q); if (!idx || !qt.length) return [];
   const out = [];
   for (const e of idx) {
-    let hit = 0;
-    for (const t of qt) if (e.w.some(w => w.startsWith(t) || (t.length > 4 && w.startsWith(t.slice(0, -1))))) hit++;
+    let hit = 0, pts = 0; // un mot exact compte 10, un autre mode de cuisson 7
+    for (const t of qt) {
+      if (e.w.some(w => w.startsWith(t) || (t.length > 4 && w.startsWith(t.slice(0, -1))))) { hit++; pts += 10; }
+      else if (COOKED.has(t) && e.w.some(w => COOKED.has(w))) { hit++; pts += 7; }
+    }
     if (!hit || hit < Math.ceil(qt.length * .6)) continue;
-    let sc = hit * 10 + (e.w[0] && e.w[0].startsWith(qt[0]) ? 6 : 0) - e.n.length / 25;
+    let sc = pts + (e.w[0] && e.w[0].startsWith(qt[0]) ? 6 : 0) - e.n.length / 25;
     // Formes rarement voulues (séchée, en poudre, fourrée, en sandwich…) : reculent, sauf si la recherche les nomme
     for (const w of RARE) if (e.w.includes(w) && !qt.includes(w)) sc -= 4;
     // Sans précision de préparation, la forme courante passe devant : crue, nature, prête à boire
     if (!qt.some(t => STATE.has(t)) && e.w.some(w => FRESH.has(w))) sc += 2;
+    // Aliment cuit demandé : la forme crue recule nettement ; l'inverse aussi
+    if (qt.some(t => COOKED.has(t)) && e.w.some(w => RAW.has(w))) sc -= 8;
+    if (qt.some(t => RAW.has(t)) && e.w.some(w => COOKED.has(w))) sc -= 8;
     out.push([sc, e.a]);
   }
   return out.sort((x, y) => y[0] - x[0]).slice(0, n).map(x => x[1]);

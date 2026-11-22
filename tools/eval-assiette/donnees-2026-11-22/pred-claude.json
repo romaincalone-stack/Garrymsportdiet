@@ -1,0 +1,17 @@
+{
+  "modele": "Claude (estimation à l'aveugle dans la session, mêmes consignes que le site, sans API)",
+  "plats": {
+    "dish_1560368506": [["Poisson blanc, cuit au four", "poisson blanc cuit four", 90, true], ["Poulet, filet, rôti", "poulet filet roti", 110, true], ["Melon miel, pulpe, cru", "melon cru", 130, true], ["Oignon, cuit", "oignon cuit", 10, true], ["Huile d'olive", "huile olive vierge", 5, false]],
+    "dish_1563566909": [["Riz sauvage, cuit", "riz sauvage cuit", 90, true], ["Tofu, nature", "tofu nature", 80, true], ["Carotte, cuite", "carotte cuite", 40, true], ["Haricot vert, cuit", "haricot vert cuit", 25, true], ["Courge, cuite", "courge cuite", 25, true], ["Huile d'olive", "huile olive vierge", 5, false]],
+    "dish_1563898107": [["Oeufs brouillés", "oeufs brouilles", 110, true], ["Bacon, cuit", "bacon cuit", 12, true], ["Ananas, pulpe, cru", "ananas cru", 110, true], ["Framboise, crue", "framboise crue", 35, true], ["Myrtille, crue", "myrtille crue", 30, true], ["Pudding de chia au lait", "graine chia", 8, true], ["Lait demi-écrémé", "lait demi ecreme", 50, true], ["Beurre", "beurre doux", 4, false]],
+    "dish_1566590007": [["Poulet, filet, rôti", "poulet filet roti", 60, true], ["Pizza aux légumes", "pizza legumes", 110, true], ["Quinoa, cuit", "quinoa cuit", 90, true], ["Chou blanc, cru", "chou blanc cru", 40, true]],
+    "dish_1558376938": [["Raisin, cru", "raisin cru", 90, true]],
+    "dish_1565896662": [["Blette, cuite", "blette cuite", 60, true], ["Huile d'olive", "huile olive vierge", 3, false]],
+    "dish_1564773942": [["Poulet, filet, rôti", "poulet filet roti", 100, true], ["Ananas, pulpe, cru", "ananas cru", 100, true], ["Tomate cerise, crue", "tomate cerise crue", 60, true], ["Brocoli, cuit", "brocoli cuit", 70, true], ["Saumon, cuit au four", "saumon cuit four", 60, true], ["Huile d'olive", "huile olive vierge", 4, false]],
+    "dish_1565035802": [["Chou-fleur, cru", "chou fleur cru", 90, true], ["Tomate cerise, crue", "tomate cerise crue", 70, true], ["Poivron vert, cru", "poivron vert cru", 45, true], ["Oignon rouge, cru", "oignon rouge cru", 35, true]],
+    "dish_1564689078": [["Épinard, cuit", "epinard cuit", 35, true], ["Myrtille, crue", "myrtille crue", 6, true], ["Huile d'olive", "huile olive vierge", 2, false]],
+    "dish_1563478751": [["Pâtes, cuites", "pates seches cuites", 170, true], ["Boeuf, cuit", "boeuf braise", 90, true], ["Épinard, cuit", "epinard cuit", 25, true], ["Sauce tomate à la crème", "sauce tomate", 40, true], ["Huile d'olive", "huile olive vierge", 5, false]],
+    "dish_1565638550": [["Asperge, cuite", "asperge cuite", 90, true], ["Poulet pané", "poulet pane", 50, true], ["Porc, rôti", "porc roti", 50, true], ["Courgette, cuite", "courgette cuite", 20, true], ["Huile d'olive", "huile olive vierge", 5, false]],
+    "dish_1558630207": [["Amande, grillée", "amande", 60, true]]
+  }
+}

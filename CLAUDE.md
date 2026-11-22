@@ -67,6 +67,7 @@ npm run check:site                   # site v4 : photos du héros, chevauchement
 
 # Fichier HTML unique et autonome (trois vues + site intégré, photos en data URI)
 npm run check:assiette               # Mon assiette : test de la fonction d'analyse (client simulé, sans clé) puis parcours complet de la page ; attendu deux fois "NO ERRORS"
+node tools/eval-assiette/score.mjs <dossier> pred-*.json   # banc d'essai de l'analyse photo sur repas pesés (voir tools/eval-assiette/README.md)
 npm run build:standalone             # produit dist/garrym-prototype.html (ignoré par git), à envoyer tel quel
 npm run check:standalone             # même parcours que npm run check, sur ce fichier
 
@@ -119,6 +120,8 @@ Après chaque livraison visuelle : republier l'aperçu et envoyer des captures (
 - **Section figée au défilement** (`pin` de ScrollTrigger) : elle doit tenir dans la hauteur de l'écran, y compris un portable de 1 366 × 657 ; mesurer, ne pas supposer 1 080 px de haut (incident 34).
 - **Chromium des tests** : si le Chromium attendu par la version de Playwright du projet manque (session cloud), `tools/browser.mjs` (`launchOptions()`) prend `/opt/pw-browsers/chromium` (incident 37).
 - **Interrupteurs** : l'`input` transparent doit passer au-dessus de la pastille dessinée (`z-index`), sinon un appui ne fait rien (incident 37).
+- **Précision de « Mon assiette »** : ne jamais annoncer de chiffre sans le banc d'essai `tools/eval-assiette/` ; toute modification de `search()` se revérifie avec `score.mjs` sur les prédictions enregistrées (incident 38).
+- **YouTube depuis la session cloud** : pages, sous-titres et miroirs bloqués (« Sign in to confirm you're not a bot ») ; demander la transcription ou des captures à Romain, ou passer par son ordinateur.
 - **Tests de cases à cocher** : l'`input` transparent couvre son `span` ; cliquer l'`input`, pas le texte.
 - **Bandeau du prototype sur téléphone** : replié par défaut (`.pbtoggle`, `S.pbOpen`) ; dans les tests à 390 px, l'ouvrir avant de cliquer une vue.
 - **Aperçus en ligne modifiés hors dépôt** : si la publication est refusée parce qu'une autre session a publié, lire la version en ligne, la fusionner à trois versions (`git merge-file`) avec le dépôt, puis republier (incident 33).
