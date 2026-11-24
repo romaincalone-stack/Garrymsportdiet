@@ -5,11 +5,13 @@ import { q } from "@/lib/db";
 import { frDate, frDateTime, LOCATIONS } from "@/lib/format";
 import { getPlans, getSettings } from "@/lib/data";
 import { handleOfferRequest } from "./actions";
+import { purgeExpired } from "@/lib/retention";
 
 export const metadata: Metadata = { title: "Back-office" };
 
 export default async function Page() {
   const me = await requireAdmin();
+  await purgeExpired();
   const [plans, s, requests, ending, pendingInv, upcoming, [kpi]] = await Promise.all([
     getPlans(), getSettings(),
     q<{ id: string; patient_id: string; first_name: string; last_name: string; offer: string; created_at: Date }>(

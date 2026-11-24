@@ -27,7 +27,7 @@ export function Legal({ s }: { s: Settings }) {
     <p className="legal">
       {s.practitioner.name}, {s.practitioner.title} · {s.practitioner.registration}<br />
       Les contenus de cet espace sont des conseils nutritionnels généraux. Ils complètent votre suivi médical et ne le remplacent pas.
-      {" "}<Link href="/confidentialite">Confidentialité</Link>
+      <br /><Link href="/mentions-legales">Mentions légales</Link> · <Link href="/confidentialite">Confidentialité</Link> · <Link href="/conditions">Conditions</Link>
     </p>
   );
 }

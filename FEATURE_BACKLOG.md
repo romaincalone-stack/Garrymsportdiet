@@ -52,6 +52,8 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-26 | Semainier partagé | La patiente note chaque repas (« fait comme prévu » ou ce qu'elle a mangé, quantité, remarque) et propose sa semaine ; Manon valide ou conseille repas par repas (« Suivi des repas » dans le back-office) |
 | 2026-10-26 | Rubrique Évolution | Mesures (poids facultatif, tours de taille et de hanches), ressentis de 1 à 5, courbes, historique ; poids masquable par Manon ou la patiente |
 | 2026-11-24 | Étape 1 développée : espace patiente et back-office réels (`espace/`) | Next.js 16 + PostgreSQL ; invitation par email (7 jours), mot de passe oublié, double authentification obligatoire de Manon (QR code, code à usage unique), sessions en cookie sécurisé, verrouillage après 5 échecs, journal des actions ; offres et matrice d'accès modifiables, `minPlan` ; recettes (aperçu de 3, portions, favoris, filtres, publication programmée), liste de courses additionnée, articles, fiches PDF, « Mes offres » ; back-office : À traiter, patientes (création, offre, rendez-vous, suspension), recettes, articles, fiches, réglages ; parcours testé (`npm run check:espace`) |
+| 2026-11-24 | Audit juridique et textes légaux | Agent juridique permanent (`.claude/agents/juriste.md`) ; `legal/` : audit, mentions légales, confidentialité (site, espace), conditions d'utilisation, CGV, consentement de l'étape 2, registre, liste de contrôle ; dans l'espace : pages `/conditions`, `/mentions-legales`, `/confidentialite`, version et date d'acceptation enregistrées, suppressions automatiques aux durées annoncées |
+| 2026-11-24 | Comparatif des hébergeurs HDS | `references/hebergement-hds-2026-11-24.md` : liste officielle de l'ANS, prix, offres gratuites (aucune conforme), 3 emails de devis prêts |
 
 ## En cours
 
@@ -84,8 +86,10 @@ Code livré le 2026-11-24 (`espace/`, voir « Livré »). Reste pour la mise en 
 
 | Priorité | Fonctionnalité | Dépend de |
 | --- | --- | --- |
-| P0 | Devis et contrat d'une plateforme gérée certifiée HDS (6 activités) | Manon |
-| P0 | Politique de confidentialité et conditions d'utilisation complétées (les `[crochets]` de `/confidentialite`), relues par un juriste ou l'AFDN | Manon |
+| P0 | Envoyer les demandes de devis Clever Cloud et Scalingo (emails prêts dans `references/hebergement-hds-2026-11-24.md`), puis signer le contrat HDS | Accord de Romain sur l'expéditeur |
+| P0 | Compléter les `[crochets]` des textes de `legal/` (adresse, RPPS ou ADELI, SIRET, médiateur, hébergeur), puis relecture par un avocat en droit de la santé ou l'AFDN (liste dans `legal/AUDIT.md`) | Manon, avocat |
+| P0 | Confirmer l'adresse du cabinet affichée sur le site (« Les Jardins de la Closeraie, 137 rue des Oliviers ») : aucune source dans le dépôt | Manon |
+| P0 | Corriger les constats « Bloquant » du site relevés dans `legal/AUDIT.md` (promesses de fonctions pas encore en ligne, prix TTC, photos de personnes, pages légales) | Étape 0 |
 | P0 | Numéro ADELI ou RPPS, lien WhatsApp (`wa.me`) saisis dans Réglages | Manon |
 | P0 | Déploiement (`espace/README.md`, « Mise en ligne »), compte Brevo et domaine d'envoi vérifié | Contrat HDS, domaine |
 | P0 | Test avec 3 à 5 patientes volontaires pendant une semaine | Déploiement |

@@ -90,6 +90,12 @@ try {
     await pt.screenshot({ path: path.join(shots, `espace-patiente${p.replace(/\//g, "-")}.png`), fullPage: true });
   }
   check(Object.values(widths).every(w => w <= 390), `largeur mobile ${JSON.stringify(widths)}`);
+  for (const p of ["/conditions", "/mentions-legales", "/confidentialite"]) {
+    await pt.goto(BASE + p);
+    const w = await pt.evaluate(() => document.documentElement.scrollWidth), h = await pt.locator("h1").textContent();
+    check(w <= 390 && (await pt.locator(".legaltext h3, .legaltext h4").count()) > 2, `page juridique ${p} (« ${h} », ${w} px)`);
+  }
+  check(await pt.locator("text=Partie 2").count() === 0, "partie « étape 2 » de la confidentialité non publiée");
 
   await pt.goto(BASE + "/espace/recettes");
   const previews = await pt.locator("a.rcard").count();

@@ -1,5 +1,5 @@
 import { StateForm, type FormState } from "./state-form";
-import { Field, Check } from "./ui";
+import { Field } from "./ui";
 import { Submit } from "./submit";
 
 /** Choix du mot de passe (invitation ou réinitialisation). */
@@ -13,11 +13,13 @@ export function PasswordForm({ token, action, consent, email }: { token: string;
       {consent && (
         <>
           <p className="muted" style={{ fontSize: 14 }}>
-            Votre espace contient vos recettes, fiches et contenus. Vos données servent uniquement à votre accompagnement par Manon,
-            ne sont ni vendues ni partagées, et vous pouvez demander leur suppression à tout moment.{" "}
-            <a href="/confidentialite" target="_blank">Politique de confidentialité</a>.
+            Vos données servent uniquement à votre accompagnement par Manon, tenue au secret professionnel. Elles ne sont ni vendues
+            ni utilisées pour de la publicité. <a href="/confidentialite" target="_blank">Politique de confidentialité</a>.
           </p>
-          <Check id="consent" label="J'accepte les conditions d'utilisation de mon espace" required />
+          <div className="check">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label htmlFor="consent">J&apos;ai lu et j&apos;accepte les <a href="/conditions" target="_blank">conditions d&apos;utilisation</a> de mon espace</label>
+          </div>
         </>
       )}
       <Submit>{consent ? "Activer mon espace" : "Enregistrer"}</Submit>

@@ -7,9 +7,11 @@ Conservation par défaut des données personnelles : durée de la relation + 3 a
 
 ## Étape 1 : tables créées (2026-11-24)
 
-Source de vérité : `espace/db/migrations/001_etape1.sql` et `002_offres.sql`. Écarts avec le modèle proposé plus bas :
+Source de vérité : `espace/db/migrations/001_etape1.sql`, `002_offres.sql` et `003_conditions.sql`. Écarts avec le modèle proposé plus bas :
 
 - **Pas de `auth.users` ni de RLS** : l'authentification est dans l'application. `profiles` porte `password_hash` (scrypt), `totp_secret_enc` (secret de double authentification chiffré AES-256-GCM avec `APP_SECRET`), `totp_enabled`, `totp_last_step` (anti-rejeu), `failed_logins`, `locked_until`. Le contrôle d'accès se fait côté serveur (`requirePatient`, `requireAdmin`, `patientAccess(id).can(clé)`) ; `has_feature()` n'existe pas en SQL.
+- `profiles.terms_version`, `profiles.terms_accepted_at` : version des conditions d'utilisation acceptées à l'activation et date (preuve ; conservée 5 ans après la suppression du compte selon `legal/confidentialite-espace.md`).
+- Suppressions automatiques (`espace/lib/retention.ts`, à chaque ouverture du tableau de bord de Manon) : rendez-vous 30 jours après leur date, demandes d'offre et journal des actions après 1 an, sessions expirées, jetons expirés depuis 30 jours. La suppression d'un compte en fin d'accompagnement reste manuelle (à automatiser).
 - `sessions` : `token_hash` (SHA-256 du jeton du cookie, le jeton n'est jamais stocké), `user_id`, `second_factor_ok`, `expires_at`. P. Supprimée à l'expiration.
 - `auth_tokens` : invitations (7 jours) et réinitialisations (1 heure), `token_hash`, `kind`, `used_at`. P. Usage unique.
 - `plans` : prix en centimes (`price_cents`), `billing_unit` (`consultation`, `mois`, `offert`), `commitment_months`, `upfront_price_cents`, `upfront_months`, `public`, `highlights` (points forts affichés dans « Mes offres »).

@@ -10,6 +10,7 @@
     "start": "next start -p ${PORT:-3100}",
     "db:migrate": "node scripts/migrate.mjs",
     "db:seed": "node scripts/seed.mjs",
+    "sync:legal": "node scripts/sync-legal.mjs",
     "test": "tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit"
   },

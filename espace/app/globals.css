@@ -148,7 +148,15 @@ th { font-weight: 600; font-size: 14px; color: var(--gris); }
   table.cards tr { background: var(--blanc); border: 1px solid var(--line); border-radius: 16px; padding: 8px 12px; margin-bottom: 10px; }
   table.cards td { border: 0; padding: 6px 0; display: flex; justify-content: space-between; gap: 12px; }
   table.cards td::before { content: attr(data-label); color: var(--gris); font-size: 14px; }
+  .legaltext table.cards td { flex-direction: column; gap: 2px; }
 }
+
+/* ---------- Textes juridiques ---------- */
+.legaltext h2 { font-size: 24px; margin-top: 28px; }
+.legaltext h3 { font-size: 19px; margin-top: 20px; }
+.legaltext h4 { font-family: var(--f-body); font-size: 16px; font-weight: 600; margin: 16px 0 6px; }
+.legaltext table { margin-bottom: 16px; font-size: 15px; }
+.legaltext { overflow-wrap: anywhere; }
 
 /* ---------- Surcharges responsives (toujours en fin de feuille) ---------- */
 @media (min-width: 700px) {
@@ -166,3 +174,4 @@ th { font-weight: 600; font-size: 14px; color: var(--gris); }
   .admin .tabbar { position: sticky; top: 0; bottom: auto; justify-content: flex-start; gap: 4px; padding: 6px 16px; border-top: 0; border-bottom: 1px solid var(--line); }
   .admin .tabbar a { flex: none; flex-direction: row; gap: 8px; padding: 0 14px; min-height: 44px; font-size: 15px; }
 }
+

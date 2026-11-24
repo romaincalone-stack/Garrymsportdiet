@@ -8,6 +8,8 @@ import { sendEmail, resetEmail } from "@/lib/email";
 import type { FormState } from "@/components/state-form";
 
 const MAX_FAILS = 5, LOCK_MIN = 15;
+/** Version des conditions d'utilisation acceptées à l'activation (legal/cgu-espace.md). À changer quand le texte change. */
+const TERMS_VERSION = "v1";
 // Empreinte factice : la vérification prend le même temps qu'un compte existe ou non.
 const DUMMY = "scrypt$32768$8$1$AAAAAAAAAAAAAAAAAAAAAA$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 const str = (f: FormData, k: string) => String(f.get(k) ?? "").trim();
@@ -83,7 +85,9 @@ async function usePasswordToken(form: FormData, kind: "invitation" | "reinitiali
       [sha256(token), kind])).rows[0];
     if (!t) return null;
     return (await c.query<{ id: string; role: "admin" | "patient" }>(
-      "update profiles set password_hash = $2, failed_logins = 0, locked_until = null where id = $1 and status = 'active' returning id, role", [t.user_id, hash])).rows[0] ?? null;
+      `update profiles set password_hash = $2, failed_logins = 0, locked_until = null,
+              terms_version = coalesce($3, terms_version), terms_accepted_at = case when $3::text is null then terms_accepted_at else now() end
+        where id = $1 and status = 'active' returning id, role`, [t.user_id, hash, kind === "invitation" ? TERMS_VERSION : null])).rows[0] ?? null;
   });
   if (!user) return { error: "Ce lien n'est plus valable. Demandez-en un nouveau à Manon, ou utilisez « Mot de passe oublié »." };
   await destroyAllSessions(user.id);

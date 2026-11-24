@@ -13,7 +13,9 @@ Outil public « Mon assiette » (`site/assiette.html`) : suivi des repas en phot
 
 Doctolib reste l'unique outil de prise de rendez-vous. La plateforme ne prend aucun rendez-vous et ne s'y connecte pas.
 
-Documents de référence : `APP_SPEC.md` (produit), `BRAND_BRIEF.md` (identité), `DATA_DICTIONARY.md` (données), `INTEGRATIONS.md` (services), `FEATURE_BACKLOG.md` (avancement), `JOURNAL_ERREURS.md` (incidents).
+Documents de référence : `APP_SPEC.md` (produit), `BRAND_BRIEF.md` (identité), `DATA_DICTIONARY.md` (données), `INTEGRATIONS.md` (services), `FEATURE_BACKLOG.md` (avancement), `JOURNAL_ERREURS.md` (incidents), `legal/` (textes juridiques et `AUDIT.md`).
+
+Questions juridiques : confier à l'agent `juriste` (`.claude/agents/juriste.md`), qui écrit dans `legal/` sans toucher au code ; tout nouveau texte visible ou nouvelle fonctionnalité passe par lui avant la mise en ligne. Les textes de l'espace sont recopiés dans `espace/content/legal/` par `npm run sync:legal` (dans `espace/`) ; ne pas les modifier à la main.
 
 ## Règles impératives
 
@@ -52,7 +54,7 @@ L'accès à une fonctionnalité passe toujours par `can(featureKey)`, qui lit `A
 
 ### Cible (proposée le 2026-11-24, à valider ; mise en ligne par étapes : `APP_SPEC.md` §9)
 - **Site vitrine et « Mon assiette »** (étape 0) : fichiers statiques sur **Cloudflare Pages** (gratuit, usage commercial autorisé), fonction `functions/api/analyse.js` pour la photo (étape 5). Polices et bibliothèques hébergées sur le site, aucun appel à Google Fonts ni à un CDN en production.
-- **Espace patiente et back-office** (étapes 1 à 4) : une seule application **Next.js (App Router) + TypeScript + PostgreSQL**, sur une **plateforme gérée certifiée HDS pour les 6 activités** (candidats : Clever Cloud, Scaleway, OVHcloud ; devis à obtenir). L'hébergeur administre serveurs et base : le développeur ne déploie que le code et n'exerce pas l'activité 5 (infogérance), qui exigerait une certification. Comptes compris, car la liste des patientes d'une diététicienne est probablement une donnée de santé.
+- **Espace patiente et back-office** (étapes 1 à 4) : une seule application **Next.js (App Router) + TypeScript + PostgreSQL**, sur une **plateforme gérée certifiée HDS pour les 6 activités** (comparatif du 2026-11-24, `references/hebergement-hds-2026-11-24.md` : Clever Cloud ~21 € HT/mois au catalogue ou Scalingo 48,80 € HT/mois ; Scaleway, OVHcloud et Azure écartés). L'hébergeur administre serveurs et base : le développeur ne déploie que le code et n'exerce pas l'activité 5 (infogérance), qui exigerait une certification. Comptes compris, car la liste des patientes d'une diététicienne est probablement une donnée de santé.
 - **Écartés pour l'espace patiente** : Supabase et Vercel (non certifiés HDS à notre connaissance, à revérifier) ; Supabase installé soi-même sur un serveur HDS aussi (il ferait exercer l'activité 5).
 - **Authentification** dans l'application : invitation par email (rien que Manon ne crée), double authentification obligatoire pour Manon, accès aux données de santé tracés.
 - **Emails** : Brevo (français), sans aucune donnée de santé dans le texte. **Vidéos** : Bunny Stream (Europe). **Paiement** (étape 4) : Stripe ou GoCardless. **Application mobile** : web app installable (PWA), sans boutiques d'applications.
