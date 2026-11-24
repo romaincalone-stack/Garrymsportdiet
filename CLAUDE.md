@@ -26,7 +26,8 @@ Documents de référence : `APP_SPEC.md` (produit), `BRAND_BRIEF.md` (identité)
 7. **Design** : utiliser uniquement les tokens de `BRAND_BRIEF.md` (couleurs, polices, rayons). Pas de nouvelle couleur, police ou ombre sans mise à jour du brief. Respecter la liste « À ne jamais faire » du brief.
 8. **Accessibilité** : contraste AA, cibles tactiles ≥ 44 px, focus visible, `prefers-reduced-motion` respecté, chaque champ a un `id` et un `label`.
 9. **Langue** : interface et docs en français ; vouvoiement côté patiente ; écriture simple, phrases courtes.
-10. **Vérifier avant de livrer** : `npm run check` doit afficher `NO ERRORS` et une largeur mobile de 390 px.
+10. **Compatibilité avec la profession de diététicienne (priorité absolue, demande de Romain du 2026-11-24).** Toute fonctionnalité, tout texte et toute étape de mise en ligne doivent rester dans le cadre de l'exercice de la diététique (Code de la santé publique, art. L.4371-1 et suivants) et du coaching sportif (Code du sport, L.212-1) : conseil nutritionnel et éducation diététique, jamais de diagnostic ni de prescription ; prise en charge d'une pathologie seulement en complément du suivi médical ; secret professionnel ; titre et numéro d'enregistrement affichés ; prudence avec les troubles du comportement alimentaire. Liste de contrôle : `APP_SPEC.md` §8, « Profession ». En cas de doute, le signaler à Romain et le faire valider par un juriste ou l'AFDN, ne pas trancher seul.
+11. **Vérifier avant de livrer** : `npm run check` doit afficher `NO ERRORS` et une largeur mobile de 390 px.
 
 ## Architecture
 

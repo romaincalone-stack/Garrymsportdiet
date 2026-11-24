@@ -177,6 +177,21 @@ Réponses déjà obtenues : diplôme de coach sportive confirmé ; option B dema
 - [ ] **Paiement (à approfondir, brief du 2026-10-30)** : moyen (prélèvement SEPA, carte, acompte, virement, paiement au cabinet), moment dans le parcours pour chaque offre, CGV des abonnements avec engagement (durée, résiliation, rétractation), mandat SEPA si prélèvement.
 - [ ] **Option B (données de santé)** : hébergeur certifié HDS (Code de la santé publique, L.1111-8) pour la base et les sauvegardes ; analyse d'impact (AIPD) ; consentement explicite et retirable (RGPD, art. 9) ; registre des traitements ; durée de conservation ; droit d'accès et d'effacement ; information claire sur qui voit quoi (Manon seule). Décision et responsabilité : Manon (responsable de traitement).
 
+### Profession de diététicienne (règle 10 de `CLAUDE.md`, 2026-11-24)
+
+Liste à faire valider par un juriste ou par l'AFDN (Association française des diététiciens nutritionnistes) avant chaque étape de mise en ligne. Les références juridiques citées ici sont à vérifier.
+
+- [ ] **Champ d'exercice** (CSP, art. L.4371-1) : la diététicienne donne des conseils nutritionnels ; l'éducation et la rééducation nutritionnelles des patientes atteintes d'une pathologie se font **sur prescription médicale**. Le site et l'application parlent d'endométriose, de SMOP, de syndrome prémenstruel ou de (péri)ménopause toujours « en complément de votre suivi médical », sans promesse de résultat. À vérifier : les cartes « Votre besoin », la question 1 et le résultat du test, les programmes.
+- [ ] **Aucun diagnostic, aucune prescription** dans l'application : le suivi du cycle, l'évolution, les symptômes et « Mon assiette » sont des repères, « sans valeur de diagnostic » (déjà écrit).
+- [ ] **Titre et enregistrement** : « Diététicienne-nutritionniste » avec le diplôme (BTS diététique ou BUT génie biologique option diététique) et le numéro d'enregistrement (RPPS ou ADELI, selon la situation de Manon) dans les mentions légales. Pour le coaching : diplôme et carte professionnelle (Code du sport).
+- [ ] **Secret professionnel** (CSP, art. L.1110-4) : seule Manon accède aux données d'une patiente, avec un accès protégé (double authentification) et tracé. WhatsApp sert seulement à la prise de contact : un message dans le profil invite à ne pas y envoyer d'informations de santé.
+- [ ] **Liberté de la patiente d'arrêter sa prise en charge** (CSP, art. L.1110-8, libre choix du praticien) : l'**engagement de 3 mois** des offres Nutrition et All in, qui incluent des consultations, est à faire valider. Pistes : engagement portant sur l'accès à l'application seulement, consultations payées à la séance ; ou résiliation possible à tout moment pour la partie soins.
+- [ ] **Troubles du comportement alimentaire** : « Mon assiette » (calories) est ouvert à toutes ; calories masquables, aucun objectif chiffré, renvoi vers un professionnel de santé (déjà en place). Manon décide si l'outil reste public et si les calories sont affichées par défaut (hypothèse H27).
+- [ ] **Communication** : aucun avis inventé, aucune photo « avant / après », aucune promesse de perte de poids ; les tarifs affichés sont ceux réellement pratiqués.
+- [ ] **Télésoin** : les consultations en visio relèvent du télésoin, ouvert aux diététiciens ; à vérifier : conditions en vigueur (consentement de la patiente, outil de visio sécurisé).
+- [ ] **Dossier de la patiente** : le bilan et les notes de Manon restent hors de la plateforme (règle 2) ; Manon conserve son dossier patient avec son propre outil, pour la durée recommandée (de l'ordre de 20 ans après la dernière consultation, à vérifier).
+- [ ] **Facturation** : les actes de diététique sont exonérés de TVA (CGI, art. 261-4-1°) ; le coaching sportif et les contenus numériques peuvent ne pas l'être (ligne « Facturation » ci-dessus).
+
 ## 9. Planning (brief du 2026-10-30)
 
 | Période | Étape |
