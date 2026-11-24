@@ -10,6 +10,7 @@
     "build:standalone": "node tools/build-standalone.mjs",
     "check:standalone": "node tools/build-standalone.mjs && CHECK_FILE=dist/garrym-prototype.html node tools/check-prototype.mjs",
     "build:brief": "node tools/build-brief-pdf.mjs",
+    "check:espace": "node tools/check-espace.mjs",
     "check:assiette": "node tools/test-analyse.mjs && node tools/check-assiette.mjs"
   },
   "devDependencies": {

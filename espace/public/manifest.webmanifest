@@ -1,0 +1,10 @@
+{
+  "name": "GM Sport et Nutrition",
+  "short_name": "Mon espace",
+  "lang": "fr",
+  "start_url": "/espace",
+  "display": "standalone",
+  "background_color": "#0F3A2A",
+  "theme_color": "#0F3A2A",
+  "icons": [{ "src": "/logo.png", "sizes": "any", "type": "image/png", "purpose": "any" }]
+}

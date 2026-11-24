@@ -194,7 +194,9 @@ Liste à faire valider par un juriste ou par l'AFDN (Association française des 
 
 ## 9. Planning
 
-### Échelonnage de la mise en ligne (proposé le 2026-11-24, à valider par Manon)
+### Échelonnage de la mise en ligne (proposé le 2026-11-24, validé par Romain le même jour ; à présenter à Manon)
+
+**Avancement** : étape 1 développée le 2026-11-24 dans `espace/` (Next.js + PostgreSQL, `espace/README.md`), testée en local (`npm run check:espace`). Pas encore en ligne : elle attend le contrat HDS, la politique de confidentialité complétée et le numéro ADELI ou RPPS de Manon. Écarts assumés de l'étape 1 : rendez-vous saisi à la main par Manon (date et lieu, jamais le motif) ; fiches conseils communes à toutes (aucun document propre à une patiente) ; demande d'offre sans paiement ; cases de la liste de courses non enregistrées.
 
 Chaque étape peut être mise en ligne seule, ne promet que ce qui fonctionne, et passe la liste « Profession » du §8 (règle 10 de `CLAUDE.md`). Ouverture d'abord à 3 à 5 patientes volontaires, puis à toutes.
 

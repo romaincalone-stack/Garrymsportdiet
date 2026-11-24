@@ -1,9 +1,24 @@
 # DATA_DICTIONARY : modèle de données
 
-Version 2026-10-26 · Cible : PostgreSQL sur une plateforme gérée certifiée HDS pour toute l'application patiente, comptes compris (décision proposée le 2026-11-24, voir `CLAUDE.md` et `INTEGRATIONS.md`) ; les mentions `auth.users` et Row Level Security ci-dessous désignent la table d'authentification de l'application et les politiques d'accès de PostgreSQL · Statut : proposé, rien n'est encore créé.
+Version 2026-10-26 · Cible : PostgreSQL sur une plateforme gérée certifiée HDS pour toute l'application patiente, comptes compris (décision proposée le 2026-11-24, voir `CLAUDE.md` et `INTEGRATIONS.md`) ; les mentions `auth.users` et Row Level Security ci-dessous désignent la table d'authentification de l'application et les politiques d'accès de PostgreSQL · Statut : les tables de l'étape 1 existent (`espace/db/migrations/`, 2026-11-24, ci-dessous « Étape 1 : tables créées ») ; les autres sont proposées.
 
 Légende sensibilité RGPD : **P** = donnée personnelle ; **—** = non personnelle ; **Santé** = donnée de santé (RGPD, art. 9), introduite par l'option B le 2026-10-26 : hébergement HDS, consentement explicite, accès limité à la patiente et à Manon.
 Conservation par défaut des données personnelles : durée de la relation + 3 ans après le dernier contact, puis suppression ou anonymisation (à valider par Manon et inscrire dans la politique de confidentialité).
+
+## Étape 1 : tables créées (2026-11-24)
+
+Source de vérité : `espace/db/migrations/001_etape1.sql` et `002_offres.sql`. Écarts avec le modèle proposé plus bas :
+
+- **Pas de `auth.users` ni de RLS** : l'authentification est dans l'application. `profiles` porte `password_hash` (scrypt), `totp_secret_enc` (secret de double authentification chiffré AES-256-GCM avec `APP_SECRET`), `totp_enabled`, `totp_last_step` (anti-rejeu), `failed_logins`, `locked_until`. Le contrôle d'accès se fait côté serveur (`requirePatient`, `requireAdmin`, `patientAccess(id).can(clé)`) ; `has_feature()` n'existe pas en SQL.
+- `sessions` : `token_hash` (SHA-256 du jeton du cookie, le jeton n'est jamais stocké), `user_id`, `second_factor_ok`, `expires_at`. P. Supprimée à l'expiration.
+- `auth_tokens` : invitations (7 jours) et réinitialisations (1 heure), `token_hash`, `kind`, `used_at`. P. Usage unique.
+- `plans` : prix en centimes (`price_cents`), `billing_unit` (`consultation`, `mois`, `offert`), `commitment_months`, `upfront_price_cents`, `upfront_months`, `public`, `highlights` (points forts affichés dans « Mes offres »).
+- `appointments` : une ligne par patiente (`starts_at`, `location` : `visio`, `la_garde`, `domicile`), **jamais le motif**.
+- `offer_requests` : + `handled_by`.
+- `recipes` : macros en colonnes (`kcal`, `protein_g`, `carbs_g`, `fat_g`, `fiber_g`), `themes text[]`, `status` (`draft`, `published`), `publish_at` ; ingrédients et étapes dans `recipe_ingredients` et `recipe_steps`. Pas encore d'allergènes ni de régimes.
+- `articles` : `body` en texte brut (affiché échappé), `visibility` (`public`, `members`).
+- `documents` : fiches conseils communes (PDF en `bytea`, 5 Mo au plus) ; jamais de document propre à une patiente.
+- `favorites`, `shopping_list_items` (portions 1 à 12), `settings` (`doctolib_url`, `whatsapp_url`, `practitioner` {name, title, registration}, `extra_offers`), `audit_log`, `email_outbox` (développement seulement).
 
 ## Comptes et formules
 
@@ -237,7 +252,7 @@ Une facture émise n'est jamais modifiée ni supprimée (RLS : insertion seuleme
 
 ## Paramètres et traçabilité
 
-- `settings` : key text PK, value jsonb (`doctolib_url`, `whatsapp_number`, `instagram_url`). Non personnel.
+- `settings` : key text PK, value jsonb (`doctolib_url`, `whatsapp_url`, `practitioner`, `extra_offers` ; plus tard `instagram_url`). Non personnel.
 - `audit_log` : id, actor_id (P), action, entity, entity_id, at. Conservation 1 an.
 
 ## Mon assiette (2026-11-22, aucune donnée hébergée)

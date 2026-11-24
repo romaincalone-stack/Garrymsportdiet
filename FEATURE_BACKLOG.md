@@ -51,12 +51,13 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 | 2026-10-26 | Espace patiente refait en application mobile, rendu TSE | Thème sombre, quatre onglets (Aujourd'hui, Training, Nutrition, Évolution), cartes en éventail, recherche, disciplines, zones, vidéos par durée ; 4 vidéos ajoutées (périnée, Pilates, marche, yoga du soir) |
 | 2026-10-26 | Semainier partagé | La patiente note chaque repas (« fait comme prévu » ou ce qu'elle a mangé, quantité, remarque) et propose sa semaine ; Manon valide ou conseille repas par repas (« Suivi des repas » dans le back-office) |
 | 2026-10-26 | Rubrique Évolution | Mesures (poids facultatif, tours de taille et de hanches), ressentis de 1 à 5, courbes, historique ; poids masquable par Manon ou la patiente |
+| 2026-11-24 | Étape 1 développée : espace patiente et back-office réels (`espace/`) | Next.js 16 + PostgreSQL ; invitation par email (7 jours), mot de passe oublié, double authentification obligatoire de Manon (QR code, code à usage unique), sessions en cookie sécurisé, verrouillage après 5 échecs, journal des actions ; offres et matrice d'accès modifiables, `minPlan` ; recettes (aperçu de 3, portions, favoris, filtres, publication programmée), liste de courses additionnée, articles, fiches PDF, « Mes offres » ; back-office : À traiter, patientes (création, offre, rendez-vous, suspension), recettes, articles, fiches, réglages ; parcours testé (`npm run check:espace`) |
 
 ## En cours
 
 | Priorité | Fonctionnalité | Prochaine action |
 | --- | --- | --- |
-| P0 | Validation de l'échelonnage de mise en ligne (`APP_SPEC.md` §9) | Romain puis Manon |
+| P0 | Échelonnage validé par Romain (2026-11-24) ; à présenter à Manon avec l'étape 1 | Romain |
 | P0 | Vérification « Profession » (`APP_SPEC.md` §8, règle 10), en priorité l'engagement de 3 mois | Juriste en santé ou AFDN |
 | P0 | Avis de Manon sur le prototype, dont « Mon assiette » (public ou non, calories affichées par défaut : H27) | Aperçu en ligne + captures |
 | P0 | Tests sur vrais téléphones (iPhone, Android) : survol, appui, encoche, clavier | Romain |
@@ -79,16 +80,19 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 
 ### Étape 1 : comptes et espace « socle »
 
+Code livré le 2026-11-24 (`espace/`, voir « Livré »). Reste pour la mise en ligne :
+
 | Priorité | Fonctionnalité | Dépend de |
 | --- | --- | --- |
 | P0 | Devis et contrat d'une plateforme gérée certifiée HDS (6 activités) | Manon |
-| P0 | Application Next.js + PostgreSQL : schéma (`DATA_DICTIONARY.md`), invitation par email, double authentification de Manon | Contrat HDS |
-| P0 | Matrice d'accès en base (`plan_features`, `has_feature`) | Schéma |
-| P0 | Back-office : patientes, formules, prochaine consultation, publication des contenus | Authentification |
-| P0 | Recettes (saisie, publication programmée, fiche, filtres), liste de courses, articles, fiches conseils, « Mes offres » | Authentification |
-| P1 | Emails d'invitation et de notification (Brevo), sans donnée de santé | Authentification |
-| P1 | Message dans le profil : WhatsApp pour la prise de contact seulement (secret professionnel) | — |
-| P2 | Web app installable (PWA) avec icône | Étape 1 |
+| P0 | Politique de confidentialité et conditions d'utilisation complétées (les `[crochets]` de `/confidentialite`), relues par un juriste ou l'AFDN | Manon |
+| P0 | Numéro ADELI ou RPPS, lien WhatsApp (`wa.me`) saisis dans Réglages | Manon |
+| P0 | Déploiement (`espace/README.md`, « Mise en ligne »), compte Brevo et domaine d'envoi vérifié | Contrat HDS, domaine |
+| P0 | Test avec 3 à 5 patientes volontaires pendant une semaine | Déploiement |
+| P1 | Vraies recettes, articles et fiches de Manon à la place du contenu fictif | Manon |
+| P1 | Limitation du nombre de tentatives de connexion par adresse IP (en plus du verrouillage par compte) | Déploiement |
+| P2 | Web app installable : manifeste fait ; icônes aux bonnes tailles (logo vectoriel) et mode hors ligne | Logo SVG |
+| P2 | Emails de notification (nouvelle recette, fin d'offre proche), sans donnée de santé | Brevo |
 
 ### Étape 2 : suivi nutritionnel (données de santé)
 
