@@ -117,8 +117,8 @@ Sous-pages : recettes, vidéos, semainier, proposer ma semaine, séances, progra
 | H5 | Consultation non prise | Reportée d'un mois maximum |
 | H6 | Pause possible | 1 mois par an |
 | H7 | Changement de formule | Montée immédiate, descente au mois suivant |
-| H8 | Prix des offres | Nutrition 60 €/mois, All in 90 €/mois (« prix à définir » dans le brief du 2026-10-30) |
-| H8b | Engagement | **Décidé le 2026-11-04** : 3 mois sur Nutrition et All in, payables en une fois (180 €, 270 €) ou chaque mois ; Recettes + sport sans engagement (20 €/mois) ou 6 mois pour 90 €, en une fois ou chaque mois |
+| H8 | Prix des offres | **Décidé le 2026-11-04** : Nutrition 60 €/mois, All in 90 €/mois, Recettes + sport 20 €/mois ou 90 € pour 6 mois |
+| H8b | Engagement | **Décidé le 2026-11-04** : 3 mois sur Nutrition et All in, payables en une fois (180 €, 270 €) ou chaque mois ; Recettes + sport sans engagement (20 €/mois) ou 6 mois pour 90 €, en une fois ou chaque mois. **À faire valider (§8, Profession)** : la patiente doit rester libre d'arrêter sa prise en charge ; piste : engagement limité à l'application |
 | H8c | Recettes + sport | **Décidé le 2026-11-04** : recettes et vidéos, sans les séances en direct (pour garder les 10 places aux clientes All in) ; affichée sur le site et dans l'espace patiente |
 | H8d | Piste du brief : suivi à 50 € seul ou 60 € avec l'application, engagement 2 mois | Non retenue dans le prototype (l'offre Nutrition la couvre) ; à trancher |
 | H8e | Contenu du mois offert | Semainier partagé, recettes, évolution (sans WhatsApp ni vidéos) |
@@ -192,7 +192,24 @@ Liste à faire valider par un juriste ou par l'AFDN (Association française des 
 - [ ] **Dossier de la patiente** : le bilan et les notes de Manon restent hors de la plateforme (règle 2) ; Manon conserve son dossier patient avec son propre outil, pour la durée recommandée (de l'ordre de 20 ans après la dernière consultation, à vérifier).
 - [ ] **Facturation** : les actes de diététique sont exonérés de TVA (CGI, art. 261-4-1°) ; le coaching sportif et les contenus numériques peuvent ne pas l'être (ligne « Facturation » ci-dessus).
 
-## 9. Planning (brief du 2026-10-30)
+## 9. Planning
+
+### Échelonnage de la mise en ligne (proposé le 2026-11-24, à valider par Manon)
+
+Chaque étape peut être mise en ligne seule, ne promet que ce qui fonctionne, et passe la liste « Profession » du §8 (règle 10 de `CLAUDE.md`). Ouverture d'abord à 3 à 5 patientes volontaires, puis à toutes.
+
+| Étape | Mis en ligne | Prérequis (Manon) | Prête quand | Durée estimée | Coût en plus |
+| --- | --- | --- | --- | --- | --- |
+| **0. Site vitrine** | Site public, test, « Mon assiette » sans photo (recherche, code-barres) | Domaine et compte Cloudflare à son nom, photos, informations légales (titre, diplôme, RPPS ou ADELI, carte de coach), motif Doctolib « appel découverte » | Pages légales en ligne, polices et bibliothèques hébergées sur le site, « Mon espace » masqué | 1 semaine | ~10 €/an |
+| **1. Comptes et espace « socle »** | Connexion sur invitation, formules et accès, recettes et liste de courses, articles, fiches conseils, « Mes offres », Doctolib ; back-office : patientes, formules, publication | Contrat avec une plateforme gérée certifiée HDS (comptes compris : la liste des patientes d'une diététicienne est probablement une donnée de santé), politique de confidentialité, conditions d'utilisation | Tests automatiques au vert ; 3 à 5 volontaires une semaine sans blocage ; double authentification de Manon | 3 à 4 semaines | 40 à 120 €/mois (devis) |
+| **2. Suivi nutritionnel** | Semainier partagé, repas notés et réponses, semainier proposé, Évolution, cycle ; back-office « Suivi des repas » et « Évolutions » | AIPD terminée, texte de consentement validé, procédure en cas de fuite | Consentement à la première ouverture ; restauration de sauvegarde réussie ; accès de Manon tracés | 3 à 4 semaines | — |
+| **3. Sport** | Vidéos avec consignes, programmes, playlists, planner, séances collectives | Bibliothèque de vidéos tournée, compte Bunny Stream | Vidéos lisibles sur téléphone, inscriptions aux séances | 2 à 3 semaines | quelques €/mois |
+| **4. Paiement et factures** | Engagement (forme validée au §8), en une fois ou chaque mois ; factures et avoirs | Moyen de paiement, CGV, avis du comptable (TVA) | Premier paiement réel et facture conforme | 2 semaines | commission par paiement |
+| **5. Photo dans « Mon assiette »** | Analyse photo par IA | 20 à 30 repas pesés par Manon passés dans `tools/eval-assiette/`, plafond de dépense, mention du transfert hors UE | Précision mesurée et annoncée honnêtement | 1 à 2 semaines | ~10 à 30 €/mois (plafonné) |
+
+Ordre retenu : le suivi nutritionnel (offre principale, AIPD menée pendant l'étape 1) avant le sport (qui attend le tournage des vidéos) ; on inverse si les vidéos sont prêtes avant. Pendant les étapes 1 à 3, le texte des formules sur le site ne promet que ce qui est en ligne (par exemple, pas de « suivi hebdomadaire du semainier » avant l'étape 2 : semainier en PDF et retour en consultation). Jusqu'à l'étape 4, Manon encaisse comme aujourd'hui (cabinet, virement). Durées et coûts : estimations (confiance moyenne pour les durées, faible pour l'HDS).
+
+### Calendrier du brief (2026-10-30)
 
 | Période | Étape |
 | --- | --- |
@@ -200,4 +217,4 @@ Liste à faire valider par un juriste ou par l'AFDN (Association française des 
 | Décembre | Phase de test avec des patientes volontaires, tournage et création des contenus |
 | Janvier 2027 | Mise en ligne officielle, campagne de communication digitale |
 
-Le brief indique « novembre 2027 » et « décembre 2027 » avant « janvier 2027 » : lu comme novembre et décembre 2026 (à confirmer). Le calendrier impose de trancher vite l'hébergement des données de santé (option B), sinon le semainier partagé et l'évolution ne pourront pas ouvrir en janvier.
+Le brief indique « novembre 2027 » et « décembre 2027 » avant « janvier 2027 » : lu comme novembre et décembre 2026 (à confirmer). Le calendrier impose de trancher vite l'hébergement des données de santé (option B), sinon le semainier partagé et l'évolution ne pourront pas ouvrir en janvier. Avec l'échelonnage ci-dessus, les étapes 0 et 1 sont atteignables pour janvier 2027 ; l'étape 2 dépend de l'AIPD et du contrat HDS.

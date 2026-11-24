@@ -49,11 +49,13 @@ Organisation du script dans `index.html` :
 
 L'accès à une fonctionnalité passe toujours par `can(featureKey)`, qui lit `ACCESS`. Ne jamais tester une formule en dur (`plan === "f3"`).
 
-### Cible (phase 3, proposée, à valider)
-- **Front** : Next.js (App Router) + TypeScript, déployé sur Vercel (offre Pro, l'offre Hobby interdit l'usage commercial).
-- **Données et auth** : Supabase, région UE, Postgres + Row Level Security (voir `DATA_DICTIONARY.md`), invitations par email via Supabase Auth.
-- **Emails** : Resend ou Brevo. **Vidéos** : Bunny Stream ou Vimeo. **Polices** : auto-hébergées (`next/font`), pas d'appel à Google Fonts en production.
-- La matrice `ACCESS` devient la table `plan_features`, et `can()` devient la fonction SQL `has_feature()`.
+### Cible (proposée le 2026-11-24, à valider ; mise en ligne par étapes : `APP_SPEC.md` §9)
+- **Site vitrine et « Mon assiette »** (étape 0) : fichiers statiques sur **Cloudflare Pages** (gratuit, usage commercial autorisé), fonction `functions/api/analyse.js` pour la photo (étape 5). Polices et bibliothèques hébergées sur le site, aucun appel à Google Fonts ni à un CDN en production.
+- **Espace patiente et back-office** (étapes 1 à 4) : une seule application **Next.js (App Router) + TypeScript + PostgreSQL**, sur une **plateforme gérée certifiée HDS pour les 6 activités** (candidats : Clever Cloud, Scaleway, OVHcloud ; devis à obtenir). L'hébergeur administre serveurs et base : le développeur ne déploie que le code et n'exerce pas l'activité 5 (infogérance), qui exigerait une certification. Comptes compris, car la liste des patientes d'une diététicienne est probablement une donnée de santé.
+- **Écartés pour l'espace patiente** : Supabase et Vercel (non certifiés HDS à notre connaissance, à revérifier) ; Supabase installé soi-même sur un serveur HDS aussi (il ferait exercer l'activité 5).
+- **Authentification** dans l'application : invitation par email (rien que Manon ne crée), double authentification obligatoire pour Manon, accès aux données de santé tracés.
+- **Emails** : Brevo (français), sans aucune donnée de santé dans le texte. **Vidéos** : Bunny Stream (Europe). **Paiement** (étape 4) : Stripe ou GoCardless. **Application mobile** : web app installable (PWA), sans boutiques d'applications.
+- La matrice `ACCESS` devient la table `plan_features`, et `can()` devient la fonction SQL `has_feature()` (`DATA_DICTIONARY.md`).
 
 ## Commandes utiles
 

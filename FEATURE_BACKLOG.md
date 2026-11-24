@@ -56,61 +56,93 @@ Priorités : **P0** indispensable au lancement · **P1** important · **P2** con
 
 | Priorité | Fonctionnalité | Prochaine action |
 | --- | --- | --- |
-| P0 | Avis de Romain puis de Manon sur la v6 (logo, application à la TSE) | Aperçu en ligne + captures |
-| P1 | Glisser pour fermer les feuilles (ressorts, vitesse) | Phase 3 (bibliothèque de ressorts) |
+| P0 | Validation de l'échelonnage de mise en ligne (`APP_SPEC.md` §9) | Romain puis Manon |
+| P0 | Vérification « Profession » (`APP_SPEC.md` §8, règle 10), en priorité l'engagement de 3 mois | Juriste en santé ou AFDN |
+| P0 | Avis de Manon sur le prototype, dont « Mon assiette » (public ou non, calories affichées par défaut : H27) | Aperçu en ligne + captures |
 | P0 | Tests sur vrais téléphones (iPhone, Android) : survol, appui, encoche, clavier | Romain |
-| P0 | Paiement des offres avec engagement | Manon : moyen (prélèvement SEPA, carte, au cabinet), moment dans le parcours, CGV ; puis choix Stripe ou GoCardless |
-| P0 | Prix des offres Nutrition et All in, durée d'engagement | Manon (brief : « prix à définir ») |
-| P0 | Calendrier : construction en novembre, test en décembre, mise en ligne en janvier 2027 | Confirmer les années du rétroplanning du brief |
-| P0 | Décision option B (données de santé) | Manon : choix de l'hébergeur HDS, AIPD, texte de consentement ; sinon retirer repas notés et mesures |
-| P0 | Validation du prototype par Manon | Rendez-vous de 45 min avec le prototype + tableau des hypothèses (APP_SPEC §6) |
-| P0 | Nom de marque et logo | Confirmer « GM Sport et Nutrition », obtenir le logo en vectoriel (SVG ou PDF) et un favicon |
+| P0 | Nom de marque et logo vectoriel (SVG ou PDF), favicon | Manon |
+| P0 | Calendrier : construction en novembre, test en décembre, mise en ligne en janvier 2027 | Confirmer les années du brief |
 
 ## À faire
 
+### Étape 0 : site vitrine
+
 | Priorité | Fonctionnalité | Dépend de |
 | --- | --- | --- |
-| P0 | Pages secondaires du site dans le style v4 (Manon, Formules, Thématiques, Journal, Cabinets, Connexion) | Validation de l'accueil v4 |
-| P2 | Supprimer du prototype le code de l'ancien site v3 (non affiché, archivé) une fois les pages secondaires v4 faites | Pages secondaires v4 |
-| P2 | Tableau des patientes : colonnes plus compactes sur écran de 1 280 px (la dernière colonne oblige à défiler) | — |
-| P2 | Remplacer les fruits modélisés en code par des modèles 3D réalisés sur mesure (photogrammétrie de vrais fruits), si le budget le permet | Validation v4 |
-| P0 | Choix définitif de la stack (proposée : Next.js + Supabase + Vercel) | Validation prototype |
-| P0 | Projet Supabase UE, schéma et RLS (`DATA_DICTIONARY.md`) | Stack |
-| P0 | Authentification par invitation, création de compte par Manon | Supabase |
-| P0 | Matrice d'accès en base (`plan_features`, `has_feature`) | Supabase |
-| P0 | Back-office : patientes, formules, prochaine consultation | Auth |
-| P0 | Recettes : saisie, publication programmée, fiche, filtres | Supabase |
-| P0 | Semainiers : modèles et attribution | Recettes |
-| P0 | Pages légales : mentions, confidentialité, CGV | Manon / juriste |
-| P0 | Site public administrable (textes, tarifs, photos) | Stack |
-| P1 | Vidéos : hébergeur, bibliothèque, filtres | Choix Bunny / Vimeo |
-| P1 | Programme sportif et cases « fait » | Vidéos |
-| P1 | Séances collectives : inscription, capacité, liste d'attente | Auth |
-| P1 | Emails : invitation, rappels J-1 et H-1, expiration J-7, liste d'attente | Resend / Brevo |
-| P1 | Liste de courses | Recettes |
-| P1 | Référencement local (Google Business Profile, balises, mots-clés du brief) | Site public |
-| P1 | Nom de domaine et adresse email pro | Manon |
-| P0 | Shooting photo (Manon, cabinets, plats vus du dessus, mains, pinède) | Manon |
-| P0 | Tournage des vidéos (10 à 30 min, par discipline et par zone) et photos des vignettes : le rendu TSE repose sur ces images | Manon |
-| P0 | Hébergeur HDS, AIPD, consentement explicite pour les rubriques Nutrition (repas notés) et Évolution | Décision option B |
-| P1 | Notifications : « Manon vous a répondu », semainier revu | Emails |
-| P1 | Page de consentement à la première ouverture de Nutrition et d'Évolution | Texte validé par Manon |
-| P1 | Mot géant translucide qui passe sous une photo (réf. Farm Minerals) | Photos |
-| P2 | Portrait détouré de Manon dans le site (réf. Lando Norris) | Shooting |
-| P2 | Son d'ambiance optionnel, coupé par défaut (réf. Symphony of Vines) | Validation v4 |
-| P1 | Bascule « Nutrition / Sport » sur l'accueil (réf. Voldog) | Validation du brief v3 |
-| P1 | Assiette qui se compose au défilement, ingrédients expliqués (réf. Farm Minerals, Voldog) | Photos ou illustrations des ingrédients |
-| P2 | Balayage au doigt des recettes sur mobile (réf. Calmlyss) | Recettes |
-| P2 | Web app installable (PWA) avec icône | Site en ligne |
+| P0 | Version de production du site : polices et bibliothèques hébergées sur le site, « Mon espace » masqué, photo de « Mon assiette » masquée sans clé | Contenus de Manon |
+| P0 | Pages légales : mentions (titre, diplôme, RPPS ou ADELI, carte de coach), confidentialité, CGV | Manon, juriste |
+| P0 | Nom de domaine, Cloudflare Pages, adresse email pro (redirection) | Manon |
+| P0 | Shooting photo (Manon, cabinet, plats vus du dessus, mains, pinède) | Manon |
+| P1 | Pages secondaires du site dans le style v4 (Manon, Formules, Thématiques, Journal, Cabinet) | Validation de l'accueil |
+| P1 | Référencement local (Google Business Profile, balises, mots-clés du brief) | Site en ligne |
 | P2 | Mesure d'audience sans cookie | Domaine |
+
+### Étape 1 : comptes et espace « socle »
+
+| Priorité | Fonctionnalité | Dépend de |
+| --- | --- | --- |
+| P0 | Devis et contrat d'une plateforme gérée certifiée HDS (6 activités) | Manon |
+| P0 | Application Next.js + PostgreSQL : schéma (`DATA_DICTIONARY.md`), invitation par email, double authentification de Manon | Contrat HDS |
+| P0 | Matrice d'accès en base (`plan_features`, `has_feature`) | Schéma |
+| P0 | Back-office : patientes, formules, prochaine consultation, publication des contenus | Authentification |
+| P0 | Recettes (saisie, publication programmée, fiche, filtres), liste de courses, articles, fiches conseils, « Mes offres » | Authentification |
+| P1 | Emails d'invitation et de notification (Brevo), sans donnée de santé | Authentification |
+| P1 | Message dans le profil : WhatsApp pour la prise de contact seulement (secret professionnel) | — |
+| P2 | Web app installable (PWA) avec icône | Étape 1 |
+
+### Étape 2 : suivi nutritionnel (données de santé)
+
+| Priorité | Fonctionnalité | Dépend de |
+| --- | --- | --- |
+| P0 | AIPD et texte de consentement | Manon |
+| P0 | Page de consentement à la première ouverture de Nutrition et d'Évolution | Texte validé |
+| P0 | Semainiers (modèles, attribution), repas notés et réponses, semainier proposé | Étape 1 |
+| P0 | Évolution et cycle ; back-office « Suivi des repas » et « Évolutions » ; consultations de Manon tracées | Étape 1 |
+| P0 | Procédure en cas de fuite, test de restauration des sauvegardes | Avant ouverture |
+| P1 | Notifications : « Manon vous a répondu », semainier revu | Emails |
 | P2 | Export PDF du semainier | Semainiers |
+
+### Étape 3 : sport
+
+| Priorité | Fonctionnalité | Dépend de |
+| --- | --- | --- |
+| P0 | Tournage des vidéos (10 à 30 min, par discipline et par zone) et vignettes | Manon |
+| P1 | Bunny Stream : bibliothèque, filtres, consignes (séries, répétitions, RPE) | Vidéos |
+| P1 | Programmes, playlists, planner, séances collectives (inscription, capacité, liste d'attente) | Bunny Stream |
+
+### Étape 4 : paiement et factures
+
+| Priorité | Fonctionnalité | Dépend de |
+| --- | --- | --- |
+| P0 | Moyen de paiement, CGV, TVA, forme de l'engagement validée (règle 10) | Manon, comptable, juriste |
+| P1 | Stripe ou GoCardless ; factures et avoirs | Choix du moyen de paiement |
+
+### Étape 5 : photo dans « Mon assiette »
+
+| Priorité | Fonctionnalité | Dépend de |
+| --- | --- | --- |
+| P0 | 20 à 30 repas pesés et photographiés par Manon, passés dans `tools/eval-assiette/` | Manon |
+| P1 | Clé Anthropic au nom de Manon avec plafond de dépense, mention du transfert hors UE, ajustement des consignes sur un second lot | Résultats du banc d'essai |
+
+### Design (sans étape fixe)
+
+| Priorité | Fonctionnalité | Dépend de |
+| --- | --- | --- |
+| P1 | Glisser pour fermer les feuilles (ressorts, vitesse) | Étape 1 |
+| P1 | Mot géant translucide qui passe sous une photo (réf. Farm Minerals) | Photos |
+| P1 | Bascule « Nutrition / Sport » sur l'accueil (réf. Voldog) | Validation du site |
+| P1 | Assiette qui se compose au défilement, ingrédients expliqués (réf. Farm Minerals, Voldog) | Photos ou illustrations |
+| P2 | Portrait détouré de Manon dans le site (réf. Lando Norris) | Shooting |
+| P2 | Son d'ambiance optionnel, coupé par défaut (réf. Symphony of Vines) | Validation du site |
+| P2 | Balayage au doigt des recettes sur mobile (réf. Calmlyss) | Recettes |
 | P2 | Fil Instagram automatique | Compte pro Instagram |
+| P2 | Tableau des patientes : colonnes plus compactes sur écran de 1 280 px | — |
+| P2 | Supprimer du prototype le code de l'ancien site v3 (non affiché, archivé) | Pages secondaires v4 |
 
 ## Idées
 
 | Idée | Remarque |
 | --- | --- |
-| Paiement des formules par Stripe | Hors v1 ; nécessite CGV et ventilation TVA |
 | Replays des séances collectives | Consentement des participantes si enregistrement |
 | Défis mensuels (« 4 semaines mobilité ») | Engagement, contenu réutilisable |
 | Messagerie intégrée | Toujours exclue : WhatsApp reste le canal ; impose aussi l'hébergement HDS |

@@ -1,6 +1,6 @@
 # DATA_DICTIONARY : modèle de données
 
-Version 2026-10-26 · Cible : Postgres (Supabase pour les données courantes ; hébergeur HDS pour les tables « Santé », voir `INTEGRATIONS.md`) · Statut : proposé, rien n'est encore créé.
+Version 2026-10-26 · Cible : PostgreSQL sur une plateforme gérée certifiée HDS pour toute l'application patiente, comptes compris (décision proposée le 2026-11-24, voir `CLAUDE.md` et `INTEGRATIONS.md`) ; les mentions `auth.users` et Row Level Security ci-dessous désignent la table d'authentification de l'application et les politiques d'accès de PostgreSQL · Statut : proposé, rien n'est encore créé.
 
 Légende sensibilité RGPD : **P** = donnée personnelle ; **—** = non personnelle ; **Santé** = donnée de santé (RGPD, art. 9), introduite par l'option B le 2026-10-26 : hébergement HDS, consentement explicite, accès limité à la patiente et à Manon.
 Conservation par défaut des données personnelles : durée de la relation + 3 ans après le dernier contact, puis suppression ou anonymisation (à valider par Manon et inscrire dans la politique de confidentialité).
