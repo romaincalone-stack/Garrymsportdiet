@@ -204,3 +204,80 @@ Aucune donnée personnelle réelle : compléter les crochets avant envoi.
 - [ANS, webinaire HDS du 15/10/2025 (PDF)](https://industriels.esante.gouv.fr/sites/default/files/media/document/Webinaire-HDS_20251015_vf.pdf) : bloqué ; définition de l'activité 5 connue par extrait seulement.
 - Microsoft Service Trust Portal (certificat et tableau des garanties) : non consulté (compte requis).
 - Prix AWS Fargate et répartiteur de charge en région Paris : non relevés.
+
+---
+
+## 8. Recherche complémentaire du 2026-11-25 : options moins chères
+
+Contexte : 10 à 20 patientes, application Next.js 16 + PostgreSQL d'environ 200 Mo, aucune administration de serveur par le développeur. Objectif : passer sous les ~41 € TTC/mois de Scalingo (34,40 € HT), en restant conforme. Prix relevés le **2026-11-25**. Rien n'a été souscrit ni envoyé.
+
+**Liste ANS relue le 2026-11-25** avec un navigateur automatisé : **433 lignes** ([liste des hébergeurs certifiés](https://esante.gouv.fr/produits-services/cybersecurite/hds/liste-des-hebergeurs-certifies)). Les activités citées ci-dessous en viennent.
+
+### 8.1 Correction importante : le prix HDS de Clever Cloud est publié
+
+La page santé de Clever Cloud donne désormais la formule : « a fixed monthly subscription of €200, plus a 1.4 multiplier on the standard rate applied to the resources consumed (CPU, memory, storage, DBaaS, etc.) » ([Clever Cloud, Health software vendors, FAQ](https://www.clever.cloud/health-hds/), lue le 2026-11-25). La page française renvoie toujours vers un Account Manager ([page HDS FR](https://www.clever.cloud/fr/hebergement-donnees-de-sante/)).
+
+Avec les prix catalogue relevés au §2 : nano + PostgreSQL XXS = 200 + 1,4 × 11,25 = **≈ 215,75 € HT/mois** ; XS + PostgreSQL XXS = 200 + 1,4 × 21,25 = **≈ 229,75 € HT/mois**. Clever Cloud n'est donc **plus une option bon marché** : les §2 à §4 (« ~21 € HT », « première option ») sont dépassés sur ce point.
+
+### 8.2 Hébergeurs certifiés : y a-t-il moins cher que Scalingo ?
+
+| Nom | Certification HDS et activités | Offre | Prix mensuel HT (relevé le 2026-11-25) | Minimum / engagement | Convient ? |
+| --- | --- | --- | --- | --- | --- |
+| **Scalingo** | 1 à 6 ([liste ANS](https://esante.gouv.fr/produits-services/cybersecurite/hds/liste-des-hebergeurs-certifies)) | 2 conteneurs S (256 Mo) + PostgreSQL Business 512M, option HDS | **34,40 € HT / 30 jours** (S 7,20 € × 2 + Business 20,00 € ; [API tailles](https://api.osc-fr1.scalingo.com/v1/features/container_sizes), [API PostgreSQL](https://api.osc-fr1.scalingo.com/v1/addon_providers/postgresql)) ; soit 41,28 € TTC | Aucun ; facturation à la minute ; HDS sans surcoût (réponse écrite, §4 ter) | **Oui.** Le moins cher des hébergeurs certifiés 1 à 6 trouvés, PaaS sans administration. 256 Mo à valider en préproduction (§4 bis). |
+| Clever Cloud | 1 à 6 (liste ANS) | Node.js nano + PostgreSQL XXS, zone HDS | ≈ 215,75 € HT (200 € fixe + 1,4 × catalogue ; [FAQ](https://www.clever.cloud/health-hds/)) | Abonnement fixe 200 €/mois | **Non** : six fois Scalingo. |
+| AZNetwork | 1 à 6 (liste ANS) | « Offre Starter », configurations standardisées | **à partir de 99 € HT** ([page HDS](https://www.aznetwork.eu/hebergeur-de-donnees-de-sante-certifie/)) | Sur devis | Non : prix ; cloud privé, pas un PaaS Node.js publié. |
+| Kalanda | 1 à 6 (liste ANS) | « Serveur VPS - Conformité HDS » (2 vCPU, 8 Go, Windows 2019) | **180 €/mois** + 40 € de mise en service ([boutique Kalanda](https://www.kalanda.net/apps/index.php?rp=%2Fstore%2Fserveur-hds)) | Frais d'installation | Non : prix ; VPS Windows. |
+| SdV (AURIC / SDV) | 1 à 6 (liste ANS) | HDS clé en main (infogérance comprise) ou infrastructure seule | **dès 390 € HT** clé en main ; **dès 182 € HT** infrastructure seule (client administre) ([page HDS SdV](https://www.sdv.fr/produits-services/hebergement-de-donnees-de-sante-certifie-hds/)) | Sur devis | Non : prix. |
+| Guardis | **Absent de la liste ANS** du 2026-11-25 (probablement revendeur d'un hébergeur certifié, non vérifié) | Hébergement HDS | dès 149 € HT ([page Guardis](https://www.guardis.fr/hebergement-hds/)) | Sur devis | Non : prix, et certification à vérifier. |
+| Aqua Ray, Hexanet, Ecritel, Celeste, Hopla, Kitry, Webaxys, Ozitem, Beemo Technologie, Nubevia Provence, Claranet, Alter Way, Adista, Euris | 1 à 6 (liste ANS) | Cloud privé ou infogérance | **Aucun prix public** sur les pages lues (ex. [Aqua Ray](https://www.aquaray.com/), [Ecritel](https://www.ecritel.fr/fr/solutions/ecritel-medical-hosting-hds/), [Kitry](https://kitry.com/fr/accompagnement-hebergement)) ; [Webaxys /hds](https://www.webaxys.fr/hds) : erreur 404 | Devis | Non a priori : les seuls prix publiés de ce type d'acteur partent de 99 à 390 € HT. |
+| Cloud Temple, Celeonet, Muona, Iguane Solutions, Saepiens | 2 à 6 (liste ANS) | Cloud et infogérance | Pas de prix public | Devis | Non a priori (même raison). |
+| Niwanet (Kookline) | **3, 4, 6** (liste ANS) | Hébergement cloud et web, infogérance | Pas de prix public ([garanties HDS](https://www.niwanet.net/garanties-hds/)) | Devis | Non : activité 5 absente de la liste ANS. |
+| Rix (Treelogie) | **3 à 6** (liste ANS ; « activités 3 à 6 », [trust center](https://rix.fr/trust-center/)) | Infogérance Kubernetes sur OVHcloud | Pas de prix public ([services](https://rix.fr/services/)) | Devis | Non a priori : infogérance sur mesure. |
+| Exoscale (Akenes), MongoDB, Xano, Couchbase | 1, 2, 3, 4, 6 (liste ANS) | IaaS, bases ou back-end gérés | Non relevé | — | Non : **activité 5 absente** ; MongoDB/Xano ne remplacent pas PostgreSQL + Node.js. |
+| Leviia, Kiwi Backup | 3 à 6 (liste ANS) | Stockage, sauvegarde | — | — | Non : stockage seul. |
+| AWS Lightsail | AWS certifié 1 à 6, mais « The services covered by the AWS ISO 27001 certification are included in the scope of HDS » ([AWS HDS](https://aws.amazon.com/compliance/agence-francaise-de-la-sante-numerique-hds/)) et Lightsail n'est **pas** dans la liste ISO ([AWS ISO](https://aws.amazon.com/compliance/iso-certified/)) | Conteneurs et base à petit prix | — | — | **Non** : hors périmètre HDS. |
+| PlanetHoster, Ikoula, LWS, Nuxit, Oxeva, Coreye, Ex Machina, Hostalia, Kinaxia, Agarik, NBS System, o2switch, Infomaniak, IONOS, Hostinger, Alwaysdata, Gandi | **Absents** de la liste ANS du 2026-11-25 (recherche par nom) | Mutualisé, VPS | Prix bas, sans objet | — | **Non** : non certifiés. Un « datacenter certifié HDS » ne couvre que l'activité 1, pas l'hébergeur. |
+
+Aucun hébergement mutualisé ni VPS infogéré certifié avec un prix public inférieur à Scalingo n'a été trouvé.
+
+### 8.3 Base de données HDS et application ailleurs : conforme ?
+
+**Non.** L'application qui lit et affiche les données de santé doit aussi tourner chez un hébergeur certifié.
+
+- Les activités 1 et 2 portent sur l'infrastructure « du système d'information utilisé pour le traitement des données de santé », l'activité 4 sur « la plateforme d'hébergement d'applications du système d'information » ([ANS, page HDS](https://esante.gouv.fr/produits-services/cybersecurite/hds), lue le 2026-11-25 ; la page recopie par erreur le texte de l'activité 4 sous l'activité 3). Le serveur applicatif traite les données : il est dans le périmètre.
+- La seule exclusion pour un passage bref est étroite : « le fait de se voir confier des données pour une courte période […] pour effectuer un traitement de saisie, de mise en forme, de matérialisation ou de dématérialisation de ces données » (art. R.1111-8-8, I, al. 4 CSP) ; l'ANS précise que « cette exclusion couvre uniquement » ces activités ([FAQ HDS de l'ANS](https://esante.gouv.fr/faq/resultats?f%5B0%5D=filtrez_par_offre%3A4739), lue le 2026-11-25). Un serveur d'application n'en relève pas.
+- Le chiffrement ne change rien : « le chiffrement n'a pas d'impact sur l'obligation de certification » (même FAQ, mise à jour le 25/11/2026). Une base chiffrée côté client hébergée hors HDS n'échappe donc pas à l'obligation.
+- La FAQ ajoute : « tout projet de système d'information […] nécessite de s'interroger au cas par cas […] dès que l'une des fonctionnalités du SI concerne des données de santé » (même FAQ). Legifrance (art. R.1111-9) n'a pas pu être lu depuis la session (protection anti-robots) ; texte des activités cité depuis l'ANS.
+
+Une base chez Scalingo et une application sur un hébergeur non certifié (Vercel, Cloudflare…) ne serait donc **pas conforme**. Confiance : élevée sur le principe ; cas limites à faire confirmer par le juriste.
+
+### 8.4 Logiciels pour diététiciens avec espace patiente (au lieu de développer et héberger)
+
+Ces logiciels remplacent tout ou partie de l'espace patiente. Leurs éditeurs **ne figurent pas** sur la liste ANS : ils s'appuient sur un hébergeur certifié. Selon l'ANS, le client doit vérifier dans le contrat que l'activité 5 est fournie par un acteur certifié ; un éditeur qui administre lui-même relève en général de l'activité 5 ([FAQ ANS, « En quoi consiste l'activité 5 »](https://esante.gouv.fr/faq/resultats?f%5B0%5D=filtrez_par_offre%3A4739)). À demander avant de signer : le **tableau des garanties HDS**.
+
+| Logiciel | Hébergement annoncé (activités de l'hébergeur, liste ANS) | Côté patiente | Prix pour la diététicienne (relevé le 2026-11-25) | Engagement | Convient ? |
+| --- | --- | --- | --- | --- | --- |
+| **Nutriclo** | « En France, sur une infrastructure certifiée HDS, et chiffrées au repos » ; hébergeur **non nommé** ([accueil](https://www.nutriclo.fr/)) | Application patient, plans alimentaires, recettes, messagerie ([accueil](https://www.nutriclo.fr/)) | **29 € TTC/mois**, ou **290 € TTC/an (24,17 €/mois)** ; -50 % « première installation » ([tarifs](https://www.nutriclo.fr/tarifs)) | Sans engagement ; essai 14 jours | **Peut-être** : le moins cher, mais hébergeur et chaîne HDS à faire confirmer par écrit. |
+| **NutriNovia** | OVHcloud HDS (1 à 6) ([accueil](https://nutrinovia.com/)) | Application iOS/Android, semainier avec photos des repas, messagerie, mesures et courbes ([accueil](https://nutrinovia.com/)) | **Starter 29 €/mois** payé à l'année (348 €), jusqu'à 50 patientes actives ; ≈ 35 €/mois au mois (72 € d'écart par an) ; « TVA non applicable » ([tarifs sur l'accueil](https://nutrinovia.com/)) | Mensuel ou annuel | **Peut-être** : proche du semainier et de l'Évolution prévus ; contrat HDS à vérifier. |
+| **Madietenligne** | Clever Cloud (1 à 6) ([témoignage Clever Cloud](https://www.clever.cloud/blog/testimonial/2025/05/27/how-madietenligne-simplified-its-hds-compliance-with-a-certified-paas/)) ; « HDS données hébergées en France » ([accueil](https://www.madietenligne.fr/)) | Application patient·e, plans et recettes Ciqual, comptes-rendus, téléconsultation ([tarifs](https://www.madietenligne.fr/tarifs)) | **49 €/mois** ; 19 €/mois pendant 6 mois pour les nouveaux diplômés ([tarifs](https://www.madietenligne.fr/tarifs)) | Sans engagement ; 1 mois d'essai | **Oui** sur la conformité (chaîne la plus claire), plus cher que Scalingo HT. |
+| Pralina | Google Cloud « compris dans le périmètre de sa certification HDS » ([tarifs](https://pralina.fr/tarifs)) ; Google : **1 à 5, pas 6** | Application patient, journaux alimentaires, messagerie ([accueil](https://pralina.fr/)) | **49 €/mois** ; 25 €/mois pendant 12 mois si installée depuis moins d'un an ([tarifs](https://pralina.fr/tarifs)) | Sans engagement ; 15 jours d'essai | Douteux : sauvegarde (activité 6) non couverte par Google. |
+| MyMealMaker | « Serveurs Scaleway certifiés HDS » ([accueil](https://mymealmaker.com/)) ; Scaleway : **1 à 4** | Menus et recettes, carnet repas en photo, ressentis ([tarifs](https://mymealmaker.com/tarifs)) | **59 €/mois**, 50 €/mois à l'année ([tarifs](https://mymealmaker.com/tarifs)) | Sans engagement ; 30 jours d'essai | Non : plus cher ; activités 5 et 6 hors Scaleway. |
+| Dietis Pro | « hébergeur certifié HDS (OVHcloud) » ([page](https://dietis-healthcare.com/nos-solutions/dieteticiens)) | Espace patient, programmes | Prix non trouvé sur la page | — | Non évalué. |
+| Nutrium | « RGPD et HIPAA », **aucune mention HDS** trouvée ([tarifs](https://nutrium.com/fr/pricing)) ; absent de la liste ANS | Application patient | Abonnement annuel ou mensuel (grille ambiguë à la lecture) | — | **Non** pour des données de santé. |
+| Doctolib | 1 à 6 (liste ANS) | Messagerie patient (lancée en 2023, [Journal du Geek](https://www.journaldugeek.com/2023/08/06/doctolib-lance-une-messagerie-securisee-entre-patients-et-praticiens/)) ; ni recettes ni semainier | Prix diététicien non public | — | Non : ne couvre pas l'espace patiente. |
+| Diet'Expert, Nutrilog, Dietbox, Monali, Mon Diététicien, Kiwi Health | Aucune information HDS ni offre patiente trouvée | — | — | — | Non évalués. |
+
+Limite : aucun de ces logiciels ne reprend les offres `suivi`/`decouverte`/`f1`/`f2`/`f3`, les vidéos et programmes sportifs ni la marque GM Sport et Nutrition. Une solution mixte (contenu sans donnée de santé sur l'espace maison, semainier et évolution dans le logiciel) ne supprime l'hébergement HDS de l'espace maison que si ses comptes ne sont pas des données de santé, ce que ce dépôt considère comme probable (`CLAUDE.md`) : **question à soumettre au juriste**.
+
+### 8.5 Programmes gratuits et crédits
+
+- **Scalingo Startup Program** : « 1800€ during the first 9 months (up to 200€ per month) », pour startups et incubateurs ([page](https://scalingo.com/startups)). Application à l'option HDS et éligibilité d'une diététicienne libérale **non indiquées** : à demander.
+- **Clever Cloud UP** : « Up to 10 000€ cloud credits for your first year », programme sélectif pour startups ([page](https://www.clever.cloud/up-program/)) ; HDS non mentionné, et l'abonnement HDS de 200 €/mois rend l'option sans intérêt ici.
+- **Aides publiques** (Bpifrance, French Tech, ANS) : aucun crédit d'hébergement HDS pour un professionnel libéral trouvé (recherche web du 2026-11-25).
+- **Retour d'expérience sur le contrat Clever Cloud** : aucun chiffre client trouvé ; la formule officielle (§8.1) suffit.
+
+### 8.6 Conclusion
+
+- **Option conforme la moins chère en gardant l'application maison : Scalingo, 2 conteneurs S + PostgreSQL Business 512M, 34,40 € HT/mois (41,28 € TTC).** Aucun hébergeur certifié n'affiche moins cher ; les autres prix publics partent de 99 € HT (AZNetwork), et Clever Cloud coûte environ 216 € HT. Confiance : **élevée** (prix d'API relevés le 2026-11-25, réponse écrite de Scalingo).
+- **Moins cher que Scalingo, mais en remplaçant l'espace patiente** : Nutriclo (24,17 à 29 € TTC/mois) ou NutriNovia (29 à 35 €/mois, jusqu'à 50 patientes). Confiance : **moyenne** sur la conformité (hébergeur non nommé chez Nutriclo, contrats HDS non lus) ; perte des fonctions propres au projet. Madietenligne (49 €/mois) a la chaîne HDS la plus claire.
+- **Pour réduire la facture avec Scalingo** : ne créer l'application HDS qu'à l'arrivée des premières vraies patientes (facturation à la minute, sans engagement) ; d'ici là, données fictives sur une offre non HDS (§3).
