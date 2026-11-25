@@ -94,6 +94,21 @@ Mettre ensuite à jour `INTEGRATIONS.md` (ligne « Plateforme gérée certifiée
 
 La mémoire dépend du nombre de pages servies **en même temps**, pas du nombre de patientes. Usage réel estimé : 200 patientes qui ouvrent chacune 10 pages dans la même heure font moins d'une page par seconde, soit environ 200 fois moins que l'essai à 10 connexions. Conclusion : **nano (512 Mo) suffit**, avec `NODE_OPTIONS=--max-old-space-size=256` pour que Node ne déborde pas ; pico (256 Mo) est trop juste (118 Mo au repos, environ 200 Mo en activité). Construction de l'application : sur une instance de construction plus grande, facturée seulement pendant la construction (quelques minutes).
 
+## 4 ter. Réponses des hébergeurs (2026-11-25)
+
+Volume réel annoncé par Romain le 2026-11-25 : **10 à 20 patientes** (et non 100 à 200).
+
+**Scalingo** (réponse écrite de l'équipe commerciale, Sales Engineer, 2026-11-25, dans la boîte mail de Romain) :
+1. 48,80 € HT pour 30 jours (2 conteneurs M + PostgreSQL Business 512M) : total complet, **aucun surcoût pour l'HDS**.
+2. **Aucun support payant exigé** ; support par email et chat inclus.
+3. Certificat n° 38436 (HDS 2.0, 12/09/2025 → 11/09/2028) : **6 activités**, activité 5 et sauvegardes comprises.
+4. Le développeur qui déploie le code sans accès aux données de production **n'a pas à être certifié** ; il faut veiller à ce que ses accès n'ouvrent pas les données de santé, et **désigner un professionnel de santé** (Manon) pour les opérations qui exigent d'y accéder.
+5. HDS : au moins 2 conteneurs et une base Business, sans taille minimale : **2 conteneurs S éligibles, 34,40 € HT pour 30 jours** ; 256 Mo par conteneur « proche » de nos mesures, à valider en préproduction.
+6. **Ni frais de mise en service ni engagement** ; facturation à la minute.
+7. Réversibilité : article 10 des CGS (export complet de la base, configuration, journaux), sans délai ni coût ; contrat HDS : https://scalingo.com/fr/cgs-annexe-hebergement-donnees-sante ; DPA : https://scalingo.com/fr/contrat-gestion-traitements-donnees-personnelles.
+
+**Clever Cloud** : le support technique renvoie vers l'équipe commerciale HDS (https://www.clever.cloud/fr/contact-hds/ : rendez-vous de 15 minutes ou formulaire avec téléphone et captcha, réponse sous 48 h ouvrées). Demande à refaire par Romain sur cette page.
+
 ## 5. À obtenir par écrit de l'hébergeur
 
 1. Le certificat HDS en cours (numéro, organisme, dates, version du référentiel) et le tableau des garanties (exigence 31).

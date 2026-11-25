@@ -86,7 +86,7 @@ Code livré le 2026-11-24 (`espace/`, voir « Livré »). Reste pour la mise en 
 
 | Priorité | Fonctionnalité | Dépend de |
 | --- | --- | --- |
-| P0 | Devis HDS demandés le 2026-11-25 par Romain (Scalingo : hello@scalingo.com ; Clever Cloud : support@clever-cloud.com, à transmettre aux commerciaux, ou formulaire de contact avec téléphone) ; comparer les totaux écrits, puis signer le contrat HDS au nom de Manon | Réponses des hébergeurs |
+| P0 | Devis HDS : Scalingo a confirmé par écrit le 2026-11-25 (34,40 à 48,80 € HT/mois, sans surcoût ni engagement) ; Clever Cloud demande un contact sur https://www.clever.cloud/fr/contact-hds/ (formulaire avec téléphone ou rendez-vous de 15 min) ; puis signer au nom de Manon | Romain (formulaire Clever Cloud) |
 | P0 | Compléter les `[crochets]` des textes de `legal/` (adresse, RPPS ou ADELI, SIRET, médiateur, hébergeur), puis relecture par un avocat en droit de la santé ou l'AFDN (liste dans `legal/AUDIT.md`) | Manon, avocat |
 | P0 | Confirmer l'adresse du cabinet affichée sur le site (« Les Jardins de la Closeraie, 137 rue des Oliviers ») : aucune source dans le dépôt | Manon |
 | P0 | Corriger les constats « Bloquant » du site relevés dans `legal/AUDIT.md` (promesses de fonctions pas encore en ligne, prix TTC, photos de personnes, pages légales) | Étape 0 |
