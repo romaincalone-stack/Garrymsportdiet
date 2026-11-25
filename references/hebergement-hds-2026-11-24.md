@@ -77,6 +77,23 @@ Mettre ensuite à jour `INTEGRATIONS.md` (ligne « Plateforme gérée certifiée
 
 ---
 
+## 4 bis. Vérifications du 2026-11-25
+
+**Prix Clever Cloud** : la grille de l'API (`zone_id=parhds`) est identique à celle de la zone standard `par` (nano 6,00 €, XS 16,00 €, PostgreSQL XXS Small 5,25 € HT par mois). Elle ne contient donc **pas** le coût de l'HDS, facturé par le contrat signé avec le commercial. Les 11,25 € et 21,25 € HT sont un **plancher**, à compléter par le devis.
+
+**Mémoire de l'application** (`node tools/mesure-memoire.mjs`, application construite en mode production, base de démonstration, mémoire de Node plafonnée comme sur un petit ordinateur) :
+
+| Charge | Tas Node | Pages par seconde | Erreurs | Mémoire au pic |
+| --- | --- | --- | --- | --- |
+| Au repos | — | — | — | 118 Mo |
+| 5 connexions en continu | 200 Mo | 182 | 0 | 191 Mo |
+| 5 connexions en continu | 256 Mo | 178 | 0 | 195 Mo |
+| 10 connexions en continu | 256 Mo | 184 | 0 | 205 Mo |
+| 30 connexions en continu | 384 Mo | 142 | 0 | 597 Mo |
+| 30 connexions en continu | 256 Mo | — | plantage (mémoire) | — |
+
+La mémoire dépend du nombre de pages servies **en même temps**, pas du nombre de patientes. Usage réel estimé : 200 patientes qui ouvrent chacune 10 pages dans la même heure font moins d'une page par seconde, soit environ 200 fois moins que l'essai à 10 connexions. Conclusion : **nano (512 Mo) suffit**, avec `NODE_OPTIONS=--max-old-space-size=256` pour que Node ne déborde pas ; pico (256 Mo) est trop juste (118 Mo au repos, environ 200 Mo en activité). Construction de l'application : sur une instance de construction plus grande, facturée seulement pendant la construction (quelques minutes).
+
 ## 5. À obtenir par écrit de l'hébergeur
 
 1. Le certificat HDS en cours (numéro, organisme, dates, version du référentiel) et le tableau des garanties (exigence 31).

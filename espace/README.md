@@ -58,7 +58,7 @@ Perte du téléphone de Manon : sur la base, `update profiles set totp_enabled =
 Ne pas déployer avant : contrat avec une plateforme gérée certifiée HDS pour les 6 activités (`INTEGRATIONS.md`), politique de confidentialité et mentions complétées (les `[crochets]` de `/confidentialite`), numéro ADELI ou RPPS saisi dans Réglages, liste « Profession » de `APP_SPEC.md` §8 relue.
 
 1. Sur la plateforme : une application Node.js 22 (dossier `espace`, commande de build `npm ci && npm run build`, commande de démarrage `npm start`, port fourni dans `PORT`) et une base PostgreSQL gérée, hébergées en France, sauvegardes activées.
-2. Variables d'environnement (valeurs dans la console de la plateforme, jamais dans le dépôt) : `DATABASE_URL`, `APP_SECRET`, `APP_URL`, `EMAIL_DRIVER=brevo`, `BREVO_API_KEY`, `EMAIL_FROM`, `EMAIL_FROM_NAME`, `ADMIN_EMAIL`, `NODE_ENV=production`.
+2. Variables d'environnement (valeurs dans la console de la plateforme, jamais dans le dépôt) : `DATABASE_URL`, `APP_SECRET`, `APP_URL`, `EMAIL_DRIVER=brevo`, `BREVO_API_KEY`, `EMAIL_FROM`, `EMAIL_FROM_NAME`, `ADMIN_EMAIL`, `NODE_ENV=production`. Taille : 512 Mo suffisent (Clever Cloud « nano »), avec `NODE_OPTIONS=--max-old-space-size=256` ; mesure : `node tools/mesure-memoire.mjs` depuis la racine du dépôt (`references/hebergement-hds-2026-11-24.md`, § 4 bis).
 3. Première installation : `npm run db:migrate`, puis `npm run db:seed` (sans `--demo`). Le terminal affiche le lien d'activation de Manon : le lui transmettre par un canal sûr. Elle choisit son mot de passe, puis configure la double authentification.
 4. À chaque mise à jour : `npm run db:migrate` avant de démarrer la nouvelle version.
 5. Domaine : `espace.<domaine>` en HTTPS ; dans Brevo, domaine d'envoi vérifié (SPF, DKIM).
